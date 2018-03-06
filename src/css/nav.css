@@ -1,0 +1,27 @@
+.nav__item {
+    margin-right: 3.3rem;
+}
+
+.nav__item:last-child {
+    margin-right: 0;
+}
+
+.nav__list {
+    display: flex;
+
+    align-items: flex-end;
+}
+
+.nav__link {
+    text-decoration: none;
+    text-transform: uppercase;
+
+    color: #ffffff;
+
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 900;
+}
+
+.nav__link_state_current {
+}

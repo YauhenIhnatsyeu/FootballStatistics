@@ -28,7 +28,9 @@
     "webpack-cli": "^2.0.10"
   },
   "dependencies": {
+    "css-loader": "^0.28.10",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "style-loader": "^0.20.2"
   }
 }
