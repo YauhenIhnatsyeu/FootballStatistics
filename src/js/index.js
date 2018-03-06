@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import Header from "./components/header";
+import Main from "./components/main";
 
 import "../css/reset.css";
 
@@ -15,7 +16,10 @@ import "../css/logo.css";
 import "../css/nav.css";
 
 ReactDOM.render(
-  <Header />,
+  <React.Fragment>
+    <Header />
+    <Main />
+  </React.Fragment>,
   document.getElementById("app")
 );
 
