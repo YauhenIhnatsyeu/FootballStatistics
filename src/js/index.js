@@ -12,8 +12,10 @@ import "../css/wrapper.css";
 import "../css/font-size.css";
 
 import "../css/header.css";
+import "../css/main.css";
 import "../css/logo.css";
 import "../css/nav.css";
+import "../css/tab-panel.css";
 
 ReactDOM.render(
   <React.Fragment>

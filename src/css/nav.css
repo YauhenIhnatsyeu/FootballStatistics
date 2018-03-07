@@ -1,15 +1,15 @@
+.nav__list {
+    display: flex;
+
+    align-items: flex-end;
+}
+
 .nav__item {
     margin-right: 3.3rem;
 }
 
 .nav__item:last-child {
     margin-right: 0;
-}
-
-.nav__list {
-    display: flex;
-
-    align-items: flex-end;
 }
 
 .nav__link {

@@ -6,8 +6,10 @@ export default class Main extends React.Component {
     render() {
         return (
             <main>
-                <div className="main__inner-container">
-                    <TabPanel />
+                <div className="wrapper">
+                    <div className="tab-panel-container">
+                        <TabPanel />
+                    </div>
                 </div>
             </main>
         );
