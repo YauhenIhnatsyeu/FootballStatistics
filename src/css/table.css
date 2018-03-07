@@ -1,5 +1,7 @@
 table {
     width: 100%;
+
+    border: 0.15rem solid #209030;
 }
 
 .table__row:nth-child(2n+3) {

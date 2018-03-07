@@ -14,29 +14,29 @@ export default class TabPanel extends React.Component {
                         Sagittis orci a scelerisque purus. Auctor eu augue ut lectus arcu bibendum at varius. Porta lorem mollis aliquam ut porttitor. Nullam ac tortor vitae purus faucibus. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit. Ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin. Pulvinar elementum integer enim neque volutpat ac tincidunt. Diam donec adipiscing tristique risus nec.
                     </span> */}
                     <Table
-                        content={
+                        content = {
                             [
                                 ["Position", "Team", "G", "W", "D", "L", "GS", "GC", "P"],
-                                ["1", "Chelsea FC", "38", "30", "3", "5", "85", "33", "93"],
-                                ["2", "Tottenham Hotspur FC", "38", "26", "8", "4", "86", "26", "86"],
-                                ["3", "Manchester City FC", "38", "23", "9", "6", "80", "39", "78"],
-                                ["4", "Liverpool FC", "38", "22", "10", "6", "78", "42", "76"],
-                                ["5", "Arsenal FC", "38", "23", "6", "9", "77", "44", "75"],
-                                ["6", "Manchester United FC", "38", "18", "15", "5", "54", "29", "69"],
-                                ["7", "Everton FC", "38", "17", "10", "11", "62", "44", "61"],
-                                ["8", "Southampton FC", "38", "12", "10", "16", "41", "48", "46"],
-                                ["9", "AFC Bournemouth", "38", "12", "10", "16", "55", "67", "46"],
-                                ["10", "West Bromwich Albion FC", "38", "12", "9", "17", "43", "51", "45"],
-                                ["11", "West Ham United FC", "38", "12", "9", "17", "47", "64", "45"],
-                                ["12", "Leicester City FC", "38", "12", "8", "18", "48", "63", "44"],
-                                ["13", "Stoke City FC", "38", "11", "11", "16", "41", "56", "44"],
-                                ["14", "Crystal Palace FC", "38", "12", "5", "21", "50", "63", "41"],
-                                ["15", "Swansea City FC", "38", "12", "5", "21", "45", "70", "41"],
-                                ["16", "Burnley FC", "38", "11", "7", "20", "39", "55", "40"],
-                                ["17", "Watford FC", "38", "11", "7", "20", "40", "68", "40"],
-                                ["18", "Hull City FC", "38", "9", "7", "22", "37", "80", "34"],
-                                ["19", "Middlesbrough FC", "38", "5", "13", "20", "27", "53", "28"],
-                                ["20", "Sunderland AFC", "38", "6", "6", "26", "29", "69", "24"]
+                                [1, <a href="#">Chelsea FC</a>, 38, 30, 3, 5, 85, 33, 93],
+                                [2, <a href="#">Tottenham Hotspur FC</a>, 38, 26, 8, 4, 86, 26, 86],
+                                [3, <a href="#">Manchester City FC</a>, 38, 23, 9, 6, 80, 39, 78],
+                                [4, <a href="#">Liverpool FC</a>, 38, 22, 10, 6, 78, 42, 76],
+                                [5, <a href="#">Arsenal FC</a>, 38, 23, 6, 9, 77, 44, 75],
+                                [6, <a href="#">Manchester United FC</a>, 38, 18, 15, 5, 54, 29, 69],
+                                [7, <a href="#">Everton FC</a>, 38, 17, 10, 11, 62, 44, 61],
+                                [8, <a href="#">Southampton FC</a>, 38, 12, 10, 16, 41, 48, 46],
+                                [9, <a href="#">AFC Bournemouth</a>, 38, 12, 10, 16, 55, 67, 46],
+                                [10, <a href="#">West Bromwich Albion FC</a>, 38, 12, 9, 17, 43, 51, 45],
+                                [11, <a href="#">West Ham United FC</a>, 38, 12, 9, 17, 47, 64, 45],
+                                [12, <a href="#">Leicester City FC</a>, 38, 12, 8, 18, 48, 63, 44],
+                                [13, <a href="#">Stoke City FC</a>, 38, 11, 11, 16, 41, 56, 44],
+                                [14, <a href="#">Crystal Palace FC</a>, 38, 12, 5, 21, 50, 63, 41],
+                                [15, <a href="#">Swansea City FC</a>, 38, 12, 5, 21, 45, 70, 41],
+                                [16, <a href="#">Burnley FC</a>, 38, 11, 7, 20, 39, 55, 40],
+                                [17, <a href="#">Watford FC</a>, 38, 11, 7, 20, 40, 68, 40],
+                                [18, <a href="#">Hull City FC</a>, 38, 9, 7, 22, 37, 80, 34],
+                                [19, <a href="#">Middlesbrough FC</a>, 38, 5, 13, 20, 27, 53, 28],
+                                [20, <a href="#">Sunderland AFC</a>, 38, 6, 6, 26, 29, 69, 24]
                             ]
                         }
                     />
