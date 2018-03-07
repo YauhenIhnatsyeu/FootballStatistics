@@ -1,11 +1,10 @@
 .tab-panel__list {
-    display: inline-block;
+    display: flex;
+
+    justify-content: space-between;
 }
 
 .tab-panel__tab {
-    display: inline-block;
-
-    margin-right: 0.5rem;
     padding: 0.5rem 1rem;
 
     background: #d2e9d5;
