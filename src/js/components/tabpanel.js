@@ -10,9 +10,6 @@ export default class TabPanel extends React.Component {
         return (
             <Tabs>
                 <Tab title="English Premier League">
-                    {/* <span>
-                        Sagittis orci a scelerisque purus. Auctor eu augue ut lectus arcu bibendum at varius. Porta lorem mollis aliquam ut porttitor. Nullam ac tortor vitae purus faucibus. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit. Ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin. Pulvinar elementum integer enim neque volutpat ac tincidunt. Diam donec adipiscing tristique risus nec.
-                    </span> */}
                     <Table
                         content = {
                             [

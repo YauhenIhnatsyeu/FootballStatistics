@@ -5,6 +5,7 @@ export default class Table extends React.Component {
         return (
             <table className="table">
                 <tbody>
+                    {/* First we need to render a heading row */}
                     {this.props.content.slice(0, 1).map((row, index) => {
                         return (
                         <tr className="table__row table__row_header" key={index}>
@@ -16,6 +17,7 @@ export default class Table extends React.Component {
                             )})}
                         </tr>
                     )})}
+                    {/* Then the remaining body */}
                     {this.props.content.slice(1).map((row, index) => {
                         return (
                         <tr className="table__row" key={index}>
