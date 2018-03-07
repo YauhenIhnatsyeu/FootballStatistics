@@ -16,6 +16,7 @@ import "../css/main.css";
 import "../css/logo.css";
 import "../css/nav.css";
 import "../css/tab-panel.css";
+import "../css/table.css";
 
 ReactDOM.render(
   <React.Fragment>
