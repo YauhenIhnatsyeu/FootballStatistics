@@ -1,5 +1,7 @@
-.tab-panel-container {
-    width: 85%;
-
+.main__inner-container {
     margin: 1.5rem auto 0 auto;
+}
+
+.tab-panel-container {
+    /* width: 85%; */
 }

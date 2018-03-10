@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 
 import Header from "./components/header";
 import Main from "./components/main";
+import MainTeams from "./components/main-teams";
 
 import "../css/reset.css";
 
@@ -17,11 +18,12 @@ import "../css/logo.css";
 import "../css/nav.css";
 import "../css/tab-panel.css";
 import "../css/table.css";
+import "../css/page-header.css";
 
 ReactDOM.render(
   <React.Fragment>
     <Header />
-    <Main />
+    <MainTeams />
   </React.Fragment>,
   document.getElementById("app")
 );
