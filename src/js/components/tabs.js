@@ -34,7 +34,7 @@ export default class Tabs extends React.Component {
     }
 
     //Returns ul, which has list of li, which represents list of tabs we can click on
-    getTabsList = () => {
+    getTabList = () => {
         return (
             <ul className="tab-panel__list">
                 {this.tabList.map((tab, tabIndex) => {
@@ -64,7 +64,7 @@ export default class Tabs extends React.Component {
         this.updateTabList();
         return (
             <div className="tab-panel">
-                {this.getTabsList()}
+                {this.getTabList()}
                 {this.getCurrentTabContent()}
             </div>
         );

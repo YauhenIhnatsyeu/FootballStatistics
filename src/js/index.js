@@ -23,7 +23,7 @@ import "../css/page-header.css";
 ReactDOM.render(
   <React.Fragment>
     <Header />
-    <MainTeams />
+    <Main />
   </React.Fragment>,
   document.getElementById("app")
 );
