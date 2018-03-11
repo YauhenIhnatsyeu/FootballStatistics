@@ -2,7 +2,6 @@ import React from "react";
 
 export default class TeamsItem extends React.Component {
     render() {
-        console.log(this.props.team);
         return (
             <div className="teams-list__teams-item-container">
                 <div className="teams-item">

@@ -1,5 +1,7 @@
 import React from "react";
 
+import {fetchLeaguesData} from "../utils/FootballDataReceiver";
+
 import Tabs from "./tabs";
 import Tab from "./tab";
 
@@ -8,9 +10,26 @@ import LeagueTable from "./league-table";
 import Loading from "./loading";
 
 export default class TabPanel extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            leaguesData: undefined
+        }
+
+        fetchLeaguesData(this.props.leaguesIds, this.handleLeagueDataFetched);
+    }
+
+    //Is called when all leagues are fetched
+    handleLeagueDataFetched = (leaguesData) => {
+        this.setState({
+            leaguesData: leaguesData
+        });
+    }
+    
     render() {
         //If leaguesData is underfined, display loading div
-        if (!this.props.leaguesData) {
+        if (!this.state.leaguesData) {
             return <Loading />;
         }
 
@@ -18,7 +37,7 @@ export default class TabPanel extends React.Component {
         return (
             <Tabs>
                 {/* Mapping through array of leaguesData */}
-                {this.props.leaguesData.map((leagueData, index) => {
+                {this.state.leaguesData.map((leagueData, index) => {
                     return (
                         // Passing new title for each tab using leagueCaption in each leaguesData object
                         <Tab key={index} title={leagueData.leagueCaption}>

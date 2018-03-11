@@ -1,5 +1,7 @@
 import React from "react";
 
+import {fetchLeaguesData} from "../utils/FootballDataReceiver";
+
 import PageHeader from "./page-header";
 import LeagueSelector from "./league-selector";
 
@@ -12,36 +14,61 @@ export default class LeaguePanel extends React.Component {
         super(props);
 
         this.state = {
+            leaguesData: undefined,
             currentLeagueIndex: 0
         }
+
+        fetchLeaguesData(this.props.leaguesIds, this.handleLeagueDataFetched);
+    }
+
+    //Is called when all leagues are fetched
+    handleLeagueDataFetched = (leaguesData) => {
+        //console.log(leaguesData);
+        this.setState({
+            leaguesData: leaguesData,
+            //currentLeagueIndex: this.state.currentLeagueIndex
+        });
+    }
+
+    handleChange = (event) => {
+        let newIndex = 0;
+        for (let i = 1; i < this.state.leaguesData.length; i++ ) {
+            if (this.state.leaguesData[i].leagueCaption === event.target.value) {
+                newIndex = i;
+            }
+        }
+        this.setState({
+            currentLeagueIndex: newIndex
+        })
     }
 
     render() {
         //If leaguesData is underfined, display loading div
-        if (!this.props.leaguesData) {
+        if (!this.state.leaguesData) {
             return <Loading />;
         }
-        
+        console.log(this.state.leaguesData[this.state.currentLeagueIndex].standing);
         //If leaguesData data isn't underfined it can be displayed
         return (
             <div className="main__league-panel-container">
-                {/* Passing title of current league to the PageHeader */}
+                {/* Passing title of current league caption to the PageHeader */}
                 <PageHeader 
-                    title={this.props.leaguesData[this.state.currentLeagueIndex].leagueCaption}
+                    title={this.state.leaguesData[this.state.currentLeagueIndex].leagueCaption}
                 />
 
-                <div className="league-panel__legue-selector-container">
-                    <LeagueSelector
-                        //Mapping through leagues data and passing league titles to options
-                        options={this.props.leaguesData.map((leagueData) => {
-                            return leagueData.leagueCaption
-                        })}
-                        //Passing title of current league to the default value
-                        default={this.props.leaguesData[this.state.currentLeagueIndex].leagueCaption}
-                    />
-                </div>
+                <LeagueSelector
+                    //Mapping through leagues data and passing league titles to options
+                    options={this.state.leaguesData.map((leagueData) => {
+                        return leagueData.leagueCaption
+                    })}
 
-                <TeamsList leagueData={this.props.leaguesData[this.state.currentLeagueIndex].standing} />
+                    onChange={(event) => this.handleChange(event)}
+
+                    //Passing title of current league to the default value
+                    default={this.state.leaguesData[this.state.currentLeagueIndex].leagueCaption}
+                />
+
+                <TeamsList leagueData={this.state.leaguesData[this.state.currentLeagueIndex].standing} />
             </div>
         );
     }
