@@ -3,6 +3,8 @@ import React from "react";
 import PageHeader from "./page-header";
 import LeagueSelector from "./league-selector";
 
+import TeamsList from "./teams-list";
+
 import Loading from "./loading";
 
 export default class LeaguePanel extends React.Component {
@@ -15,34 +17,31 @@ export default class LeaguePanel extends React.Component {
     }
 
     render() {
-        //If leagueData is underfined, display loading div
-        if (!this.props.leagueData) {
-            return <Loading />;
-        }
-
-        //If leagueData is not full (doesn't consist of all leagues), display loading div
-        if (this.props.leagueData.length < this.props.leaguesCount) {
+        //If leaguesData is underfined, display loading div
+        if (!this.props.leaguesData) {
             return <Loading />;
         }
         
-        //If leagueData data isn't underfined and is full it can be displayed
+        //If leaguesData data isn't underfined it can be displayed
         return (
             <div className="main__league-panel-container">
                 {/* Passing title of current league to the PageHeader */}
                 <PageHeader 
-                    title={this.props.leagueData[this.state.currentLeagueIndex].leagueCaption}
+                    title={this.props.leaguesData[this.state.currentLeagueIndex].leagueCaption}
                 />
+
                 <div className="league-panel__legue-selector-container">
                     <LeagueSelector
-                        //Mapping through league data and passing league titles to options
-                        options={this.props.leagueData.map((leagueData) => {
+                        //Mapping through leagues data and passing league titles to options
+                        options={this.props.leaguesData.map((leagueData) => {
                             return leagueData.leagueCaption
                         })}
                         //Passing title of current league to the default value
-                        default={this.props.leagueData[this.state.currentLeagueIndex].leagueCaption}
+                        default={this.props.leaguesData[this.state.currentLeagueIndex].leagueCaption}
                     />
                 </div>
 
+                <TeamsList leagueData={this.props.leaguesData[this.state.currentLeagueIndex].standing} />
             </div>
         );
     }

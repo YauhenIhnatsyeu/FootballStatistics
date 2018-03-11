@@ -7,10 +7,7 @@ export default class MainTeams extends React.Component {
         return (
             <main>
                 <div className="main__inner-container wrapper">
-                    <LeaguePanel
-                        leagueData={this.props.leagueData}
-                        leaguesCount={this.props.leaguesCount}
-                    />
+                    <LeaguePanel leaguesData={this.props.leaguesData} />
                 </div>
             </main>
         );

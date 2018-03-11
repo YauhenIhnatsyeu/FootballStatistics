@@ -40,7 +40,6 @@ export default class App extends React.Component {
     }
 
     render() {
-        console.log(this.state.leaguesData);
         return (
             <React.Fragment>
                 <Header />
@@ -48,7 +47,7 @@ export default class App extends React.Component {
                     That way we don't disturb other components, like Header,
                     because only inside Main~ component leaguesData will be checked if it
                     is underfined, so Main~ component still can be rendered */}
-                <MainTable leaguesData={this.state.leaguesData} />
+                <MainTeams leaguesData={this.state.leaguesData} />
             </React.Fragment>
         );
     }
