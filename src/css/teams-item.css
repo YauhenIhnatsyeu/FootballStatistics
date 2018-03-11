@@ -1,8 +1,24 @@
 .teams-item {
     display: flex;
+
+    padding: 1rem;
+
+    background: #eeeeee;
+
+    box-shadow: 0 4px 0 -2px #c6c6c6;
 }
 
 .teams-item__logo {
     width: 6rem;
     height: 6rem;
+}
+
+.teams-item__info-container {
+    margin-left: 1rem;
+}
+
+.teams-item__name {
+    text-decoration: underline;
+
+    font-weight: 600;
 }

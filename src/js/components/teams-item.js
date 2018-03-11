@@ -10,9 +10,9 @@ export default class TeamsItem extends React.Component {
                         <img src={this.props.team.crestUrl} className="teams-item__logo"/>
                     </div>
                     <div className="teams-item__info-container">
-                        <p>{this.props.team.shortName}</p>
-                        <p>Short name: {this.props.team.shortName}</p>
-                        <p>Squad market value: {this.props.team.squadMarketValue}</p>
+                        <p className="teams-item__name">{this.props.team.shortName}</p>
+                        <p className="teams-item__short-name">Short name: {this.props.team.shortName}</p>
+                        <p className="teams-item__market-value">Squad market value: {this.props.team.squadMarketValue}</p>
                     </div>
                 </div>
             </div>

@@ -20,7 +20,7 @@ export default class App extends React.Component {
         //League Id points to a specific league in the league tables in the Football API 
         this.leaguesIds = [445, 449, 452, 455, 457];
 
-        //Creating array of urls which will be provided to fetch function
+        //Creating array of urls which will be provided to the fetch function
         //Leagues ids are included in these urls
         const leaguesUrls = this.leaguesIds.map((leagueId) => {
             return "http://api.football-data.org/v1/competitions/"

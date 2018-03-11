@@ -14,14 +14,18 @@ export default class TeamsList extends React.Component {
             teamsData: undefined
         };
 
+        //Creating array of urls which will be provided to the fetch function
         const teamsUrls = this.props.leagueData.map((team) => {
+            //Specific path from league team to itself in the Football API
             return team._links.team.href;
         });
 
+        //Creating new object that will fetch teams data
         const fdr = new FootballDataReceiver(teamsUrls, this.handleTeamsDataFetched);
         fdr.fetch();
     }
 
+    //Is called when all teams are fetched
     handleTeamsDataFetched = (teamsData) => {
         this.setState({
             teamsData: teamsData
