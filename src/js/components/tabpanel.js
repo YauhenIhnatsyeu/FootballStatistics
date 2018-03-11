@@ -3,7 +3,9 @@ import React from "react";
 import Tabs from "./tabs";
 import Tab from "./tab";
 
-import Table from "./table";
+import LeagueTable from "./leagueTable";
+
+import Loading from "./loading";
 
 import {getFootballData} from "../utils/getFootballData";
 
@@ -11,10 +13,10 @@ export default class TabPanel extends React.Component {
     constructor(props) {
         super(props);
 
-        //footballData is an array of objects.
+        //leagueData is an array of objects.
         //Every object has fetched from Football API data
         this.state = {
-            footballData: undefined
+            leagueData: undefined
         }
 
         //League Id points to a specific league in league tables in Football API 
@@ -22,26 +24,26 @@ export default class TabPanel extends React.Component {
         //For achieving rigth order of tabs and content rendering
         //current index is used to keep track of what tab is rendering now
         this.currentLeagueFetching = 0;
-        this.fetchNextFootballData(this.currentLeagueFetching);
+        this.fetchNextLeagueData(this.currentLeagueFetching);
     }
 
     //Fetches next league from Football API through imported function from utils
-    fetchNextFootballData = () => {
-        getFootballData("LEAGUE", this.leagueIds[this.currentLeagueFetching], this.handleFootballDataFetched)
+    fetchNextLeagueData = () => {
+        getFootballData("LEAGUE", this.leagueIds[this.currentLeagueFetching], this.handleLeagueDataFetched)
     }
 
     //Is called when next league is fetched
-    handleFootballDataFetched = (footballData) => {
+    handleLeagueDataFetched = (leagueData) => {
         //If the data already exists in array, then just add to it new one
-        if (this.state.footballData) {
+        if (this.state.leagueData) {
             this.setState({
-                footballData: [...this.state.footballData, footballData]
+                leagueData: [...this.state.leagueData, leagueData]
             });
         }
         //If array was empty, simply create new array with new data 
         else {
             this.setState({
-                footballData: [footballData]
+                leagueData: [leagueData]
             });
         }
         //If all tabs were rendered, just leave the function and never go back
@@ -50,35 +52,34 @@ export default class TabPanel extends React.Component {
         //After new league was fetched we need to increment currentLeagueFetching
         this.currentLeagueFetching++;
         //and fetch new league
-        this.fetchNextFootballData(this.currentLeagueFetching);
+        this.fetchNextLeagueData(this.currentLeagueFetching);
     }
 
     render() {
-        //If football data isn't underfined, it can be displayed
-        if (this.state.footballData) {
-            return (
-                <Tabs>
-                    {/* Mapping through array of footballData */}
-                    {this.state.footballData.map((footballData, index) => {
-                        return (
-                            // Passing new title for each tab using leagueCaption in each footballData object
-                            <Tab key={index} title={footballData.leagueCaption}>
-                                {/* Passing new footballData for each tab content using leagueCaption in each footballData object */}
-                                <Table key={index} footballData={footballData.standing} />
-                            </Tab>
-                        )
-                    })}
-                </Tabs>
-            )
+        //If leagueData is underfined, display loading div
+        if (!this.state.leagueData) {
+            return <Loading />;
         }
-        //If it is undefined, show loading div
-        else {
-            return (
-                <div className="main__loading">
-                    <p>Loading table...</p>
-                    <p>Please wait...</p>
-                </div>
-            )
+
+        //If leagueData is not full (doesn't consist of all leagues), display loading div
+        if (this.state.leagueData.length < this.leagueIds.length) {
+            return <Loading />;
         }
+        
+        //If leagueData data isn't underfined and is full it can be displayed
+        return (
+            <Tabs>
+                {/* Mapping through array of leagueData */}
+                {this.state.leagueData.map((leagueData, index) => {
+                    return (
+                        // Passing new title for each tab using leagueCaption in each leagueData object
+                        <Tab key={index} title={leagueData.leagueCaption}>
+                            {/* Passing new leagueData for each tab content using leagueCaption in each leagueData object */}
+                            <LeagueTable key={index} leagueData={leagueData.standing} />
+                        </Tab>
+                    )
+                })}
+            </Tabs>
+        )
     }
 }

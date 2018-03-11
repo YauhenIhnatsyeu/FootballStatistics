@@ -1,12 +1,12 @@
 import React from "react";
 
-export default class Table extends React.Component {
+export default class LeagueTable extends React.Component {
     constructor(props) {
         super(props);
 
         //The values of columns in first row
         this.header = ["Position", "Team", "G", "W", "D", "L", "GS", "GC", "P"];
-        //The values of footballData object properties for each column in each row
+        //The values of leagueData object properties for each column in each row
         this.footballProperties =
             ["position", "teamName", "playedGames", "wins", "draws", "losses", "goals", "goalsAgainst", "points"];
     }
@@ -27,15 +27,19 @@ export default class Table extends React.Component {
                     </tr>
 
                     {/* Then, remaining body is rendering */}
-                    {this.props.footballData.map((row, index) => {
+                    {this.props.leagueData.map((row, index) => {
                         return (
                             <tr className="table__row" key={index + 1}>
                                 {this.footballProperties.map((col, index) => {
                                     return (
                                         <td className="table__col" key={index}>
-                                            {/* row is current footballData object
+                                            {/* row is current leagueData object
                                                 col is its property defined in footballProperties array */}
-                                            {row[col]}
+                                            {col === "teamName" ?
+                                                //If current property is teamName, display it as a link
+                                                <a href="#">{row[col]}</a> :
+                                                //if any other, display it as usual
+                                                row[col]}
                                         </td>
                                     )
                                 })}
