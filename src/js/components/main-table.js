@@ -7,7 +7,7 @@ export default class Main extends React.Component {
         return (
             <main>
                 <div className="main__inner-container wrapper">
-                    <div className="tab-panel-container">
+                    <div className="main__tab-panel-container">
                         {/* Passing leagueData and how many leagues it should be to the Main~.
                             That way we don't disturb other components */}
                         <TabPanel

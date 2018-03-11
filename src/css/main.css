@@ -2,13 +2,13 @@
     margin: 1.5rem auto;
 }
 
-.tab-panel-container {
+.main__tab-panel-container {
     width: 80%;
 
     margin: 0 auto;
 }
 
-.league-panel-container {
+.main__league-panel-container {
     width: 60%;
 
     margin: 0 auto;

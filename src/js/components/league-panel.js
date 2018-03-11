@@ -1,7 +1,7 @@
 import React from "react";
 
 import PageHeader from "./page-header";
-import Selector from "./selector";
+import LeagueSelector from "./league-selector";
 
 import Loading from "./loading";
 
@@ -27,19 +27,23 @@ export default class LeaguePanel extends React.Component {
         
         //If leagueData data isn't underfined and is full it can be displayed
         return (
-            <main>
-                <div className="main__inner-container wrapper">
-                    <PageHeader 
-                        title={this.props.leagueData[this.state.currentLeagueIndex].leagueCaption}
-                    />
-                    <Selector
+            <div className="main__league-panel-container">
+                {/* Passing title of current league to the PageHeader */}
+                <PageHeader 
+                    title={this.props.leagueData[this.state.currentLeagueIndex].leagueCaption}
+                />
+                <div className="league-panel__legue-selector-container">
+                    <LeagueSelector
+                        //Mapping through league data and passing league titles to options
                         options={this.props.leagueData.map((leagueData) => {
                             return leagueData.leagueCaption
                         })}
+                        //Passing title of current league to the default value
                         default={this.props.leagueData[this.state.currentLeagueIndex].leagueCaption}
                     />
                 </div>
-            </main>
+
+            </div>
         );
     }
 }
