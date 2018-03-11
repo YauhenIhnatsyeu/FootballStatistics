@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Header from "./components/header";
-import Main from "./components/main";
-import MainTeams from "./components/main-teams";
+import App from "./components/app";
 
 import "../css/reset.css";
 
@@ -21,10 +19,7 @@ import "../css/table.css";
 import "../css/page-header.css";
 
 ReactDOM.render(
-  <React.Fragment>
-    <Header />
-    <Main />
-  </React.Fragment>,
+  <App />,
   document.getElementById("app")
 );
 
