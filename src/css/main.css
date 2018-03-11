@@ -1,7 +1,15 @@
 .main__inner-container {
-    margin: 1.5rem auto 0 auto;
+    margin: 1.5rem auto;
 }
 
 .tab-panel-container {
-    /* width: 85%; */
+    width: 80%;
+
+    margin: 0 auto;
+}
+
+.league-panel-container {
+    width: 60%;
+
+    margin: 0 auto;
 }

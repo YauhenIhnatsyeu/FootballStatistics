@@ -1,28 +1,15 @@
 import React from "react";
 
-import PageHeader from "./page-header";
-import Selector from "./selector";
+import LeaguePanel from "./league-panel";
 
 export default class MainTeams extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            currentLeague: 0
-        }
-    }
-
     render() {
         return (
             <main>
                 <div className="main__inner-container wrapper">
-                    <PageHeader title="Testing..." />
-                    <Selector
-                        options={[
-                            "test1",
-                            "test2",
-                            "test3"
-                        ]}
+                    <LeaguePanel
+                        leagueData={this.props.leagueData}
+                        leaguesCount={this.props.leaguesCount}
                     />
                 </div>
             </main>

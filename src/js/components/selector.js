@@ -4,7 +4,7 @@ export default class Selector extends React.Component {
     render() {
         return (
             <div className="selector">
-                <select>
+                <select defaultValue={this.props.default}>
                     {this.props.options.map((option, index) => {
                         return (
                             <option key={index}>

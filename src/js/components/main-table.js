@@ -1,6 +1,6 @@
 import React from "react";
 
-import TabPanel from "./tabpanel";
+import TabPanel from "./tab-panel";
 
 export default class Main extends React.Component {
     render() {

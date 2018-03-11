@@ -60,7 +60,7 @@ export default class App extends React.Component {
                 <Header />
                 {/* Passing leagueData and how many leagues it should be to the Main~.
                     That way we don't disturb other components, like Header */}
-                <MainTable
+                <MainTeams
                     leagueData={this.state.leagueData}
                     leaguesCount={this.leagueIds.length}
                 />
