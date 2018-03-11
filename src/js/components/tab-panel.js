@@ -3,32 +3,27 @@ import React from "react";
 import Tabs from "./tabs";
 import Tab from "./tab";
 
-import LeagueTable from "./leagueTable";
+import LeagueTable from "./league-table";
 
 import Loading from "./loading";
 
 export default class TabPanel extends React.Component {
     render() {
-        //If leagueData is underfined, display loading div
-        if (!this.props.leagueData) {
+        //If leaguesData is underfined, display loading div
+        if (!this.props.leaguesData) {
             return <Loading />;
         }
 
-        //If leagueData is not full (doesn't consist of all leagues), display loading div
-        if (this.props.leagueData.length < this.props.leaguesCount) {
-            return <Loading />;
-        }
-        
-        //If leagueData data isn't underfined and is full it can be displayed
+        //If leaguesData data isn't underfined it can be displayed
         return (
             <Tabs>
-                {/* Mapping through array of leagueData */}
-                {this.props.leagueData.map((leagueData, index) => {
+                {/* Mapping through array of leaguesData */}
+                {this.props.leaguesData.map((leagueData, index) => {
                     return (
-                        // Passing new title for each tab using leagueCaption in each leagueData object
+                        // Passing new title for each tab using leagueCaption in each leaguesData object
                         <Tab key={index} title={leagueData.leagueCaption}>
                             {/* Passing new leagueData for each tab content using leagueCaption in each leagueData object */}
-                            <LeagueTable key={index} leagueData={leagueData.standing} />
+                            <LeagueTable key={index} leaguesData={leagueData.standing} />
                         </Tab>
                     )
                 })}
