@@ -1,6 +1,6 @@
 import React from "react";
 
-import FootballDataReceiver from "../utils/FootballDataReceiver";
+import {fetchLeaguesTeamsData} from "../utils/FootballDataReceiver";
 
 import TeamsItem from "./teams-item";
 
@@ -11,48 +11,31 @@ export default class TeamsList extends React.Component {
         super(props);
 
         this.state = {
-            teamsData: undefined
+            leaguesTeams: undefined
         };
 
-        this.fetchNewTeamsData(this.props.leagueData);
+        //Fetch leagues teams data from Football API
+        fetchLeaguesTeamsData(this.props.leaguesIds, this.handleleagueTableTeamsFetched);
     }
-
-    //Is called when all teams are fetched
-    handleTeamsDataFetched = (teamsData) => {
+    
+    //Is called when all leagues teams are fetched
+    handleleagueTableTeamsFetched = (leaguesTeams) => {
         this.setState({
-            teamsData: teamsData
+            leaguesTeams: leaguesTeams,
         });
-    }
-
-    fetchNewTeamsData = (leagueData) => {
-        //Creating array of urls which will be provided to the fetch function
-        const teamsUrls = leagueData.map((team) => {
-            //Specific path from league team to itself in the Football API
-            return team._links.team.href;
-        });
-
-        //Creating new object that will fetch teams data
-        const fdr = new FootballDataReceiver(teamsUrls, this.handleTeamsDataFetched);
-        fdr.fetch();
-    }
-
-    componentWillReceiveProps(nextProps) {
-        this.fetchNewTeamsData(nextProps.leagueData);
     }
 
     render() {
-
-        console.log("Rendered!");
-        //If teamsData is underfined, display loading div
-        if (!this.state.teamsData) {
+        //If leaguesTeams is underfined, display loading div
+        if (!this.state.leaguesTeams) {
             return <Loading />;
         }
 
-        //If leaguesData data isn't underfined it can be displayed
+        //If leaguesTeams isn't underfined it can be displayed
         return (
             <div className="main__teams-list-container">
                 <div className="teams-list">
-                    {this.state.teamsData.map((team, index) => {
+                    {this.state.leaguesTeams[this.props.currentLeagueTableIndex].teams.map((team, index) => {
                         return (
                             <TeamsItem team={team} key={index} />
                         )

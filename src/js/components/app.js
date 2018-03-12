@@ -1,5 +1,12 @@
 import React from "react";
 
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect
+  } from 'react-router-dom';
+
 import Header from "./header";
 
 import MainTable from "./main-table";
@@ -9,21 +16,25 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
 
-        //leaguesData is an array of objects.
-        //Every object has fetched from Football API data
-        this.state = {
-            leaguesData: undefined
-        }
-
-        //League Id points to a specific league in the league tables in the Football API 
-        this.leaguesIds = [445, 449, 452, 455, 457];
+        //leagueTable Id points to a specific leagueTable in the leagueTable tables in the Football API 
+        this.leaguesIds = [445, 452, 455, 456, 450];
     }
 
     render() {
+        const mainTable = <MainTable leaguesIds={this.leaguesIds} />;
+        const mainTeams = <MainTeams leaguesIds={this.leaguesIds} />;
         return (
             <React.Fragment>
-                <Header />
-                <MainTeams leaguesIds={this.leaguesIds} />
+                <Router>
+                    <React.Fragment>
+                        <Header />
+                        <Switch>
+                            <Route path="/table" render={() => mainTable} />
+                            <Route path="/teams" render={() => mainTeams} />
+                            <Redirect to="/table" />
+                        </Switch>
+                    </React.Fragment>
+                </Router>
             </React.Fragment>
         );
     }

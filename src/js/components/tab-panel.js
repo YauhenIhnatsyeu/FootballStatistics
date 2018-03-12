@@ -1,6 +1,6 @@
 import React from "react";
 
-import {fetchLeaguesData} from "../utils/FootballDataReceiver";
+import {fetchLeaguesTablesData} from "../utils/FootballDataReceiver";
 
 import Tabs from "./tabs";
 import Tab from "./tab";
@@ -14,35 +14,36 @@ export default class TabPanel extends React.Component {
         super(props);
 
         this.state = {
-            leaguesData: undefined
+            leaguesTables: undefined
         }
 
-        fetchLeaguesData(this.props.leaguesIds, this.handleLeagueDataFetched);
+        //Fetch leagues tables data from Football API
+        fetchLeaguesTablesData(this.props.leaguesIds, this.handleleagueFetched);
     }
 
-    //Is called when all leagues are fetched
-    handleLeagueDataFetched = (leaguesData) => {
+    //Is called when all leagues tables are fetched
+    handleleagueFetched = (leaguesTables) => {
         this.setState({
-            leaguesData: leaguesData
+            leaguesTables: leaguesTables
         });
     }
     
     render() {
-        //If leaguesData is underfined, display loading div
-        if (!this.state.leaguesData) {
+        //If leaguesTables is underfined, display loading div
+        if (!this.state.leaguesTables) {
             return <Loading />;
         }
 
-        //If leaguesData data isn't underfined it can be displayed
+        //If leaguesTables isn't underfined it can be displayed
         return (
             <Tabs>
-                {/* Mapping through array of leaguesData */}
-                {this.state.leaguesData.map((leagueData, index) => {
+                {/* Mapping through array of leaguesTables */}
+                {this.state.leaguesTables.map((leagueTable, index) => {
                     return (
-                        // Passing new title for each tab using leagueCaption in each leaguesData object
-                        <Tab key={index} title={leagueData.leagueCaption}>
-                            {/* Passing new leagueData for each tab content using leagueCaption in each leagueData object */}
-                            <LeagueTable key={index} leaguesData={leagueData.standing} />
+                        // Passing new title for each tab using leagueCaption in each leaguesTables object
+                        <Tab key={index} title={leagueTable.leagueCaption}>
+                            {/* Passing new league for each tab content using leagueCaption in each league object */}
+                            <LeagueTable key={index} leagueTable={leagueTable.standing} />
                         </Tab>
                     )
                 })}

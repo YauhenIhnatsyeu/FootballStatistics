@@ -5,7 +5,7 @@
 }
 
 .nav__item {
-    margin-right: 3.3rem;
+    margin-right: 1rem;
 }
 
 .nav__item:last-child {
@@ -13,6 +13,8 @@
 }
 
 .nav__link {
+    padding: 2.7rem 2rem 1.7rem 2rem;
+
     text-decoration: none;
     text-transform: uppercase;
 
@@ -22,5 +24,6 @@
     font-weight: 900;
 }
 
-.nav__link_state_current {
+.nav__link_state_active {
+    background: #166522;
 }

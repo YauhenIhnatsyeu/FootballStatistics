@@ -45,15 +45,23 @@ function fetchNext(xhr, url) {
     xhr.send(); 
 }
 
-export function fetchLeaguesData(leaguesIds, callback) {
+function fetchLeaguesData(type, leaguesIds, callback) {
     //Creating array of urls which will be provided to the fetch function
     //Leagues ids are included in these urls
     const leaguesUrls = leaguesIds.map((leagueId) => {
         return "http://api.football-data.org/v1/competitions/"
-                    + leagueId +"/leagueTable"
+                    + leagueId +"/" + type
     });
 
     //Creating new object that will fetch legues data
     const fdr = new FootballDataReceiver(leaguesUrls, callback);
     fdr.fetch();
+}
+
+export function fetchLeaguesTablesData(leaguesIds, callback) {
+    fetchLeaguesData("leagueTable", leaguesIds, callback);
+}
+
+export function fetchLeaguesTeamsData(leaguesIds, callback) {
+    fetchLeaguesData("teams", leaguesIds, callback);
 }
