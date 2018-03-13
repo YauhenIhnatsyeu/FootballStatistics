@@ -2,33 +2,45 @@ import React from "react";
 
 import {fetchLeaguesTablesData} from "../utils/FootballDataReceiver";
 
-import Tabs from "./tabs";
-import Tab from "./tab";
+import {Tabs, Tab} from "./tabs";
 
 import LeagueTable from "./league-table";
 
-import Loading from "./loading";
+import {Loading, Error} from "./messages";
 
 export default class TabPanel extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            leaguesTables: undefined
+            leaguesTables: undefined,
+            errorOccured: false
         }
 
         //Fetch leagues tables data from Football API
-        fetchLeaguesTablesData(this.props.leaguesIds, this.handleleagueFetched);
+        fetchLeaguesTablesData(this.props.leaguesIds, this.handleLeaguesLoad, this.handleLeaguesError);
     }
 
     //Is called when all leagues tables are fetched
-    handleleagueFetched = (leaguesTables) => {
+    handleLeaguesLoad = (leaguesTables) => {
         this.setState({
             leaguesTables: leaguesTables
         });
     }
+
+    //Is called when error occurs while fetching leagues tables
+    handleLeaguesError = () => {
+        this.setState({
+            errorOccured: true
+        });
+    }
     
     render() {
+        //If an error occured, show the message
+        if (this.state.errorOccured) {
+            return <Error />;
+        }
+
         //If leaguesTables is underfined, display loading div
         if (!this.state.leaguesTables) {
             return <Loading />;

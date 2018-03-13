@@ -2,7 +2,7 @@
 const XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 
 export default class FootballDataReceiver {
-    constructor(urls, callback) {
+    constructor(urls, onLoadCallback, onErrorCallback) {
         //Array of urls, which will be requested
         this.urls = urls;
 
@@ -11,14 +11,14 @@ export default class FootballDataReceiver {
         //For achieving rigth order of tabs and content rendering
         //current index is used to keep track of what tab is rendering now
         this.currentDataFetching = 0;
-        
+
         this.xhr.onload = () => {
             //Push new fetched data to result array
             this.result.push(JSON.parse(this.xhr.responseText));
             
             //If all data was fetched, call the callback with providing the result
             if (this.currentDataFetching >= this.urls.length - 1) {
-                callback(this.result);
+                onLoadCallback(this.result);
                 return;
             }
 
@@ -26,7 +26,9 @@ export default class FootballDataReceiver {
             this.currentDataFetching++;
             //and fetch new data
             fetchNext(this.xhr, this.urls[this.currentDataFetching]);
-        }
+        };
+
+        this.xhr.onerror = onErrorCallback;
     }
 
     fetch = () => {
@@ -45,8 +47,10 @@ function fetchNext(xhr, url) {
     xhr.send(); 
 }
 
-function fetchLeaguesData(type, leaguesIds, callback) {
-    //Creating array of urls which will be provided to the fetch function
+//Base function for such functions, as fetchLeaguesTablesData or fetchLeaguesTeamsData
+//It means that last must specify the type for the url
+function fetchLeaguesData(type, leaguesIds, onLoadCallback, onErrorCallback) {
+    //Creating array of urls which will be provided to the fetching function
     //Leagues ids are included in these urls
     const leaguesUrls = leaguesIds.map((leagueId) => {
         return "http://api.football-data.org/v1/competitions/"
@@ -54,14 +58,14 @@ function fetchLeaguesData(type, leaguesIds, callback) {
     });
 
     //Creating new object that will fetch legues data
-    const fdr = new FootballDataReceiver(leaguesUrls, callback);
+    const fdr = new FootballDataReceiver(leaguesUrls, onLoadCallback, onErrorCallback);
     fdr.fetch();
 }
 
-export function fetchLeaguesTablesData(leaguesIds, callback) {
-    fetchLeaguesData("leagueTable", leaguesIds, callback);
+export function fetchLeaguesTablesData(leaguesIds, onLoadCallback, onErrorCallback) {
+    fetchLeaguesData("leagueTable", leaguesIds, onLoadCallback, onErrorCallback);
 }
 
-export function fetchLeaguesTeamsData(leaguesIds, callback) {
-    fetchLeaguesData("teams", leaguesIds, callback);
+export function fetchLeaguesTeamsData(leaguesIds, onLoadCallback, onErrorCallback) {
+    fetchLeaguesData("teams", leaguesIds, onLoadCallback, onErrorCallback);
 }

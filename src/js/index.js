@@ -24,7 +24,7 @@ import "../css/league-selector.css";
 import "../css/teams-list.css";
 import "../css/teams-item.css";
 
-import "../css/loading.css";
+import "../css/message.css";
 
 ReactDOM.render(
   <App />,

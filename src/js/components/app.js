@@ -9,9 +9,7 @@ import {
 
 import Header from "./header";
 
-import MainTable from "./main-table";
-import MainTeams from "./main-teams";
-import MainTeam from "./main-team";
+import {MainTable, MainTeams, MainTeam} from "./main";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -32,7 +30,7 @@ export default class App extends React.Component {
                         <Switch>
                             <Route path="/table" render={() => mainTable} />
                             <Route path="/teams" render={() => mainTeams} />
-                            <Route path="/team/:id" component={MainTeam} />
+                            <Route path="/team/:id" render={() => <MainTeam />} />
                             <Redirect to="/table" />
                         </Switch>
                     </React.Fragment>

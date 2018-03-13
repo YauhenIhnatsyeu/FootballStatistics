@@ -7,7 +7,7 @@ import LeagueSelector from "./league-selector";
 
 import TeamsList from "./teams-list";
 
-import Loading from "./loading";
+import {Loading, Error} from "./messages";
 
 export default class leagueTablePanel extends React.Component {
     constructor(props) {
@@ -15,17 +15,25 @@ export default class leagueTablePanel extends React.Component {
 
         this.state = {
             leaguesTables: undefined,
-            currentLeagueTableIndex: 0
+            currentLeagueTableIndex: 0,
+            errorOccured: false
         }
 
         //Fetch leagues tables data from Football API
-        fetchLeaguesTablesData(this.props.leaguesIds, this.handleleagueTableFetched);
+        fetchLeaguesTablesData(this.props.leaguesIds, this.handleLeaguesLoaded, this.handleLeaguesError);
     }
 
     //Is called when all leagues tables are fetched
-    handleleagueTableFetched = (leaguesTables) => {
+    handleLeaguesLoaded = (leaguesTables) => {
         this.setState({
             leaguesTables: leaguesTables,
+        });
+    }
+
+    //Is called when error occurs while fetching leagues tables
+    handleLeaguesError = () => {
+        this.setState({
+            errorOccured: true
         });
     }
 
@@ -46,10 +54,16 @@ export default class leagueTablePanel extends React.Component {
     }
 
     render() {
+        //If an error occured, show the message
+        if (this.state.errorOccured) {
+            return <Error />;
+        }
+
         //If leaguesTables is underfined, display loading div
         if (!this.state.leaguesTables) {
             return <Loading />;
         }
+
         //If leaguesTables isn't underfined it can be displayed
         return (
             <div className="main__league-panel-container">

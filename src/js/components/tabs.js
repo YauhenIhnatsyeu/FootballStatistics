@@ -1,8 +1,6 @@
 import React from "react";
 
-import Tab from "./tab";
-
-export default class Tabs extends React.Component {
+export class Tabs extends React.Component {
     constructor (props) {
         super(props);
 
@@ -68,5 +66,12 @@ export default class Tabs extends React.Component {
                 {this.getCurrentTabContent()}
             </div>
         );
+    }
+}
+
+//Tab is only for semantics, that's why it doesn't render anything
+export class Tab extends React.Component {
+    render() {
+        return null;
     }
 }
