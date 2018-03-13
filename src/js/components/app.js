@@ -11,6 +11,7 @@ import Header from "./header";
 
 import MainTable from "./main-table";
 import MainTeams from "./main-teams";
+import MainTeam from "./main-team";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -31,6 +32,7 @@ export default class App extends React.Component {
                         <Switch>
                             <Route path="/table" render={() => mainTable} />
                             <Route path="/teams" render={() => mainTeams} />
+                            <Route path="/team/:id" component={MainTeam} />
                             <Redirect to="/table" />
                         </Switch>
                     </React.Fragment>
