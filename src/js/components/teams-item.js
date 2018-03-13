@@ -6,12 +6,29 @@ export default class TeamsItem extends React.Component {
     constructor(props) {
         super(props);
 
-        //Extracting id from team url and store it in the variable
+        //Extracting id from team url and store it
         this.teamId = this.extractId(this.props.team._links.self.href);
 
         this.state = {
-            //When teams-item initializes, it checks if it is favourite using local storage
+            //When teams-item initializes, it checks
+            //if it is favourite using local storage and updates
             isFavourite: this.isThisTeamFavourite()
+        }
+    }
+
+    componentWillReceiveProps(newProps) {
+        //Extracting id from team url and store it,
+        //because we will recieve new props
+        this.teamId = this.extractId(newProps.team._links.self.href);
+
+        //When new props will recieve, teams-item checks
+        //if it is favourite using local storage
+        const isThisTeamFavourite = this.isThisTeamFavourite();
+        // and updates
+        if (this.state.isFavourite !== isThisTeamFavourite) {
+            this.setState({
+                isFavourite: isThisTeamFavourite
+            });
         }
     }
 
@@ -26,6 +43,8 @@ export default class TeamsItem extends React.Component {
     isThisTeamFavourite() {
         let favourites = localStorage.getItem("favourites");
         if (favourites) {
+            //Here and below favourites ids are stored
+            //in local storage as JSON strigns
             favourites = JSON.parse(favourites);
             const indexOfTeamId = favourites.indexOf(this.teamId);
             if (indexOfTeamId === -1) {
@@ -88,28 +107,27 @@ export default class TeamsItem extends React.Component {
         const teamUrl = "/team/" + this.teamId;
         return (
             <div className="teams-list__teams-item-container">
-                
-                    <div className="teams-item">
-                        <Link to={teamUrl} className="teams-item__link">
-                            <div className="teams-item__logo-container">
-                                <img src={this.props.team.crestUrl} className="teams-item__logo"/>
-                            </div>
-                        </Link>
-                        <div className="teams-item__info-container">
-                            <Link to={teamUrl} className="teams-item__link">
-                                <p className="teams-item__name">{this.props.team.name}</p>
-                            </Link>
-                            <p className="teams-item__short-name">Short name: {this.props.team.shortName}</p>
-                            {
-                                //If squadMarketValue isn't null or underfined we can display it
-                                this.props.team.squadMarketValue && 
-                                <p className="teams-item__market-value">Squad market value: {this.props.team.squadMarketValue}</p>
-                            }
-                            <button className="teams-item__button" onClick={this.handleClick}>
-                                {this.state.isFavourite ? "Remove" : "Add"} team to favourites
-                            </button>
+                <div className="teams-item">
+                    <Link to={teamUrl} className="teams-item__link">
+                        <div className="teams-item__logo-container">
+                            <img src={this.props.team.crestUrl} className="teams-item__logo"/>
                         </div>
+                    </Link>
+                    <div className="teams-item__info-container">
+                        <Link to={teamUrl} className="teams-item__link">
+                            <p className="teams-item__name">{this.props.team.name}</p>
+                        </Link>
+                        <p className="teams-item__short-name">Short name: {this.props.team.shortName}</p>
+                        {
+                            //If squadMarketValue isn't null or underfined we can display it
+                            this.props.team.squadMarketValue && 
+                            <p className="teams-item__market-value">Squad market value: {this.props.team.squadMarketValue}</p>
+                        }
+                        <button className="teams-item__button" onClick={this.handleClick}>
+                            {this.state.isFavourite ? "Remove" : "Add"} team to favourites
+                        </button>
                     </div>
+                </div>
             </div>
         );
     }
