@@ -7,7 +7,6 @@ import "../css/reset.css";
 
 import "../css/wrapper.css";
 
-//import "../css/fonts.css";
 import "../css/font-size.css";
 
 import "../css/header.css";

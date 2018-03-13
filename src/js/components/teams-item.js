@@ -2,12 +2,14 @@ import React from "react";
 
 import {Link} from 'react-router-dom';
 
+import extractTeamIdFromUrl from "../utils/extractTeamIdFromUrl";
+
 export default class TeamsItem extends React.Component {
     constructor(props) {
         super(props);
 
         //Extracting id from team url and store it
-        this.teamId = this.extractId(this.props.team._links.self.href);
+        this.teamId = extractTeamIdFromUrl(this.props.team._links.self.href);
 
         this.state = {
             //When teams-item initializes, it checks
@@ -30,13 +32,6 @@ export default class TeamsItem extends React.Component {
                 isFavourite: isThisTeamFavourite
             });
         }
-    }
-
-    //Extracts id from the ending of the team url
-    extractId(url) {
-        const regEx = /\d+$/;
-        const ids = regEx.exec(url);
-        return ids.length === 1 ? ids[0] : 0;
     }
 
     //Checks if this team is favourite using local storage
