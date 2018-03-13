@@ -21,7 +21,7 @@ export default class TeamsItem extends React.Component {
     componentWillReceiveProps(newProps) {
         //Extracting id from team url and store it,
         //because we will recieve new props
-        this.teamId = this.extractId(newProps.team._links.self.href);
+        this.teamId = extractTeamIdFromUrl(newProps.team._links.self.href);
 
         //When new props will recieve, teams-item checks
         //if it is favourite using local storage
