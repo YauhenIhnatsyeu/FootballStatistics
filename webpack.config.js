@@ -22,6 +22,9 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, "public")
+    contentBase: [
+      __dirname,
+      path.join(__dirname, "public")
+    ]
   }
 };
