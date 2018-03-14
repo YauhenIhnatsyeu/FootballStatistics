@@ -27,7 +27,7 @@ import "../css/teams-item.css";
 import "../css/message.css";
 
 ReactDOM.render(
-  <App />,
-  document.getElementById("app")
+	<App />,
+	document.getElementById("app")
 );
 
