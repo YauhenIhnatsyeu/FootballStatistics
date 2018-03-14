@@ -8,6 +8,7 @@ module.exports = {
         "plugin:react/recommended"
     ],
     "parserOptions": {
+        "sourceType": "module",
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
             "jsx": true
@@ -17,10 +18,10 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
+        // "indent": [
+        //     "error",
+        //     "tab"
+        // ],
         "linebreak-style": [
             "error",
             "windows"
@@ -34,12 +35,7 @@ module.exports = {
             "always"
         ]
     },
-    "parserOptions": {
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
+    "parser": "babel-eslint",
     "settings": {
         "react": {
           "createClass": "createReactClass",
