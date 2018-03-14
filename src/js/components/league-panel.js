@@ -2,7 +2,7 @@ import React from "react";
 
 import {fetchLeaguesTablesData} from "../utils/FootballDataReceiver";
 
-import PageHeader from "./page-header";
+import SectionHeader from "./section-header";
 import LeagueSelector from "./league-selector";
 
 import TeamsList from "./teams-list";
@@ -68,7 +68,7 @@ export default class leagueTablePanel extends React.Component {
     	return (
     		<div className="main__league-panel-container">
     			{/* Passing title of current leagueTable caption to the PageHeader */}
-    			<PageHeader 
+    			<SectionHeader 
     				title={this.state.leaguesTables[this.state.currentLeagueTableIndex].leagueCaption}
     			/>
 

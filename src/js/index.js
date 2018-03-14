@@ -19,7 +19,7 @@ import "../css/tab-panel.css";
 import "../css/table.css";
 
 import "../css/league-panel.css";
-import "../css/page-header.css";
+import "../css/section-header.css";
 import "../css/league-selector.css";
 import "../css/teams-list.css";
 import "../css/teams-item.css";

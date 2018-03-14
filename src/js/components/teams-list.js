@@ -16,18 +16,18 @@ export default class TeamsList extends React.Component {
 		};
 
 		//Fetch leagues teams data from Football API
-		fetchLeaguesTeamsData(this.props.leaguesIds, this.handleleaguesTeamsLoaded, this.handleleaguesTeamsError);
+		fetchLeaguesTeamsData(this.props.leaguesIds, this.handleLeaguesTeamsLoaded, this.handleLeaguesTeamsError);
 	}
     
     //Is called when all leagues teams are fetched
-    handleleaguesTeamsLoaded = (leaguesTeams) => {
+    handleLeaguesTeamsLoaded = (leaguesTeams) => {
     	this.setState({
     		leaguesTeams: leaguesTeams,
     	});
     }
 
     //Is called when error occurs while fetching leagues tables
-    handleleaguesTeamsError = () => {
+    handleLeaguesTeamsError = () => {
     	this.setState({
     		errorOccured: true
     	});

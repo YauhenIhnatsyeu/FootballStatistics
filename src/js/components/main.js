@@ -2,6 +2,7 @@ import React from "react";
 
 import TabPanel from "./tab-panel";
 import LeaguePanel from "./league-panel";
+import TeamPanel from "./team-panel";
 
 export class MainTable extends React.Component {
 	render() {
@@ -34,6 +35,9 @@ export class MainTeam extends React.Component {
 		return (
 			<main>
 				<div className="main__inner-container wrapper">
+					<div className="main__team-page-header-container">
+						<TeamPanel teamId={this.props.match.params.id} />
+					</div>
 				</div>
 			</main>
 		);

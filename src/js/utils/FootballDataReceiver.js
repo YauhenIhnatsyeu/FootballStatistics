@@ -1,7 +1,14 @@
 export default class FootballDataReceiver {
 	constructor(urls, onLoadCallback, onErrorCallback) {
-		//Array of urls, which will be requested
-		this.urls = urls;
+		//urls - an array of urls, which will be requested
+		//If urls is not an array, but a single string of url
+		if (typeof urls === "string") {
+			//create an array with this url
+			this.urls = [urls]
+		} else {
+			this.urls = urls;
+		}
+
 		this.onErrorCallback = onErrorCallback;
 
 		this.result = [];
@@ -73,4 +80,14 @@ export function fetchLeaguesTablesData(leaguesIds, onLoadCallback, onErrorCallba
 
 export function fetchLeaguesTeamsData(leaguesIds, onLoadCallback, onErrorCallback) {
 	fetchLeaguesData("teams", leaguesIds, onLoadCallback, onErrorCallback);
+}
+
+export function fetchTeamData(teamId, onLoadCallback, onErrorCallback) {
+	//Creating array of urls which will be provided to the fetching function
+	//Leagues ids are included in these urls
+	const teamUrl = "http://api.football-data.org/v1/teams/" + teamId;
+	
+	//Creating new object that will fetch legues data
+	const fdr = new FootballDataReceiver(teamUrl, onLoadCallback, onErrorCallback);
+	fdr.fetch();
 }
