@@ -17,7 +17,7 @@ export default class TeamsItemForHeader extends React.Component {
                 </div>
                 
                 <div className="teams-item-for-header__tabpanel-container">
-                    <Tabs>
+                    <Tabs onTabClick={this.props.onTabClick}>
                         <Tab title="Players">
                         </Tab>
                         <Tab title="Fixtures">

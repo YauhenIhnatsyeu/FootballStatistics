@@ -56,7 +56,7 @@ export default class TabPanel extends React.Component {
     	//If leaguesTables isn't underfined it can be displayed
     	return (
 			<React.Fragment>
-				<Tabs handleClick={this.handleTabClick} >
+				<Tabs onTabClick={this.handleTabClick} >
 					{/* Mapping through array of leaguesTables */}
 					{this.state.leaguesTables.map((leagueTable, index) => {
 						return (

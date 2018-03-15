@@ -30,7 +30,11 @@ export default class TeamPanel extends React.Component {
     	this.setState({
     		errorOccured: true
     	});
-    }
+	}
+	
+	handleTabClick = (tabIndex) => {
+		
+	}
 	
 	render() {
     	//If an error occured, show the message
@@ -46,7 +50,7 @@ export default class TeamPanel extends React.Component {
 		return (
 			<div className="team-panel">
 				<div className="team-panel__teams-item-for-header-container">
-					<TeamsItemForHeader team={this.state.team} />
+					<TeamsItemForHeader team={this.state.team} onTabClick={this.handleTabClick} />
 				</div>
 			</div>
 		);
