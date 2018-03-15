@@ -1,6 +1,6 @@
 import checkForFetchErrors from "./checkForFetchErrors";
 
-export default class FootballDataReceiver {
+class FootballDataReceiver {
 	constructor(urls, onLoadCallback, onErrorCallback) {
 		//urls - an array of urls, which will be requested
 		//If urls is not an array, but a single string of url
@@ -65,6 +65,11 @@ export default class FootballDataReceiver {
 			//If error occurs, call the provided error callback
 			.catch(this.onErrorCallback);
 	}
+}
+
+export default function fetchFootballData(urls, onLoadCallback, onErrorCallback) {
+	const fdr = new FootballDataReceiver(urls, onLoadCallback, onErrorCallback);
+	fdr.fetch();
 }
 
 //Base function for such functions, as fetchLeaguesTablesData or fetchLeaguesTeamsData
