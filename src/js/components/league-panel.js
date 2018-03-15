@@ -83,11 +83,13 @@ export default class leagueTablePanel extends React.Component {
     				//Passing title of current leagueTable to the default value
     				default={this.state.leaguesTables[this.state.currentLeagueTableIndex].leagueCaption}
     			/>
-
-    			<TeamsList
-    				leaguesIds={this.props.leaguesIds}
-    				currentLeagueTableIndex={this.state.currentLeagueTableIndex}
-    			/>
+				
+				<div className="league-panel__teams-list-container">
+					<TeamsList
+						leaguesIds={this.props.leaguesIds}
+						currentLeagueTableIndex={this.state.currentLeagueTableIndex}
+					/>
+    			</div>
     		</div>
     	);
     }

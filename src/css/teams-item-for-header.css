@@ -1,0 +1,15 @@
+.teams-item-for-header {
+    display: block;
+}
+
+.teams-item-for-header__teams-item {
+    display: flex;
+}
+
+.teams-item-for-header__name {
+    text-decoration: none;
+}
+
+.teams-item-for-header__tabpanel-container {
+    margin-top: 1rem;
+}

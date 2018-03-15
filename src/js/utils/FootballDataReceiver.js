@@ -31,6 +31,11 @@ export default class FootballDataReceiver {
             
 			//If all data was fetched, call the callback with providing the result
 			if (this.currentDataFetching >= this.urls.length - 1) {
+				//If result contains only 1 object, return this object only
+				if (this.result.length === 1) {
+					this.result = this.result[0];
+				}
+				
 				onLoadCallback(this.result);
 				return;
 			}
@@ -62,7 +67,7 @@ export default class FootballDataReceiver {
 //Base function for such functions, as fetchLeaguesTablesData or fetchLeaguesTeamsData
 //It means that last must specify the type for the url
 function fetchLeaguesData(type, leaguesIds, onLoadCallback, onErrorCallback) {
-	//Creating array of urls which will be provided to the fetching function
+	//Creating an array of urls which will be provided to the fetching function
 	//Leagues ids are included in these urls
 	const leaguesUrls = leaguesIds.map((leagueId) => {
 		return "http://api.football-data.org/v1/competitions/"
@@ -83,11 +88,11 @@ export function fetchLeaguesTeamsData(leaguesIds, onLoadCallback, onErrorCallbac
 }
 
 export function fetchTeamData(teamId, onLoadCallback, onErrorCallback) {
-	//Creating array of urls which will be provided to the fetching function
-	//Leagues ids are included in these urls
+	//Creating a url of the team
+	//Team id is included in this urls
 	const teamUrl = "http://api.football-data.org/v1/teams/" + teamId;
 	
-	//Creating new object that will fetch legues data
+	//Creating new object that will fetch team data
 	const fdr = new FootballDataReceiver(teamUrl, onLoadCallback, onErrorCallback);
 	fdr.fetch();
 }

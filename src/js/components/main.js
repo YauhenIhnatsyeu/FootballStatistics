@@ -35,7 +35,7 @@ export class MainTeam extends React.Component {
 		return (
 			<main>
 				<div className="main__inner-container wrapper">
-					<div className="main__team-page-header-container">
+					<div className="main__team-panel-container">
 						<TeamPanel teamId={this.props.match.params.id} />
 					</div>
 				</div>

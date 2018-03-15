@@ -1,13 +1,16 @@
 .tab-panel__list {
     display: flex;
-
-    justify-content: space-between;
 }
 
 .tab-panel__tab {
+    margin-right: 1rem;
     padding: 0.5rem 1rem;
 
+    text-align: center;
+
     background: #d2e9d5;
+
+    flex-grow: 1;
 
     cursor: pointer;
 }

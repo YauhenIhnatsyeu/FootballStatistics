@@ -1,6 +1,6 @@
 import React from "react";
 
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 export default class Header extends React.Component {
 	render() {
@@ -24,7 +24,7 @@ export default class Header extends React.Component {
 class Logo extends React.Component {
 	render() {
 		return (
-			<a className="logo" href="#">Football Statistics</a>
+			<Link to="/table" className="logo">Football Statistics</Link>
 		);
 	}
 }

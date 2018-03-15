@@ -66,7 +66,7 @@ export default class TabPanel extends React.Component {
 					})}
 				</Tabs>
 				{/* When tab changes, currentLeagueTableIndex updates,
-				and because of that league table updates too */}
+					and because of that league table updates too */}
 				<LeagueTable
 					leagueTable={this.state.leaguesTables[this.state.currentLeagueTableIndex].standing}
 				/>

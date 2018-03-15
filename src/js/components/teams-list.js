@@ -2,7 +2,7 @@ import React from "react";
 
 import {fetchLeaguesTeamsData} from "../utils/FootballDataReceiver";
 
-import TeamsItem from "./teams-item";
+import TeamsItem from './teams-item';
 
 import {Loading, Error} from "./messages";
 
@@ -46,14 +46,14 @@ export default class TeamsList extends React.Component {
 
     	//If leaguesTeams isn't underfined it can be displayed
     	return (
-    		<div className="main__teams-list-container">
-    			<div className="teams-list">
-    				{this.state.leaguesTeams[this.props.currentLeagueTableIndex].teams.map((team, index) => {
-    					return (
-    						<TeamsItem team={team} key={index} />
-    					);
-    				})}
-    			</div>
+			<div className="teams-list">
+				{this.state.leaguesTeams[this.props.currentLeagueTableIndex].teams.map((team, index) => {
+					return (
+						<div className="teams-list__teams-item-container" key={index}>
+							<TeamsItem team={team} />
+    					</div>
+					);
+				})}
     		</div>
     	);
     }

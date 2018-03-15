@@ -2,6 +2,8 @@ import React from "react";
 
 import {fetchTeamData} from "../utils/FootballDataReceiver";
 
+import TeamsItemForHeader from "./teams-item-for-header";
+
 import {Loading, Error} from "./messages";
 
 export default class TeamPanel extends React.Component {
@@ -17,9 +19,9 @@ export default class TeamPanel extends React.Component {
 	}
     
     //Is called when team is fetched
-    handleTeamLoaded = (leaguesTeams) => {
+    handleTeamLoaded = (team) => {
     	this.setState({
-    		leaguesTeams: leaguesTeams,
+    		team: team,
     	});
     }
 
@@ -37,12 +39,16 @@ export default class TeamPanel extends React.Component {
     	}
         
     	//If team is underfined, display loading div
-    	if (!this.state.leaguesTeams) {
+    	if (!this.state.team) {
     		return <Loading />;
-    	}
-		//console.log(this.state.team);
+		}
+		
 		return (
-			null
+			<div className="team-panel">
+				<div className="team-panel__teams-item-for-header-container">
+					<TeamsItemForHeader team={this.state.team} />
+				</div>
+			</div>
 		);
 	}
 }
