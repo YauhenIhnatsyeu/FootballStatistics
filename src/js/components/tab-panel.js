@@ -14,7 +14,8 @@ export default class TabPanel extends React.Component {
 
 		this.state = {
 			leaguesTables: undefined,
-			errorOccured: false
+			currentLeagueTableIndex: 0,
+			errorOccured: false,
 		};
 
 		//Fetch leagues tables data from Football API
@@ -33,7 +34,13 @@ export default class TabPanel extends React.Component {
 		this.setState({
     		errorOccured: true
     	});
-    }
+	}
+	
+	handleTabClick = (tabIndex) => {
+		this.setState({
+			currentLeagueTableIndex: tabIndex
+		})
+	}
     
     render() {
     	//If an error occured, show the message
@@ -53,12 +60,15 @@ export default class TabPanel extends React.Component {
     			{this.state.leaguesTables.map((leagueTable, index) => {
     				return (
     				// Passing new title for each tab using leagueCaption in each leaguesTables object
-    					<Tab key={index} title={leagueTable.leagueCaption}>
-    						{/* Passing new league for each tab content using leagueCaption in each league object */}
-    						<LeagueTable key={index} leagueTable={leagueTable.standing} />
-    					</Tab>
+    					<Tab key={index} title={leagueTable.leagueCaption} />
     				);
-    			})}
+				})}
+				{/* When tab changes, currentLeagueTableIndex updates,
+					and because of that league table updates too */}
+				<LeagueTable
+					key={index}
+					leagueTable={this.state.leaguesTables[this.state.currentLeagueTableIndex].standing}
+				/>
     		</Tabs>
     	);
     }
