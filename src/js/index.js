@@ -18,6 +18,8 @@ import "../css/main.css";
 import "../css/tab-panel.css";
 import "../css/table.css";
 
+import "../css/item.css";
+
 import "../css/league-panel.css";
 import "../css/section-header.css";
 import "../css/league-selector.css";

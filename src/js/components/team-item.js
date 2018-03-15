@@ -103,21 +103,21 @@ export default class TeamItem extends React.Component {
 		const teamUrl = "/team/" + this.teamId;
 		
     	return (
-			<div className="team-item">
+			<div className="item">
 				<Link to={teamUrl} className="team-item__link">
-					<div className="team-item__logo-container">
-						<img src={this.props.team.crestUrl} className="team-item__logo"/>
+					<div className="team-item__img-container">
+						<img src={this.props.team.crestUrl} className="item__img"/>
 					</div>
 				</Link>
 				<div className="team-item__info-container">
 					<Link to={teamUrl} className="team-item__link">
-						<p className="team-item__name">{this.props.team.name}</p>
+						<p className="item__name">{this.props.team.name}</p>
 					</Link>
-					<p className="team-item__short-name">Short name: {this.props.team.shortName}</p>
+					<p className="item__short-name">Short name: {this.props.team.shortName}</p>
 					{
 						//If squadMarketValue isn't null or underfined we can display it
 						this.props.team.squadMarketValue && 
-						<p className="team-item__market-value">Squad market value: {this.props.team.squadMarketValue}</p>
+						<p className="item__market-value">Squad market value: {this.props.team.squadMarketValue}</p>
 					}
 					<button className="team-item__button" onClick={this.handleClick}>
 						{this.state.isFavourite ? "Remove" : "Add"} team to favourites

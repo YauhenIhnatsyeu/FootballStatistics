@@ -1,27 +1,5 @@
-.team-item {
-    display: flex;
-
-    padding: 1rem;
-
-    background: #eeeeee;
-
-    box-shadow: 0 4px 0 -2px #c6c6c6;
-}
-
-.team-item__logo {
-    width: 6rem;
-    height: 6rem;
-}
-
 .team-item__info-container {
     margin-left: 1rem;
-}
-
-.team-item__name {
-    text-decoration: underline;
-
-    font-size: 1.3rem;
-    font-weight: 600;
 }
 
 .team-item__button {
