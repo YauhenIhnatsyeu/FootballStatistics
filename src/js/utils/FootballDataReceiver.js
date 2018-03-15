@@ -1,3 +1,5 @@
+import checkForFetchErrors from "./checkForFetchErrors";
+
 export default class FootballDataReceiver {
 	constructor(urls, onLoadCallback, onErrorCallback) {
 		//urls - an array of urls, which will be requested
@@ -57,6 +59,7 @@ export default class FootballDataReceiver {
 	//Url is next because we incremented this.currentDataFetching
 	fetchNext = () => {
 		fetch(this.urls[this.currentDataFetching], this.fetchInit)
+			.then(response => checkForFetchErrors(response))
 			.then(response => response.json())
 			.then(this.onload)
 			//If error occurs, call the provided error callback
