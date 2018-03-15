@@ -1,4 +1,4 @@
-.teams-item {
+.team-item {
     display: flex;
 
     padding: 1rem;
@@ -8,27 +8,27 @@
     box-shadow: 0 4px 0 -2px #c6c6c6;
 }
 
-.teams-item__logo {
+.team-item__logo {
     width: 6rem;
     height: 6rem;
 }
 
-.teams-item__info-container {
+.team-item__info-container {
     margin-left: 1rem;
 }
 
-.teams-item__name {
+.team-item__name {
     text-decoration: underline;
 
     font-size: 1.3rem;
     font-weight: 600;
 }
 
-.teams-item__button {
+.team-item__button {
     display: block;
 }
 
-.teams-item__link {
+.team-item__link {
     color: #000000;
 
     text-decoration: none;

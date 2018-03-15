@@ -2,7 +2,7 @@ import React from "react";
 
 import {fetchTeamData} from "../utils/FootballDataReceiver";
 
-import TeamsItemForHeader from "./teams-item-for-header";
+import TeamItemForHeader from "./team-item-for-header";
 
 import {Loading, Error} from "./messages";
 
@@ -49,8 +49,8 @@ export default class TeamPanel extends React.Component {
 		
 		return (
 			<div className="team-panel">
-				<div className="team-panel__teams-item-for-header-container">
-					<TeamsItemForHeader team={this.state.team} onTabClick={this.handleTabClick} />
+				<div className="team-panel__team-item-for-header-container">
+					<TeamItemForHeader team={this.state.team} onTabClick={this.handleTabClick} />
 				</div>
 			</div>
 		);

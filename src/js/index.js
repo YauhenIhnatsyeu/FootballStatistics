@@ -22,10 +22,10 @@ import "../css/league-panel.css";
 import "../css/section-header.css";
 import "../css/league-selector.css";
 import "../css/teams-list.css";
-import "../css/teams-item.css";
+import "../css/team-item.css";
 
 import "../css/team-panel.css";
-import "../css/teams-item-for-header.css";
+import "../css/team-item-for-header.css";
 
 import "../css/message.css";
 
