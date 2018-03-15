@@ -8,20 +8,6 @@ export class Tabs extends React.Component {
 			//Index of current (selected) tab
 			currentTabIndex: 0
 		};
-
-		//Contains all children of <Tabs></Tabs> that are  of type Tab
-		this.tabComponentsList = [];
-    	this.updateTabComponentsList();
-	}
-
-    //Puts all children of <Tabs></Tabs> that are  of type Tab into this.tabComponentsList
-    updateTabComponentsList = () => {
-    	this.tabComponentsList = [];
-    	this.props.children.map((child) => {
-    		if (child.type === Tab) {
-    			this.tabComponentsList.push(child);
-    		}
-    	});
 	}
 	
 	//Is called when some tab was clicked
@@ -44,10 +30,15 @@ export class Tabs extends React.Component {
     getTabsList = () => {
     	return (
     		<ul className="tab-panel__list">
-    			{this.tabComponentsList.map((tab, tabIndex) => {
+    			{this.props.children.map((tab, tabIndex) => {
+					//If child of Tabs is not a Tab object, skip it
+					if (tab.type !== Tab)
+						return null;
+
     				//If tab is current, apply corresponding style (with _current modifier)
     				if (tabIndex === this.state.currentTabIndex) {
     					return (
+							//A tab is a <li></li> component
 							<li
 								className="tab-panel__tab tab-panel__tab_current" 
 								key={tabIndex} onClick={() => this.handleClick(tabIndex)}>
@@ -55,6 +46,7 @@ export class Tabs extends React.Component {
 							</li>
 						);
     				} else {
+						//If tab isn't current, display it as a usual tab
     					return (
 							<li 
 								className="tab-panel__tab" 

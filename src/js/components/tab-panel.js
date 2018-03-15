@@ -55,21 +55,22 @@ export default class TabPanel extends React.Component {
 
     	//If leaguesTables isn't underfined it can be displayed
     	return (
-    		<Tabs>
-    			{/* Mapping through array of leaguesTables */}
-    			{this.state.leaguesTables.map((leagueTable, index) => {
-    				return (
-    				// Passing new title for each tab using leagueCaption in each leaguesTables object
-    					<Tab key={index} title={leagueTable.leagueCaption} />
-    				);
-				})}
+			<React.Fragment>
+				<Tabs handleClick={this.handleTabClick} >
+					{/* Mapping through array of leaguesTables */}
+					{this.state.leaguesTables.map((leagueTable, index) => {
+						return (
+						// Passing new title for each tab using leagueCaption in each leaguesTables object
+							<Tab key={index} title={leagueTable.leagueCaption} />
+						);
+					})}
+				</Tabs>
 				{/* When tab changes, currentLeagueTableIndex updates,
-					and because of that league table updates too */}
+				and because of that league table updates too */}
 				<LeagueTable
-					key={index}
 					leagueTable={this.state.leaguesTables[this.state.currentLeagueTableIndex].standing}
 				/>
-    		</Tabs>
+			</React.Fragment>
     	);
     }
 }
