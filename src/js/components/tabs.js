@@ -16,9 +16,11 @@ export class Tabs extends React.Component {
 		if (this.state.currentTabIndex === tabIndex)
 			return;
 
-		//Firstly, call handler from props and pass tabIndex to it,
-		//so handler can use it
-		this.props.handleClick(tabIndex);
+		if (this.props.handleClick) {
+			//Firstly, call handler from props and pass tabIndex to it,
+			//so handler can use it
+			this.props.handleClick(tabIndex);
+		}
 
 		//Secondly update currentTabIndex
 		this.setState({
