@@ -1,5 +1,7 @@
 .tab-panel__list {
     display: flex;
+
+    flex-wrap: wrap;
 }
 
 .tab-panel__tab {
