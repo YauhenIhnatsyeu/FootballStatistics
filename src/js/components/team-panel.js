@@ -4,6 +4,7 @@ import {fetchTeamData} from "../utils/FootballDataReceiver";
 
 import TeamItemForHeader from "./team-item-for-header";
 import SectionHeader from "./section-header";
+import PlayersSection from "./players-section";
 import PlayersList from "./players-list";
 
 import {Loading, Error} from "./messages";
@@ -24,14 +25,15 @@ export default class TeamPanel extends React.Component {
     handleTeamLoaded = (team) => {
     	this.setState({
     		team: team,
-    	});
+		});
+		this.playersCount = team.lendyh
     }
 
     //Is called when error occurs while fetching a team
     handleTeamError = () => {
     	this.setState({
     		errorOccured: true
-    	});
+		});
 	}
 	
 	handleTabClick = (tabIndex) => {
@@ -56,19 +58,13 @@ export default class TeamPanel extends React.Component {
 				</div>
 				<div className="team-panel__info-container">
 					<div className="team-panel__players-section">
-						<SectionHeader title="Players" />
-						<div className="team-panel__players-list-container">
-							<PlayersList team={this.state.team} />
-						</div>
+						<PlayersSection team={this.state.team} />
 					</div>
 					<div className="team-panel__tweets-section">
 						{/* Taking tag from shortName of the team */}
 						<SectionHeader
 							title={"Tweets for tag #" + this.state.team.shortName.toLowerCase()} 
 						/>
-						<div className="team-panel__tweets-container">
-							<PlayersList team={this.state.team} />
-						</div>
 					</div>
 				</div>
 			</div>

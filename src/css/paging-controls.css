@@ -1,0 +1,30 @@
+.paging-controls__list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    background: #209030;
+}
+
+.paging-controls__control {
+    margin-right: 0.5rem;
+    padding: 0.5rem 0.25rem;
+
+    text-align: center;
+
+    color: #ffffff;
+
+    flex-grow: 1;
+
+    cursor: pointer;
+}
+
+.paging-controls__control:last-child {
+    margin-right: 0;
+}
+
+.paging-controls__select {
+    color: #ffffff;
+    background: #209030;
+    border-color: #209030;
+}
