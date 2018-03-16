@@ -19,6 +19,10 @@
     cursor: pointer;
 }
 
+.paging-controls__control_not-clickable {
+    cursor: default;
+}
+
 .paging-controls__control:last-child {
     margin-right: 0;
 }
@@ -28,3 +32,4 @@
     background: #209030;
     border-color: #209030;
 }
+

@@ -5,19 +5,20 @@ import PlayerItem from "./player-item";
 export default class PlayersList extends React.Component {
 	constructor(props) {
 		super(props);
-
-		//How many players item can be in PlayersList
-		this.PLAYERS_ON_ONE_PAGE_COUNT = 20;
 	}
 
 	render() {
+		//Calculateing startIndex based on new current page
+		const startIndex = 
+			this.props.currentPageIndex * this.props.PLAYERS_ON_ONE_PAGE_COUNT;
+
 		return (
 			<div className="players-list">
 				{this.props.players
 					//Slicing, because we need only a part of whole players items
 					.slice(
-						this.props.startIndex,
-						this.PLAYERS_ON_ONE_PAGE_COUNT + this.props.startIndex
+						startIndex,
+						this.props.PLAYERS_ON_ONE_PAGE_COUNT + startIndex
 					)
 					.map((player, index) => {
 					return (

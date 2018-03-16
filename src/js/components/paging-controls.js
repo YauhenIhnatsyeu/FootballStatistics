@@ -1,34 +1,39 @@
 import React from "react";
 
-export default class PlayersList extends React.Component {
+export default class PagingControls {
 	constructor(props) {
-		super(props);
+		this.props = props;
 
-		this.state = {
-            currentPageIndex: 0
-        }
+		this.currentPageIndex = props.currentPageIndex;
     }
     
+    //Is called, when any of contols was clicked
     handleClick = (pageIndex) => {
+        //Don't do anything, if page goes beyond pages count
+        //or needed page is already active
         if (pageIndex < 0 
             || pageIndex > this.props.pagesCount - 1
-            || pageIndex === this.state.currentPageIndex)
+            || pageIndex === this.currentPageIndex)
             return;
-
+        
         if (this.props.onClick) {
+            //Calling external handler first
+            //and providing new current page index, so it can use it
             this.props.onClick(pageIndex);
         }
 
-        this.setState({
-            currentPageIndex: pageIndex
-        });
+        //Then change currentPageIndex to a new one 
+        this.currentPageIndex = pageIndex;
     }
 
+    //Gets list of options for <select></select>
     getOptions = () => {
+        //Creating an array of 1..pagesCount
         const pages = [];
         for (let i = 1; i <= this.props.pagesCount; i++) {
             pages.push(i);
         }
+
         return (
             pages.map((page, index) => {
                 return (
@@ -44,41 +49,44 @@ export default class PlayersList extends React.Component {
 		return (
 			<div className="paging-controls">
                 <ul className="paging-controls__list">
-                    <li className="paging-controls__control">
+                    <li className="paging-controls__control paging-controls__control_not-clickable">
                         <select
                             className="paging-controls__select"
+                            //When select changes extract new value from it,
+                            //subtract 1 and pass it to the handler
                             onChange={(event) => this.handleClick(event.target.value - 1)}
-                            value={this.state.currentPageIndex + 1}
+                            value={this.currentPageIndex + 1}
                         >
                             {this.getOptions()}
                         </select>
                     </li>
                     <li
                         className="paging-controls__control"
+                        //First page is page with zero index 
                         onClick={() => this.handleClick(0)}
                     >
                         first
                     </li>
                     <li
                         className="paging-controls__control"
-                        onClick={() => this.handleClick(this.state.currentPageIndex - 1)}
+                        //Previous page is page with currentPageIndex - 1 index 
+                        onClick={() => this.handleClick(this.currentPageIndex - 1)}
                     >
                         prev
                     </li>
-                    <li
-                        className="paging-controls__control"
-                        onClick={() => this.handleClick(0)}
-                    >
-                        1/6
+                    <li className="paging-controls__control paging-controls__control_not-clickable">
+                        {this.currentPageIndex + "/" + this.props.pagesCount}
                     </li>
                     <li
                         className="paging-controls__control"
-                        onClick={() => this.handleClick(this.state.currentPageIndex + 1)}
+                        //Next page is page with currentPageIndex + 1 index 
+                        onClick={() => this.handleClick(this.currentPageIndex + 1)}
                     >
                         next
                     </li>
                     <li
                         className="paging-controls__control"
+                        //Last page is page with pagesCount - s1 index 
                         onClick={() => this.handleClick(this.props.pagesCount - 1)}
                     >
                         last

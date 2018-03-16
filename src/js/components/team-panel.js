@@ -26,7 +26,6 @@ export default class TeamPanel extends React.Component {
     	this.setState({
     		team: team,
 		});
-		this.playersCount = team.lendyh
     }
 
     //Is called when error occurs while fetching a team

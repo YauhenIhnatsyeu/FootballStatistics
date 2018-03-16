@@ -15,11 +15,11 @@ export default class PlayersSection extends React.Component {
 		this.state = {
             players: undefined,
             //Index, from which players will be counted in PlayersList
-            playersListStartIndex: 0,
+            currentPageIndex: 0,
 			errorOccured: false
         }
 
-        //How many players item can be in PlayersList
+		//How many players item can be in PlayersList
 		this.PLAYERS_ON_ONE_PAGE_COUNT = 20;
 
 		//Creating url to request players from this team
@@ -44,12 +44,10 @@ export default class PlayersSection extends React.Component {
     	});
     }
     
-    //Is called when user clicks some control on PaginControls
+    //Is called when user clicks some control on pagingControls
     handlePagingControlsClick = (pageIndex) => {
         this.setState({
-            //Calculateing playersListStartIndex based on new current page
-            playersListStartIndex:
-                pageIndex * this.PLAYERS_ON_ONE_PAGE_COUNT
+            currentPageIndex: pageIndex
         });
     }
 	
@@ -59,8 +57,8 @@ export default class PlayersSection extends React.Component {
 		if (a.jerseyNumber < b.jerseyNumber)
 			return -1;
 		return 0;
-	}
-	
+    }
+    
 	render() {
     	//If an error occured, show the message
     	if (this.state.errorOccured) {
@@ -72,21 +70,33 @@ export default class PlayersSection extends React.Component {
     		return <Loading />;
         }
         
+        //To calculate how many pages we need we must divide players count
+        //on allowed player count on one page and round it to the top
+        const pagesCount = Math.ceil(this.state.players.length / this.PLAYERS_ON_ONE_PAGE_COUNT);
+        
+        //Creating an instance of PagingControls, that will be used above and below the PlayersList
+        let pagingControls = new PagingControls({
+            currentPageIndex: this.state.currentPageIndex,
+            pagesCount: pagesCount,
+            onClick: this.handlePagingControlsClick
+        });
+
 		return (
 			<div className="players-section">
                 <SectionHeader title="Players" />
                 <div className="players-section__paging-controls-container">
-                    <PagingControls
-                        pagesCount={
-                            //To calculate how pmany pages we need we must divide players count
-                            //on allowed player count on one page and round it to the top
-                            Math.ceil(this.state.players.length / this.PLAYERS_ON_ONE_PAGE_COUNT)
-                        }
-                        onClick={this.handlePagingControlsClick}
-                    />
+                    {/* render - method in PagingControls, that returns the control itself */}
+                    {pagingControls.render()}
                 </div>
                 <div className="players-section__players-list-container">
-                    <PlayersList players={this.state.players} startIndex={this.state.playersListStartIndex} />
+                    <PlayersList
+                        PLAYERS_ON_ONE_PAGE_COUNT={this.PLAYERS_ON_ONE_PAGE_COUNT}
+                        players={this.state.players} 
+                        currentPageIndex={this.state.currentPageIndex}
+                    />
+                </div>
+                <div className="players-section__paging-controls-container players-section__paging-controls-container_position_bottom">
+                    {pagingControls.render()}
                 </div>
 			</div>
 		);
