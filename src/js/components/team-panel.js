@@ -3,6 +3,7 @@ import React from "react";
 import {fetchTeamData} from "../utils/FootballDataReceiver";
 
 import TeamItemForHeader from "./team-item-for-header";
+import SectionHeader from "./section-header";
 import PlayersList from "./players-list";
 
 import {Loading, Error} from "./messages";
@@ -52,8 +53,19 @@ export default class TeamPanel extends React.Component {
 			<div className="team-panel">
 				<div className="team-panel__team-item-for-header-container">
 					<TeamItemForHeader team={this.state.team} onTabClick={this.handleTabClick} />
-					<div className="team-panel__info-container">
-						<PlayersList team={this.state.team} />
+				</div>
+				<div className="team-panel__info-container">
+					<div className="team-panel__players-section">
+						<SectionHeader title="Players" />
+						<div className="team-panel__players-list-container">
+							<PlayersList team={this.state.team} />
+						</div>
+					</div>
+					<div className="team-panel__tweets-section">
+						<SectionHeader title={"Tweets for tag #" + this.state.team.shortName.toLowerCase()} />
+						<div className="team-panel__tweets-container">
+							<PlayersList team={this.state.team} />
+						</div>
 					</div>
 				</div>
 			</div>

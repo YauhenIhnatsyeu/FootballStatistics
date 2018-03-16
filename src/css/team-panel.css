@@ -1,3 +1,27 @@
 .team-panel__team-item-for-header-container {
-    width: 50%;
+    width: 49%;
+}
+
+.team-panel__info-container {
+    display: flex;
+
+    margin-top: 1rem;
+
+    justify-content: space-between;
+}
+
+.team-panel__players-section {
+    flex-basis: 49%;
+}
+
+.team-panel__players-list-container {
+    margin-top: 1rem;
+}
+
+.team-panel__tweets-section {
+    flex-basis: 49%;
+}
+
+.team-panel__tweets-container {
+    margin-top: 1rem;
 }

@@ -61,10 +61,12 @@ export default class PlayersList extends React.Component {
 		}
 		
 		return (
-			<div className="players-panel">
+			<div className="players-list">
 				{this.state.players.map((player, index) => {
 					return (
-						<PlayerItem key={index} player={player} />
+						<div key={index} className="players-list__player-item-container">
+							<PlayerItem player={player} />
+						</div>
 					)
 				})}
 			</div>
