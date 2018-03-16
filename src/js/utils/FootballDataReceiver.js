@@ -68,8 +68,7 @@ class FootballDataReceiver {
 }
 
 export default function fetchFootballData(urls, onLoadCallback, onErrorCallback) {
-	const fdr = new FootballDataReceiver(urls, onLoadCallback, onErrorCallback);
-	fdr.fetch();
+	const fdr = new FootballDataReceiver(urls, onLoadCallback, onErrorCallback).fetch();
 }
 
 //Base function for such functions, as fetchLeaguesTablesData or fetchLeaguesTeamsData
