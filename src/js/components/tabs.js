@@ -28,44 +28,38 @@ export class Tabs extends React.Component {
 		})
 	}
 
-    //Returns ul, which has list of li, which represents list of tabs we can click on
-    getTabsList = () => {
-    	return (
-    		<ul className="tab-panel__list">
-    			{this.props.children.map((tab, tabIndex) => {
-					//If child of Tabs is not a Tab object, skip it
-					if (tab.type !== Tab)
-						return null;
-
-    				//If tab is current, apply corresponding style (with _current modifier)
-    				if (tabIndex === this.state.currentTabIndex) {
-    					return (
-							//A tab is a <li></li> component
-							<li
-								className="tab-panel__tab tab-panel__tab_current" 
-								key={tabIndex} onClick={() => this.handleClick(tabIndex)}>
-									{tab.props.title}
-							</li>
-						);
-    				} else {
-						//If tab isn't current, display it as a usual tab
-    					return (
-							<li 
-								className="tab-panel__tab" 
-								key={tabIndex} onClick={() => this.handleClick(tabIndex)}>
-									{tab.props.title}
-							</li>
-						);
-    				}
-    			})}
-    		</ul>
-    	);
-    }
-
     render() {
     	return (
     		<div className="tab-panel">
-    			{this.getTabsList()}
+				{/* Return ul, which has list of li, which represents list of tabs we can click on */}
+				<ul className="tab-panel__list">
+					{this.props.children.map((tab, tabIndex) => {
+						//If child of Tabs is not a Tab object, skip it
+						if (tab.type !== Tab)
+							return null;
+
+						//If tab is current, apply corresponding style (with _current modifier)
+						if (tabIndex === this.state.currentTabIndex) {
+							return (
+								//A tab is a <li></li> component
+								<li
+									className="tab-panel__tab tab-panel__tab_current" 
+									key={tabIndex} onClick={() => this.handleClick(tabIndex)}>
+										{tab.props.title}
+								</li>
+							);
+						} else {
+							//If tab isn't current, display it as a usual tab
+							return (
+								<li 
+									className="tab-panel__tab" 
+									key={tabIndex} onClick={() => this.handleClick(tabIndex)}>
+										{tab.props.title}
+								</li>
+							);
+						}
+					})}
+				</ul>
     		</div>
     	);
     }
