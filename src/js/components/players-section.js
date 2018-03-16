@@ -75,7 +75,7 @@ export default class PlayersSection extends React.Component {
         const pagesCount = Math.ceil(this.state.players.length / this.PLAYERS_ON_ONE_PAGE_COUNT);
         
         //Creating an instance of PagingControls, that will be used above and below the PlayersList
-        let pagingControls = new PagingControls({
+        const pagingControls = new PagingControls({
             currentPageIndex: this.state.currentPageIndex,
             pagesCount: pagesCount,
             onClick: this.handlePagingControlsClick
@@ -84,10 +84,14 @@ export default class PlayersSection extends React.Component {
 		return (
 			<div className="players-section">
                 <SectionHeader title="Players" />
-                <div className="players-section__paging-controls-container">
-                    {/* render - method in PagingControls, that returns the control itself */}
-                    {pagingControls.render()}
-                </div>
+                {/* If players count is bigger than maximum allowed
+                    display paging controls*/}
+                {this.state.players.length <= this.PLAYERS_ON_ONE_PAGE_COUNT || 
+                    <div className="players-section__paging-controls-container">
+                        {/* render - method in PagingControls, that returns the control itself */}
+                        {pagingControls.render()}
+                    </div>
+                }
                 <div className="players-section__players-list-container">
                     <PlayersList
                         PLAYERS_ON_ONE_PAGE_COUNT={this.PLAYERS_ON_ONE_PAGE_COUNT}
@@ -95,9 +99,11 @@ export default class PlayersSection extends React.Component {
                         currentPageIndex={this.state.currentPageIndex}
                     />
                 </div>
-                <div className="players-section__paging-controls-container players-section__paging-controls-container_position_bottom">
-                    {pagingControls.render()}
-                </div>
+                {this.state.players.length <= this.PLAYERS_ON_ONE_PAGE_COUNT || 
+                    <div className="players-section__paging-controls-container players-section__paging-controls-container_position_bottom">
+                        {pagingControls.render()}
+                    </div>
+                }
 			</div>
 		);
 	}

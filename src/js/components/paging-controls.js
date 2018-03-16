@@ -75,7 +75,7 @@ export default class PagingControls {
                         prev
                     </li>
                     <li className="paging-controls__control paging-controls__control_not-clickable">
-                        {this.currentPageIndex + "/" + this.props.pagesCount}
+                        {(this.currentPageIndex + 1) + "/" + this.props.pagesCount}
                     </li>
                     <li
                         className="paging-controls__control"

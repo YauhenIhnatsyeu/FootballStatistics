@@ -50,6 +50,10 @@ export default class TeamPanel extends React.Component {
     		return <Loading />;
 		}
 		
+		//If shortName is null or undefined, use hashtag "#football"
+		const hashtag = this.state.team.shortName ? 
+			this.state.team.shortName.toLowerCase() : "football";
+
 		return (
 			<div className="team-panel">
 				<div className="team-panel__team-item-for-header-container">
@@ -62,7 +66,7 @@ export default class TeamPanel extends React.Component {
 					<div className="team-panel__tweets-section">
 						{/* Taking tag from shortName of the team */}
 						<SectionHeader
-							title={"Tweets for tag #" + this.state.team.shortName.toLowerCase()} 
+							title={"Tweets for tag #" + hashtag} 
 						/>
 					</div>
 				</div>
