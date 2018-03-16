@@ -6,13 +6,12 @@ export default class MainTeam extends React.Component {
 			<div className="item">
                 <div className="player-item__info-container">
                     <p className="item__name team-item-for-header__name">{this.props.player.name}</p>
-                    <p className="player-item__info">{this.props.player.position}</p>
-                    <p className="player-item__info">{this.props.player.dateOfBirth}</p>
-                    <p className="player-item__info">{this.props.player.marketValue}</p>
+                    <p className="player-item__info">Position: {this.props.player.position}</p>
+                    <p className="player-item__info">Date of birth: {this.props.player.dateOfBirth}</p>
                     {
 						//If squadMarketValue isn't null or underfined we can display it
 						this.props.player.marketValue && 
-						<p className="item__market-value">Squad market value: {this.props.team.squadMarketValue}</p>
+						<p className="item__market-value">Market value: {this.props.player.marketValue}</p>
 					}
                 </div>
                 <div className="player-item__img-container">

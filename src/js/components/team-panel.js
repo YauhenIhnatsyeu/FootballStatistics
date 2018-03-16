@@ -62,7 +62,10 @@ export default class TeamPanel extends React.Component {
 						</div>
 					</div>
 					<div className="team-panel__tweets-section">
-						<SectionHeader title={"Tweets for tag #" + this.state.team.shortName.toLowerCase()} />
+						{/* Taking tag from shortName of the team */}
+						<SectionHeader
+							title={"Tweets for tag #" + this.state.team.shortName.toLowerCase()} 
+						/>
 						<div className="team-panel__tweets-container">
 							<PlayersList team={this.state.team} />
 						</div>
