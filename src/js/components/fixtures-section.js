@@ -10,6 +10,11 @@ export default class PlayersPanel extends React.Component {
                     <SectionHeader
                         title={"Fixtures"} 
                     />
+
+                    <form>
+                        <input type="text" />
+                        <input type="text" />
+                    </form>
                 </div>
             </div>
         );

@@ -6,7 +6,10 @@ export class Tabs extends React.Component {
 
 		this.state = {
 			//Index of current (selected) tab
-			currentTabIndex: 0
+			currentTabIndex:
+				this.props.defaultIndex ?
+					//If no default value was provided, use 0
+					this.props.defaultIndex : 0
 		};
 	}
 	

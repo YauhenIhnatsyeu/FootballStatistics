@@ -14,7 +14,7 @@ export default class TeamPanel extends React.Component {
 
 		this.state = {
 			team: undefined,
-			playersTabIsActive: true,
+			currentTabsIndex: 1,
 			errorOccured: false
 		}
 
@@ -37,11 +37,9 @@ export default class TeamPanel extends React.Component {
 	
 	handleTabClick = (tabIndex) => {
 		//When one of the two tabs was clicked
-		//playersTabIsActive is set to true or false
-		//depending of what tab was clicked
+		//currentTabsIndex is set to a new index
 		this.setState({
-			playersTabIsActive:
-				tabIndex === 0 ? true : false
+			currentTabsIndex: tabIndex
 		});
 	}
 	
@@ -59,11 +57,15 @@ export default class TeamPanel extends React.Component {
 		return (
 			<div className="team-panel">
 				<div className="team-panel__team-item-for-header-container">
-					<TeamItemForHeader team={this.state.team} onTabClick={this.handleTabClick} />
+					<TeamItemForHeader 
+						team={this.state.team} 
+						onTabClick={this.handleTabClick}
+						defaultTabsIndex={this.state.currentTabsIndex}
+					/>
 				</div>
 				<div className="team-panel__info-container">
 					{/* If tab was switched, content will be switched too */}
-					{this.state.playersTabIsActive ?
+					{this.state.currentTabsIndex === 0 ?
 						<PlayersPanel team={this.state.team} />
 						:
 						<FixturesPanel team={this.state.team} />

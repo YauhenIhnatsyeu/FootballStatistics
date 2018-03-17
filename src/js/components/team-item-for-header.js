@@ -17,7 +17,10 @@ export default class TeamItemForHeader extends React.Component {
                 </div>
                 
                 <div className="team-item-for-header__tabpanel-container">
-                    <Tabs onTabClick={this.props.onTabClick}>
+                    <Tabs
+                        onTabClick={this.props.onTabClick}
+                        defaultIndex={this.props.defaultTabsIndex}
+                    >
                         <Tab title="Players">
                         </Tab>
                         <Tab title="Fixtures">
