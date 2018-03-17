@@ -94,7 +94,7 @@ export default class PlayersSection extends React.Component {
                 }
                 <div className="players-section__players-list-container">
                     <PlayersList
-                        PLAYERS_ON_ONE_PAGE_COUNT={this.PLAYERS_ON_ONE_PAGE_COUNT}
+                        playersOnOnePageCount={this.PLAYERS_ON_ONE_PAGE_COUNT}
                         players={this.state.players} 
                         currentPageIndex={this.state.currentPageIndex}
                     />

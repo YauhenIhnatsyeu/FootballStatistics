@@ -10,14 +10,6 @@
     justify-content: space-between;
 }
 
-.team-panel__players-section {
+.team-panel__section {
     flex-basis: 49%;
-}
-
-.team-panel__tweets-section {
-    flex-basis: 49%;
-}
-
-.team-panel__tweets-container {
-    margin-top: 1rem;
 }

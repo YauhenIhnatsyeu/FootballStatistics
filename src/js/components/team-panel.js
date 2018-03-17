@@ -3,9 +3,8 @@ import React from "react";
 import {fetchTeamData} from "../utils/FootballDataReceiver";
 
 import TeamItemForHeader from "./team-item-for-header";
-import SectionHeader from "./section-header";
-import PlayersSection from "./players-section";
-import PlayersList from "./players-list";
+import PlayersPanel from "./players-panel";
+import FixturesPanel from "./fixtures-panel";
 
 import {Loading, Error} from "./messages";
 
@@ -15,6 +14,7 @@ export default class TeamPanel extends React.Component {
 
 		this.state = {
 			team: undefined,
+			playersTabIsActive: true,
 			errorOccured: false
 		}
 
@@ -36,7 +36,13 @@ export default class TeamPanel extends React.Component {
 	}
 	
 	handleTabClick = (tabIndex) => {
-		
+		//When one of the two tabs was clicked
+		//playersTabIsActive is set to true or false
+		//depending of what tab was clicked
+		this.setState({
+			playersTabIsActive:
+				tabIndex === 0 ? true : false
+		});
 	}
 	
 	render() {
@@ -49,10 +55,6 @@ export default class TeamPanel extends React.Component {
     	if (!this.state.team) {
     		return <Loading />;
 		}
-		
-		//If shortName is null or undefined, use hashtag "#football"
-		const hashtag = this.state.team.shortName ? 
-			this.state.team.shortName.toLowerCase() : "football";
 
 		return (
 			<div className="team-panel">
@@ -60,15 +62,12 @@ export default class TeamPanel extends React.Component {
 					<TeamItemForHeader team={this.state.team} onTabClick={this.handleTabClick} />
 				</div>
 				<div className="team-panel__info-container">
-					<div className="team-panel__players-section">
-						<PlayersSection team={this.state.team} />
-					</div>
-					<div className="team-panel__tweets-section">
-						{/* Taking tag from shortName of the team */}
-						<SectionHeader
-							title={"Tweets for tag #" + hashtag} 
-						/>
-					</div>
+					{/* If tab was switched, content will be switched too */}
+					{this.state.playersTabIsActive ?
+						<PlayersPanel team={this.state.team} />
+						:
+						<FixturesPanel team={this.state.team} />
+					}
 				</div>
 			</div>
 		);
