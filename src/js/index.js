@@ -15,7 +15,7 @@ import "../css/nav.css";
 
 import "../css/main.css";
 
-import "../css/tab-panel.css";
+import "../css/tabs.css";
 import "../css/table.css";
 
 import "../css/item.css";

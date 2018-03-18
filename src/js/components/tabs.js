@@ -33,9 +33,9 @@ export class Tabs extends React.Component {
 
     render() {
     	return (
-    		<div className="tab-panel">
+    		<div className="tabs">
 				{/* Return ul, which has list of li, which represents list of tabs we can click on */}
-				<ul className="tab-panel__list">
+				<ul className="tabs__list">
 					{this.props.children.map((tab, tabIndex) => {
 						//If child of Tabs is not a Tab object, skip it
 						if (tab.type !== Tab)
@@ -46,7 +46,7 @@ export class Tabs extends React.Component {
 							return (
 								//A tab is a <li></li> component
 								<li
-									className="tab-panel__tab tab-panel__tab_current" 
+									className="tabs__tab tabs__tab_current" 
 									key={tabIndex} onClick={() => this.handleClick(tabIndex)}>
 										{tab.props.title}
 								</li>
@@ -55,7 +55,7 @@ export class Tabs extends React.Component {
 							//If tab isn't current, display it as a usual tab
 							return (
 								<li 
-									className="tab-panel__tab" 
+									className="tabs__tab" 
 									key={tabIndex} onClick={() => this.handleClick(tabIndex)}>
 										{tab.props.title}
 								</li>

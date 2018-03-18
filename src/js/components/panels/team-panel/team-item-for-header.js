@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Tabs, Tab} from "./tabs";
+import {Tabs, Tab} from "../../tabs";
 
 export default class TeamItemForHeader extends React.Component {
 	render() {

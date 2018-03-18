@@ -1,12 +1,12 @@
 import React from "react";
 
-import {fetchTeamData} from "../utils/FootballDataReceiver";
+import {fetchTeamData} from "../../../utils/FootballDataReceiver";
 
 import TeamItemForHeader from "./team-item-for-header";
-import PlayersPanel from "./players-panel";
-import FixturesPanel from "./fixtures-panel";
+import PlayersPanel from "./panels/players-panel/players-panel";
+import FixturesPanel from "./panels/fixtures-panel/fixtures-panel";
 
-import {Loading, Error} from "./messages";
+import {Loading, Error} from "../../messages";
 
 export default class TeamPanel extends React.Component {
 	constructor(props) {

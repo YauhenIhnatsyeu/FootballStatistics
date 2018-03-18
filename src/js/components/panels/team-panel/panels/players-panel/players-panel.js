@@ -1,7 +1,7 @@
 import React from "react";
 
-import SectionHeader from "./section-header";
-import PlayersSection from "./players-section";
+import SectionHeader from "../../../../section-header";
+import PlayersSection from "./sections/players-section/players-section";
 
 export default class PlayersPanel extends React.Component {
     render() {

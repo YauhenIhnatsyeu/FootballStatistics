@@ -1,14 +1,14 @@
 import React from "react";
 
-import {fetchLeaguesTablesData} from "../utils/FootballDataReceiver";
+import {fetchLeaguesTablesData} from "../../../utils/FootballDataReceiver";
 
-import {Tabs, Tab} from "./tabs";
+import {Tabs, Tab} from "../../tabs";
 
 import LeagueTable from "./league-table";
 
-import {Loading, Error} from "./messages";
+import {Loading, Error} from "../../messages";
 
-export default class TabPanel extends React.Component {
+export default class TablePanel extends React.Component {
 	constructor(props) {
 		super(props);
 

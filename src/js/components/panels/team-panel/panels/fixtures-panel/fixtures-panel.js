@@ -1,7 +1,7 @@
 import React from "react";
 
-import SectionHeader from "./section-header";
-import FixturesSection from "./fixtures-section";
+import SectionHeader from "../../../../section-header";
+import FixturesSection from "./sections/fixtures-section";
 
 export default class FixturesPanel extends React.Component {
     render() {
