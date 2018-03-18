@@ -82,7 +82,7 @@ export default class PlayersSection extends React.Component {
         });
 
 		return (
-			<div className="players-section">
+			<React.Fragment>
                 <SectionHeader title="Players" />
                 {/* If players count is bigger than maximum allowed
                     display paging controls*/}
@@ -104,7 +104,7 @@ export default class PlayersSection extends React.Component {
                         {pagingControls.render()}
                     </div>
                 }
-			</div>
+			</React.Fragment>
 		);
 	}
 }

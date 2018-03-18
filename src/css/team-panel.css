@@ -8,8 +8,12 @@
     margin-top: 1rem;
 
     justify-content: space-between;
+
+    flex-wrap: wrap;
 }
 
 .team-panel__section {
+    margin-bottom: 1rem;
+
     flex-basis: 49%;
 }
