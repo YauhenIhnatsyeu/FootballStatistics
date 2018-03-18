@@ -1,5 +1,7 @@
 import React from "react";
 
+import {Section} from "../../../../team-info";
+
 import SectionHeader from "../../../../section-header";
 import FixturesSection from "./sections/fixtures-section";
 
@@ -7,15 +9,11 @@ export default class FixturesPanel extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="team-panel__section">
+                <Section title="Fixtures">
                     <FixturesSection team={this.props.team} />
-                </div>
-                <div className="team-panel__section">
-                    {/* Taking tag from shortName of the team */}
-                    <SectionHeader
-                        title={"Some stuff"} 
-                    />
-                </div>
+                </Section>
+                <Section title="Some stuff">
+                </Section>
             </React.Fragment>
         );
     }   

@@ -1,5 +1,7 @@
 import React from "react";
 
+import {Section} from "../../../../team-info";
+
 import SectionHeader from "../../../../section-header";
 import PlayersSection from "./sections/players-section/players-section";
 
@@ -11,15 +13,12 @@ export default class PlayersPanel extends React.Component {
         
         return (
             <React.Fragment>
-                <div className="team-panel__section">
+                <Section title="Players">
                     <PlayersSection team={this.props.team} />
-                </div>
-                <div className="team-panel__section">
-                    {/* Taking tag from shortName of the team */}
-                    <SectionHeader
-                        title={"Tweets for tag #" + hashtag} 
-                    />
-                </div>
+                </Section>
+                <Section title={"Tweets for tag #" + hashtag}>
+                    
+                </Section>
             </React.Fragment>
         );
     }   

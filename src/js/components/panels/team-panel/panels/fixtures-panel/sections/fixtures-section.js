@@ -6,9 +6,7 @@ export default class FixturesSection extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <SectionHeader
-                    title={"Fixtures"} 
-                />
+                {null}
             </React.Fragment>
         );
     }   

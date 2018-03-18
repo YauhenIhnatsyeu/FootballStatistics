@@ -83,7 +83,6 @@ export default class PlayersSection extends React.Component {
 
 		return (
 			<React.Fragment>
-                <SectionHeader title="Players" />
                 {/* If players count is bigger than maximum allowed
                     display paging controls*/}
                 {this.state.players.length <= this.PLAYERS_ON_ONE_PAGE_COUNT || 

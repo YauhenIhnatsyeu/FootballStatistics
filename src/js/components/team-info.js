@@ -2,14 +2,23 @@ import React from "react";
 
 import SectionHeader from "./section-header";
 
-export default class FixturesSection extends React.Component {
+export class TeamInfo extends React.Component {
     render() {
         return (
-            <React.Fragment>
-                <SectionHeader
-                    title={"Fixtures"} 
-                />
-            </React.Fragment>
+            <div className="team-panel__info-container">
+                {this.props.children}
+            </div>
+        );
+    }   
+}
+
+export class Section extends React.Component {
+    render() {
+        return (
+            <div className="team-panel__section">
+                <SectionHeader title={this.props.title} />
+                {this.props.children}
+            </div>
         );
     }   
 }

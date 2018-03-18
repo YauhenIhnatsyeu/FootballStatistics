@@ -2,6 +2,8 @@ import React from "react";
 
 import {fetchTeamData} from "../../../utils/FootballDataReceiver";
 
+import {TeamInfo} from "../../team-info"
+
 import TeamItemForHeader from "./team-item-for-header";
 import PlayersPanel from "./panels/players-panel/players-panel";
 import FixturesPanel from "./panels/fixtures-panel/fixtures-panel";
@@ -14,7 +16,7 @@ export default class TeamPanel extends React.Component {
 
 		this.state = {
 			team: undefined,
-			currentTabsIndex: 1,
+			currentTabsIndex: 0,
 			errorOccured: false
 		}
 
