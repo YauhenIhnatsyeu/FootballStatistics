@@ -10,14 +10,12 @@ export default class PlayersList extends React.Component {
 	}
 
 	render() {
-		//Calculating startIndex based on new current page
 		const startIndex = 
 			this.props.currentPageIndex * this.props.playersOnOnePageCount;
 
 		return (
 			<div className="players-list">
 				{this.props.players
-					//Slicing, because we need only a part of whole players items
 					.slice(
 						startIndex,
 						this.props.playersOnOnePageCount + startIndex

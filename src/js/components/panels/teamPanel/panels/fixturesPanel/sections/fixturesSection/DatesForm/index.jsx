@@ -8,12 +8,10 @@ export default class DatesForm extends React.Component {
 
         const currentDate = new Date();
 
-        //Turning current date into string to pass it to from-date input value
         this.currentDateString = dateToString(currentDate);
 
         //Adding 2 weeks to current date
         currentDate.setDate(currentDate.getDate() + 14);
-        //Turning to-date into string
         const toDateString = dateToString(currentDate);
 
         this.state = {
@@ -26,7 +24,6 @@ export default class DatesForm extends React.Component {
         this.props.onFromDateChange(date);
 
         this.setState({
-            //Changing value of from-date input, when onChange fires
             fromDate: date
         });
     }
@@ -35,7 +32,6 @@ export default class DatesForm extends React.Component {
         this.props.onToDateChange(date);
 
         this.setState({
-            //Changing value of to-date input, when onChange fires
             toDate: date
         });
     }
@@ -47,9 +43,7 @@ export default class DatesForm extends React.Component {
                     className="dates-form__input"
                     type="date" 
                     value={this.state.fromDate}
-                    //Min date is current date
                     min={this.currentDateString} 
-                    //Passing to handler new date
                     onChange={(event) => this.handleFromDateChange(event.target.value)}
                 />
 
@@ -57,9 +51,7 @@ export default class DatesForm extends React.Component {
                     className="dates-form__input"
                     type="date" 
                     value={this.state.toDate}
-                    //Min date is current date
                     min={this.currentDateString} 
-                    //Passing to handler new date
                     onChange={(event) => this.handleToDateChange(event.target.value)}
                 />
             </form>
