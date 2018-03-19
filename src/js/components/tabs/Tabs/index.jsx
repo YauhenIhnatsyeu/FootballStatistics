@@ -1,0 +1,73 @@
+import React from "react";
+
+import Tab from "../Tab";
+
+import "./index.css";
+
+export default class Tabs extends React.Component {
+	constructor (props) {
+		super(props);
+
+		this.state = {
+			//Index of current (selected) tab
+			currentTabIndex:
+				this.props.defaultIndex ?
+					//If no default value was provided, use 0
+					this.props.defaultIndex : 0
+		};
+	}
+	
+	//Is called when some tab was clicked
+	handleClick = (tabIndex) => {
+		//If an already active tab was clicked, do nothing
+		if (this.state.currentTabIndex === tabIndex)
+			return;
+
+		if (this.props.onTabClick) {
+			//Firstly, call handler from props and pass tabIndex to it,
+			//so handler can use it
+			this.props.onTabClick(tabIndex);
+		}
+
+		//Secondly update currentTabIndex
+		this.setState({
+			currentTabIndex: tabIndex
+		})
+	}
+
+    render() {
+    	return (
+    		<div className="tabs">
+				{/* Return ul, which has list of li, which represents list of tabs we can click on */}
+				<ul className="tabs__list">
+					{this.props.children.map((tab, tabIndex) => {
+						//If child of Tabs is not a Tab object, skip it
+						if (tab.type !== Tab)
+							return null;
+
+						//If tab is current, apply corresponding style (with _current modifier)
+						if (tabIndex === this.state.currentTabIndex) {
+							return (
+								//A tab is a <li></li> component
+								<li
+									className="tabs__tab tabs__tab_current" 
+									key={tabIndex} onClick={() => this.handleClick(tabIndex)}>
+										{tab.props.title}
+								</li>
+							);
+						} else {
+							//If tab isn't current, display it as a usual tab
+							return (
+								<li 
+									className="tabs__tab" 
+									key={tabIndex} onClick={() => this.handleClick(tabIndex)}>
+										{tab.props.title}
+								</li>
+							);
+						}
+					})}
+				</ul>
+    		</div>
+    	);
+    }
+}

@@ -1,21 +1,7 @@
 .item {
-    display: flex;
-
     padding: 1rem;
 
     background: #eeeeee;
 
     box-shadow: 0 4px 0 -2px #c6c6c6;
-}
-
-.item__img {
-    width: 6rem;
-    height: 6rem;
-}
-
-.item__name {
-    text-decoration: underline;
-
-    font-size: 1.3rem;
-    font-weight: 500;
 }
