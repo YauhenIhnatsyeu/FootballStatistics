@@ -1,13 +1,13 @@
 import React from "react";
 
-import {fetchLeaguesTablesData} from "../utils/FootballDataReceiver";
+import {fetchLeaguesTablesData} from "../../../utils/FootballDataReceiver";
 
-import SectionHeader from "./section-header";
+import SectionHeader from "../../section-header";
 import LeagueSelector from "./league-selector";
 
 import TeamsList from "./teams-list";
 
-import {Loading, Error} from "./messages";
+import {Loading, Error} from "../../messages";
 
 export default class leagueTablePanel extends React.Component {
 	constructor(props) {

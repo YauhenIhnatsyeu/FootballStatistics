@@ -1,10 +1,10 @@
 import React from "react";
 
-import {fetchLeaguesTeamsData} from "../utils/FootballDataReceiver";
+import {fetchLeaguesTeamsData} from "../../../utils/FootballDataReceiver";
 
 import TeamItem from './team-item';
 
-import {Loading, Error} from "./messages";
+import {Loading, Error} from "../../messages";
 
 export default class TeamsList extends React.Component {
 	constructor(props) {

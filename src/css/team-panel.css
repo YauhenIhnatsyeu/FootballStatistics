@@ -8,16 +8,12 @@
     margin-top: 1rem;
 
     justify-content: space-between;
+
+    flex-wrap: wrap;
 }
 
-.team-panel__players-section {
+.team-panel__section {
+    margin-bottom: 1rem;
+
     flex-basis: 49%;
-}
-
-.team-panel__tweets-section {
-    flex-basis: 49%;
-}
-
-.team-panel__tweets-container {
-    margin-top: 1rem;
 }

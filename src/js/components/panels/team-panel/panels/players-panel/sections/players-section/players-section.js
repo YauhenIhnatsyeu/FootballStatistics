@@ -1,12 +1,12 @@
 import React from "react";
 
-import fetchFootbalData from "../utils/FootballDataReceiver";
+import fetchFootbalData from "../../../../../../../utils/FootballDataReceiver";
 
-import SectionHeader from "./section-header";
-import PagingControls from "./paging-controls";
+import SectionHeader from "../../../../../../section-header";
+import PagingControls from "../../../../../../paging-controls";
 import PlayersList from "./players-list";
 
-import {Loading, Error} from "./messages";
+import {Loading, Error} from "../../../../../../messages";
 
 export default class PlayersSection extends React.Component {
 	constructor(props) {
@@ -82,8 +82,7 @@ export default class PlayersSection extends React.Component {
         });
 
 		return (
-			<div className="players-section">
-                <SectionHeader title="Players" />
+			<React.Fragment>
                 {/* If players count is bigger than maximum allowed
                     display paging controls*/}
                 {this.state.players.length <= this.PLAYERS_ON_ONE_PAGE_COUNT || 
@@ -94,7 +93,7 @@ export default class PlayersSection extends React.Component {
                 }
                 <div className="players-section__players-list-container">
                     <PlayersList
-                        PLAYERS_ON_ONE_PAGE_COUNT={this.PLAYERS_ON_ONE_PAGE_COUNT}
+                        playersOnOnePageCount={this.PLAYERS_ON_ONE_PAGE_COUNT}
                         players={this.state.players} 
                         currentPageIndex={this.state.currentPageIndex}
                     />
@@ -104,7 +103,7 @@ export default class PlayersSection extends React.Component {
                         {pagingControls.render()}
                     </div>
                 }
-			</div>
+			</React.Fragment>
 		);
 	}
 }

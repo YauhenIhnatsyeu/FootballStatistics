@@ -10,7 +10,7 @@ export default class PlayersList extends React.Component {
 	render() {
 		//Calculating startIndex based on new current page
 		const startIndex = 
-			this.props.currentPageIndex * this.props.PLAYERS_ON_ONE_PAGE_COUNT;
+			this.props.currentPageIndex * this.props.playersOnOnePageCount;
 
 		return (
 			<div className="players-list">
@@ -18,7 +18,7 @@ export default class PlayersList extends React.Component {
 					//Slicing, because we need only a part of whole players items
 					.slice(
 						startIndex,
-						this.props.PLAYERS_ON_ONE_PAGE_COUNT + startIndex
+						this.props.playersOnOnePageCount + startIndex
 					)
 					.map((player, index) => {
 					return (

@@ -1,20 +1,20 @@
 import React from "react";
 
-import {fetchLeaguesTablesData} from "../utils/FootballDataReceiver";
+import {fetchLeaguesTablesData} from "../../../utils/FootballDataReceiver";
 
-import {Tabs, Tab} from "./tabs";
+import {Tabs, Tab} from "../../tabs";
 
 import LeagueTable from "./league-table";
 
-import {Loading, Error} from "./messages";
+import {Loading, Error} from "../../messages";
 
-export default class TabPanel extends React.Component {
+export default class TablePanel extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			leaguesTables: undefined,
-			currentLeagueTableIndex: 0,
+			currentTabsIndex: 0,
 			errorOccured: false,
 		};
 
@@ -38,7 +38,7 @@ export default class TabPanel extends React.Component {
 	
 	handleTabClick = (tabIndex) => {
 		this.setState({
-			currentLeagueTableIndex: tabIndex
+			currentTabsIndex: tabIndex
 		})
 	}
     
@@ -56,7 +56,10 @@ export default class TabPanel extends React.Component {
     	//If leaguesTables isn't underfined it can be displayed
     	return (
 			<React.Fragment>
-				<Tabs onTabClick={this.handleTabClick} >
+				<Tabs
+					onTabClick={this.handleTabClick}
+					defaultIndex={this.state.currentTabsIndex} 
+				>
 					{/* Mapping through array of leaguesTables */}
 					{this.state.leaguesTables.map((leagueTable, index) => {
 						return (
@@ -65,10 +68,10 @@ export default class TabPanel extends React.Component {
 						);
 					})}
 				</Tabs>
-				{/* When tab changes, currentLeagueTableIndex updates,
+				{/* When tab changes, currentTabsIndex updates,
 					and because of that league table updates too */}
 				<LeagueTable
-					leagueTable={this.state.leaguesTables[this.state.currentLeagueTableIndex].standing}
+					leagueTable={this.state.leaguesTables[this.state.currentTabsIndex].standing}
 				/>
 			</React.Fragment>
     	);

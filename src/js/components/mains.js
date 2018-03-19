@@ -1,16 +1,16 @@
 import React from "react";
 
-import TabPanel from "./tab-panel";
-import LeaguePanel from "./league-panel";
-import TeamPanel from "./team-panel";
+import TablePanel from "./panels/table-panel/table-panel";
+import LeaguePanel from "./panels/league-panel/league-panel";
+import TeamPanel from "./panels/team-panel/team-panel";
 
 export class MainTable extends React.Component {
 	render() {
 		return (
 			<main>
 				<div className="main__inner-container wrapper">
-					<div className="main__tab-panel-container">
-						<TabPanel leaguesIds={this.props.leaguesIds} />
+					<div className="main__table-panel-container">
+						<TablePanel leaguesIds={this.props.leaguesIds} />
 					</div>
 				</div>
 			</main>

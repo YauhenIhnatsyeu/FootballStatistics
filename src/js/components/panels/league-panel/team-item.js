@@ -2,7 +2,7 @@ import React from "react";
 
 import {Link} from "react-router-dom";
 
-import extractTeamIdFromUrl from "../utils/extractTeamIdFromUrl";
+import extractTeamIdFromUrl from "../../../utils/extractTeamIdFromUrl";
 
 export default class TeamItem extends React.Component {
 	constructor(props) {

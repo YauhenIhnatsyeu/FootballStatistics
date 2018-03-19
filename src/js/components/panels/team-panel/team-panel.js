@@ -1,13 +1,14 @@
 import React from "react";
 
-import {fetchTeamData} from "../utils/FootballDataReceiver";
+import {fetchTeamData} from "../../../utils/FootballDataReceiver";
+
+import {TeamInfo} from "../../team-info"
 
 import TeamItemForHeader from "./team-item-for-header";
-import SectionHeader from "./section-header";
-import PlayersSection from "./players-section";
-import PlayersList from "./players-list";
+import PlayersPanel from "./panels/players-panel/players-panel";
+import FixturesPanel from "./panels/fixtures-panel/fixtures-panel";
 
-import {Loading, Error} from "./messages";
+import {Loading, Error} from "../../messages";
 
 export default class TeamPanel extends React.Component {
 	constructor(props) {
@@ -15,6 +16,7 @@ export default class TeamPanel extends React.Component {
 
 		this.state = {
 			team: undefined,
+			currentTabsIndex: 1,
 			errorOccured: false
 		}
 
@@ -36,7 +38,11 @@ export default class TeamPanel extends React.Component {
 	}
 	
 	handleTabClick = (tabIndex) => {
-		
+		//When one of the two tabs was clicked
+		//currentTabsIndex is set to a new index
+		this.setState({
+			currentTabsIndex: tabIndex
+		});
 	}
 	
 	render() {
@@ -49,26 +55,23 @@ export default class TeamPanel extends React.Component {
     	if (!this.state.team) {
     		return <Loading />;
 		}
-		
-		//If shortName is null or undefined, use hashtag "#football"
-		const hashtag = this.state.team.shortName ? 
-			this.state.team.shortName.toLowerCase() : "football";
 
 		return (
 			<div className="team-panel">
 				<div className="team-panel__team-item-for-header-container">
-					<TeamItemForHeader team={this.state.team} onTabClick={this.handleTabClick} />
+					<TeamItemForHeader 
+						team={this.state.team} 
+						onTabClick={this.handleTabClick}
+						defaultTabsIndex={this.state.currentTabsIndex}
+					/>
 				</div>
 				<div className="team-panel__info-container">
-					<div className="team-panel__players-section">
-						<PlayersSection team={this.state.team} />
-					</div>
-					<div className="team-panel__tweets-section">
-						{/* Taking tag from shortName of the team */}
-						<SectionHeader
-							title={"Tweets for tag #" + hashtag} 
-						/>
-					</div>
+					{/* If tab was switched, content will be switched too */}
+					{this.state.currentTabsIndex === 0 ?
+						<PlayersPanel team={this.state.team} />
+						:
+						<FixturesPanel team={this.state.team} />
+					}
 				</div>
 			</div>
 		);

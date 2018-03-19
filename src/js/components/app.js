@@ -9,7 +9,7 @@ import {
 
 import Header from "./header";
 
-import {MainTable, MainTeams, MainTeam} from "./main";
+import {MainTable, MainTeams, MainTeam} from "./mains";
 
 export default class App extends React.Component {
 	constructor(props) {
