@@ -3,7 +3,7 @@ import React from "react";
 import {Section} from "../../../../team-info";
 
 import SectionHeader from "../../../../section-header";
-import FixturesSection from "./sections/fixtures-section";
+import FixturesSection from "./sections/fixtures-section/fixtures-section";
 
 export default class FixturesPanel extends React.Component {
     render() {

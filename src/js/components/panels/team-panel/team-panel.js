@@ -16,7 +16,7 @@ export default class TeamPanel extends React.Component {
 
 		this.state = {
 			team: undefined,
-			currentTabsIndex: 0,
+			currentTabsIndex: 1,
 			errorOccured: false
 		}
 

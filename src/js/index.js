@@ -28,9 +28,12 @@ import "../css/team-item.css";
 
 import "../css/team-panel.css";
 import "../css/team-item-for-header.css";
+
 import "../css/players-section.css";
 import "../css/paging-controls.css";
 import "../css/players-list.css";
+
+import "../css/fixtures-section.css";
 
 import "../css/message.css";
 
