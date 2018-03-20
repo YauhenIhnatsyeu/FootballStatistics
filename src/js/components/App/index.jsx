@@ -11,7 +11,7 @@ export default class App extends React.Component {
 		super(props);
 
 		//leagueTable Id points to a specific leagueTable in the leagueTable tables in the Football API 
-		this.leaguesIds = [445, 452, 455, 456, 450];
+		// this.leaguesIds = [445, 452, 455, 456, 450];
 	}
 
 	render() {
@@ -20,7 +20,7 @@ export default class App extends React.Component {
 				<Router>
 					<React.Fragment>
 						<Header />
-						<Main leaguesIds={this.leaguesIds}/>
+						<Main />
 					</React.Fragment>
 				</Router>
 			</React.Fragment>

@@ -16,11 +16,11 @@ export default class TablePage extends React.Component {
 
 		this.state = {
 			leaguesTables: undefined,
-			currentTabsIndex: 0,
+			currentTabIndex: 0,
 			errorOccured: false,
 		};
 
-		fetchLeaguesTablesData(this.props.leaguesIds, this.handleLeaguesLoad, this.handleLeaguesError);
+		fetchLeaguesTablesData(this.props.app.leaguesIds, this.handleLeaguesLoad, this.handleLeaguesError);
 	}
 
     handleLeaguesLoad = (leaguesTables) => {
@@ -36,9 +36,7 @@ export default class TablePage extends React.Component {
 	}
 	
 	handleTabClick = (tabIndex) => {
-		this.setState({
-			currentTabsIndex: tabIndex
-		})
+		this.props.updateTabIndex(tabIndex);
 	}
     
     render() {
@@ -54,7 +52,7 @@ export default class TablePage extends React.Component {
 			<React.Fragment>
 				<Tabs
 					onTabClick={this.handleTabClick}
-					defaultIndex={this.state.currentTabsIndex} 
+					defaultIndex={this.state.currentTabIndex} 
 				>
 					{this.state.leaguesTables.map((leagueTable, index) => {
 						return (
@@ -63,7 +61,7 @@ export default class TablePage extends React.Component {
 					})}
 				</Tabs>
 				<LeagueTable
-					leagueTable={this.state.leaguesTables[this.state.currentTabsIndex].standing}
+					leagueTable={this.state.leaguesTables[this.props.tabs.currentTabIndex].standing}
 				/>
 			</React.Fragment>
     	);

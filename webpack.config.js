@@ -8,9 +8,14 @@ module.exports = {
   },
   resolve: {
     alias: {
-      Utilities: path.resolve(__dirname, "src/js/utils"),
       Components: path.resolve(__dirname, "src/js/components"),
-      Pages: path.resolve(__dirname, "src/js/components/pages")
+      Containers: path.resolve(__dirname, "src/js/containers"),
+
+      Pages: path.resolve(__dirname, "src/js/components/pages"),
+
+      ActionCreators: path.resolve(__dirname, "src/js/actions/actionCreators"),
+
+      Utilities: path.resolve(__dirname, "src/js/utils")
     },
     extensions: [".js", ".jsx"]
   },
@@ -20,7 +25,10 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: "babel-loader",
+          query: {
+            presets:["stage-2"]
+          }
         }
       },
       {
