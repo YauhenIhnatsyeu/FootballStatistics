@@ -12,7 +12,7 @@ import Error from "Components/messages/Error";
 
 import "./index.css";
 
-export default class leagueTablePanel extends React.Component {
+export default class leagueTablePage extends React.Component {
 	constructor(props) {
 		super(props);
 

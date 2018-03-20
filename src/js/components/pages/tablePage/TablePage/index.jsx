@@ -10,7 +10,7 @@ import LeagueTable from "../LeagueTable";
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
 
-export default class TablePanel extends React.Component {
+export default class TablePage extends React.Component {
 	constructor(props) {
 		super(props);
 

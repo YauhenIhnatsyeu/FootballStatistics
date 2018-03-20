@@ -6,29 +6,29 @@ import {
 	Redirect
 } from "react-router-dom";
 
-import TablePanel from "Panels/tablePanel/TablePanel";
-import TeamPanel from "Panels/teamPanel/TeamPanel";
-import LeaguePanel from "Panels/leaguePanel/LeaguePanel";
+import TablePage from "Pages/tablePage/TablePage";
+import TeamPage from "Pages/teamPage/TeamPage";
+import LeaguePage from "Pages/leaguePage/LeaguePage";
 
 import "./index.css";
 
 export default class Main extends React.Component {
 	render() {
-		const tablePanel = (
+		const tablePage = (
 			<div className="main__table-panel-container">
-				<TablePanel leaguesIds={this.props.leaguesIds} />
+				<TablePage leaguesIds={this.props.leaguesIds} />
 			</div>
 		);
 
-		const leaguePanel = (
+		const leaguePage = (
 			<div className="main__league-panel-container">
-				<LeaguePanel leaguesIds={this.props.leaguesIds} />
+				<LeaguePage leaguesIds={this.props.leaguesIds} />
 			</div>
 		);
 
-		const teamPanel = (props) => (
+		const teamPage = (props) => (
 			<div className="main__team-panel-container">
-				<TeamPanel teamId={props.match.params.id} />
+				<TeamPage teamId={props.match.params.id} />
 			</div>
 		);
 
@@ -36,9 +36,9 @@ export default class Main extends React.Component {
 			<main>
 				<div className="main__inner-container wrapper">
 					<Switch>
-						<Route path="/table" render={() => tablePanel} />
-						<Route path="/teams" render={() => leaguePanel} />
-						<Route path="/team/:id" render={(props) => teamPanel(props)} />
+						<Route path="/table" render={() => tablePage} />
+						<Route path="/teams" render={() => leaguePage} />
+						<Route path="/team/:id" render={(props) => teamPage(props)} />
 						<Redirect to="/table" />
 					</Switch>
 				</div>

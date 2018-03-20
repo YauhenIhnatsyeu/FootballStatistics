@@ -10,7 +10,7 @@ module.exports = {
     alias: {
       Utilities: path.resolve(__dirname, "src/js/utils"),
       Components: path.resolve(__dirname, "src/js/components"),
-      Panels: path.resolve(__dirname, "src/js/components/panels")
+      Pages: path.resolve(__dirname, "src/js/components/pages")
     },
     extensions: [".js", ".jsx"]
   },

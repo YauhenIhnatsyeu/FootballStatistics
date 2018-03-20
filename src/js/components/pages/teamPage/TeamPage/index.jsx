@@ -5,15 +5,15 @@ import {fetchTeamData} from "Utilities/FootballDataReceiver";
 import TeamInfo from "../teamInfo/TeamInfo";
 
 import TeamItemForHeader from "../TeamItemForHeader";
-import PlayersPanel from "../panels/playersPanel/PlayersPanel";
-import FixturesPanel from "../panels/fixturesPanel/FixturesPanel";
+import PlayersPanel from "../pages/playersPage/PlayersPage";
+import FixturesPanel from "../pages/fixturesPage/FixturesPage";
 
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
 
 import "./index.css";
 
-export default class TeamPanel extends React.Component {
+export default class TeamPage extends React.Component {
 	constructor(props) {
 		super(props);
 

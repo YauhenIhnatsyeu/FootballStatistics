@@ -1,6 +1,6 @@
 import React from "react";
 
-import Section from "Panels/teamPanel/teamInfo/Section";
+import Section from "Pages/teamPage/teamInfo/Section";
 
 import SectionHeader from "Components/SectionHeader";
 import FixturesSection from "../sections/fixturesSection/FixturesSection";
