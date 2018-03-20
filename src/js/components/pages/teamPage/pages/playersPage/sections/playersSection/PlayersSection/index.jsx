@@ -1,6 +1,6 @@
 import React from "react";
 
-import fetchFootbalData from "Utilities/FootballDataReceiver";
+import fetchFootbalData from "Utilities/fetchFootballData";
 
 import SectionHeader from "Components/SectionHeader";
 import PagingControls from "Components/PagingControls";

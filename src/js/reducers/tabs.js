@@ -6,7 +6,7 @@ const initialState = {
 
 export default function tabs(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.UPDATE_TAB_INDEX:
+        case actionTypes.TAB_INDEX_UPDATE_REQUESTED:
             return {...state, currentTabIndex: action.payload};
 
         default:

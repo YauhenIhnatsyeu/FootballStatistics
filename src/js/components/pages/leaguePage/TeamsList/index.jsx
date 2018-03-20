@@ -1,6 +1,6 @@
 import React from "react";
 
-import {fetchLeaguesTeamsData} from "Utilities/FootballDataReceiver";
+import {fetchLeaguesTeamsData} from "Utilities/fetchFootballData";
 
 import TeamItem from "../TeamItem";
 

@@ -1,7 +1,7 @@
 var path = require("path");
 
 module.exports = {
-  entry: "./src/js/index.jsx",
+  entry: ["babel-polyfill", "./src/js/index.jsx"],
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "public")
@@ -25,10 +25,10 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: "babel-loader"/*,
           query: {
             presets:["stage-2"]
-          }
+          }*/
         }
       },
       {

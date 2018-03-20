@@ -1,6 +1,6 @@
 import React from "react";
 
-import {fetchTeamData} from "Utilities/FootballDataReceiver";
+import {fetchTeamData} from "Utilities/fetchFootballData";
 
 import TeamInfo from "../teamInfo/TeamInfo";
 

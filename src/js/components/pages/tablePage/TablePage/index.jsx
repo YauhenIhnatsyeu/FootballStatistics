@@ -1,6 +1,6 @@
 import React from "react";
 
-import {fetchLeaguesTablesData} from "Utilities/FootballDataReceiver";
+// import {fetchLeaguesTablesData} from "Utilities/fetchFootballData";
 
 import Tabs from "Components/tabs/Tabs";
 import Tab from "Components/tabs/Tab";
@@ -14,37 +14,25 @@ export default class TablePage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			leaguesTables: undefined,
-			currentTabIndex: 0,
-			errorOccured: false,
-		};
+		const leagueUrls = this.props.app.leaguesIds.map((leagueId) => {
+			return "http://api.football-data.org/v1/competitions/"
+				+ leagueId +"/leagueTable";
+		});
 
-		fetchLeaguesTablesData(this.props.app.leaguesIds, this.handleLeaguesLoad, this.handleLeaguesError);
+		this.props.requestFetch(leagueUrls);
 	}
 
-    handleLeaguesLoad = (leaguesTables) => {
-    	this.setState({
-    		leaguesTables: leaguesTables
-    	});
-    }
-
-    handleLeaguesError = () => {
-		this.setState({
-    		errorOccured: true
-    	});
-	}
-	
 	handleTabClick = (tabIndex) => {
 		this.props.updateTabIndex(tabIndex);
 	}
     
     render() {
-    	if (this.state.errorOccured) {
+		// console.log("Render")
+    	if (this.props.tablePage.errorOccured) {
     		return <Error />;
     	}
 
-    	if (!this.state.leaguesTables) {
+    	if (!this.props.tablePage.leaguesTables) {
     		return <Loading />;
     	}
 
@@ -52,16 +40,16 @@ export default class TablePage extends React.Component {
 			<React.Fragment>
 				<Tabs
 					onTabClick={this.handleTabClick}
-					defaultIndex={this.state.currentTabIndex} 
+					defaultIndex={this.props.tabs.currentTabIndex} 
 				>
-					{this.state.leaguesTables.map((leagueTable, index) => {
+					{this.props.tablePage.leaguesTables.map((leaguesTables, index) => {
 						return (
-							<Tab key={index} title={leagueTable.leagueCaption} />
+							<Tab key={index} title={leaguesTables.leagueCaption} />
 						);
 					})}
 				</Tabs>
 				<LeagueTable
-					leagueTable={this.state.leaguesTables[this.props.tabs.currentTabIndex].standing}
+					leagueTable={this.props.tablePage.leaguesTables[this.props.tabs.currentTabIndex].standing}
 				/>
 			</React.Fragment>
     	);

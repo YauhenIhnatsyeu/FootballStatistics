@@ -1,6 +1,6 @@
 import React from "react";
 
-import {fetchLeaguesTablesData} from "Utilities/FootballDataReceiver";
+import {fetchLeaguesTablesData} from "Utilities/fetchFootballData";
 
 import SectionHeader from "Components/SectionHeader";
 import LeagueSelector from "../LeagueSelector";
