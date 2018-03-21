@@ -17,23 +17,16 @@ import "../css/item.css";
 
 const defaultState = {}
 
-const sagaMiddleware = createSagaMiddleware();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const enhancers = compose(
-	window.devToolsExtension
-		? window.devToolsExtension()
-		: f => f
-);
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
 	rootReducer, 
 	defaultState,
-	//enhancers,
-	applyMiddleware(
-		sagaMiddleware
-		//enhancers
-	),
-	
+	composeEnhancers(
+		applyMiddleware(sagaMiddleware),
+	)
 );
 
 sagaMiddleware.run(rootSaga);

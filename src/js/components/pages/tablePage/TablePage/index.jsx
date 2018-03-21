@@ -1,6 +1,6 @@
 import React from "react";
 
-// import {fetchLeaguesTablesData} from "Utilities/fetchFootballData";
+import {createLeaguesTablesUrl} from "Utilities/fetchingUrlsCreators";
 
 import Tabs from "Components/tabs/Tabs";
 import Tab from "Components/tabs/Tab";
@@ -14,25 +14,21 @@ export default class TablePage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const leagueUrls = this.props.app.leaguesIds.map((leagueId) => {
-			return "http://api.football-data.org/v1/competitions/"
-				+ leagueId +"/leagueTable";
-		});
-
-		this.props.requestFetch(leagueUrls);
+		this.leaguesTablesUrls = createLeaguesTablesUrl(this.props.app.leaguesIds);
+		this.props.requestFetch(this.leaguesTablesUrls[this.props.tabs.currentTabIndex]);
 	}
 
 	handleTabClick = (tabIndex) => {
+		this.props.requestFetch(this.leaguesTablesUrls[tabIndex]);
 		this.props.updateTabIndex(tabIndex);
 	}
     
     render() {
-		// console.log("Render")
     	if (this.props.tablePage.errorOccured) {
     		return <Error />;
     	}
 
-    	if (!this.props.tablePage.leaguesTables) {
+    	if (!this.props.tablePage.leagueTable) {
     		return <Loading />;
     	}
 
@@ -42,14 +38,15 @@ export default class TablePage extends React.Component {
 					onTabClick={this.handleTabClick}
 					defaultIndex={this.props.tabs.currentTabIndex} 
 				>
-					{this.props.tablePage.leaguesTables.map((leaguesTables, index) => {
+					{this.props.app.leaguesTitles.map((tabTitle, index) => {
 						return (
-							<Tab key={index} title={leaguesTables.leagueCaption} />
+							<Tab key={index} title={tabTitle} />
 						);
 					})}
 				</Tabs>
+
 				<LeagueTable
-					leagueTable={this.props.tablePage.leaguesTables[this.props.tabs.currentTabIndex].standing}
+					leagueTable={this.props.tablePage.leagueTable.standing}
 				/>
 			</React.Fragment>
     	);

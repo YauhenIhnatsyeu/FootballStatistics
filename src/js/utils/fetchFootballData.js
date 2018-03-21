@@ -1,4 +1,4 @@
-async function fetchNext(url) {
+export async function fetchUrl(url) {
 	const fetchInit = {
 		headers: {
 			"X-Auth-Token": "22cb5922f71544ee9aea4544d3256e40"
@@ -8,13 +8,13 @@ async function fetchNext(url) {
 	return await response.json();
 }
 
-export async function fetchUrls(urls) {
-	const result = [];
-	for (let i = 0; i < urls.length; i++) {
-		result.push(await fetchNext(urls[i]));
-	}
-	return result;
-}
+// export async function fetchUrls(urls) {
+// 	const result = [];
+// 	for (let i = 0; i < urls.length; i++) {
+// 		result.push(await fetchNext(urls[i]));
+// 	}
+// 	return result;
+// }
 
 function fetchLeaguesData(type, leaguesId) {
 	const leaguesUrl = 
