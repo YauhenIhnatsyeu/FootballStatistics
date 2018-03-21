@@ -5,27 +5,11 @@ import Tab from "../Tab";
 import "./index.css";
 
 export default class Tabs extends React.Component {
-	constructor (props) {
-		super(props);
-
-		this.state = {
-			currentTabIndex:
-				this.props.defaultIndex ?
-					this.props.defaultIndex : 0
-		};
-	}
-	
 	handleClick = (tabIndex) => {
-		if (this.state.currentTabIndex === tabIndex)
+		if (this.props.tabs.currentTabIndex === tabIndex)
 			return;
 
-		if (this.props.onTabClick) {
-			this.props.onTabClick(tabIndex);
-		}
-
-		this.setState({
-			currentTabIndex: tabIndex
-		})
+		this.props.updateTabIndex(tabIndex);
 	}
 
     render() {
@@ -36,7 +20,7 @@ export default class Tabs extends React.Component {
 						if (tab.type !== Tab)
 							return null;
 
-						if (tabIndex === this.state.currentTabIndex) {
+						if (tabIndex === this.props.tabs.currentTabIndex) {
 							return (
 								<li
 									className="tabs__tab tabs__tab_current" 

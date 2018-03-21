@@ -2,7 +2,8 @@ import React from "react";
 
 import {createLeaguesTablesUrl} from "Utilities/fetchingUrlsCreators";
 
-import Tabs from "Components/tabs/Tabs";
+// import Tabs from "Components/tabs/Tabs";
+import TabsContainer from "Containers/TabsContainer";
 import Tab from "Components/tabs/Tab";
 
 import LeagueTable from "../LeagueTable";
@@ -13,16 +14,16 @@ import Error from "Components/messages/Error";
 export default class TablePage extends React.Component {
 	constructor(props) {
 		super(props);
-
+		
 		this.leaguesTablesUrls = createLeaguesTablesUrl(this.props.app.leaguesIds);
 		this.props.requestFetch(this.leaguesTablesUrls[this.props.tabs.currentTabIndex]);
 	}
 
-	handleTabClick = (tabIndex) => {
-		this.props.requestFetch(this.leaguesTablesUrls[tabIndex]);
-		this.props.updateTabIndex(tabIndex);
+	componentWillReceiveProps(nextProps) {
+		if (this.props.tabs.currentTabIndex !== nextProps.tabs.currentTabIndex)
+			this.props.requestFetch(this.leaguesTablesUrls[nextProps.tabs.currentTabIndex]);
 	}
-    
+
     render() {
     	if (this.props.tablePage.errorOccured) {
     		return <Error />;
@@ -34,16 +35,14 @@ export default class TablePage extends React.Component {
 
     	return (
 			<React.Fragment>
-				<Tabs
-					onTabClick={this.handleTabClick}
-					defaultIndex={this.props.tabs.currentTabIndex} 
+				<TabsContainer
 				>
 					{this.props.app.leaguesTitles.map((tabTitle, index) => {
 						return (
 							<Tab key={index} title={tabTitle} />
 						);
 					})}
-				</Tabs>
+				</TabsContainer>
 
 				<LeagueTable
 					leagueTable={this.props.tablePage.leagueTable.standing}

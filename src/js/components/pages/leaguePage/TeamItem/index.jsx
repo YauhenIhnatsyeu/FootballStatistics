@@ -17,8 +17,8 @@ export default class TeamItem extends React.Component {
 		};
 	}
 
-	componentWillReceiveProps(newProps) {
-		this.teamId = extractTeamIdFromUrl(newProps.team._links.self.href);
+	componentWillReceiveProps(nextProps) {
+		this.teamId = extractTeamIdFromUrl(nextProps.team._links.self.href);
 
 		const isThisTeamFavourite = this.isThisTeamFavourite();
 		if (this.state.isFavourite !== isThisTeamFavourite) {
