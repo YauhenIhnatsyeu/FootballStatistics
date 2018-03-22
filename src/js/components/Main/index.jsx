@@ -6,12 +6,9 @@ import {
 	Redirect
 } from "react-router-dom";
 
-// import TablePage from "Pages/tablePage/TablePage";
-// import LeaguePage from "Pages/leaguePage/LeaguePage";
-import TeamPage from "Pages/teamPage/TeamPage";
-
 import TablePageContainer from "Containers/TablePageContainer";
 import LeaguePageContainer from "Containers/LeaguePageContainer";
+import TeamPageContainer from "Containers/TeamPageContainer";
 
 import "./index.css";
 
@@ -19,7 +16,6 @@ export default class Main extends React.Component {
 	render() {
 		const tablePage = (
 			<div className="main__table-panel-container">
-				{/* <TablePage leaguesIds={this.props.leaguesIds} /> */}
 				<TablePageContainer />
 			</div>
 		);
@@ -30,11 +26,11 @@ export default class Main extends React.Component {
 			</div>
 		);
 
-		// const teamPage = (props) => (
-		// 	<div className="main__team-panel-container">
-		// 		<TeamPage teamId={props.match.params.id} />
-		// 	</div>
-		// );
+		const teamPage = (props) => (
+			<div className="main__team-panel-container">
+				<TeamPageContainer teamId={props.match.params.id} />
+			</div>
+		);
 
 		return (
 			<main>
@@ -42,8 +38,8 @@ export default class Main extends React.Component {
 					<Switch>
 						<Route path="/table" render={() => tablePage} />
 						<Route path="/teams" render={() => leaguePage} />
-						{/* <Route path="/team/:id" render={(props) => teamPage(props)} />
-						<Redirect to="/table" /> */}
+						<Route path="/team/:id" render={(props) => teamPage(props)} />
+						<Redirect to="/table" />
 					</Switch>
 				</div>
 			</main>

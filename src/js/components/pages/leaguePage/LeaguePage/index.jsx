@@ -17,12 +17,12 @@ export default class LeaguePage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.props.selectNewLeague(
+		this.props.fetchLeague(
 			this.props.leaguesData.leaguesIds[this.props.currentLeagueIndex],
 			this.props.currentLeagueIndex
 		);
 
-		this.props.selectNewTeams(
+		this.props.fetchTeams(
 			this.props.leaguesData.leaguesIds[this.props.currentLeagueIndex]
 		)
 	}

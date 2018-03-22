@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-import {selectNewLeague} from "ActionCreators";
+import {fetchLeague} from "ActionCreators";
 
 import TablePage from "Pages/tablePage/TablePage";
 
@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        selectNewLeague: bindActionCreators(selectNewLeague, dispatch),
+        fetchLeague: bindActionCreators(fetchLeague, dispatch),
     }
 }
 

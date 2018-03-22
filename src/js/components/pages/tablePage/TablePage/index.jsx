@@ -1,6 +1,6 @@
 import React from "react";
 
-import TabsContainer from "Containers/TabsContainer";
+import Tabs from "Components/tabs/Tabs";
 import Tab from "Components/tabs/Tab";
 
 import LeagueTableContainer from "Containers/LeagueTableContainer";
@@ -12,9 +12,16 @@ export default class TablePage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.props.selectNewLeague(
+		this.props.fetchLeague(
 			this.props.leaguesData.leaguesIds[this.props.currentLeagueIndex],
 			this.props.currentLeagueIndex
+		);
+	}
+
+	handleTabClick = (tabIndex) => {
+		this.props.fetchLeague(
+			this.props.leaguesData.leaguesIds[tabIndex], 
+			tabIndex
 		);
 	}
 
@@ -29,13 +36,16 @@ export default class TablePage extends React.Component {
 
     	return (
 			<React.Fragment>
-				<TabsContainer>
+				<Tabs
+					currentTabIndex={this.props.currentLeagueIndex}
+					onTabClick={this.handleTabClick}
+				>
 					{this.props.leaguesData.leaguesTitles.map((tabTitle, index) => {
 						return (
 							<Tab key={index} title={tabTitle} />
 						);
 					})}
-				</TabsContainer>
+				</Tabs>
 
 				<LeagueTableContainer />
 			</React.Fragment>

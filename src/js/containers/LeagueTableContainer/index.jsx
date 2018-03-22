@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-import {selectNewLeague} from "ActionCreators";
+import {fetchLeague} from "ActionCreators";
 
 import LeagueTable from "Pages/tablePage/LeagueTable";
 
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        selectNewLeague: bindActionCreators(selectNewLeague, dispatch),
+        fetchLeague: bindActionCreators(fetchLeague, dispatch),
     }
 }
 

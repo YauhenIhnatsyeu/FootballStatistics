@@ -7,12 +7,12 @@ export default class LeagueSelector extends React.Component {
 		const leagueIndex =
 			this.props.leaguesData.leaguesTitles.indexOf(event.target.value);
 
-		this.props.selectNewLeague(
+		this.props.fetchLeague(
 			this.props.leaguesData.leaguesIds[leagueIndex],
 			leagueIndex
 		);
 
-		this.props.selectNewTeams(
+		this.props.fetchTeams(
 			this.props.leaguesData.leaguesIds[leagueIndex]
 		);
 	}

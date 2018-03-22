@@ -1,8 +1,8 @@
 import actionTypes from "./actionTypes";
 
-export function selectNewLeague(leagueId, index) {
+export function fetchLeague(leagueId, index) {
     return {
-        type: actionTypes.SELECT_NEW_LEAGUE,
+        type: actionTypes.LEAGUE_FETCH_REQUESTED,
         payload: leagueId,
         index: index
     };
@@ -23,9 +23,9 @@ export function onLeagueFetchSucceeded(data) {
 }
 
 
-export function selectNewTeams(leagueId) {
+export function fetchTeams(leagueId) {
     return {
-        type: actionTypes.SELECT_NEW_TEAMS,
+        type: actionTypes.TEAMS_FETCH_REQUESTED,
         payload: leagueId
     };
 }
@@ -33,6 +33,21 @@ export function selectNewTeams(leagueId) {
 export function onTeamsFetchSucceeded(data) {
     return {
         type: actionTypes.TEAMS_FETCH_SUCCEEDED,
+        payload: data
+    };
+}
+
+
+export function fetchTeam(teamId) {
+    return {
+        type: actionTypes.TEAM_FETCH_REQUESTED,
+        payload: teamId
+    };
+}
+
+export function onTeamFetchSucceeded(data) {
+    return {
+        type: actionTypes.TEAM_FETCH_SUCCEEDED,
         payload: data
     };
 }

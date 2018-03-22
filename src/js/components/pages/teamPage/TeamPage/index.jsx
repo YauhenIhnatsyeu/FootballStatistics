@@ -1,6 +1,6 @@
 import React from "react";
 
-import {fetchTeamData} from "Utilities/fetchFootballData";
+// import {fetchTeamData} from "Utilities/fetchFootballData";
 
 import TeamInfo from "../teamInfo/TeamInfo";
 
@@ -17,26 +17,26 @@ export default class TeamPage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			team: undefined,
-			currentTabsIndex: 1,
-			errorOccured: false
-		}
-
-		fetchTeamData(this.props.teamId, this.handleTeamLoaded, this.handleTeamError);
+		// this.state = {
+		// 	team: undefined,
+		// 	currentTabsIndex: 1,
+		// 	errorOccured: false
+		// }
+		
+		this.props.fetchTeam(this.props.teamId);
 	}
     
-    handleTeamLoaded = (team) => {
-    	this.setState({
-    		team: team,
-		});
-    }
+    // handleTeamLoaded = (team) => {
+    // 	this.setState({
+    // 		team: team,
+	// 	});
+    // }
 
-    handleTeamError = () => {
-    	this.setState({
-    		errorOccured: true
-		});
-	}
+    // handleTeamError = () => {
+    // 	this.setState({
+    // 		errorOccured: true
+	// 	});
+	// }
 	
 	handleTabClick = (tabIndex) => {
 		this.setState({
@@ -45,11 +45,11 @@ export default class TeamPage extends React.Component {
 	}
 	
 	render() {
-    	if (this.state.errorOccured) {
+    	if (this.props.fetchingErrorOccured) {
     		return <Error />;
     	}
         
-    	if (!this.state.team) {
+    	if (!this.props.currentTeam) {
     		return <Loading />;
 		}
 
@@ -57,18 +57,18 @@ export default class TeamPage extends React.Component {
 			<div className="team-panel">
 				<div className="team-panel__team-item-for-header-container">
 					<TeamItemForHeader 
-						team={this.state.team} 
+						team={this.props.currentTeam} 
 						onTabClick={this.handleTabClick}
-						defaultTabsIndex={this.state.currentTabsIndex}
+						//defaultTabsIndex={this.state.currentTabsIndex}
 					/>
 				</div>
-				<div className="team-panel__info-container">
+				{/* <div className="team-panel__info-container">
 					{this.state.currentTabsIndex === 0 ?
 						<PlayersPanel team={this.state.team} />
 						:
 						<FixturesPanel team={this.state.team} />
 					}
-				</div>
+				</div> */}
 			</div>
 		);
 	}

@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-import {selectNewTeams} from "ActionCreators";
+import {fetchTeams} from "ActionCreators";
 
 import TeamList from "Pages/leaguePage/TeamsList";
 
