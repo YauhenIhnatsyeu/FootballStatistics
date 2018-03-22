@@ -1,23 +1,23 @@
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-import {selectNewLeague} from "ActionCreators";
+import {selectNewLeague, selectNewTeams} from "ActionCreators";
 
-import TablePage from "Pages/tablePage/TablePage";
+import LeagueSelector from "Pages/leaguePage/LeagueSelector";
 
 const mapStateToProps = (state) => {
     return {
-        currentLeagueIndex: state.currentLeagueIndex,
         leaguesData: state.leaguesData,
-        fetchingErrorOccured: state.fetchingErrorOccured
+        currentLeagueIndex: state.currentLeagueIndex
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         selectNewLeague: bindActionCreators(selectNewLeague, dispatch),
+        selectNewTeams: bindActionCreators(selectNewTeams, dispatch)
     }
 }
 
 export default
-    connect(mapStateToProps, mapDispatchToProps)(TablePage);
+    connect(mapStateToProps, mapDispatchToProps)(LeagueSelector);

@@ -1,11 +1,13 @@
 import {combineReducers} from "redux";
 
-import app from "./app";
-import tabs from "./tabs";
-import tablePage from "./tablePage";
+import fetchingErrorOccured from "./fetchingErrorOccured";
+import currentLeagueIndex from "./currentLeagueIndex";
+import leaguesData from "./leaguesData";
+import currentTeams from "./currentTeams";
 
 export default combineReducers({
-    app,
-    tabs,
-    tablePage
+    fetchingErrorOccured,
+    currentLeagueIndex,
+    leaguesData,
+    currentTeams
 });

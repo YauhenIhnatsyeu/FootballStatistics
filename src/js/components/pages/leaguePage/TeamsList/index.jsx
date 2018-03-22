@@ -12,13 +12,6 @@ import "./index.css";
 export default class TeamsList extends React.Component {
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			leaguesTeams: undefined,
-			errorOccured: false
-		};
-
-		fetchLeaguesTeamsData(this.props.leaguesIds, this.handleLeaguesTeamsLoaded, this.handleLeaguesTeamsError);
 	}
     
     handleLeaguesTeamsLoaded = (leaguesTeams) => {
@@ -34,17 +27,17 @@ export default class TeamsList extends React.Component {
     }
 
     render() {
-    	if (this.state.errorOccured) {
+    	if (this.props.fetchingError) {
     		return <Error />;
     	}
         
-    	if (!this.state.leaguesTeams) {
+    	if (!this.props.currentTeams) {
     		return <Loading />;
     	}
 
     	return (
 			<div className="teams-list">
-				{this.state.leaguesTeams[this.props.currentLeagueTableIndex].teams.map((team, index) => {
+				{this.props.currentTeams.teams.map((team, index) => {
 					return (
 						<div className="teams-list__team-item-container" key={index}>
 							<TeamItem team={team} />

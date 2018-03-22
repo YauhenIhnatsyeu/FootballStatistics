@@ -1,19 +1,20 @@
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-import {updateTabIndex} from "ActionCreators";
+import {selectNewLeague} from "ActionCreators";
 
 import Tabs from "Components/tabs/Tabs";
 
 const mapStateToProps = (state) => {
     return {
-        tabs: state.tabs,
+        leaguesData: state.leaguesData,
+        currentLeagueIndex: state.currentLeagueIndex,
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateTabIndex: bindActionCreators(updateTabIndex, dispatch)
+        selectNewLeague: bindActionCreators(selectNewLeague, dispatch)
     }
 }
 

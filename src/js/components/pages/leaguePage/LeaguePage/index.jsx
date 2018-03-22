@@ -1,86 +1,54 @@
 import React from "react";
 
-import {fetchLeaguesTablesData} from "Utilities/fetchFootballData";
+//import {fetchUrls} from "Utilities/fetchUrls";
 
 import SectionHeader from "Components/SectionHeader";
-import LeagueSelector from "../LeagueSelector";
+import LeagueSelectorContainer from "Containers/LeagueSelectorContainer";
+import TeamsListContainer from "Containers/TeamsListContainer";
 
-import TeamsList from "../TeamsList";
+// import TeamsList from "../TeamsList";
 
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
 
 import "./index.css";
 
-export default class leagueTablePage extends React.Component {
+export default class LeaguePage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			leaguesTables: undefined,
-			currentLeagueTableIndex: 0,
-			errorOccured: false
-		};
+		this.props.selectNewLeague(
+			this.props.leaguesData.leaguesIds[this.props.currentLeagueIndex],
+			this.props.currentLeagueIndex
+		);
 
-		fetchLeaguesTablesData(this.props.leaguesIds, this.handleLeaguesLoaded, this.handleLeaguesError);
+		this.props.selectNewTeams(
+			this.props.leaguesData.leaguesIds[this.props.currentLeagueIndex]
+		)
 	}
 
-    handleLeaguesLoaded = (leaguesTables) => {
-    	this.setState({
-    		leaguesTables: leaguesTables,
-    	});
-    }
-
-    handleLeaguesError = () => {
-    	this.setState({
-    		errorOccured: true
-    	});
-    }
-
-    handleSelectorChange = (event) => {
-    	let newIndex = 0;
-    	for (let i = 1; i < this.state.leaguesTables.length; i++ ) {
-    		if (this.state.leaguesTables[i].leagueCaption === event.target.value) {
-    			newIndex = i;
-    		}
-    	}
-
-		this.setState({
-    		currentLeagueTableIndex: newIndex
-    	});
-    }
-
     render() {
-    	if (this.state.errorOccured) {
+    	if (this.props.fetchingErrorOccured) {
     		return <Error />;
     	}
-
-    	if (!this.state.leaguesTables) {
+		
+    	if (!this.props.leaguesData.currentLeague) {
     		return <Loading />;
     	}
-
+		
     	return (
 			<React.Fragment>
     			<SectionHeader 
-    				title={this.state.leaguesTables[this.state.currentLeagueTableIndex].leagueCaption}
+    				title={this.props.leaguesData.leaguesTitles[this.props.currentLeagueIndex]}
     			/>
 
-    			<LeagueSelector
-    				options={this.state.leaguesTables.map((leagueTable) => {
-    					return leagueTable.leagueCaption;
-    				})}
-
-    				onChange={(event) => this.handleSelectorChange(event)}
-
-    				default={this.state.leaguesTables[this.state.currentLeagueTableIndex].leagueCaption}
-    			/>
+				<div className="league-panel__legue-selector-container">
+    				<LeagueSelectorContainer />
+				</div>
 				
 				<div className="league-panel__teams-list-container">
-					<TeamsList
-						leaguesIds={this.props.leaguesIds}
-						currentLeagueTableIndex={this.state.currentLeagueTableIndex}
-					/>
-    			</div>
+					<TeamsListContainer />
+				</div>
 			</React.Fragment>
     	);
     }

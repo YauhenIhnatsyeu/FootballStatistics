@@ -29,7 +29,7 @@ export default class LeagueTable extends React.Component {
 						})}
 					</tr>
 
-					{this.props.leagueTable.map((team, index) => {
+					{this.props.currentLeague.map((team, index) => {
 						const teamId = extractTeamIdFromUrl(team._links.team.href);
 						const teamUrl = "/team/" + teamId;
 						return (

@@ -3,13 +3,11 @@ import {bindActionCreators} from "redux";
 
 import {selectNewLeague} from "ActionCreators";
 
-import TablePage from "Pages/tablePage/TablePage";
+import LeagueTable from "Pages/tablePage/LeagueTable";
 
 const mapStateToProps = (state) => {
     return {
-        currentLeagueIndex: state.currentLeagueIndex,
-        leaguesData: state.leaguesData,
-        fetchingErrorOccured: state.fetchingErrorOccured
+        currentLeague: state.leaguesData.currentLeague.standing
     };
 }
 
@@ -20,4 +18,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default
-    connect(mapStateToProps, mapDispatchToProps)(TablePage);
+    connect(mapStateToProps, mapDispatchToProps)(LeagueTable);

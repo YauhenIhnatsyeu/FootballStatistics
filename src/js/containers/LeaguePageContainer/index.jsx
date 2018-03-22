@@ -1,20 +1,22 @@
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-import {updateTabIndex, requestFetch} from "ActionCreators";
+import {selectNewLeague, selectNewTeams} from "ActionCreators";
 
 import LeaguePage from "Pages/leaguePage/LeaguePage";
 
 const mapStateToProps = (state) => {
     return {
-        app: state.app,
+        leaguesData: state.leaguesData,
+        fetchingErrorOccured: state.fetchingErrorOccured,
+        currentLeagueIndex: state.currentLeagueIndex
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateTabIndex: bindActionCreators(updateTabIndex, dispatch),
-        requestFetch: bindActionCreators(requestFetch, dispatch)
+        selectNewLeague: bindActionCreators(selectNewLeague, dispatch),
+        selectNewTeams: bindActionCreators(selectNewTeams, dispatch)
     }
 }
 
