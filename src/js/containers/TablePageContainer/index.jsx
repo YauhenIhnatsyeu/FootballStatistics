@@ -7,17 +7,11 @@ import TablePage from "Pages/tablePage/TablePage";
 
 const mapStateToProps = (state) => {
     return {
-        currentLeagueIndex: state.currentLeagueIndex,
+        currentLeagueIndex: state.selectedOptionIndex.currentLeagueIndex,
         leaguesData: state.leaguesData,
         fetchingErrorOccured: state.fetchingErrorOccured
     };
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchLeague: bindActionCreators(fetchLeague, dispatch),
-    }
-}
-
 export default
-    connect(mapStateToProps, mapDispatchToProps)(TablePage);
+    connect(mapStateToProps)(TablePage);

@@ -10,21 +10,21 @@ import Error from "Components/messages/Error";
 import "./index.css";
 
 export default class TeamsList extends React.Component {
-	constructor(props) {
-		super(props);
-	}
+	// constructor(props) {
+	// 	super(props);
+	// }
     
-    handleLeaguesTeamsLoaded = (leaguesTeams) => {
-    	this.setState({
-    		leaguesTeams: leaguesTeams,
-    	});
-    }
+    // handleLeaguesTeamsLoaded = (leaguesTeams) => {
+    // 	this.setState({
+    // 		leaguesTeams: leaguesTeams,
+    // 	});
+    // }
 
-    handleLeaguesTeamsError = () => {
-    	this.setState({
-    		errorOccured: true
-    	});
-    }
+    // handleLeaguesTeamsError = () => {
+    // 	this.setState({
+    // 		errorOccured: true
+    // 	});
+    // }
 
     render() {
     	if (this.props.fetchingError) {

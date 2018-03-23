@@ -4,6 +4,9 @@ import {Link} from "react-router-dom";
 
 import extractTeamIdFromUrl from "Utilities/extractTeamIdFromUrl";
 
+import Loading from "Components/messages/Loading";
+import Error from "Components/messages/Error";
+
 import "./index.css";
 
 export default class LeagueTable extends React.Component {
@@ -13,9 +16,29 @@ export default class LeagueTable extends React.Component {
 		this.header = ["Position", "Team", "G", "W", "D", "L", "GS", "GC", "P"];
 		this.leagueProperties =
             ["position", "teamName", "playedGames", "wins", "draws", "losses", "goals", "goalsAgainst", "points"];
+		
+		this.props.fetchLeague(
+			this.props.leaguesData.leaguesIds[this.props.currentLeagueIndex]
+		)
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (this.props.currentLeagueIndex !== nextProps.currentLeagueIndex) {
+			this.props.fetchLeague(
+				this.props.leaguesData.leaguesIds[nextProps.currentLeagueIndex]
+			)
+		}
 	}
     
 	render() {
+    	if (this.props.fetchingErrorOccured) {
+    		return <Error />;
+    	}
+		
+    	if (!this.props.leaguesData.currentLeague) {
+    		return <Loading />;
+    	}
+		
 		return (
 			<table className="league-table">
 				<tbody>
@@ -29,7 +52,7 @@ export default class LeagueTable extends React.Component {
 						})}
 					</tr>
 
-					{this.props.currentLeague.map((team, index) => {
+					{this.props.leaguesData.currentLeague.standing.map((team, index) => {
 						const teamId = extractTeamIdFromUrl(team._links.team.href);
 						const teamUrl = "/team/" + teamId;
 						return (

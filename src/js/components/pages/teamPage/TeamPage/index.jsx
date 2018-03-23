@@ -4,7 +4,7 @@ import React from "react";
 
 import TeamInfo from "../teamInfo/TeamInfo";
 
-import TeamItemForHeader from "../TeamItemForHeader";
+import TeamItemForHeaderContainer from "Containers/TeamItemForHeaderContainer";
 import PlayersPanel from "../pages/playersPage/PlayersPage";
 import FixturesPanel from "../pages/fixturesPage/FixturesPage";
 
@@ -38,11 +38,11 @@ export default class TeamPage extends React.Component {
 	// 	});
 	// }
 	
-	handleTabClick = (tabIndex) => {
-		this.setState({
-			currentTabsIndex: tabIndex
-		});
-	}
+	// handleTabClick = (tabIndex) => {
+	// 	this.setState({
+	// 		currentTabsIndex: tabIndex
+	// 	});
+	// }
 	
 	render() {
     	if (this.props.fetchingErrorOccured) {
@@ -56,9 +56,9 @@ export default class TeamPage extends React.Component {
 		return (
 			<div className="team-panel">
 				<div className="team-panel__team-item-for-header-container">
-					<TeamItemForHeader 
-						team={this.props.currentTeam} 
-						onTabClick={this.handleTabClick}
+					<TeamItemForHeaderContainer 
+						// team={this.props.currentTeam} 
+						// onTabClick={this.handleTabClick}
 						//defaultTabsIndex={this.state.currentTabsIndex}
 					/>
 				</div>

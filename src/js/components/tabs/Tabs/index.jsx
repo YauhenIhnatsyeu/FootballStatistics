@@ -6,10 +6,13 @@ import "./index.css";
 
 export default class Tabs extends React.Component {
 	handleClick = (tabIndex) => {
-		if (this.props.currentTabIndex === tabIndex)
+		if (this.props.selectedOptionIndex.currentLeagueIndex === tabIndex)
 			return;
-
-		this.props.onTabClick(tabIndex);
+		
+		this.props.updateSelectedOptionIndex(
+			this.props.selectedOptionKey,
+			tabIndex
+		);
 	}
 
     render() {
@@ -20,7 +23,7 @@ export default class Tabs extends React.Component {
 						if (tab.type !== Tab)
 							return null;
 
-						if (tabIndex === this.props.currentTabIndex) {
+						if (tabIndex === this.props.selectedOptionIndex[this.props.selectedOptionKey]) {
 							return (
 								<li
 									className="tabs__tab tabs__tab_current" 

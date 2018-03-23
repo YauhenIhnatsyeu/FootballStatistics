@@ -1,12 +1,13 @@
 import React from "react";
 
-import Tabs from "Components/tabs/Tabs";
+import TabsContainer from "Containers/TabsContainer";
 import Tab from "Components/tabs/Tab";
 
 import "./index.css";
 
 export default class TeamItemForHeader extends React.Component {
 	render() {
+        console.log(this.props);
 		return (
             <div className="item">
                 <div className="team-item-for-header__team">
@@ -18,13 +19,12 @@ export default class TeamItemForHeader extends React.Component {
                 </div>
                 
                 <div className="team-item-for-header__tabs-container">
-                    <Tabs
-                        onTabClick={this.props.onTabClick}
-                        defaultIndex={this.props.defaultTabsIndex}
+                    <TabsContainer
+                        selectedOptionKey="currentTeamPageIndex"
                     >
                         <Tab title="Players" />
                         <Tab title="Fixtures" />
-                    </Tabs>
+                    </TabsContainer>
                 </div>
             </div>
 		);

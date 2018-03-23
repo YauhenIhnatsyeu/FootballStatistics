@@ -1,12 +1,8 @@
 import React from "react";
 
-//import {fetchUrls} from "Utilities/fetchUrls";
-
 import SectionHeader from "Components/SectionHeader";
 import LeagueSelectorContainer from "Containers/LeagueSelectorContainer";
 import TeamsListContainer from "Containers/TeamsListContainer";
-
-// import TeamsList from "../TeamsList";
 
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
@@ -14,28 +10,7 @@ import Error from "Components/messages/Error";
 import "./index.css";
 
 export default class LeaguePage extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.props.fetchLeague(
-			this.props.leaguesData.leaguesIds[this.props.currentLeagueIndex],
-			this.props.currentLeagueIndex
-		);
-
-		this.props.fetchTeams(
-			this.props.leaguesData.leaguesIds[this.props.currentLeagueIndex]
-		)
-	}
-
     render() {
-    	if (this.props.fetchingErrorOccured) {
-    		return <Error />;
-    	}
-		
-    	if (!this.props.leaguesData.currentLeague) {
-    		return <Loading />;
-    	}
-		
     	return (
 			<React.Fragment>
     			<SectionHeader 

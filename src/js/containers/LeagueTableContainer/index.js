@@ -4,10 +4,12 @@ import {bindActionCreators} from "redux";
 import {fetchLeague} from "ActionCreators";
 
 import LeagueTable from "Pages/tablePage/LeagueTable";
+import selectedOptionIndex from "../../reducers/selectedOptionIndex";
 
 const mapStateToProps = (state) => {
     return {
-        currentLeague: state.leaguesData.currentLeague.standing
+        leaguesData: state.leaguesData,
+        currentLeagueIndex: state.selectedOptionIndex.currentLeagueIndex
     };
 }
 

@@ -9,16 +9,16 @@ const mapStateToProps = (state) => {
     return {
         leaguesData: state.leaguesData,
         fetchingErrorOccured: state.fetchingErrorOccured,
-        currentLeagueIndex: state.currentLeagueIndex
+        currentLeagueIndex: state.selectedOptionIndex.currentLeagueIndex
     };
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchLeague: bindActionCreators(fetchLeague, dispatch),
-        fetchTeams: bindActionCreators(fetchTeams, dispatch)
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         fetchLeague: bindActionCreators(fetchLeague, dispatch),
+//         fetchTeams: bindActionCreators(fetchTeams, dispatch)
+//     }
+// }
 
 export default
-    connect(mapStateToProps, mapDispatchToProps)(LeaguePage);
+    connect(mapStateToProps)(LeaguePage);

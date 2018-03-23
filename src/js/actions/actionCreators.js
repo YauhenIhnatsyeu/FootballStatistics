@@ -1,17 +1,18 @@
 import actionTypes from "./actionTypes";
 
-export function fetchLeague(leagueId, index) {
+export function updateSelectedOptionIndex(key, index) {
     return {
-        type: actionTypes.LEAGUE_FETCH_REQUESTED,
-        payload: leagueId,
-        index: index
+        type: actionTypes.SELECTED_OPTION_INDEX_UPDATE_REQUEST,
+        key: key,
+        payload: index
     };
 }
 
-export function updateCurrentLeagueIndex(index) {
+
+export function fetchLeague(leagueId) {
     return {
-        type: actionTypes.UPDATE_CURRENT_LEAGUE_INDEX,
-        payload: index
+        type: actionTypes.LEAGUE_FETCH_REQUESTED,
+        payload: leagueId
     };
 }
 
