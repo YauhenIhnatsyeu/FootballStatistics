@@ -18,14 +18,14 @@ export default class LeagueTable extends React.Component {
             ["position", "teamName", "playedGames", "wins", "draws", "losses", "goals", "goalsAgainst", "points"];
 		
 		this.props.fetchLeague(
-			this.props.leaguesData.leaguesIds[this.props.currentLeagueIndex]
+			this.props.leaguesData.leaguesIds[this.props.leagueIndex]
 		)
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (this.props.currentLeagueIndex !== nextProps.currentLeagueIndex) {
+		if (this.props.leagueIndex !== nextProps.leagueIndex) {
 			this.props.fetchLeague(
-				this.props.leaguesData.leaguesIds[nextProps.currentLeagueIndex]
+				this.props.leaguesData.leaguesIds[nextProps.leagueIndex]
 			)
 		}
 	}
@@ -35,7 +35,7 @@ export default class LeagueTable extends React.Component {
     		return <Error />;
     	}
 		
-    	if (!this.props.leaguesData.currentLeague) {
+    	if (!this.props.leaguesData.league) {
     		return <Loading />;
     	}
 		
@@ -52,7 +52,7 @@ export default class LeagueTable extends React.Component {
 						})}
 					</tr>
 
-					{this.props.leaguesData.currentLeague.standing.map((team, index) => {
+					{this.props.leaguesData.league.standing.map((team, index) => {
 						const teamId = extractTeamIdFromUrl(team._links.team.href);
 						const teamUrl = "/team/" + teamId;
 						return (

@@ -1,13 +1,14 @@
 import actionTypes from "../actions/actionTypes";
 
 const initialState = {
-    currentLeagueIndex: 0,
-    currentTeamPageIndex: 0
+    leagueIndex: 0,
+    teamPageIndex: 0,
+    playersPagingControlsPageIndex: 0
 };
 
-export default function selectedOptionIndex(state = initialState, action) {
+export default function selectedOptionIndeces(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.SELECTED_OPTION_INDEX_UPDATE_REQUEST:
+        case actionTypes.SELECTED_OPTION_INDEX_UPDATE_REQUESTED:
             const newState = Object.assign({}, state);
             newState[action.key] = action.payload;
             return newState;

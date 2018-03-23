@@ -25,7 +25,7 @@ export default class TeamPage extends React.Component {
     		return <Error />;
     	}
         
-    	if (!this.props.currentTeam) {
+    	if (!this.props.team) {
     		return <Loading />;
 		}
 
@@ -35,7 +35,7 @@ export default class TeamPage extends React.Component {
 					<TeamItemForHeaderContainer  />
 				</div>
 				<div className="team-panel__info-container">
-					{this.props.currentTeamPageIndex === 0 ?
+					{this.props.teamPageIndex === 0 ?
 						<PlayersPageContainer />
 						:
 						<FixturesPanel />

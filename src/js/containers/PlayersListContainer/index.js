@@ -3,7 +3,7 @@ import {bindActionCreators} from "redux";
 
 import {fetchPlayers, updateSelectedOptionIndex} from "ActionCreators";
 
-import PlayersSection from "PlayersPageSections/playersSection/PlayersSection";
+import PlayersList from "PlayersPageSections/playersSection/PlayersList";
 
 const mapStateToProps = (state) => {
     return {
@@ -13,12 +13,5 @@ const mapStateToProps = (state) => {
     };
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchPlayers: bindActionCreators(fetchPlayers, dispatch),
-        updateSelectedOptionIndex: bindActionCreators(updateSelectedOptionIndex, dispatch)
-    }
-}
-
 export default
-    connect(mapStateToProps, mapDispatchToProps)(PlayersSection);
+    connect(mapStateToProps)(PlayersList);

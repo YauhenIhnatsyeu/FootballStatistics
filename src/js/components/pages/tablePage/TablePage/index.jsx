@@ -10,7 +10,7 @@ export default class TablePage extends React.Component {
     	return (
 			<React.Fragment>
 				<TabsContainer
-					selectedOptionKey="currentLeagueIndex"
+					selectedOptionKey="leagueIndex"
 				>
 					{this.props.leaguesData.leaguesTitles.map((tabTitle, index) => {
 						return (

@@ -6,13 +6,13 @@ const initialState = {
         "English Premier League", "German 1. Bundesliga",
         "Spanish Primera", "Italian Serie A", "French League 1"
     ],
-    currentLeague: null
+    league: null
 };
 
 export default function tabs(state = initialState, action) {
     switch (action.type) {
         case actionTypes.LEAGUE_FETCH_SUCCEEDED:
-            return {...state, currentLeague: action.payload};
+            return {...state, league: action.payload};
 
         default:
             return state;

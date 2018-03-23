@@ -9,7 +9,7 @@ import {
 
 import {fetchUrl} from "Utilities/fetchFootballData";
 
-export default function* fetchTeams(action) {
+export default function* fetchTeam(action) {
     try {
         const teamUrl = createTeamUrl(action.payload);
         const data = yield call(fetchUrl, teamUrl);

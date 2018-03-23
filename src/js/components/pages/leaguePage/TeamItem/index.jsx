@@ -9,7 +9,7 @@ import "./index.css";
 export default class TeamItem extends React.Component {
 	constructor(props) {
 		super(props);
-
+		
 		this.teamId = extractTeamIdFromUrl(this.props.team._links.self.href);
 
 		this.state = {
@@ -29,25 +29,14 @@ export default class TeamItem extends React.Component {
 	}
 
 	isThisTeamFavourite() {
-		let favourites = localStorage.getItem("favourites");
-		if (favourites) {
-
-			favourites = JSON.parse(favourites);
-			const indexOfTeamId = favourites.indexOf(this.teamId);
-			
-			if (indexOfTeamId === -1) {
-				return false;
-			}
-			return true;
-		}
-		return false;
+		return this.props.favouriteTeams.includes(this.teamId);
 	}
 
     handleButtonClick = () => {
     	if (this.state.isFavourite) {
-    		this.removeTeamIdFromLocalStorage();
+    		this.props.removeTeamFromFavourites(this.teamId);
     	} else {
-    		this.addTeamIdToLocalStorage();
+			this.props.addTeamToFavourites(this.teamId);
 		}
 		
     	this.setState({
@@ -55,35 +44,35 @@ export default class TeamItem extends React.Component {
     	});
     }
 
-    addTeamIdToLocalStorage = () => {
-		let favourites = localStorage.getItem("favourites");
+    // addTeamIdToLocalStorage = () => {
+	// 	let favourites = localStorage.getItem("favourites");
 		
-    	if (favourites) {
-    		favourites = JSON.parse(favourites);
-    		favourites.push(this.teamId);
-    		favourites = JSON.stringify(favourites);
-    	} else {
-    		favourites = JSON.stringify([this.teamId]);
-    	}
+    // 	if (favourites) {
+    // 		favourites = JSON.parse(favourites);
+    // 		favourites.push(this.teamId);
+    // 		favourites = JSON.stringify(favourites);
+    // 	} else {
+    // 		favourites = JSON.stringify([this.teamId]);
+    // 	}
 
-		localStorage.setItem("favourites", favourites);
-    }
+	// 	localStorage.setItem("favourites", favourites);
+    // }
 
-    removeTeamIdFromLocalStorage = () => {
-		let favourites = localStorage.getItem("favourites");
+    // removeTeamIdFromLocalStorage = () => {
+	// 	let favourites = localStorage.getItem("favourites");
 		
-    	if (favourites) {
+    // 	if (favourites) {
 
-    		favourites = JSON.parse(favourites);
-			const indexOfTeamId = favourites.indexOf(this.teamId);
+    // 		favourites = JSON.parse(favourites);
+	// 		const indexOfTeamId = favourites.indexOf(this.teamId);
 			
-    		if (indexOfTeamId !== -1) {
-    			favourites.splice(indexOfTeamId, 1);
-    			favourites = JSON.stringify(favourites);
-    			localStorage.setItem("favourites", favourites);
-    		}
-    	}
-    }
+    // 		if (indexOfTeamId !== -1) {
+    // 			favourites.splice(indexOfTeamId, 1);
+    // 			favourites = JSON.stringify(favourites);
+    // 			localStorage.setItem("favourites", favourites);
+    // 		}
+    // 	}
+    // }
 
     render() {
 		const teamUrl = "/team/" + this.teamId;
@@ -101,7 +90,6 @@ export default class TeamItem extends React.Component {
 					</Link>
 					<p>Short name: {this.props.team.shortName}</p>
 					{
-						//If squadMarketValue isn't null or underfined we can display it
 						this.props.team.squadMarketValue && 
 						<p>Squad market value: {this.props.team.squadMarketValue}</p>
 					}

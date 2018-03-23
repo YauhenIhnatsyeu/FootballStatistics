@@ -5,7 +5,7 @@ import PlayersPage from "Pages/teamPage/pages/playersPage/PlayersPage";
 
 const mapStateToProps = (state) => {
     return {
-        team: state.currentTeam
+        team: state.team
     };
 }
 

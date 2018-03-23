@@ -14,7 +14,7 @@ export default class LeaguePage extends React.Component {
     	return (
 			<React.Fragment>
     			<SectionHeader 
-    				title={this.props.leaguesData.leaguesTitles[this.props.currentLeagueIndex]}
+    				title={this.props.leaguesData.leaguesTitles[this.props.leagueIndex]}
     			/>
 
 				<div className="league-panel__legue-selector-container">

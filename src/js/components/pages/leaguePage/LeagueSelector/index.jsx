@@ -7,11 +7,11 @@ export default class LeagueSelector extends React.Component {
 		super(props);
 
 		this.props.fetchLeague(
-			this.props.leaguesData.leaguesIds[this.props.currentLeagueIndex]
+			this.props.leaguesData.leaguesIds[this.props.leagueIndex]
 		);
 
 		this.props.fetchTeams(
-			this.props.leaguesData.leaguesIds[this.props.currentLeagueIndex]
+			this.props.leaguesData.leaguesIds[this.props.leagueIndex]
 		);
 	}
 
@@ -20,7 +20,7 @@ export default class LeagueSelector extends React.Component {
 			this.props.leaguesData.leaguesTitles.indexOf(event.target.value);
 
 		this.props.updateSelectedOptionIndex(
-			"currentLeagueIndex",
+			"leagueIndex",
 			leagueIndex
 		);
 
@@ -35,7 +35,7 @@ export default class LeagueSelector extends React.Component {
 				<select 
 					className="selector__select" 
 					onChange={this.handleChange} 
-					value={this.props.leaguesData.leaguesTitles[this.props.currentLeagueIndex]}>
+					value={this.props.leaguesData.leaguesTitles[this.props.leagueIndex]}>
 
 					{this.props.leaguesData.leaguesTitles.map((title, index) => {
 						return (

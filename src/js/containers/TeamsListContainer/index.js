@@ -3,13 +3,21 @@ import {bindActionCreators} from "redux";
 
 import {fetchTeams} from "ActionCreators";
 
+import {getTeamsFromFavourites} from "ActionCreators";
+
 import TeamList from "Pages/leaguePage/TeamsList";
 
 const mapStateToProps = (state) => {
     return {
-        currentTeams: state.currentTeams
+        teams: state.teams
     };
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getTeamsFromFavourites: bindActionCreators(getTeamsFromFavourites, dispatch)
+    }
+}
+
 export default
-    connect(mapStateToProps)(TeamList);
+    connect(mapStateToProps, mapDispatchToProps)(TeamList);

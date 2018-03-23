@@ -12,7 +12,7 @@ import LeagueSelector from "Pages/leaguePage/LeagueSelector";
 const mapStateToProps = (state) => {
     return {
         leaguesData: state.leaguesData,
-        currentLeagueIndex: state.selectedOptionIndex.currentLeagueIndex
+        leagueIndex: state.selectedOptionIndeces.leagueIndex
     };
 }
 

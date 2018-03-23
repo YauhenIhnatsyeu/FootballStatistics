@@ -4,7 +4,8 @@ import fetchFootbalData from "Utilities/fetchFootballData";
 
 import SectionHeader from "Components/SectionHeader";
 import PagingControls from "Components/PagingControls";
-import PlayersList from "../PlayersList";
+import PlayersListContainer from "Containers/PlayersListContainer";
+
 
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
@@ -15,78 +16,38 @@ export default class PlayersSection extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-            players: undefined,
-            currentPageIndex: 0,
-			errorOccured: false
-        }
-
-		this.PLAYERS_ON_ONE_PAGE_COUNT = 20;
-
-		const playersUrl = this.props.team._links.self.href + "/players";
-		fetchFootbalData(playersUrl, this.handlePlayersLoaded, this.handlePlayersError);
-    }
-    
-    handlePlayersLoaded = (players) => {
-    	this.setState({
-    		players: players.players.sort(this.sorterByJerseyNumber)
-        });
+        const playersUrl = this.props.team._links.self.href + "/players";
+        this.props.fetchPlayers(playersUrl);
     }
 
-    handlePlayersError = () => {
-    	this.setState({
-    		errorOccured: true
-    	});
-    }
-    
-    handlePagingControlsClick = (pageIndex) => {
-        this.setState({
-            currentPageIndex: pageIndex
-        });
-    }
-	
-	sorterByJerseyNumber = (a, b) => {
-		if (a.jerseyNumber > b.jerseyNumber)
-			return 1;
-		if (a.jerseyNumber < b.jerseyNumber)
-			return -1;
-		return 0;
-    }
-    
 	render() {
-    	if (this.state.errorOccured) {
+    	if (this.props.fetchingErrorOccured) {
     		return <Error />;
     	}
-        
-    	if (!this.state.players) {
+
+    	if (!this.props.players) {
     		return <Loading />;
         }
-        
-        const pagesCount = Math.ceil(this.state.players.length / this.PLAYERS_ON_ONE_PAGE_COUNT);
-        
-        const pagingControls = new PagingControls({
-            currentPageIndex: this.state.currentPageIndex,
-            pagesCount: pagesCount,
-            onClick: this.handlePagingControlsClick
-        });
 
+        const pagesCount = Math.ceil(this.props.players.length / this.props.itemsOnOnePageCount);
+
+        const pagingControls = new PagingControls({
+            currentPageIndex: this.props.currentPageIndex,
+            pagesCount: pagesCount,
+            updateSelectedOptionIndex: this.props.updateSelectedOptionIndex
+        });
+        
 		return (
 			<React.Fragment>
-                {/* If players count is bigger than maximum allowed
-                    display paging controls*/}
-                {this.state.players.length <= this.PLAYERS_ON_ONE_PAGE_COUNT || 
+                {this.props.players.length <= this.PLAYERS_ON_ONE_PAGE_COUNT ||
                     <div className="players-section__paging-controls-container">
                         {pagingControls.render()}
                     </div>
                 }
                 <div className="players-section__players-list-container">
-                    <PlayersList
-                        playersOnOnePageCount={this.PLAYERS_ON_ONE_PAGE_COUNT}
-                        players={this.state.players} 
-                        currentPageIndex={this.state.currentPageIndex}
-                    />
+                    <PlayersListContainer />
                 </div>
-                {this.state.players.length <= this.PLAYERS_ON_ONE_PAGE_COUNT || 
+                {this.props.players.length <= this.PLAYERS_ON_ONE_PAGE_COUNT ||
                     <div className="players-section__paging-controls-container players-section__paging-controls-container_position_bottom">
                         {pagingControls.render()}
                     </div>

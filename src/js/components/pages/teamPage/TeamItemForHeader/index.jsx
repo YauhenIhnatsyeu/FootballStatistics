@@ -19,7 +19,7 @@ export default class TeamItemForHeader extends React.Component {
                 
                 <div className="team-item-for-header__tabs-container">
                     <TabsContainer
-                        selectedOptionKey="currentTeamPageIndex"
+                        selectedOptionKey="teamPageIndex"
                     >
                         <Tab title="Players" />
                         <Tab title="Fixtures" />

@@ -7,7 +7,7 @@ import Tabs from "Components/tabs/Tabs";
 
 const mapStateToProps = (state) => {
     return {
-        selectedOptionIndex: state.selectedOptionIndex
+        selectedOptionIndeces: state.selectedOptionIndeces
     };
 }
 

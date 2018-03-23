@@ -7,7 +7,7 @@ import TeamItemForHeader from "Pages/teamPage/TeamItemForHeader";
 
 const mapStateToProps = (state) => {
     return {
-        team: state.currentTeam
+        team: state.team
     };
 }
 
