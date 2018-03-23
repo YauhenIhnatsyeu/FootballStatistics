@@ -3,9 +3,9 @@ import React from "react";
 import Section from "Pages/teamPage/teamInfo/Section";
 
 import SectionHeader from "Components/SectionHeader";
-import PlayersSection from "../sections/playersSection/PlayersSection";
+import PlayersSectionContainer from "Containers/PlayersSectionContainer";
 
-export default class PlayersPanel extends React.Component {
+export default class PlayersPage extends React.Component {
     render() {
 		//If shortName is null or undefined, use hashtag "#football"
 		const hashtag = this.props.team.shortName ? 
@@ -14,7 +14,7 @@ export default class PlayersPanel extends React.Component {
         return (
             <React.Fragment>
                 <Section title="Players">
-                    <PlayersSection team={this.props.team} />
+                    <PlayersSectionContainer team={this.props.team} />
                 </Section>
                 <Section title={"Tweets for tag #" + hashtag}>
                     

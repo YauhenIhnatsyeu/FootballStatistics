@@ -12,6 +12,8 @@ module.exports = {
       Containers: path.resolve(__dirname, "src/js/containers"),
 
       Pages: path.resolve(__dirname, "src/js/components/pages"),
+      PlayersPageSections: path.resolve(__dirname, "src/js/components/pages/teamPage/pages/playersPage/sections"),
+      FixturePageSections: path.resolve(__dirname, "src/js/components/pages/teamPage/pages/fixturesPage/sections"),
 
       ActionCreators: path.resolve(__dirname, "src/js/actions/actionCreators"),
 

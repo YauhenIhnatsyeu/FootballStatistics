@@ -6,7 +6,7 @@ import "./index.css";
 
 export default class Tabs extends React.Component {
 	handleClick = (tabIndex) => {
-		if (this.props.selectedOptionIndex.currentLeagueIndex === tabIndex)
+		if (this.props.selectedOptionIndex[this.props.selectedOptionKey] === tabIndex)
 			return;
 		
 		this.props.updateSelectedOptionIndex(

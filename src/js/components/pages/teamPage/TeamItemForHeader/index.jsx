@@ -7,7 +7,6 @@ import "./index.css";
 
 export default class TeamItemForHeader extends React.Component {
 	render() {
-        console.log(this.props);
 		return (
             <div className="item">
                 <div className="team-item-for-header__team">

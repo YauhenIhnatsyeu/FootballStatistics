@@ -54,6 +54,21 @@ export function onTeamFetchSucceeded(data) {
 }
 
 
+export function fetchPlayers(playersUrl) {
+    return {
+        type: actionTypes.PLAYERS_FETCH_REQUESTED,
+        payload: playersUrl
+    };
+}
+
+export function onPlayersFetchSucceeded(data) {
+    return {
+        type: actionTypes.PLAYERS_FETCH_SUCCEEDED,
+        payload: data
+    };
+}
+
+
 export function onFetchFailed(error) {
     return {
         type: actionTypes.FETCH_FAILED,
