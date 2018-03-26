@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import {Link} from "react-router-dom";
 
 import "./index.css";
@@ -64,4 +66,14 @@ export default class TeamItem extends React.Component {
             </div>
         );
     }
+}
+
+TeamItem.propTypes = {
+    team: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        crestUrl: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        shortName: PropTypes.string.isRequired,
+        squadMarketValue: PropTypes.string,
+    }).isRequired
 }

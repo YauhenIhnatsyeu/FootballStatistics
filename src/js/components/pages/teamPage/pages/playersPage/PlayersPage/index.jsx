@@ -14,7 +14,7 @@ export default class PlayersPage extends React.Component {
         return (
             <React.Fragment>
                 <Section title="Players">
-                    <PlayersSectionContainer team={this.props.team} />
+                    <PlayersSectionContainer />
                 </Section>
                 <Section title={"Tweets for tag #" + hashtag}>
                     

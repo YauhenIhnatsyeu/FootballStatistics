@@ -28,7 +28,7 @@ export default class Main extends React.Component {
 
         const teamPage = (props) => (
             <div className="main__team-panel-container">
-                <TeamPageContainer teamId={props.match.params.id} />
+                <TeamPageContainer teamId={+props.match.params.id} />
             </div>
         );
 

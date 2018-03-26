@@ -7,6 +7,7 @@ import PlayersSection from "PlayersPageSections/playersSection/PlayersSection";
 
 const mapStateToProps = (state) => {
     return {
+        team: state.team,
         players: state.players,
         currentPageIndex: state.selectedOptionsIndeces.playersPagingControlsPageIndex,
         itemsOnOnePageCount: state.itemsOnOnePageCount,

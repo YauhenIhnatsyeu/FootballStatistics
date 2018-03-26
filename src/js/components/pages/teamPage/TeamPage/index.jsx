@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import React from "react";
 
 // import {fetchTeamData} from "Utilities/fetchFootballData";
@@ -44,4 +46,8 @@ export default class TeamPage extends React.Component {
             </div>
         );
     }
+}
+
+TeamPage.propTypes = {
+    teamId: PropTypes.number.isRequired
 }

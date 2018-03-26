@@ -10,7 +10,7 @@ export default class FixturesPanel extends React.Component {
         return (
             <React.Fragment>
                 <Section title="Fixtures">
-                    <FixturesSection team={this.props.team} />
+                    <FixturesSection />
                 </Section>
                 <Section title="Some stuff">
                 </Section>

@@ -1,5 +1,7 @@
 import React from "react";
 
+import PropTypes from "prop-types";
+
 import "./index.css";
 
 export default class SectionHeader extends React.Component {
@@ -12,4 +14,8 @@ export default class SectionHeader extends React.Component {
             </div>
         );
     }
+}
+
+SectionHeader.propTypes = {
+    title: PropTypes.string
 }
