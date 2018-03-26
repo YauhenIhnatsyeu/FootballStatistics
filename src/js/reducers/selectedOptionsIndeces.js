@@ -7,9 +7,11 @@ const initialState = {
 };
 
 export default function selectedOptionsIndeces(state = initialState, action) {
+    const newState = Object.assign({}, state);
+    
     switch (action.type) {
         case actionTypes.SELECTED_OPTION_INDEX_UPDATE_REQUESTED:
-            const newState = Object.assign({}, state);
+            
             newState[action.key] = action.payload;
             return newState;
 

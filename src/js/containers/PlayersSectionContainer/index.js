@@ -12,14 +12,14 @@ const mapStateToProps = (state) => {
         currentPageIndex: state.selectedOptionsIndeces.playersPagingControlsPageIndex,
         itemsOnOnePageCount: state.itemsOnOnePageCount,
     };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchPlayers: bindActionCreators(fetchPlayers, dispatch),
         updateSelectedOptionIndex: bindActionCreators(updateSelectedOptionIndex, dispatch)
-    }
-}
+    };
+};
 
 export default
     connect(mapStateToProps, mapDispatchToProps)(PlayersSection);

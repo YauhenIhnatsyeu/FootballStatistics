@@ -14,15 +14,15 @@ const mapStateToProps = (state) => {
         leaguesData: state.leaguesData,
         leagueIndex: state.selectedOptionsIndeces.leagueIndex
     };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
         updateSelectedOptionIndex: bindActionCreators(updateSelectedOptionIndex, dispatch),
         fetchLeague: bindActionCreators(fetchLeague, dispatch),
         fetchTeams: bindActionCreators(fetchTeams, dispatch)
-    }
-}
+    };
+};
 
 export default
     connect(mapStateToProps, mapDispatchToProps)(LeagueSelector);

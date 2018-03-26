@@ -18,10 +18,6 @@ module.exports = {
         "react"
     ],
     "rules": {
-        // "indent": [
-        //     "error",
-        //     "tab"
-        // ],
         "linebreak-style": [
             "error",
             "windows"
@@ -33,7 +29,10 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-empty": ["error", {
+            allowEmptyCatch: true
+        }]
     },
     "parser": "babel-eslint",
     "settings": {
@@ -44,5 +43,5 @@ module.exports = {
           "flowVersion": "0.53"
         },
         "propWrapperFunctions": [ "forbidExtraProps" ]
-      }
+    }
 };

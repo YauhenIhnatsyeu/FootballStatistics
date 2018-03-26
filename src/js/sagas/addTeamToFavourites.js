@@ -19,4 +19,4 @@ const addTeamToLocalStorage = (teamId) => {
     }
 
     localStorage.setItem("favourites", favourites);
-}
+};

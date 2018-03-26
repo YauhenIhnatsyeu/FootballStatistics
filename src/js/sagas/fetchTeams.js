@@ -19,7 +19,6 @@ export default function* fetchTeams(action) {
         yield call(addIdToEachTeam, teams);
         yield put(onTeamsFetchSucceeded(teams));
     } catch (error) {
-        console.log(error);
         yield put(onFetchFailed(error));
     }
 }
@@ -29,4 +28,4 @@ const addIdToEachTeam = (teams) => {
         const teamId = extractTeamIdFromUrl(team._links.self.href);
         team.id = teamId;
     });
-} 
+}; 

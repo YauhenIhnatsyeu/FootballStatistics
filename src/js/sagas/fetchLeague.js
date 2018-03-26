@@ -15,7 +15,6 @@ export default function* fetchLeague(action) {
         const data = yield call(fetchUrl, leagueUrl);
         yield put(onLeagueFetchSucceeded(data));
     } catch (error) {
-        console.log(error)
         yield put(onFetchFailed(error));
     }
 }

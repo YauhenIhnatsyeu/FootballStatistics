@@ -21,4 +21,4 @@ const removeTeamFromLocalStorage = (teamId) => {
             localStorage.setItem("favourites", favourites);
         }
     }
-}
+};

@@ -16,4 +16,4 @@ const getTeamsFromLocalStorage = () => {
         return JSON.parse(favourites);
 
     return [];
-}
+};

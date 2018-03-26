@@ -10,13 +10,13 @@ const mapStateToProps = (state) => {
         team: state.team,
         teamPageIndex: state.selectedOptionsIndeces.teamPageIndex
     };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchTeam: bindActionCreators(fetchTeam, dispatch),
-    }
-}
+    };
+};
 
 export default
     connect(mapStateToProps, mapDispatchToProps)(TeamPage);
