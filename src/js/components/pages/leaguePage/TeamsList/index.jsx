@@ -10,27 +10,27 @@ import Error from "Components/messages/Error";
 import "./index.css";
 
 export default class TeamsList extends React.Component {
-	render() {
-		this.props.getTeamsFromFavourites();
+    render() {
+        this.props.getTeamsFromFavourites();
 
-    	if (this.props.fetchingError) {
-    		return <Error />;
-    	}
+        if (this.props.fetchingError) {
+            return <Error />;
+        }
         
-    	if (!this.props.teams) {
-    		return <Loading />;
-    	}
+        if (!this.props.teams) {
+            return <Loading />;
+        }
 
-    	return (
-			<div className="teams-list">
-				{this.props.teams.map((team, index) => {
-					return (
-						<div className="teams-list__team-item-container" key={index}>
-							<TeamItemContainer team={team} />
-    					</div>
-					);
-				})}
-    		</div>
-    	);
+        return (
+            <div className="teams-list">
+                {this.props.teams.map((team, index) => {
+                    return (
+                        <div className="teams-list__team-item-container" key={index}>
+                            <TeamItemContainer team={team} />
+                        </div>
+                    );
+                })}
+            </div>
+        );
     }
 }

@@ -6,8 +6,8 @@ import Tab from "Components/tabs/Tab";
 import "./index.css";
 
 export default class TeamItemForHeader extends React.Component {
-	render() {
-		return (
+    render() {
+        return (
             <div className="item">
                 <div className="team-item-for-header__team">
                     <img src={this.props.team.crestUrl} className="team-item-for-header__img"/>
@@ -26,6 +26,6 @@ export default class TeamItemForHeader extends React.Component {
                     </TabsContainer>
                 </div>
             </div>
-		);
-	}
+        );
+    }
 }

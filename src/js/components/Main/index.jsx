@@ -1,9 +1,9 @@
 import React from "react";
 
 import {
-	Route,
-	Switch,
-	Redirect
+    Route,
+    Switch,
+    Redirect
 } from "react-router-dom";
 
 import TablePageContainer from "Containers/TablePageContainer";
@@ -13,36 +13,36 @@ import TeamPageContainer from "Containers/TeamPageContainer";
 import "./index.css";
 
 export default class Main extends React.Component {
-	render() {
-		const tablePage = (
-			<div className="main__table-panel-container">
-				<TablePageContainer />
-			</div>
-		);
+    render() {
+        const tablePage = (
+            <div className="main__table-panel-container">
+                <TablePageContainer />
+            </div>
+        );
 
-		const leaguePage = (
-			<div className="main__league-panel-container">
-				<LeaguePageContainer />
-			</div>
-		);
+        const leaguePage = (
+            <div className="main__league-panel-container">
+                <LeaguePageContainer />
+            </div>
+        );
 
-		const teamPage = (props) => (
-			<div className="main__team-panel-container">
-				<TeamPageContainer teamId={props.match.params.id} />
-			</div>
-		);
+        const teamPage = (props) => (
+            <div className="main__team-panel-container">
+                <TeamPageContainer teamId={props.match.params.id} />
+            </div>
+        );
 
-		return (
-			<main>
-				<div className="main__inner-container wrapper">
-					<Switch>
-						<Route path="/table" render={() => tablePage} />
-						<Route path="/teams" render={() => leaguePage} />
-						<Route path="/team/:id" render={(props) => teamPage(props)} />
-						<Redirect to="/table" />
-					</Switch>
-				</div>
-			</main>
-		);
-	}
+        return (
+            <main>
+                <div className="main__inner-container wrapper">
+                    <Switch>
+                        <Route path="/table" render={() => tablePage} />
+                        <Route path="/teams" render={() => leaguePage} />
+                        <Route path="/team/:id" render={(props) => teamPage(props)} />
+                        <Redirect to="/table" />
+                    </Switch>
+                </div>
+            </main>
+        );
+    }
 }

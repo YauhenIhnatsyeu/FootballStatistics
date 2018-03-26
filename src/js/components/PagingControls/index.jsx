@@ -3,8 +3,8 @@ import React from "react";
 import "./index.css";
 
 export default class PagingControls {
-	constructor(props) {
-		this.props = props;
+    constructor(props) {
+        this.props = props;
     }
     
     handleClick = (pageIndex) => {
@@ -35,10 +35,10 @@ export default class PagingControls {
             })
         )
     }
-	
-	render() {
-		return (
-			<div className="paging-controls">
+    
+    render() {
+        return (
+            <div className="paging-controls">
                 <ul className="paging-controls__list">
                     <li className="paging-controls__control paging-controls__control_not-clickable">
                         <select
@@ -77,7 +77,7 @@ export default class PagingControls {
                         last
                     </li>
                 </ul>
-			</div>
-		);
-	}
+            </div>
+        );
+    }
 }

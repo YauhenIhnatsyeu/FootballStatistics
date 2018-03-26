@@ -13,20 +13,20 @@ import Error from "Components/messages/Error";
 import "./index.css";
 
 export default class PlayersSection extends React.Component {
-	constructor(props) {
-		super(props);
+    constructor(props) {
+        super(props);
 
         const playersUrl = this.props.team._links.self.href + "/players";
         this.props.fetchPlayers(playersUrl);
     }
 
-	render() {
-    	if (this.props.fetchingErrorOccured) {
-    		return <Error />;
-    	}
+    render() {
+        if (this.props.fetchingErrorOccured) {
+            return <Error />;
+        }
 
-    	if (!this.props.players) {
-    		return <Loading />;
+        if (!this.props.players) {
+            return <Loading />;
         }
 
         const pagesCount = Math.ceil(this.props.players.length / this.props.itemsOnOnePageCount);
@@ -37,8 +37,8 @@ export default class PlayersSection extends React.Component {
             updateSelectedOptionIndex: this.props.updateSelectedOptionIndex
         });
         
-		return (
-			<React.Fragment>
+        return (
+            <React.Fragment>
                 {this.props.players.length <= this.PLAYERS_ON_ONE_PAGE_COUNT ||
                     <div className="players-section__paging-controls-container">
                         {pagingControls.render()}
@@ -52,7 +52,7 @@ export default class PlayersSection extends React.Component {
                         {pagingControls.render()}
                     </div>
                 }
-			</React.Fragment>
-		);
-	}
+            </React.Fragment>
+        );
+    }
 }

@@ -3,9 +3,9 @@ import React from "react";
 import "./index.css";
 
 export default class PlayerItem extends React.Component {
-	render() {
-		return (
-			<div className="item">
+    render() {
+        return (
+            <div className="item">
                 <p className="player-item__name">
                     {this.props.player.jerseyNumber && this.props.player.jerseyNumber + ". "} {this.props.player.name}
                 </p>
@@ -16,6 +16,6 @@ export default class PlayerItem extends React.Component {
                     <p>Market value: {this.props.player.marketValue}</p>
                 }
             </div>
-		);
-	}
+        );
+    }
 }

@@ -11,20 +11,20 @@ import "./index.css";
 
 export default class LeaguePage extends React.Component {
     render() {
-    	return (
-			<React.Fragment>
-    			<SectionHeader 
-    				title={this.props.leaguesData.leaguesTitles[this.props.leagueIndex]}
-    			/>
+        return (
+            <React.Fragment>
+                <SectionHeader 
+                    title={this.props.leaguesData.leaguesTitles[this.props.leagueIndex]}
+                />
 
-				<div className="league-panel__legue-selector-container">
-    				<LeagueSelectorContainer />
-				</div>
-				
-				<div className="league-panel__teams-list-container">
-					<TeamsListContainer />
-				</div>
-			</React.Fragment>
-    	);
+                <div className="league-panel__legue-selector-container">
+                    <LeagueSelectorContainer />
+                </div>
+                
+                <div className="league-panel__teams-list-container">
+                    <TeamsListContainer />
+                </div>
+            </React.Fragment>
+        );
     }
 }

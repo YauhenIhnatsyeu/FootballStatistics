@@ -14,34 +14,34 @@ import Error from "Components/messages/Error";
 import "./index.css";
 
 export default class TeamPage extends React.Component {
-	constructor(props) {
-		super(props);
+    constructor(props) {
+        super(props);
 
-		this.props.fetchTeam(this.props.teamId);
-	}
-	
-	render() {
-    	if (this.props.fetchingErrorOccured) {
-    		return <Error />;
-    	}
+        this.props.fetchTeam(this.props.teamId);
+    }
+    
+    render() {
+        if (this.props.fetchingErrorOccured) {
+            return <Error />;
+        }
         
-    	if (!this.props.team) {
-    		return <Loading />;
-		}
+        if (!this.props.team) {
+            return <Loading />;
+        }
 
-		return (
-			<div className="team-panel">
-				<div className="team-panel__team-item-for-header-container">
-					<TeamItemForHeaderContainer  />
-				</div>
-				<div className="team-panel__info-container">
-					{this.props.teamPageIndex === 0 ?
-						<PlayersPageContainer />
-						:
-						<FixturesPanel />
-					}
-				</div>
-			</div>
-		);
-	}
+        return (
+            <div className="team-panel">
+                <div className="team-panel__team-item-for-header-container">
+                    <TeamItemForHeaderContainer  />
+                </div>
+                <div className="team-panel__info-container">
+                    {this.props.teamPageIndex === 0 ?
+                        <PlayersPageContainer />
+                        :
+                        <FixturesPanel />
+                    }
+                </div>
+            </div>
+        );
+    }
 }

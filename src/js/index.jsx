@@ -22,19 +22,19 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-	rootReducer, 
-	defaultState,
-	composeEnhancers(
-		applyMiddleware(sagaMiddleware),
-	)
+    rootReducer, 
+    defaultState,
+    composeEnhancers(
+        applyMiddleware(sagaMiddleware),
+    )
 );
 
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
-	document.getElementById("app")
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById("app")
 );
 
