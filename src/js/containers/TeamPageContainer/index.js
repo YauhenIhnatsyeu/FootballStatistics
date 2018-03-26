@@ -8,7 +8,7 @@ import TeamPage from "Pages/teamPage/TeamPage";
 const mapStateToProps = (state) => {
     return {
         team: state.team,
-        teamPageIndex: state.selectedOptionIndeces.teamPageIndex
+        teamPageIndex: state.selectedOptionsIndeces.teamPageIndex
     };
 }
 

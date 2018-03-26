@@ -8,7 +8,7 @@ import PlayersList from "PlayersPageSections/playersSection/PlayersList";
 const mapStateToProps = (state) => {
     return {
         players: state.players,
-        currentPageIndex: state.selectedOptionIndeces.playersPagingControlsPageIndex,
+        currentPageIndex: state.selectedOptionsIndeces.playersPagingControlsPageIndex,
         itemsOnOnePageCount: state.itemsOnOnePageCount,
     };
 }

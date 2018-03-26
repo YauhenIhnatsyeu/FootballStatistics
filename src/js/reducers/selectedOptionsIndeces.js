@@ -6,7 +6,7 @@ const initialState = {
     playersPagingControlsPageIndex: 0
 };
 
-export default function selectedOptionIndeces(state = initialState, action) {
+export default function selectedOptionsIndeces(state = initialState, action) {
     switch (action.type) {
         case actionTypes.SELECTED_OPTION_INDEX_UPDATE_REQUESTED:
             const newState = Object.assign({}, state);

@@ -7,7 +7,7 @@ import TablePage from "Pages/tablePage/TablePage";
 
 const mapStateToProps = (state) => {
     return {
-        leagueIndex: state.selectedOptionIndeces.leagueIndex,
+        leagueIndex: state.selectedOptionsIndeces.leagueIndex,
         leaguesData: state.leaguesData,
         fetchingErrorOccured: state.fetchingErrorOccured
     };

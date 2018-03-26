@@ -2,24 +2,18 @@ import React from "react";
 
 import {Link} from "react-router-dom";
 
-import extractTeamIdFromUrl from "Utilities/extractTeamIdFromUrl";
-
 import "./index.css";
 
 export default class TeamItem extends React.Component {
 	constructor(props) {
 		super(props);
 		
-		this.teamId = extractTeamIdFromUrl(this.props.team._links.self.href);
-
 		this.state = {
 			isFavourite: this.isThisTeamFavourite()
 		};
 	}
 
 	componentWillReceiveProps(nextProps) {
-		this.teamId = extractTeamIdFromUrl(nextProps.team._links.self.href);
-
 		const isThisTeamFavourite = this.isThisTeamFavourite();
 		if (this.state.isFavourite !== isThisTeamFavourite) {
 			this.setState({
@@ -29,14 +23,14 @@ export default class TeamItem extends React.Component {
 	}
 
 	isThisTeamFavourite() {
-		return this.props.favouriteTeams.includes(this.teamId);
+		return this.props.favouriteTeams.includes(this.props.team.id);
 	}
 
     handleButtonClick = () => {
     	if (this.state.isFavourite) {
-    		this.props.removeTeamFromFavourites(this.teamId);
+    		this.props.removeTeamFromFavourites(this.props.team.id);
     	} else {
-			this.props.addTeamToFavourites(this.teamId);
+			this.props.addTeamToFavourites(this.props.team.id);
 		}
 		
     	this.setState({
@@ -44,38 +38,8 @@ export default class TeamItem extends React.Component {
     	});
     }
 
-    // addTeamIdToLocalStorage = () => {
-	// 	let favourites = localStorage.getItem("favourites");
-		
-    // 	if (favourites) {
-    // 		favourites = JSON.parse(favourites);
-    // 		favourites.push(this.teamId);
-    // 		favourites = JSON.stringify(favourites);
-    // 	} else {
-    // 		favourites = JSON.stringify([this.teamId]);
-    // 	}
-
-	// 	localStorage.setItem("favourites", favourites);
-    // }
-
-    // removeTeamIdFromLocalStorage = () => {
-	// 	let favourites = localStorage.getItem("favourites");
-		
-    // 	if (favourites) {
-
-    // 		favourites = JSON.parse(favourites);
-	// 		const indexOfTeamId = favourites.indexOf(this.teamId);
-			
-    // 		if (indexOfTeamId !== -1) {
-    // 			favourites.splice(indexOfTeamId, 1);
-    // 			favourites = JSON.stringify(favourites);
-    // 			localStorage.setItem("favourites", favourites);
-    // 		}
-    // 	}
-    // }
-
     render() {
-		const teamUrl = "/team/" + this.teamId;
+		const teamUrl = "/team/" + this.props.team.id;
 		
     	return (
 			<div className="item team-item">

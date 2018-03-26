@@ -10,7 +10,7 @@ import Error from "Components/messages/Error";
 import "./index.css";
 
 export default class TeamsList extends React.Component {
-    render() {
+	render() {
 		this.props.getTeamsFromFavourites();
 
     	if (this.props.fetchingError) {
@@ -23,7 +23,7 @@ export default class TeamsList extends React.Component {
 
     	return (
 			<div className="teams-list">
-				{this.props.teams.teams.map((team, index) => {
+				{this.props.teams.map((team, index) => {
 					return (
 						<div className="teams-list__team-item-container" key={index}>
 							<TeamItemContainer team={team} />
