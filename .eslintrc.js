@@ -31,11 +31,14 @@ module.exports = {
             "error",
             "always"
         ],
-        "no-empty": ["error", {
-            allowEmptyCatch: true
-        }],
         "indent": [2, 4],
         "no-underscore-dangle": ["error", { "allow": ["_links"] }],
+        "react/prefer-stateless-function": 0,
+        "react/jsx-indent": 0,
+        "react/jsx-indent-props": 0,
+        "import/no-extraneous-dependencies": 0,
+        "react/no-array-index-key": 0,
+        "jsx-a11y/anchor-is-valid": 0,
     },
     "parser": "babel-eslint",
     "settings": {

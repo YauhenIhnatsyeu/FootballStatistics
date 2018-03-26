@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import React from "react";
 
 import TabsContainer from "Containers/TabsContainer";
@@ -12,9 +14,9 @@ export default class TablePage extends React.Component {
                 <TabsContainer
                     selectedOptionKey="leagueIndex"
                 >
-                    {this.props.leaguesData.leaguesTitles.map((tabTitle, index) => {
+                    {this.props.leaguesTitles.map((tabTitle, index) => {
                         return (
-                            <Tab key={index} title={tabTitle} />
+                            <Tab title={tabTitle} key={index} />
                         );
                     })}
                 </TabsContainer>
@@ -24,3 +26,7 @@ export default class TablePage extends React.Component {
         );
     }
 }
+
+TablePage.propTypes = {
+    leaguesTitles: PropTypes.arrayOf(PropTypes.string).isRequired,
+};

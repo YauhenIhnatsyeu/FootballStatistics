@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import React from "react";
 
 import "./index.css";
@@ -21,22 +23,20 @@ export default class LeagueSelector extends React.Component {
 
         this.props.updateSelectedOptionIndex(
             "leagueIndex",
-            leagueIndex
+            leagueIndex,
         );
 
-        this.props.fetchTeams(
-            this.props.leaguesData.leaguesIds[leagueIndex]
-        );
+        this.props.fetchTeams(this.props.leaguesData.leaguesIds[leagueIndex]);
     }
 
     render() {
         return (
             <div className="selector">
-                <select 
-                    className="selector__select" 
-                    onChange={this.handleChange} 
-                    value={this.props.leaguesData.leaguesTitles[this.props.leagueIndex]}>
-
+                <select
+                    className="selector__select"
+                    onChange={this.handleChange}
+                    value={this.props.leaguesData.leaguesTitles[this.props.leagueIndex]}
+                >
                     {this.props.leaguesData.leaguesTitles.map((title, index) => {
                         return (
                             <option key={index}>
@@ -49,3 +49,14 @@ export default class LeagueSelector extends React.Component {
         );
     }
 }
+
+LeagueSelector.propTypes = {
+    fetchLeague: PropTypes.func.isRequired,
+    fetchTeams: PropTypes.func.isRequired,
+    updateSelectedOptionIndex: PropTypes.func.isRequired,
+    leaguesData: PropTypes.shape({
+        leaguesIds: PropTypes.arrayOf(PropTypes.number).isRequired,
+        leaguesTitles: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }).isRequired,
+    leagueIndex: PropTypes.number.isRequired,
+};

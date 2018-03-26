@@ -75,5 +75,5 @@ TeamItem.propTypes = {
         name: PropTypes.string.isRequired,
         shortName: PropTypes.string.isRequired,
         squadMarketValue: PropTypes.string,
-    }).isRequired
-}
+    }).isRequired,
+};

@@ -1,11 +1,9 @@
+import PropTypes from "prop-types";
+
 import React from "react";
 
-import fetchFootbalData from "Utilities/fetchFootballData";
-
-import SectionHeader from "Components/SectionHeader";
 import PagingControls from "Components/PagingControls";
 import PlayersListContainer from "Containers/PlayersListContainer";
-
 
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
@@ -16,7 +14,7 @@ export default class PlayersSection extends React.Component {
     constructor(props) {
         super(props);
 
-        const playersUrl = this.props.team._links.self.href + "/players";
+        const playersUrl = `${this.props.team._links.self.href}/players`;
         this.props.fetchPlayers(playersUrl);
     }
 
@@ -29,14 +27,15 @@ export default class PlayersSection extends React.Component {
             return <Loading />;
         }
 
-        const pagesCount = Math.ceil(this.props.players.length / this.props.itemsOnOnePageCount);
+        const pagingControlsPagesCount =
+            Math.ceil(this.props.players.length / this.props.itemsOnOnePageCount);
 
         const pagingControls = new PagingControls({
             currentPageIndex: this.props.currentPageIndex,
-            pagesCount: pagesCount,
-            updateSelectedOptionIndex: this.props.updateSelectedOptionIndex
+            pagesCount: pagingControlsPagesCount,
+            updateSelectedOptionIndex: this.props.updateSelectedOptionIndex,
         });
-        
+
         return (
             <React.Fragment>
                 {this.props.players.length <= this.PLAYERS_ON_ONE_PAGE_COUNT ||
@@ -56,3 +55,24 @@ export default class PlayersSection extends React.Component {
         );
     }
 }
+
+PlayersSection.propTypes = {
+    fetchPlayers: PropTypes.func.isRequired,
+    updateSelectedOptionIndex: PropTypes.func.isRequired,
+    fetchingErrorOccured: PropTypes.bool,
+    team: PropTypes.shape({
+        _links: PropTypes.shape({
+            self: PropTypes.shape({
+                href: PropTypes.string.isRequired,
+            }).isRequired,
+        }).isRequired,
+    }).isRequired,
+    players: PropTypes.arrayOf(PropTypes.object),
+    currentPageIndex: PropTypes.number.isRequired,
+    itemsOnOnePageCount: PropTypes.number.isRequired,
+};
+
+PlayersSection.defaultProps = {
+    fetchingErrorOccured: false,
+    players: null,
+};

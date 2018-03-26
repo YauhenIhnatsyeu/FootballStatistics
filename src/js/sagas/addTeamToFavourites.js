@@ -18,5 +18,7 @@ export default function* addTeamToFavourites(action) {
     try {
         yield call(addTeamToLocalStorage, action.payload);
     } catch (error) {
+        //TODO
+        throw new Error();
     }
 }

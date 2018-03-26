@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 
 import extractTeamIdFromUrl from "Utilities/extractTeamIdFromUrl";
 
+import PropTypes from "prop-types";
+
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
 
@@ -15,18 +17,15 @@ export default class LeagueTable extends React.Component {
 
         this.header = ["Position", "Team", "G", "W", "D", "L", "GS", "GC", "P"];
         this.leagueProperties =
-            ["position", "teamName", "playedGames", "wins", "draws", "losses", "goals", "goalsAgainst", "points"];
-        
-        this.props.fetchLeague(
-            this.props.leaguesData.leaguesIds[this.props.leagueIndex]
-        )
+            ["position", "teamName", "playedGames", "wins", "draws", "losses",
+                "goals", "goalsAgainst", "points"];
+
+        this.props.fetchLeague(this.props.leaguesData.leaguesIds[this.props.leagueIndex]);
     }
 
     componentWillReceiveProps(nextProps) {
         if (this.props.leagueIndex !== nextProps.leagueIndex) {
-            this.props.fetchLeague(
-                this.props.leaguesData.leaguesIds[nextProps.leagueIndex]
-            )
+            this.props.fetchLeague(this.props.leaguesData.leaguesIds[nextProps.leagueIndex]);
         }
     }
     
@@ -52,18 +51,17 @@ export default class LeagueTable extends React.Component {
                         })}
                     </tr>
 
-                    {this.props.leaguesData.league.standing.map((team, index) => {
+                    {this.props.leaguesData.league.standing.map((team, rowIndex) => {
                         const teamId = extractTeamIdFromUrl(team._links.team.href);
-                        const teamUrl = "/team/" + teamId;
+                        const teamUrl = `/team/${teamId}`;
                         return (
-                            <tr className="league-table__row" key={index + 1}>
-                                {this.leagueProperties.map((teamProperty, index) => {
+                            <tr className="league-table__row" key={rowIndex + 1}>
+                                {this.leagueProperties.map((teamProperty, colIndex) => {
                                     return (
-                                        <td className="league-table__col" key={index}>
+                                        <td className="league-table__col" key={colIndex}>
                                             {teamProperty === "teamName" ?
-                                                //If current property is teamName, display it as a link
-                                                <Link to={teamUrl}>{team[teamProperty]}</Link> :
-                                                //if any other, display it as usual
+                                                <Link to={teamUrl}>{team[teamProperty]}</Link>
+                                                :
                                                 team[teamProperty]}
                                         </td>
                                     );
@@ -76,3 +74,32 @@ export default class LeagueTable extends React.Component {
         );
     }
 }
+
+LeagueTable.propTypes = {
+    fetchLeague: PropTypes.func.isRequired,
+    fetchingErrorOccured: PropTypes.bool,
+    leaguesData: PropTypes.shape({
+        leaguesIds: PropTypes.arrayOf(PropTypes.number).isRequired,
+        league: PropTypes.shape({
+            standing: PropTypes.arrayOf(PropTypes.shape({
+                _link: PropTypes.shape({
+                    team: PropTypes.shape({
+                        href: PropTypes.string,
+                    }).isRequired,
+                }),
+            })).isRequired,
+        }),
+    }),
+    leagueIndex: PropTypes.number.isRequired,
+};
+
+LeagueTable.defaultProps = {
+    fetchingErrorOccured: false,
+    leaguesData: PropTypes.shape({
+        league: PropTypes.shape({
+            standing: PropTypes.arrayOf(PropTypes.shape({
+                _link: null,
+            })),
+        }),
+    }),
+};

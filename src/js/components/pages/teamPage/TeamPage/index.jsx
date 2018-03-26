@@ -1,17 +1,15 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 import React from "react";
 
-// import {fetchTeamData} from "Utilities/fetchFootballData";
-
-import TeamInfo from "../teamInfo/TeamInfo";
-
 import TeamItemForHeaderContainer from "Containers/TeamItemForHeaderContainer";
 import PlayersPageContainer from "Containers/PlayersPageContainer";
-import FixturesPanel from "../pages/fixturesPage/FixturesPage";
 
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
+
+import TeamInfo from "../teamInfo/TeamInfo";
+import FixturesPanel from "../pages/fixturesPage/FixturesPage";
 
 import "./index.css";
 
@@ -34,20 +32,35 @@ export default class TeamPage extends React.Component {
         return (
             <div className="team-panel">
                 <div className="team-panel__team-item-for-header-container">
-                    <TeamItemForHeaderContainer  />
+                    <TeamItemForHeaderContainer />
                 </div>
-                <div className="team-panel__info-container">
+                <TeamInfo>
                     {this.props.teamPageIndex === 0 ?
                         <PlayersPageContainer />
                         :
                         <FixturesPanel />
                     }
-                </div>
+                </TeamInfo>
             </div>
         );
     }
 }
 
 TeamPage.propTypes = {
-    teamId: PropTypes.number.isRequired
-}
+    teamId: PropTypes.number.isRequired,
+    fetchTeam: PropTypes.func.isRequired,
+    fetchingErrorOccured: PropTypes.bool,
+    team: PropTypes.shape({
+        id: PropTypes.number,
+        crestUrl: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        shortName: PropTypes.string.isRequired,
+        squadMarketValue: PropTypes.string,
+    }),
+    teamPageIndex: PropTypes.number.isRequired,
+};
+
+TeamPage.defaultProps = {
+    fetchingErrorOccured: false,
+    team: null,
+};
