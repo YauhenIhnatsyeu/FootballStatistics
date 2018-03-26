@@ -1,12 +1,5 @@
 import { call } from "redux-saga/effects";
 
-export default function* addTeamToFavourites(action) {
-    try {
-        yield call(addTeamToLocalStorage, action.payload);
-    } catch (error) {
-    }
-}
-
 const addTeamToLocalStorage = (teamId) => {
     let favourites = localStorage.getItem("favourites");
 
@@ -20,3 +13,10 @@ const addTeamToLocalStorage = (teamId) => {
 
     localStorage.setItem("favourites", favourites);
 };
+
+export default function* addTeamToFavourites(action) {
+    try {
+        yield call(addTeamToLocalStorage, action.payload);
+    } catch (error) {
+    }
+}

@@ -7,7 +7,7 @@ import {
     onFetchFailed,
 } from "ActionCreators";
 
-import { fetchUrl } from "Utilities/fetchFootballData";
+import fetchUrl from "Utilities/fetchFootballData";
 
 export default function* fetchTeam(action) {
     try {

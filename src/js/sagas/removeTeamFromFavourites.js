@@ -1,13 +1,5 @@
 import { call } from "redux-saga/effects";
 
-export default function* removeTeamFromFavourites(action) {
-    try {
-        yield call(removeTeamFromLocalStorage, action.payload);
-        return yield 1;
-    } catch (error) {
-    }
-}
-
 const removeTeamFromLocalStorage = (teamId) => {
     let favourites = localStorage.getItem("favourites");
 
@@ -22,3 +14,10 @@ const removeTeamFromLocalStorage = (teamId) => {
         }
     }
 };
+
+export default function* removeTeamFromFavourites(action) {
+    try {
+        yield call(removeTeamFromLocalStorage, action.payload);
+    } catch (error) {
+    }
+}

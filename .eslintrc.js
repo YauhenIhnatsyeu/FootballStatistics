@@ -35,7 +35,7 @@ module.exports = {
             allowEmptyCatch: true
         }],
         "indent": [2, 4],
-        "eol-last": [2, "never"]
+        "no-underscore-dangle": ["error", { "allow": ["_links"] }],
     },
     "parser": "babel-eslint",
     "settings": {
@@ -45,6 +45,11 @@ module.exports = {
           "version": "15.0",
           "flowVersion": "0.53"
         },
-        "propWrapperFunctions": [ "forbidExtraProps" ]
+        "propWrapperFunctions": [ "forbidExtraProps" ],
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack.config.js"
+            }
+        }
     }
 };
