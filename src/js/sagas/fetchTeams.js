@@ -1,15 +1,15 @@
-import {call, put} from "redux-saga/effects";
+import { call, put } from "redux-saga/effects";
 
-import {createTeamsUrl} from "Utilities/fetchingUrlsCreators";
+import { createTeamsUrl } from "Utilities/fetchingUrlsCreators";
 
 import extractTeamIdFromUrl from "Utilities/extractTeamIdFromUrl";
 
 import {
     onTeamsFetchSucceeded,
-    onFetchFailed
+    onFetchFailed,
 } from "ActionCreators";
 
-import {fetchUrl} from "Utilities/fetchFootballData";
+import { fetchUrl } from "Utilities/fetchFootballData";
 
 export default function* fetchTeams(action) {
     try {
@@ -28,4 +28,4 @@ const addIdToEachTeam = (teams) => {
         const teamId = extractTeamIdFromUrl(team._links.self.href);
         team.id = teamId;
     });
-}; 
+};

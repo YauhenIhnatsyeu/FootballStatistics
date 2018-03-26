@@ -5,7 +5,8 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "airbnb"
     ],
     "parserOptions": {
         "sourceType": "module",
@@ -32,7 +33,9 @@ module.exports = {
         ],
         "no-empty": ["error", {
             allowEmptyCatch: true
-        }]
+        }],
+        "indent": [2, 4],
+        "eol-last": [2, "never"]
     },
     "parser": "babel-eslint",
     "settings": {

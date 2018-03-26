@@ -1,4 +1,4 @@
-import {call} from "redux-saga/effects";
+import { call } from "redux-saga/effects";
 
 export default function* addTeamToFavourites(action) {
     try {
@@ -9,7 +9,7 @@ export default function* addTeamToFavourites(action) {
 
 const addTeamToLocalStorage = (teamId) => {
     let favourites = localStorage.getItem("favourites");
-    
+
     if (favourites) {
         favourites = JSON.parse(favourites);
         favourites.push(teamId);

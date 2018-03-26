@@ -1,21 +1,17 @@
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-import {getTeamsFromFavourites} from "ActionCreators";
+import { getTeamsFromFavourites } from "ActionCreators";
 
 import TeamList from "Pages/leaguePage/TeamsList";
 
-const mapStateToProps = (state) => {
-    return {
-        teams: state.teams
-    };
-};
+const mapStateToProps = state => ({
+    teams: state.teams,
+});
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getTeamsFromFavourites: bindActionCreators(getTeamsFromFavourites, dispatch)
-    };
-};
+const mapDispatchToProps = dispatch => ({
+    getTeamsFromFavourites: bindActionCreators(getTeamsFromFavourites, dispatch),
+});
 
 export default
-    connect(mapStateToProps, mapDispatchToProps)(TeamList);
+connect(mapStateToProps, mapDispatchToProps)(TeamList);

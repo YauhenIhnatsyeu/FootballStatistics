@@ -6,7 +6,7 @@ import addTeamToFavourites from "./addTeamToFavourites";
 import removeTeamFromFavourites from "./removeTeamFromFavourites";
 import getTeamsFromFavourites from "./getTeamsFromFavourites";
 
-import {takeEvery} from "redux-saga/effects";
+import { takeEvery } from "redux-saga/effects";
 
 export default function* rootSaga() {
     yield takeEvery("LEAGUE_FETCH_REQUESTED", fetchLeague);

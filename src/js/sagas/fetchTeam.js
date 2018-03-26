@@ -1,13 +1,13 @@
-import {call, put} from "redux-saga/effects";
+import { call, put } from "redux-saga/effects";
 
-import {createTeamUrl} from "Utilities/fetchingUrlsCreators";
+import { createTeamUrl } from "Utilities/fetchingUrlsCreators";
 
 import {
     onTeamFetchSucceeded,
-    onFetchFailed
+    onFetchFailed,
 } from "ActionCreators";
 
-import {fetchUrl} from "Utilities/fetchFootballData";
+import { fetchUrl } from "Utilities/fetchFootballData";
 
 export default function* fetchTeam(action) {
     try {

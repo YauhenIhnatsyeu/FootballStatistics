@@ -1,6 +1,6 @@
-import {call, put} from "redux-saga/effects";
+import { call, put } from "redux-saga/effects";
 
-import {onGetTeamsFromFavouritesSucceeded} from "ActionCreators";
+import { onGetTeamsFromFavouritesSucceeded } from "ActionCreators";
 
 export default function* getTeamsFromFavourites() {
     try {
@@ -12,8 +12,7 @@ export default function* getTeamsFromFavourites() {
 
 const getTeamsFromLocalStorage = () => {
     const favourites = localStorage.getItem("favourites");
-    if (favourites)
-        return JSON.parse(favourites);
+    if (favourites) { return JSON.parse(favourites); }
 
     return [];
 };

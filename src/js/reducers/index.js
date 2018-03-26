@@ -1,4 +1,4 @@
-import {combineReducers} from "redux";
+import { combineReducers } from "redux";
 
 import fetchingErrorOccured from "./fetchingErrorOccured";
 import selectedOptionsIndeces from "./selectedOptionsIndeces";
@@ -17,5 +17,5 @@ export default combineReducers({
     team,
     players,
     itemsOnOnePageCount,
-    favouriteTeams
+    favouriteTeams,
 });

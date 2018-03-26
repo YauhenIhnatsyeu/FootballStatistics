@@ -1,14 +1,12 @@
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 import LeaguePage from "Pages/leaguePage/LeaguePage";
 
-const mapStateToProps = (state) => {
-    return {
-        leaguesData: state.leaguesData,
-        fetchingErrorOccured: state.fetchingErrorOccured,
-        leagueIndex: state.selectedOptionsIndeces.leagueIndex
-    };
-};
+const mapStateToProps = state => ({
+    leaguesData: state.leaguesData,
+    fetchingErrorOccured: state.fetchingErrorOccured,
+    leagueIndex: state.selectedOptionsIndeces.leagueIndex,
+});
 
 export default
-    connect(mapStateToProps)(LeaguePage);
+connect(mapStateToProps)(LeaguePage);

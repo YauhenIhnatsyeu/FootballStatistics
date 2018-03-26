@@ -1,12 +1,10 @@
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 import TeamItemForHeader from "Pages/teamPage/TeamItemForHeader";
 
-const mapStateToProps = (state) => {
-    return {
-        team: state.team
-    };
-};
+const mapStateToProps = state => ({
+    team: state.team,
+});
 
 export default
-    connect(mapStateToProps)(TeamItemForHeader);
+connect(mapStateToProps)(TeamItemForHeader);

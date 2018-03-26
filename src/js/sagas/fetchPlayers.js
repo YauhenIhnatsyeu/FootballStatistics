@@ -1,13 +1,13 @@
-import {call, put} from "redux-saga/effects";
+import { call, put } from "redux-saga/effects";
 
 import sorterByJerseyNumber from "Utilities/sorterByJerseyNumber";
 
 import {
     onPlayersFetchSucceeded,
-    onFetchFailed
+    onFetchFailed,
 } from "ActionCreators";
 
-import {fetchUrl} from "Utilities/fetchFootballData";
+import { fetchUrl } from "Utilities/fetchFootballData";
 
 export default function* fetchPlayers(action) {
     try {

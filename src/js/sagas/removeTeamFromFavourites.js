@@ -1,4 +1,4 @@
-import {call} from "redux-saga/effects";
+import { call } from "redux-saga/effects";
 
 export default function* removeTeamFromFavourites(action) {
     try {
@@ -10,11 +10,11 @@ export default function* removeTeamFromFavourites(action) {
 
 const removeTeamFromLocalStorage = (teamId) => {
     let favourites = localStorage.getItem("favourites");
-    
+
     if (favourites) {
         favourites = JSON.parse(favourites);
         const indexOfTeamId = favourites.indexOf(teamId);
-        
+
         if (indexOfTeamId !== -1) {
             favourites.splice(indexOfTeamId, 1);
             favourites = JSON.stringify(favourites);
