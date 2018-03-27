@@ -8,6 +8,8 @@ module.exports = {
     },
     resolve: {
         alias: {
+            Constants: path.resolve(__dirname, "src/js/constants"),
+
             Components: path.resolve(__dirname, "src/js/components"),
             Containers: path.resolve(__dirname, "src/js/containers"),
 

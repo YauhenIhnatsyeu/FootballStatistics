@@ -10,7 +10,6 @@ import {
 import LeagueSelector from "Pages/leaguePage/LeagueSelector";
 
 const mapStateToProps = state => ({
-    leaguesData: state.leaguesData,
     leagueIndex: state.selectedOptionsIndeces.leagueIndex,
 });
 

@@ -9,6 +9,8 @@ import PropTypes from "prop-types";
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
 
+import leaguesData from "Constants/leaguesData";
+
 import "./index.css";
 
 export default class LeagueTable extends React.Component {
@@ -20,12 +22,12 @@ export default class LeagueTable extends React.Component {
             ["position", "teamName", "playedGames", "wins", "draws", "losses",
                 "goals", "goalsAgainst", "points"];
 
-        this.props.fetchLeague(this.props.leaguesData.leaguesIds[this.props.leagueIndex]);
+        this.props.fetchLeague(leaguesData[this.props.leagueIndex].id);
     }
 
     componentWillReceiveProps(nextProps) {
         if (this.props.leagueIndex !== nextProps.leagueIndex) {
-            this.props.fetchLeague(this.props.leaguesData.leaguesIds[nextProps.leagueIndex]);
+            this.props.fetchLeague(leaguesData[nextProps.leagueIndex].id);
         }
     }
 
@@ -79,7 +81,6 @@ LeagueTable.propTypes = {
     fetchLeague: PropTypes.func.isRequired,
     fetchingErrorOccured: PropTypes.bool,
     leaguesData: PropTypes.shape({
-        leaguesIds: PropTypes.arrayOf(PropTypes.number).isRequired,
         league: PropTypes.shape({
             standing: PropTypes.arrayOf(PropTypes.shape({
                 _link: PropTypes.shape({

@@ -71,12 +71,18 @@ export default class TeamItem extends React.Component {
 TeamItem.propTypes = {
     team: PropTypes.shape({
         id: PropTypes.number.isRequired,
-        crestUrl: PropTypes.string.isRequired,
+        crestUrl: PropTypes.string,
         name: PropTypes.string.isRequired,
         shortName: PropTypes.string.isRequired,
         squadMarketValue: PropTypes.string,
-    }).isRequired,
+    }),
     favouriteTeams: PropTypes.arrayOf(PropTypes.object).isRequired,
     removeTeamFromFavourites: PropTypes.func.isRequired,
     addTeamToFavourites: PropTypes.func.isRequired,
+};
+
+TeamItem.defaultProps = {
+    team: PropTypes.shape({
+        crestUrl: null,
+    }),
 };

@@ -2,27 +2,27 @@ import PropTypes from "prop-types";
 
 import React from "react";
 
+import leaguesData from "Constants/leaguesData";
+
 import "./index.css";
 
 export default class LeagueSelector extends React.Component {
     constructor(props) {
         super(props);
 
-        this.props.fetchLeague(this.props.leaguesData.leaguesIds[this.props.leagueIndex]);
+        const leagueId = leaguesData[this.props.leagueIndex].id;
 
-        this.props.fetchTeams(this.props.leaguesData.leaguesIds[this.props.leagueIndex]);
+        this.props.fetchLeague(leagueId);
+
+        this.props.fetchTeams(leagueId);
     }
 
     handleChange = (event) => {
-        const leagueIndex =
-            this.props.leaguesData.leaguesTitles.indexOf(event.target.value);
+        const leagueIndex = leaguesData.findIndex(l => l.title === event.target.value);
 
-        this.props.updateSelectedOptionIndex(
-            "leagueIndex",
-            leagueIndex,
-        );
+        this.props.updateSelectedOptionIndex("leagueIndex", leagueIndex);
 
-        this.props.fetchTeams(this.props.leaguesData.leaguesIds[leagueIndex]);
+        this.props.fetchTeams(leaguesData[leagueIndex].id);
     }
 
     render() {
@@ -31,12 +31,12 @@ export default class LeagueSelector extends React.Component {
                 <select
                     className="selector__select"
                     onChange={this.handleChange}
-                    value={this.props.leaguesData.leaguesTitles[this.props.leagueIndex]}
+                    value={leaguesData[this.props.leagueIndex].title}
                 >
-                    {this.props.leaguesData.leaguesTitles.map((title, index) =>
+                    {leaguesData.map((leagueData, index) =>
                         (
                             <option key={index}>
-                                {title}
+                                {leagueData.title}
                             </option>
                         ))
                     }
@@ -50,9 +50,5 @@ LeagueSelector.propTypes = {
     fetchLeague: PropTypes.func.isRequired,
     fetchTeams: PropTypes.func.isRequired,
     updateSelectedOptionIndex: PropTypes.func.isRequired,
-    leaguesData: PropTypes.shape({
-        leaguesIds: PropTypes.arrayOf(PropTypes.number).isRequired,
-        leaguesTitles: PropTypes.arrayOf(PropTypes.string).isRequired,
-    }).isRequired,
     leagueIndex: PropTypes.number.isRequired,
 };
