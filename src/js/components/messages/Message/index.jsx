@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import React from "react";
 
 import "./index.css";
@@ -13,3 +15,7 @@ export default class Message extends React.Component {
         );
     }
 }
+
+Message.propTypes = {
+    children: PropTypes.node.isRequired,
+};

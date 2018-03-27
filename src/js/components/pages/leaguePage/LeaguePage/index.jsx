@@ -19,7 +19,7 @@ export default class LeaguePage extends React.Component {
                 <div className="league-panel__legue-selector-container">
                     <LeagueSelectorContainer />
                 </div>
-                
+
                 <div className="league-panel__teams-list-container">
                     <TeamsListContainer />
                 </div>

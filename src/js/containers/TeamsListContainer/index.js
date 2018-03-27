@@ -7,6 +7,7 @@ import TeamList from "Pages/leaguePage/TeamsList";
 
 const mapStateToProps = state => ({
     teams: state.teams,
+    fetchingError: state.fetchingError,
 });
 
 const mapDispatchToProps = dispatch => ({

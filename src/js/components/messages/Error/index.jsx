@@ -7,7 +7,7 @@ export default class Error extends React.Component {
         return (
             <Message>
                 <p>An error occured</p>
-                <p>Please, try to reload the page</p>  
+                <p>Please, try to reload the page</p>
             </Message>
         );
     }

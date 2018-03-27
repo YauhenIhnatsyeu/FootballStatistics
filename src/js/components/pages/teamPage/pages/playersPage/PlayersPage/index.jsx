@@ -10,7 +10,7 @@ export default class PlayersPage extends React.Component {
     render() {
         const hashtag = this.props.team.shortName ?
             this.props.team.shortName.toLowerCase() : "football";
-        
+
         return (
             <React.Fragment>
                 <Section title="Players">

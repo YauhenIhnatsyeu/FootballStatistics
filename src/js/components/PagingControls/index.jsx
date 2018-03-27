@@ -6,22 +6,23 @@ export default class PagingControls {
     constructor(props) {
         this.props = props;
     }
-    
+
     handleClick = (pageIndex) => {
-        if (pageIndex < 0 
+        if (pageIndex < 0
             || pageIndex > this.props.pagesCount - 1
-            || pageIndex === this.props.currentPageIndex)
+            || pageIndex === this.props.currentPageIndex) {
             return;
-        
+        }
+
         this.props.updateSelectedOptionIndex(
             "playersPagingControlsPageIndex",
-            pageIndex
-        )
+            pageIndex,
+        );
     }
 
     getOptions = () => {
         const pages = [];
-        for (let i = 1; i <= this.props.pagesCount; i++) {
+        for (let i = 1; i <= this.props.pagesCount; i += 1) {
             pages.push(i);
         }
 
@@ -31,11 +32,11 @@ export default class PagingControls {
                     <option key={index}>
                         {page}
                     </option>
-                )
+                );
             })
-        )
+        );
     }
-    
+
     render() {
         return (
             <div className="paging-controls">
@@ -62,7 +63,7 @@ export default class PagingControls {
                         prev
                     </li>
                     <li className="paging-controls__control paging-controls__control_not-clickable">
-                        {(this.props.currentPageIndex + 1) + "/" + this.props.pagesCount}
+                        {`${this.props.currentPageIndex + 1}/${this.props.pagesCount}`}
                     </li>
                     <li
                         className="paging-controls__control"

@@ -17,13 +17,13 @@ export default class FixturesSection extends React.Component {
         return (
             <React.Fragment>
                 <div className="fixture-section__dates-form-container">
-                    <DateForms 
-                        onFromDateChange={this.handleFromDateChange} 
+                    <DateForms
+                        onFromDateChange={this.handleFromDateChange}
                         onToDateChange={this.handleToDateChange}
                     />
-                
+
                 </div>
             </React.Fragment>
         );
-    }   
+    }
 }

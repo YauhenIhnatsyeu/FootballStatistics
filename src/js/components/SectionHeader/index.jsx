@@ -17,5 +17,9 @@ export default class SectionHeader extends React.Component {
 }
 
 SectionHeader.propTypes = {
-    title: PropTypes.string
-}
+    title: PropTypes.string,
+};
+
+SectionHeader.defaultProps = {
+    title: "",
+};

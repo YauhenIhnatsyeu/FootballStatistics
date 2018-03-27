@@ -11,10 +11,8 @@ export default class FixturesPanel extends React.Component {
                 <Section title="Fixtures">
                     <FixturesSection />
                 </Section>
-                <Section title="Some stuff">
-                    
-                </Section>
+                <Section title="Some stuff" />
             </React.Fragment>
         );
-    }   
+    }
 }

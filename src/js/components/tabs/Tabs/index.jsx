@@ -30,7 +30,9 @@ export default class Tabs extends React.Component {
                         return (
                             <li
                                 className={
-                                    tabIndex === this.props.selectedOptionsIndeces[this.props.selectedOptionKey] ?
+                                    tabIndex === this.props.selectedOptionsIndeces[
+                                        this.props.selectedOptionKey
+                                    ] ?
                                         "tabs__tab tabs__tab_current"
                                         :
                                         "tabs__tab"
@@ -49,8 +51,8 @@ export default class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
+    children: PropTypes.node.isRequired,
     selectedOptionKey: PropTypes.string.isRequired,
     selectedOptionsIndeces: PropTypes.object.isRequired,
     updateSelectedOptionIndex: PropTypes.func.isRequired,
-    //children: PropTypes.arrayOf(Tab).isRequired,
 };

@@ -16,15 +16,15 @@ export default class DatesForm extends React.Component {
 
         this.state = {
             fromDate: this.currentDateString,
-            toDate: toDateString
-        }
+            toDate: toDateString,
+        };
     }
-    
+
     handleFromDateChange = (date) => {
         this.props.onFromDateChange(date);
 
         this.setState({
-            fromDate: date
+            fromDate: date,
         });
     }
 
@@ -32,27 +32,27 @@ export default class DatesForm extends React.Component {
         this.props.onToDateChange(date);
 
         this.setState({
-            toDate: date
+            toDate: date,
         });
     }
 
     render() {
         return (
             <form className="dates-form">
-                <input 
+                <input
                     className="dates-form__input"
-                    type="date" 
+                    type="date"
                     value={this.state.fromDate}
-                    min={this.currentDateString} 
-                    onChange={(event) => this.handleFromDateChange(event.target.value)}
+                    min={this.currentDateString}
+                    onChange={(event) => { this.handleFromDateChange(event.target.value); }}
                 />
 
-                <input 
+                <input
                     className="dates-form__input"
-                    type="date" 
+                    type="date"
                     value={this.state.toDate}
-                    min={this.currentDateString} 
-                    onChange={(event) => this.handleToDateChange(event.target.value)}
+                    min={this.currentDateString}
+                    onChange={(event) => { this.handleToDateChange(event.target.value); }}
                 />
             </form>
         );

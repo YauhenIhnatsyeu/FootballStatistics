@@ -8,13 +8,9 @@ export default class LeagueSelector extends React.Component {
     constructor(props) {
         super(props);
 
-        this.props.fetchLeague(
-            this.props.leaguesData.leaguesIds[this.props.leagueIndex]
-        );
+        this.props.fetchLeague(this.props.leaguesData.leaguesIds[this.props.leagueIndex]);
 
-        this.props.fetchTeams(
-            this.props.leaguesData.leaguesIds[this.props.leagueIndex]
-        );
+        this.props.fetchTeams(this.props.leaguesData.leaguesIds[this.props.leagueIndex]);
     }
 
     handleChange = (event) => {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import extractTeamIdFromUrl from "Utilities/extractTeamIdFromUrl";
 
@@ -28,16 +28,16 @@ export default class LeagueTable extends React.Component {
             this.props.fetchLeague(this.props.leaguesData.leaguesIds[nextProps.leagueIndex]);
         }
     }
-    
+
     render() {
         if (this.props.fetchingErrorOccured) {
             return <Error />;
         }
-        
+
         if (!this.props.leaguesData.league) {
             return <Loading />;
         }
-        
+
         return (
             <table className="league-table">
                 <tbody>

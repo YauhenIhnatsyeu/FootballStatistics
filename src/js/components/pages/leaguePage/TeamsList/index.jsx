@@ -1,6 +1,6 @@
-import React from "react";
+import PropTypes from "prop-types";
 
-import {fetchLeaguesTeamsData} from "Utilities/fetchFootballData";
+import React from "react";
 
 import TeamItemContainer from "Containers/TeamItemContainer";
 
@@ -16,7 +16,7 @@ export default class TeamsList extends React.Component {
         if (this.props.fetchingError) {
             return <Error />;
         }
-        
+
         if (!this.props.teams) {
             return <Loading />;
         }
@@ -34,3 +34,14 @@ export default class TeamsList extends React.Component {
         );
     }
 }
+
+TeamsList.propTypes = {
+    teams: PropTypes.arrayOf(PropTypes.object),
+    fetchingError: PropTypes.bool,
+    getTeamsFromFavourites: PropTypes.func.isRequired,
+};
+
+TeamsList.defaultProps = {
+    teams: null,
+    fetchingError: false,
+};

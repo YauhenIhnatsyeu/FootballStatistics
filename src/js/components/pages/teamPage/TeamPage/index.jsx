@@ -19,12 +19,12 @@ export default class TeamPage extends React.Component {
 
         this.props.fetchTeam(this.props.teamId);
     }
-    
+
     render() {
         if (this.props.fetchingErrorOccured) {
             return <Error />;
         }
-        
+
         if (!this.props.team) {
             return <Loading />;
         }

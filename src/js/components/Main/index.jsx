@@ -3,7 +3,7 @@ import React from "react";
 import {
     Route,
     Switch,
-    Redirect
+    Redirect,
 } from "react-router-dom";
 
 import TablePageContainer from "Containers/TablePageContainer";
@@ -26,11 +26,13 @@ export default class Main extends React.Component {
             </div>
         );
 
-        const teamPage = (props) => (
-            <div className="main__team-panel-container">
-                <TeamPageContainer teamId={+props.match.params.id} />
-            </div>
-        );
+        const teamPage = (props) => {
+            return (
+                <div className="main__team-panel-container">
+                    <TeamPageContainer teamId={+props.match.params.id} />
+                </div>
+            );
+        };
 
         return (
             <main>

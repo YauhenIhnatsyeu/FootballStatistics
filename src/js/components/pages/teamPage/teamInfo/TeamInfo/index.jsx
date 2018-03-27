@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import React from "react";
 
 export default class TeamInfo extends React.Component {
@@ -7,5 +9,9 @@ export default class TeamInfo extends React.Component {
                 {this.props.children}
             </div>
         );
-    }   
+    }
 }
+
+TeamInfo.propTypes = {
+    children: PropTypes.node.isRequired,
+};
