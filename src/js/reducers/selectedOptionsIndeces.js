@@ -2,7 +2,7 @@ import actionTypes from "../actions/actionTypes";
 
 const initialState = {
     leagueIndex: 0,
-    teamPageIndex: 0,
+    teamPageIndex: 1,
     playersPagingControlsPageIndex: 0,
 };
 

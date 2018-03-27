@@ -2,6 +2,8 @@ import React from "react";
 
 import dateToString from "Utilities/dateToString";
 
+import "./index.css";
+
 export default class DatesForm extends React.Component {
     constructor(props) {
         super(props);
@@ -48,7 +50,7 @@ export default class DatesForm extends React.Component {
                 />
 
                 <input
-                    className="dates-form__input"
+                    className="dates-form__input dates-form__input_position_down"
                     type="date"
                     value={this.state.toDate}
                     min={this.currentDateString}
