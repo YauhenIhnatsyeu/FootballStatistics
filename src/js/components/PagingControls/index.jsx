@@ -1,25 +1,10 @@
+import PropTypes from "prop-types";
+
 import React from "react";
 
 import "./index.css";
 
-export default class PagingControls {
-    constructor(props) {
-        this.props = props;
-    }
-
-    handleClick = (pageIndex) => {
-        if (pageIndex < 0
-            || pageIndex > this.props.pagesCount - 1
-            || pageIndex === this.props.currentPageIndex) {
-            return;
-        }
-
-        this.props.updateSelectedOptionIndex(
-            "playersPagingControlsPageIndex",
-            pageIndex,
-        );
-    }
-
+export default class PagingControls extends React.Component {
     getOptions = () => {
         const pages = [];
         for (let i = 1; i <= this.props.pagesCount; i += 1) {
@@ -33,6 +18,19 @@ export default class PagingControls {
                         {page}
                     </option>
                 ))
+        );
+    }
+
+    handleClick = (pageIndex) => {
+        if (pageIndex < 0
+            || pageIndex > this.props.pagesCount - 1
+            || pageIndex === this.props.currentPageIndex) {
+            return;
+        }
+
+        this.props.updateSelectedOptionIndex(
+            "playersPagingControlsPageIndex",
+            pageIndex,
         );
     }
 
@@ -81,3 +79,9 @@ export default class PagingControls {
         );
     }
 }
+
+PagingControls.propTypes = {
+    pagesCount: PropTypes.number.isRequired,
+    currentPageIndex: PropTypes.number.isRequired,
+    updateSelectedOptionIndex: PropTypes.func.isRequired,
+};

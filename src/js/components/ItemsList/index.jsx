@@ -2,9 +2,7 @@ import PropTypes from "prop-types";
 
 import React from "react";
 
-// import PlayerItem from "../PlayerItem";
-
-// import "./index.css";
+import "./index.css";
 
 export default class ItemsList extends React.Component {
     render() {
@@ -20,13 +18,19 @@ export default class ItemsList extends React.Component {
                         startIndex,
                         this.props.itemsOnOnePageCount + startIndex,
                     )
-                    .map((item) => {
+                    .map((item, index) => {
                         extraProps[this.props.itemKey] = item;
+
                         const newItem = React.cloneElement(
                             this.props.itemComponent,
                             extraProps,
                         );
-                        return newItem;
+
+                        return (
+                            <div className="items-list__item-container" key={index}>
+                                {newItem}
+                            </div>
+                        );
                     })
                 }
             </div>

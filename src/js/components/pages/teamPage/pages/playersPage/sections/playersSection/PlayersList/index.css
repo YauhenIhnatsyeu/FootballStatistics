@@ -1,7 +1,0 @@
-.players-list__player-item-container {
-    margin-bottom: 1rem;
-}
-
-.players-list__player-item-container:last-child {
-    margin-bottom: 0;
-}
