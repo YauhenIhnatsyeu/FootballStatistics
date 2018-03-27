@@ -23,13 +23,13 @@ export default class TeamsList extends React.Component {
 
         return (
             <div className="teams-list">
-                {this.props.teams.map((team, index) => {
-                    return (
+                {this.props.teams.map((team, index) =>
+                    (
                         <div className="teams-list__team-item-container" key={index}>
                             <TeamItemContainer team={team} />
                         </div>
-                    );
-                })}
+                    ))
+                }
             </div>
         );
     }

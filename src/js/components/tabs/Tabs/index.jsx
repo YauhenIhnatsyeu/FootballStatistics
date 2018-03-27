@@ -53,6 +53,10 @@ export default class Tabs extends React.Component {
 Tabs.propTypes = {
     children: PropTypes.node.isRequired,
     selectedOptionKey: PropTypes.string.isRequired,
-    selectedOptionsIndeces: PropTypes.object.isRequired,
+    selectedOptionsIndeces: PropTypes.shape({
+        leagueIndex: PropTypes.number.isRequired,
+        teamPageIndex: PropTypes.number.isRequired,
+        playersPagingControlsPageIndex: PropTypes.number.isRequired,
+    }).isRequired,
     updateSelectedOptionIndex: PropTypes.func.isRequired,
 };

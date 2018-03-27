@@ -12,11 +12,11 @@ export default class TablePage extends React.Component {
         return (
             <React.Fragment>
                 <TabsContainer selectedOptionKey="leagueIndex">
-                    {this.props.leaguesTitles.map((tabTitle, index) => {
-                        return (
+                    {this.props.leaguesTitles.map((tabTitle, index) =>
+                        (
                             <Tab title={tabTitle} key={index} />
-                        );
-                    })}
+                        ))
+                    }
                 </TabsContainer>
 
                 <LeagueTableContainer />

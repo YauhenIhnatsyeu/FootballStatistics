@@ -56,5 +56,5 @@ export default class DatesForm extends React.Component {
                 />
             </form>
         );
-    }   
+    }
 }

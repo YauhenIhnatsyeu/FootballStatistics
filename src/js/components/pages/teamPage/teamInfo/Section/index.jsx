@@ -17,9 +17,10 @@ export default class Section extends React.Component {
 
 Section.propTypes = {
     title: PropTypes.string,
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
 };
 
 Section.defaultProps = {
     title: "",
+    children: null,
 };

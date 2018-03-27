@@ -26,13 +26,11 @@ export default class Main extends React.Component {
             </div>
         );
 
-        const teamPage = (props) => {
-            return (
-                <div className="main__team-panel-container">
-                    <TeamPageContainer teamId={+props.match.params.id} />
-                </div>
-            );
-        };
+        const teamPage = props => (
+            <div className="main__team-panel-container">
+                <TeamPageContainer teamId={+props.match.params.id} />
+            </div>
+        );
 
         return (
             <main>
@@ -40,7 +38,7 @@ export default class Main extends React.Component {
                     <Switch>
                         <Route path="/table" render={() => tablePage} />
                         <Route path="/teams" render={() => leaguePage} />
-                        <Route path="/team/:id" render={(props) => teamPage(props)} />
+                        <Route path="/team/:id" render={props => teamPage(props)} />
                         <Redirect to="/table" />
                     </Switch>
                 </div>

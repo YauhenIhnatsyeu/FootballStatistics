@@ -42,13 +42,13 @@ export default class LeagueTable extends React.Component {
             <table className="league-table">
                 <tbody>
                     <tr className="league-table__row league-table__row_header" key={0}>
-                        {this.header.map((headerCaption, index) => {
-                            return (
+                        {this.header.map((headerCaption, index) =>
+                            (
                                 <th className="league-table__col league-table__col_header" key={index}>
                                     {headerCaption}
                                 </th>
-                            );
-                        })}
+                            ))
+                        }
                     </tr>
 
                     {this.props.leaguesData.league.standing.map((team, rowIndex) => {
@@ -56,16 +56,16 @@ export default class LeagueTable extends React.Component {
                         const teamUrl = `/team/${teamId}`;
                         return (
                             <tr className="league-table__row" key={rowIndex + 1}>
-                                {this.leagueProperties.map((teamProperty, colIndex) => {
-                                    return (
+                                {this.leagueProperties.map((teamProperty, colIndex) =>
+                                    (
                                         <td className="league-table__col" key={colIndex}>
                                             {teamProperty === "teamName" ?
                                                 <Link to={teamUrl}>{team[teamProperty]}</Link>
                                                 :
                                                 team[teamProperty]}
                                         </td>
-                                    );
-                                })}
+                                    ))
+                                }
                             </tr>
                         );
                     })}

@@ -33,13 +33,13 @@ export default class LeagueSelector extends React.Component {
                     onChange={this.handleChange}
                     value={this.props.leaguesData.leaguesTitles[this.props.leagueIndex]}
                 >
-                    {this.props.leaguesData.leaguesTitles.map((title, index) => {
-                        return (
+                    {this.props.leaguesData.leaguesTitles.map((title, index) =>
+                        (
                             <option key={index}>
                                 {title}
                             </option>
-                        );
-                    })}
+                        ))
+                    }
                 </select>
             </div>
         );

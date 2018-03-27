@@ -18,13 +18,12 @@ export default class PlayersList extends React.Component {
                         startIndex,
                         this.props.itemsOnOnePageCount + startIndex,
                     )
-                    .map((player, index) => {
-                        return (
-                            <div key={index} className="players-list__player-item-container">
+                    .map((player, index) =>
+                        (
+                            <div className="players-list__player-item-container" key={index}>
                                 <PlayerItem player={player} />
                             </div>
-                        );
-                    })
+                        ))
                 }
             </div>
         );

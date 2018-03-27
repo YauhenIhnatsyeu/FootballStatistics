@@ -27,13 +27,12 @@ export default class PagingControls {
         }
 
         return (
-            pages.map((page, index) => {
-                return (
+            pages.map((page, index) =>
+                (
                     <option key={index}>
                         {page}
                     </option>
-                );
-            })
+                ))
         );
     }
 
@@ -44,7 +43,7 @@ export default class PagingControls {
                     <li className="paging-controls__control paging-controls__control_not-clickable">
                         <select
                             className="paging-controls__select"
-                            onChange={(event) => this.handleClick(event.target.value - 1)}
+                            onChange={event => this.handleClick(event.target.value - 1)}
                             value={this.props.currentPageIndex + 1}
                         >
                             {this.getOptions()}
