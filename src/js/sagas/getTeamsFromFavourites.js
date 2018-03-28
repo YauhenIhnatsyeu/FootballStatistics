@@ -14,7 +14,7 @@ export default function* getTeamsFromFavourites() {
         const teams = yield call(getTeamsFromLocalStorage);
         yield put(onGetTeamsFromFavouritesSucceeded(teams));
     } catch (error) {
-        //TODO
+        // TODO
         throw new Error();
     }
 }

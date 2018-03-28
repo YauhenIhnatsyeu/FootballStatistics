@@ -13,7 +13,7 @@ export default class TeamItem extends React.Component {
         super(props);
 
         this.state = {
-            isFavourite: this.isThisTeamFavourite()
+            isFavourite: this.isThisTeamFavourite(),
         };
     }
 

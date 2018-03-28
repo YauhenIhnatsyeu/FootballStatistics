@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack --mode development",
     "server": "webpack-dev-server --mode development --inline --hot --history-api-fallback",
-    "lint": "./node_modules/.bin/eslint ./src",
-    "fix": "./node_modules/.bin/eslint --fix ./src"
+    "lint": "./node_modules/.bin/eslint ./src --ext .js,.jsx",
+    "fix": "./node_modules/.bin/eslint --fix ./src --ext .js,.jsx"
   },
   "repository": {
     "type": "git",

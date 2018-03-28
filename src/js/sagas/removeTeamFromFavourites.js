@@ -19,7 +19,7 @@ export default function* removeTeamFromFavourites(action) {
     try {
         yield call(removeTeamFromLocalStorage, action.payload);
     } catch (error) {
-        //TODO
+        // TODO
         throw new Error();
     }
 }
