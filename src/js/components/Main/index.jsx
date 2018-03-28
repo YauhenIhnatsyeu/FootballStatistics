@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 
 import {
     Route,
@@ -14,7 +14,7 @@ import routePathes from "Constants/routePathes";
 
 import "./index.css";
 
-export default class Main extends React.Component {
+export default class Main extends Component {
     render() {
         const tablePage = (
             <div className="main__table-panel-container">

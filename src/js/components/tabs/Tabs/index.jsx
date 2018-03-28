@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import Tab from "../Tab";
 
 import "./index.css";
 
-export default class Tabs extends React.Component {
+export default class Tabs extends Component {
     handleClick = (e, tabIndex) => {
         e.preventDefault();
 

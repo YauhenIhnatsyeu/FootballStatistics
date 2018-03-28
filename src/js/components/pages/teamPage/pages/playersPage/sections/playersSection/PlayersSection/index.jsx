@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import PagingControls from "Components/PagingControls";
 import ItemsListContainer from "Containers/ItemsListContainer";
@@ -12,7 +12,7 @@ import PlayerItem from "PlayersPageSections/playersSection/PlayerItem";
 
 import "./index.css";
 
-export default class PlayersSection extends React.Component {
+export default class PlayersSection extends Component {
     constructor(props) {
         super(props);
 

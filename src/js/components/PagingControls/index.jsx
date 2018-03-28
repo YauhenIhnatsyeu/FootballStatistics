@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import "./index.css";
 
-export default class PagingControls extends React.Component {
+export default class PagingControls extends Component {
     getOptions = () => {
         const pages = [];
         for (let i = 1; i <= this.props.pagesCount; i += 1) {

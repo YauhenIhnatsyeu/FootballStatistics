@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 
 import dateToString from "Utilities/dateToString";
 
 import "./index.css";
 
-export default class DatesForm extends React.Component {
+export default class DatesForm extends Component {
     constructor(props) {
         super(props);
 

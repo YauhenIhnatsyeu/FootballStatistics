@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ import teamPathCreator from "Utilities/teamPathCreator";
 
 import "./index.css";
 
-export default class LeagueTable extends React.Component {
+export default class LeagueTable extends Component {
     constructor(props) {
         super(props);
 

@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 
 import Logo from "../Logo";
 import Nav from "../Nav";
 
 import "./index.css";
 
-export default class Header extends React.Component {
+export default class Header extends Component {
     render() {
         return (
             <header>

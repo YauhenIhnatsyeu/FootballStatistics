@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
 import "./index.css";
 
-export default class SectionHeader extends React.Component {
+export default class SectionHeader extends Component {
     render() {
         return (
             <div className="section-header">

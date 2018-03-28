@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import teamPathCreator from "Utilities/teamPathCreator";
 
@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 import "./index.css";
 
-export default class TeamItem extends React.Component {
+export default class TeamItem extends Component {
     constructor(props) {
         super(props);
 

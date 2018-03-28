@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import TabsContainer from "Containers/TabsContainer";
 import Tab from "Components/tabs/Tab";
 
 import "./index.css";
 
-export default class TeamItemForHeader extends React.Component {
+export default class TeamItemForHeader extends Component {
     render() {
         return (
             <div className="item">

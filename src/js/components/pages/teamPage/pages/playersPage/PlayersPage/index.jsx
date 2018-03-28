@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import Section from "Pages/teamPage/teamInfo/Section";
 
 import PlayersSectionContainer from "Containers/PlayersSectionContainer";
 
-export default class PlayersPage extends React.Component {
+export default class PlayersPage extends Component {
     render() {
         const hashtag = this.props.team.shortName ?
             this.props.team.shortName.toLowerCase() : "football";

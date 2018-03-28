@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 
 import { NavLink } from "react-router-dom";
 
@@ -6,7 +6,7 @@ import routePathes from "Constants/routePathes";
 
 import "./index.css";
 
-export default class Nav extends React.Component {
+export default class Nav extends Component {
     renderNavItem = path => (
         <li className="nav__item">
             <NavLink

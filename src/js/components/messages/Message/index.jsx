@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import "./index.css";
 
-export default class Message extends React.Component {
+export default class Message extends Component {
     render() {
         return (
             <div className="message-container">

@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import "./index.css";
 
-export default class ItemsList extends React.Component {
+export default class ItemsList extends Component {
     render() {
         const startIndex =
             this.props.currentPageIndex * this.props.itemsOnOnePageCount;

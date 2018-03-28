@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import SectionHeader from "Components/SectionHeader";
 
-export default class Section extends React.Component {
+export default class Section extends Component {
     render() {
         return (
             <div className="team-panel__section">

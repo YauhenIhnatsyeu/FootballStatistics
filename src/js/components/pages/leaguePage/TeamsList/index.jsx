@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import TeamItemContainer from "Containers/TeamItemContainer";
 
@@ -9,7 +9,7 @@ import Error from "Components/messages/Error";
 
 import "./index.css";
 
-export default class TeamsList extends React.Component {
+export default class TeamsList extends Component {
     render() {
         this.props.getTeamsFromFavourites();
 

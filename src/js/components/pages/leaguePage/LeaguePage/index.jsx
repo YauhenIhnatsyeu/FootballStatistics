@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import SectionHeader from "Components/SectionHeader";
 import LeagueSelectorContainer from "Containers/LeagueSelectorContainer";
@@ -10,7 +10,7 @@ import leaguesData from "Constants/leaguesData";
 
 import "./index.css";
 
-export default class LeaguePage extends React.Component {
+export default class LeaguePage extends Component {
     render() {
         return (
             <React.Fragment>

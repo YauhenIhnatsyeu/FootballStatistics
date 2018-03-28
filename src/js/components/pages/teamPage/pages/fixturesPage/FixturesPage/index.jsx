@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 
 import Section from "Pages/teamPage/teamInfo/Section";
 
 import FixturesSection from "../sections/fixturesSection/FixturesSection";
 
-export default class FixturesPanel extends React.Component {
+export default class FixturesPanel extends Component {
     render() {
         return (
             <React.Fragment>

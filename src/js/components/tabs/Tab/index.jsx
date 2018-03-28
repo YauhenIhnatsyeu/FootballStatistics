@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
 
-export default class Tab extends React.Component {
+export default class Tab extends Component {
     render() {
         return null;
     }

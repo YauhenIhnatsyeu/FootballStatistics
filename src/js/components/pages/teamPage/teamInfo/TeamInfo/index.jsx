@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
-export default class TeamInfo extends React.Component {
+export default class TeamInfo extends Component {
     render() {
         return (
             <div className="team-panel__info-container">

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import TeamItemForHeaderContainer from "Containers/TeamItemForHeaderContainer";
 import PlayersPageContainer from "Containers/PlayersPageContainer";
@@ -13,7 +13,7 @@ import FixturesPanel from "../pages/fixturesPage/FixturesPage";
 
 import "./index.css";
 
-export default class TeamPage extends React.Component {
+export default class TeamPage extends Component {
     constructor(props) {
         super(props);
 

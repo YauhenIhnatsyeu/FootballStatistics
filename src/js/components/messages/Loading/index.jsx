@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 
 import Message from "../Message";
 
-export default class Loading extends React.Component {
+export default class Loading extends Component {
     render() {
         return (
             <Message>

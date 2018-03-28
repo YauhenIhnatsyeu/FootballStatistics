@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 
-import React from "react";
+import React, { Component } from "react";
 
 import leaguesData from "Constants/leaguesData";
 
 import "./index.css";
 
-export default class LeagueSelector extends React.Component {
+export default class LeagueSelector extends Component {
     constructor(props) {
         super(props);
 

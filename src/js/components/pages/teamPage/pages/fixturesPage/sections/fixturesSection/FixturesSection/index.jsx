@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 
 import PagingControls from "Components/PagingControls";
 import DateForms from "../DatesForm";
 
 import "./index.css";
 
-export default class FixturesSection extends React.Component {
+export default class FixturesSection extends Component {
     handleFromDateChange = (date) => {
 
     }
