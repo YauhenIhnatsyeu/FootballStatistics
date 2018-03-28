@@ -25,7 +25,7 @@ export default class PlayerItem extends React.Component {
 
 PlayerItem.propTypes = {
     player: PropTypes.shape({
-        jerseyNumber: PropTypes.number.isRequired,
+        jerseyNumber: PropTypes.number,
         name: PropTypes.string.isRequired,
         position: PropTypes.string.isRequired,
         dateOfBirth: PropTypes.string.isRequired,
@@ -36,5 +36,6 @@ PlayerItem.propTypes = {
 PlayerItem.defaultProps = {
     player: PropTypes.shape({
         marketValue: null,
+        jerseyNumber: null,
     }),
 };
