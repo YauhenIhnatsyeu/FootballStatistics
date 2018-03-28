@@ -55,38 +55,38 @@ export default class PagingControls extends Component {
         return (
             <div className="paging-controls">
                 <select
-                    className="paging-controls__select"
+                    className="paging-controls__item paging-controls__select"
                     onChange={e => this.handleChange(e.target.value - 1)}
                     value={this.props.currentPageIndex + 1}
                 >
                     {this.getOptions()}
                 </select>
                 <a
-                    className="paging-controls__link"
+                    className="paging-controls__item paging-controls__link"
                     href="#"
                     onClick={e => this.handleClick(e, 0)}
                 >
                     first
                 </a>
                 <a
-                    className="paging-controls__link"
+                    className="paging-controls__item paging-controls__link"
                     href="#"
                     onClick={e => this.handleClick(e, this.props.currentPageIndex - 1)}
                 >
                     prev
                 </a>
-                <span className="paging-controls__control paging-controls__indicator">
+                <span className="paging-controls__item paging-controls__indicator">
                     {`${this.props.currentPageIndex + 1}/${this.props.pagesCount}`}
                 </span>
                 <a
-                    className="paging-controls__link"
+                    className="paging-controls__item paging-controls__link"
                     href="#"
                     onClick={e => this.handleClick(e, this.props.currentPageIndex + 1)}
                 >
                     next
                 </a>
                 <a
-                    className="paging-controls__link"
+                    className="paging-controls__item paging-controls__link"
                     href="#"
                     onClick={e => this.handleClick(e, this.props.pagesCount - 1)}
                 >

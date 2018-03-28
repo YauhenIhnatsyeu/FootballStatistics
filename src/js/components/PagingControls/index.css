@@ -6,32 +6,28 @@
     background: #209030;
 }
 
-.paging-controls__select {
-    padding: 0.5rem 0.25rem;
-
-    color: #ffffff;
-    background: #209030;
-    border-color: #209030;
-}
-
-.paging-controls__link {
-    margin-right: 0.5rem;
+.paging-controls__item {
+    margin: 0 0.5rem;
     padding: 0.5rem 0.25rem;
 
     color: #ffffff;
 
     text-align: center;
-    text-decoration: none;
 
     flex-grow: 1;
+}
+
+.paging-controls__select {
+    background: #209030;
+    border-color: #209030;
+}
+
+.paging-controls__link {
+    text-decoration: none;
 
     cursor: pointer;
 }
 
 .paging-controls__indicator {
-    padding: 0.5rem 0.25rem;
-
-    color: #ffffff;
-    
     cursor: default;
 }
