@@ -10,6 +10,8 @@ import TablePage from "Pages/tablePage/TablePage";
 import LeaguePageContainer from "Containers/LeaguePageContainer";
 import TeamPageContainer from "Containers/TeamPageContainer";
 
+import routePathes from "Constants/routePathes";
+
 import "./index.css";
 
 export default class Main extends React.Component {
@@ -36,10 +38,10 @@ export default class Main extends React.Component {
             <main>
                 <div className="main__inner-container wrapper">
                     <Switch>
-                        <Route path="/table" render={() => tablePage} />
-                        <Route path="/teams" render={() => leaguePage} />
-                        <Route path="/team/:id" render={props => teamPage(props)} />
-                        <Redirect to="/table" />
+                        <Route path={routePathes.table} render={() => tablePage} />
+                        <Route path={routePathes.teams} render={() => leaguePage} />
+                        <Route path={routePathes.team} render={props => teamPage(props)} />
+                        <Redirect to={routePathes.table} />
                     </Switch>
                 </div>
             </main>

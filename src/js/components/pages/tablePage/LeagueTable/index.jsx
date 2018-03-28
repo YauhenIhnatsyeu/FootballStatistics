@@ -10,17 +10,15 @@ import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
 
 import leaguesData from "Constants/leaguesData";
+import leagueTable from "Constants/leagueTable";
+
+import teamPathCreator from "Utilities/teamPathCreator";
 
 import "./index.css";
 
 export default class LeagueTable extends React.Component {
     constructor(props) {
         super(props);
-
-        this.header = ["Position", "Team", "G", "W", "D", "L", "GS", "GC", "P"];
-        this.leagueProperties =
-            ["position", "teamName", "playedGames", "wins", "draws", "losses",
-                "goals", "goalsAgainst", "points"];
 
         this.props.fetchLeague(leaguesData[this.props.leagueIndex].id);
     }
@@ -44,10 +42,10 @@ export default class LeagueTable extends React.Component {
             <table className="league-table">
                 <tbody>
                     <tr className="league-table__row league-table__row_header" key={0}>
-                        {this.header.map((headerCaption, index) =>
+                        {leagueTable.map((attribute, index) =>
                             (
                                 <th className="league-table__col league-table__col_header" key={index}>
-                                    {headerCaption}
+                                    {attribute.caption}
                                 </th>
                             ))
                         }
@@ -55,16 +53,16 @@ export default class LeagueTable extends React.Component {
 
                     {this.props.leaguesData.league.standing.map((team, rowIndex) => {
                         const teamId = extractTeamIdFromUrl(team._links.team.href);
-                        const teamUrl = `/team/${teamId}`;
+                        const teamUrl = teamPathCreator(teamId);
                         return (
                             <tr className="league-table__row" key={rowIndex + 1}>
-                                {this.leagueProperties.map((teamProperty, colIndex) =>
+                                {leagueTable.map((attribute, colIndex) =>
                                     (
                                         <td className="league-table__col" key={colIndex}>
-                                            {teamProperty === "teamName" ?
-                                                <Link to={teamUrl}>{team[teamProperty]}</Link>
+                                            {attribute.property === "teamName" ?
+                                                <Link to={teamUrl}>{team[attribute.property]}</Link>
                                                 :
-                                                team[teamProperty]}
+                                                team[attribute.property]}
                                         </td>
                                     ))
                                 }
