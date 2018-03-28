@@ -10,9 +10,8 @@ const mapStateToProps = state => ({
     fetchingError: state.fetchingError,
 });
 
-const mapDispatchToProps = dispatch => ({
-    getTeamsFromFavourites: bindActionCreators(getTeamsFromFavourites, dispatch),
-});
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({ getTeamsFromFavourites }, dispatch);
 
 export default
 connect(mapStateToProps, mapDispatchToProps)(TeamList);

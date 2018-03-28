@@ -10,9 +10,8 @@ const mapStateToProps = state => ({
     leagueIndex: state.selectedOptionsIndeces.leagueIndex,
 });
 
-const mapDispatchToProps = dispatch => ({
-    fetchLeague: bindActionCreators(fetchLeague, dispatch),
-});
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({ fetchLeague }, dispatch);
 
 export default
 connect(mapStateToProps, mapDispatchToProps)(LeagueTable);

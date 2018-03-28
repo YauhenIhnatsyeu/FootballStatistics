@@ -13,11 +13,12 @@ const mapStateToProps = state => ({
     leagueIndex: state.selectedOptionsIndeces.leagueIndex,
 });
 
-const mapDispatchToProps = dispatch => ({
-    updateSelectedOptionIndex: bindActionCreators(updateSelectedOptionIndex, dispatch),
-    fetchLeague: bindActionCreators(fetchLeague, dispatch),
-    fetchTeams: bindActionCreators(fetchTeams, dispatch),
-});
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({
+        updateSelectedOptionIndex,
+        fetchLeague,
+        fetchTeams,
+    }, dispatch);
 
 export default
 connect(mapStateToProps, mapDispatchToProps)(LeagueSelector);

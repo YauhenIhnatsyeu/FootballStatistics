@@ -11,9 +11,8 @@ const mapStateToProps = state => ({
     fetchingErrorOccured: state.fetchingErrorOccured,
 });
 
-const mapDispatchToProps = dispatch => ({
-    fetchTeam: bindActionCreators(fetchTeam, dispatch),
-});
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({ fetchTeam }, dispatch);
 
 export default
 connect(mapStateToProps, mapDispatchToProps)(TeamPage);

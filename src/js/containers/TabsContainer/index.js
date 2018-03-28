@@ -9,9 +9,8 @@ const mapStateToProps = state => ({
     selectedOptionsIndeces: state.selectedOptionsIndeces,
 });
 
-const mapDispatchToProps = dispatch => ({
-    updateSelectedOptionIndex: bindActionCreators(updateSelectedOptionIndex, dispatch),
-});
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({ updateSelectedOptionIndex }, dispatch);
 
 export default
 connect(mapStateToProps, mapDispatchToProps)(Tabs);

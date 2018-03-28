@@ -12,10 +12,11 @@ const mapStateToProps = state => ({
     itemsOnOnePageCount: state.itemsOnOnePageCount,
 });
 
-const mapDispatchToProps = dispatch => ({
-    fetchPlayers: bindActionCreators(fetchPlayers, dispatch),
-    updateSelectedOptionIndex: bindActionCreators(updateSelectedOptionIndex, dispatch),
-});
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({
+        fetchPlayers,
+        updateSelectedOptionIndex,
+    }, dispatch);
 
 export default
 connect(mapStateToProps, mapDispatchToProps)(PlayersSection);

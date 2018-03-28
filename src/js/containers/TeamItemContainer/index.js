@@ -12,10 +12,11 @@ const mapStateToProps = state => ({
     favouriteTeams: state.favouriteTeams,
 });
 
-const mapDispatchToProps = dispatch => ({
-    addTeamToFavourites: bindActionCreators(addTeamToFavourites, dispatch),
-    removeTeamFromFavourites: bindActionCreators(removeTeamFromFavourites, dispatch),
-});
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({
+        addTeamToFavourites,
+        removeTeamFromFavourites,
+    }, dispatch);
 
 export default
 connect(mapStateToProps, mapDispatchToProps)(TeamItem);
