@@ -1,4 +1,4 @@
-.paging-controls__list {
+.paging-controls {
     display: flex;
 
     flex-wrap: wrap;
@@ -6,30 +6,32 @@
     background: #209030;
 }
 
-.paging-controls__control {
+.paging-controls__select {
+    padding: 0.5rem 0.25rem;
+
+    color: #ffffff;
+    background: #209030;
+    border-color: #209030;
+}
+
+.paging-controls__link {
     margin-right: 0.5rem;
     padding: 0.5rem 0.25rem;
 
-    text-align: center;
-
     color: #ffffff;
+
+    text-align: center;
+    text-decoration: none;
 
     flex-grow: 1;
 
     cursor: pointer;
 }
 
-.paging-controls__control_not-clickable {
+.paging-controls__indicator {
+    padding: 0.5rem 0.25rem;
+
+    color: #ffffff;
+    
     cursor: default;
 }
-
-.paging-controls__control:last-child {
-    margin-right: 0;
-}
-
-.paging-controls__select {
-    color: #ffffff;
-    background: #209030;
-    border-color: #209030;
-}
-

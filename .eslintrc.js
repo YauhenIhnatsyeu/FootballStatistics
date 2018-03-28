@@ -32,15 +32,20 @@ module.exports = {
             "always"
         ],
         "indent": [2, 4],
-        "no-underscore-dangle": ["error", { "allow": ["_links"] }],
+        "no-underscore-dangle": ["error", {
+            "allow": [
+                "_links",
+                "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__",
+            ] 
+        }],
         "react/prefer-stateless-function": 0,
         "react/jsx-indent": 0,
         "react/jsx-indent-props": 0,
         "import/no-extraneous-dependencies": 0,
         "react/no-array-index-key": 0,
         "jsx-a11y/anchor-is-valid": 0,
-        "jsx-a11y/click-events-have-key-events": 0,
-        "jsx-a11y/no-noninteractive-element-interactions": 0,
+        // "jsx-a11y/click-events-have-key-events": 0,
+        // "jsx-a11y/no-noninteractive-element-interactions": 0,
     },
     "parser": "babel-eslint",
     "settings": {

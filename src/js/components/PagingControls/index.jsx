@@ -21,60 +21,77 @@ export default class PagingControls extends React.Component {
         );
     }
 
-    handleClick = (pageIndex) => {
-        if (pageIndex < 0
-            || pageIndex > this.props.pagesCount - 1
-            || pageIndex === this.props.currentPageIndex) {
-            return;
-        }
+    pageIndexIsValid = pageIndex => (
+        pageIndex >= 0
+        && pageIndex < this.props.pagesCount
+        && pageIndex !== this.props.currentPageIndex
+    )
 
+    updatePageIndex = (pageIndex) => {
         this.props.updateSelectedOptionIndex(
             "playersPagingControlsPageIndex",
             pageIndex,
         );
     }
 
+    handleClickBase = (pageIndex) => {
+        if (!this.pageIndexIsValid(pageIndex)) {
+            return;
+        }
+
+        this.updatePageIndex(pageIndex);
+    }
+
+    handleClick = (e, pageIndex) => {
+        e.preventDefault();
+        this.handleClickBase(pageIndex);
+    }
+
+    handleChange = (pageIndex) => {
+        this.handleClickBase(pageIndex);
+    }
+
     render() {
         return (
             <div className="paging-controls">
-                <ul className="paging-controls__list">
-                    <li className="paging-controls__control paging-controls__control_not-clickable">
-                        <select
-                            className="paging-controls__select"
-                            onChange={event => this.handleClick(event.target.value - 1)}
-                            value={this.props.currentPageIndex + 1}
-                        >
-                            {this.getOptions()}
-                        </select>
-                    </li>
-                    <li
-                        className="paging-controls__control"
-                        onClick={() => this.handleClick(0)}
-                    >
-                        first
-                    </li>
-                    <li
-                        className="paging-controls__control"
-                        onClick={() => this.handleClick(this.props.currentPageIndex - 1)}
-                    >
-                        prev
-                    </li>
-                    <li className="paging-controls__control paging-controls__control_not-clickable">
-                        {`${this.props.currentPageIndex + 1}/${this.props.pagesCount}`}
-                    </li>
-                    <li
-                        className="paging-controls__control"
-                        onClick={() => this.handleClick(this.props.currentPageIndex + 1)}
-                    >
-                        next
-                    </li>
-                    <li
-                        className="paging-controls__control"
-                        onClick={() => this.handleClick(this.props.pagesCount - 1)}
-                    >
-                        last
-                    </li>
-                </ul>
+                <select
+                    className="paging-controls__select"
+                    onChange={e => this.handleChange(e.target.value - 1)}
+                    value={this.props.currentPageIndex + 1}
+                >
+                    {this.getOptions()}
+                </select>
+                <a
+                    className="paging-controls__link"
+                    href="#"
+                    onClick={e => this.handleClick(e, 0)}
+                >
+                    first
+                </a>
+                <a
+                    className="paging-controls__link"
+                    href="#"
+                    onClick={e => this.handleClick(e, this.props.currentPageIndex - 1)}
+                >
+                    prev
+                </a>
+                <span className="paging-controls__control paging-controls__indicator">
+                    {`${this.props.currentPageIndex + 1}/${this.props.pagesCount}`}
+                </span>
+                <a
+                    className="paging-controls__link"
+                    href="#"
+                    onClick={e => this.handleClick(e, this.props.currentPageIndex + 1)}
+                >
+                    next
+                </a>
+                <a
+                    className="paging-controls__link"
+                    href="#"
+                    onClick={e => this.handleClick(e, this.props.pagesCount - 1)}
+                >
+                    last
+                </a>
             </div>
         );
     }

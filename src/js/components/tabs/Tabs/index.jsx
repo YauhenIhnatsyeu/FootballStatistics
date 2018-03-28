@@ -7,7 +7,9 @@ import Tab from "../Tab";
 import "./index.css";
 
 export default class Tabs extends React.Component {
-    handleClick = (tabIndex) => {
+    handleClick = (e, tabIndex) => {
+        e.preventDefault();
+
         if (this.props.selectedOptionsIndeces[this.props.selectedOptionKey] === tabIndex) {
             return;
         }
@@ -21,30 +23,30 @@ export default class Tabs extends React.Component {
     render() {
         return (
             <div className="tabs">
-                <ul className="tabs__list">
-                    {this.props.children.map((tab, tabIndex) => {
-                        if (tab.type !== Tab) {
-                            return null;
-                        }
+                {this.props.children.map((tab, tabIndex) => {
+                    if (tab.type !== Tab) {
+                        return null;
+                    }
 
-                        return (
-                            <li
-                                className={
-                                    tabIndex === this.props.selectedOptionsIndeces[
-                                        this.props.selectedOptionKey
-                                    ] ?
-                                        "tabs__tab tabs__tab_current"
-                                        :
-                                        "tabs__tab"
-                                }
-                                key={tabIndex}
-                                onClick={() => this.handleClick(tabIndex)}
-                            >
-                                {tab.props.title}
-                            </li>
-                        );
-                    })}
-                </ul>
+                    const isTabCurrent =
+                        tabIndex === this.props.selectedOptionsIndeces[
+                            this.props.selectedOptionKey
+                        ];
+
+                    const tabStyle = isTabCurrent ?
+                        "tabs__tab tabs__tab_current" : "tabs__tab";
+
+                    return (
+                        <a
+                            className={tabStyle}
+                            key={tabIndex}
+                            href="#"
+                            onClick={e => this.handleClick(e, tabIndex)}
+                        >
+                            {tab.props.title}
+                        </a>
+                    );
+                })}
             </div>
         );
     }

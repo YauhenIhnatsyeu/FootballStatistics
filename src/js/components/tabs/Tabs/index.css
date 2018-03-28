@@ -1,4 +1,4 @@
-.tabs__list {
+.tabs {
     display: flex;
 
     flex-wrap: wrap;
@@ -8,7 +8,10 @@
     margin-right: 0.5rem;
     padding: 0.5rem 1rem;
 
+    color: #000000;
+
     text-align: center;
+    text-decoration: none;
 
     background: #d2e9d5;
 
@@ -23,6 +26,5 @@
 
 .tabs__tab_current {
     color: #ffffff;
-
     background: #209030;
 }

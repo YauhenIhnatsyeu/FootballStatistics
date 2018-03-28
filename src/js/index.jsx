@@ -5,10 +5,10 @@ import { createStore, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { Provider } from "react-redux";
 
+import App from "Components/App";
+
 import rootReducer from "./reducers";
 import rootSaga from "./sagas";
-
-import App from "Components/App";
 
 import "../css/reset.css";
 import "../css/wrapper.css";
