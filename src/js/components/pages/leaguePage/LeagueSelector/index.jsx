@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-
 import React, { Component } from "react";
+
+import PropTypes from "prop-types";
 
 import leaguesData from "Constants/leaguesData";
 
@@ -12,15 +12,13 @@ export default class LeagueSelector extends Component {
 
         const leagueId = leaguesData[this.props.leagueIndex].id;
 
-        this.props.fetchLeague(leagueId);
-
         this.props.fetchTeams(leagueId);
     }
 
     handleChange = (event) => {
         const leagueIndex = leaguesData.findIndex(l => l.title === event.target.value);
 
-        this.props.updateSelectedOptionIndex("leagueIndex", leagueIndex);
+        this.props.updateLeagueIndex(leagueIndex);
 
         this.props.fetchTeams(leaguesData[leagueIndex].id);
     }
@@ -47,8 +45,7 @@ export default class LeagueSelector extends Component {
 }
 
 LeagueSelector.propTypes = {
-    fetchLeague: PropTypes.func.isRequired,
     fetchTeams: PropTypes.func.isRequired,
-    updateSelectedOptionIndex: PropTypes.func.isRequired,
+    updateLeagueIndex: PropTypes.func.isRequired,
     leagueIndex: PropTypes.number.isRequired,
 };

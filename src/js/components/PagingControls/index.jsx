@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-
 import React, { Component } from "react";
+
+import PropTypes from "prop-types";
 
 import "./index.css";
 
@@ -21,34 +21,29 @@ export default class PagingControls extends Component {
         );
     }
 
-    pageIndexIsValid = pageIndex => (
-        pageIndex >= 0
-        && pageIndex < this.props.pagesCount
-        && pageIndex !== this.props.currentPageIndex
+    newIndexIsValid = newIndex => (
+        newIndex >= 0
+        && newIndex < this.props.pagesCount
+        && newIndex !== this.props.currentPageIndex
     )
 
-    updatePageIndex = (pageIndex) => {
-        this.props.updateSelectedOptionIndex(
-            "playersPagingControlsPageIndex",
-            pageIndex,
-        );
-    }
-
-    handleClickBase = (pageIndex) => {
-        if (!this.pageIndexIsValid(pageIndex)) {
+    handleClickBase = (newIndex) => {
+        if (!this.newIndexIsValid(newIndex)) {
             return;
         }
 
-        this.updatePageIndex(pageIndex);
+        if (this.props.onPageChanged) {
+            this.props.onPageChanged(newIndex);
+        }
     }
 
-    handleClick = (e, pageIndex) => {
+    handleClick = (e, newIndex) => {
         e.preventDefault();
-        this.handleClickBase(pageIndex);
+        this.handleClickBase(newIndex);
     }
 
-    handleChange = (pageIndex) => {
-        this.handleClickBase(pageIndex);
+    handleChange = (newIndex) => {
+        this.handleClickBase(newIndex);
     }
 
     render() {
@@ -100,5 +95,9 @@ export default class PagingControls extends Component {
 PagingControls.propTypes = {
     pagesCount: PropTypes.number.isRequired,
     currentPageIndex: PropTypes.number.isRequired,
-    updateSelectedOptionIndex: PropTypes.func.isRequired,
+    onPageChanged: PropTypes.func,
+};
+
+PagingControls.defaultProps = {
+    onPageChanged: null,
 };

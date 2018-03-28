@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-
 import React, { Component } from "react";
 
-import teamPathCreator from "Utilities/teamPathCreator";
+import PropTypes from "prop-types";
+
+import createTeamPath from "Utilities/pathesCreators";
 
 import { Link } from "react-router-dom";
 
@@ -43,7 +43,7 @@ export default class TeamItem extends Component {
     }
 
     render() {
-        const teamUrl = teamPathCreator(this.props.team.id);
+        const teamUrl = createTeamPath(this.props.team.id);
 
         return (
             <div className="item team-item">

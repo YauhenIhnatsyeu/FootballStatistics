@@ -1,37 +1,41 @@
-import PropTypes from "prop-types";
-
 import React, { Component } from "react";
+
+import PropTypes from "prop-types";
 
 import Tab from "../Tab";
 
 import "./index.css";
 
 export default class Tabs extends Component {
-    handleClick = (e, tabIndex) => {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            currentIndex: this.props.defaultIndex,
+        };
+    }
+
+    handleClick = (e, newIndex) => {
         e.preventDefault();
 
-        if (this.props.selectedOptionsIndeces[this.props.selectedOptionKey] === tabIndex) {
-            return;
+        if (this.props.onTabClick) {
+            this.props.onTabClick(newIndex);
         }
 
-        this.props.updateSelectedOptionIndex(
-            this.props.selectedOptionKey,
-            tabIndex,
-        );
+        this.setState({
+            currentIndex: newIndex,
+        });
     }
 
     render() {
         return (
             <div className="tabs">
-                {this.props.children.map((tab, tabIndex) => {
+                {this.props.children && this.props.children.map((tab, newIndex) => {
                     if (tab.type !== Tab) {
                         return null;
                     }
 
-                    const isTabCurrent =
-                        tabIndex === this.props.selectedOptionsIndeces[
-                            this.props.selectedOptionKey
-                        ];
+                    const isTabCurrent = newIndex === this.state.currentIndex;
 
                     const tabStyle = isTabCurrent ?
                         "tabs__tab tabs__tab_current" : "tabs__tab";
@@ -39,9 +43,9 @@ export default class Tabs extends Component {
                     return (
                         <a
                             className={tabStyle}
-                            key={tabIndex}
+                            key={newIndex}
                             href="#"
-                            onClick={e => this.handleClick(e, tabIndex)}
+                            onClick={e => this.handleClick(e, newIndex)}
                         >
                             {tab.props.title}
                         </a>
@@ -53,12 +57,13 @@ export default class Tabs extends Component {
 }
 
 Tabs.propTypes = {
-    children: PropTypes.node.isRequired,
-    selectedOptionKey: PropTypes.string.isRequired,
-    selectedOptionsIndeces: PropTypes.shape({
-        leagueIndex: PropTypes.number.isRequired,
-        teamPageIndex: PropTypes.number.isRequired,
-        playersPagingControlsPageIndex: PropTypes.number.isRequired,
-    }).isRequired,
-    updateSelectedOptionIndex: PropTypes.func.isRequired,
+    children: PropTypes.node,
+    defaultIndex: PropTypes.number,
+    onTabClick: PropTypes.func,
+};
+
+Tabs.defaultProps = {
+    children: null,
+    defaultIndex: 0,
+    onTabClick: null,
 };

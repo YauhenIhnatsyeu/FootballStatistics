@@ -1,13 +1,11 @@
 import actionTypes from "../actions/actionTypes";
 
-const initialState = {
-    league: null,
-};
+const initialState = null;
 
-export default function tabs(state = initialState, action) {
+export default function league(state = initialState, action) {
     switch (action.type) {
     case actionTypes.LEAGUE_FETCH_SUCCEEDED:
-        return { ...state, league: action.payload };
+        return action.payload;
 
     default:
         return state;

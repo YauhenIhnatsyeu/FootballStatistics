@@ -1,15 +1,14 @@
-import PropTypes from "prop-types";
-
 import React, { Component } from "react";
 
-import TeamItemForHeaderContainer from "Containers/TeamItemForHeaderContainer";
-import PlayersPageContainer from "Containers/PlayersPageContainer";
+import PropTypes from "prop-types";
 
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
 
+import TeamItemForHeader from "../TeamItemForHeader";
+import PlayersPage from "../pages/playersPage/PlayersPage";
 import TeamInfo from "../teamInfo/TeamInfo";
-import FixturesPanel from "../pages/fixturesPage/FixturesPage";
+import FixturesPage from "../pages/fixturesPage/FixturesPage";
 
 import "./index.css";
 
@@ -32,13 +31,16 @@ export default class TeamPage extends Component {
         return (
             <div className="team-panel">
                 <div className="team-panel__team-item-for-header-container">
-                    <TeamItemForHeaderContainer />
+                    <TeamItemForHeader
+                        team={this.props.team}
+                        updateTeamPageIndex={this.props.updateTeamPageIndex}
+                    />
                 </div>
                 <TeamInfo>
                     {this.props.teamPageIndex === 0 ?
-                        <PlayersPageContainer />
+                        <PlayersPage team={this.props.team} />
                         :
-                        <FixturesPanel />
+                        <FixturesPage />
                     }
                 </TeamInfo>
             </div>
@@ -58,6 +60,7 @@ TeamPage.propTypes = {
         squadMarketValue: PropTypes.string,
     }),
     teamPageIndex: PropTypes.number.isRequired,
+    updateTeamPageIndex: PropTypes.func.isRequired,
 };
 
 TeamPage.defaultProps = {

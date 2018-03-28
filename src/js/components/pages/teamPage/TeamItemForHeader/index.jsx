@@ -1,13 +1,17 @@
-import PropTypes from "prop-types";
-
 import React, { Component } from "react";
 
-import TabsContainer from "Containers/TabsContainer";
+import PropTypes from "prop-types";
+
+import Tabs from "Components/tabs/Tabs";
 import Tab from "Components/tabs/Tab";
 
 import "./index.css";
 
 export default class TeamItemForHeader extends Component {
+    handleTabClick = (tabIndex) => {
+        this.props.updateTeamPageIndex(tabIndex);
+    }
+
     render() {
         return (
             <div className="item">
@@ -20,10 +24,10 @@ export default class TeamItemForHeader extends Component {
                 </div>
 
                 <div className="team-item-for-header__tabs-container">
-                    <TabsContainer selectedOptionKey="teamPageIndex">
+                    <Tabs onTabClick={this.handleTabClick}>
                         <Tab title="Players" />
                         <Tab title="Fixtures" />
-                    </TabsContainer>
+                    </Tabs>
                 </div>
             </div>
         );
@@ -36,4 +40,5 @@ TeamItemForHeader.propTypes = {
         name: PropTypes.string.isRequired,
         shortName: PropTypes.string.isRequired,
     }).isRequired,
+    updateTeamPageIndex: PropTypes.func.isRequired,
 };

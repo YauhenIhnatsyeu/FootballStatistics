@@ -9,3 +9,7 @@ export function createTeamsUrl(id) {
 export function createTeamUrl(id) {
     return `http://api.football-data.org/v1/teams/${id}`;
 }
+
+export function createPlayersUrl(teamUrl) {
+    return `${teamUrl}/players`;
+}

@@ -1,13 +1,15 @@
+import React, { Component } from "react";
+
 import PropTypes from "prop-types";
 
-import React, { Component } from "react";
+import itemsOnOnePageCount from "Constants/itemsOnOnePageCount";
 
 import "./index.css";
 
 export default class ItemsList extends Component {
     render() {
         const startIndex =
-            this.props.currentPageIndex * this.props.itemsOnOnePageCount;
+            this.props.currentPageIndex * itemsOnOnePageCount;
 
         const extraProps = {};
 
@@ -16,7 +18,7 @@ export default class ItemsList extends Component {
                 {this.props.items
                     .slice(
                         startIndex,
-                        this.props.itemsOnOnePageCount + startIndex,
+                        itemsOnOnePageCount + startIndex,
                     )
                     .map((item, index) => {
                         extraProps[this.props.itemKey] = item;
@@ -43,5 +45,4 @@ ItemsList.propTypes = {
     itemComponent: PropTypes.node.isRequired,
     itemKey: PropTypes.string.isRequired,
     currentPageIndex: PropTypes.number.isRequired,
-    itemsOnOnePageCount: PropTypes.number.isRequired,
 };

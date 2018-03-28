@@ -6,8 +6,8 @@ import { fetchLeague } from "ActionCreators";
 import LeagueTable from "Pages/tablePage/LeagueTable";
 
 const mapStateToProps = state => ({
-    leaguesData: state.leaguesData,
-    leagueIndex: state.selectedOptionsIndeces.leagueIndex,
+    league: state.league,
+    leagueIndex: state.leagueIndex,
 });
 
 const mapDispatchToProps = dispatch =>

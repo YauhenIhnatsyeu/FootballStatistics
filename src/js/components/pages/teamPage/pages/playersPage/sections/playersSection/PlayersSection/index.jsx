@@ -1,14 +1,18 @@
-import PropTypes from "prop-types";
-
 import React, { Component } from "react";
 
+import PropTypes from "prop-types";
+
 import PagingControls from "Components/PagingControls";
-import ItemsListContainer from "Containers/ItemsListContainer";
+import ItemsList from "Components/ItemsList";
 
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
 
 import PlayerItem from "PlayersPageSections/playersSection/PlayerItem";
+
+import { createPlayersUrl } from "Utilities/fetchingUrlsCreators";
+
+import itemsOnOnePageCount from "Constants/itemsOnOnePageCount";
 
 import "./index.css";
 
@@ -16,8 +20,12 @@ export default class PlayersSection extends Component {
     constructor(props) {
         super(props);
 
-        const playersUrl = `${this.props.team._links.self.href}/players`;
+        const playersUrl = createPlayersUrl(this.props.team._links.self.href);
         this.props.fetchPlayers(playersUrl);
+    }
+
+    handlePageChanged = (pageIndex) => {
+        this.props.updatePlayersPageIndex(pageIndex);
     }
 
     render() {
@@ -30,13 +38,13 @@ export default class PlayersSection extends Component {
         }
 
         const pagingControlsPagesCount =
-            Math.ceil(this.props.players.length / this.props.itemsOnOnePageCount);
+            Math.ceil(this.props.players.length / itemsOnOnePageCount);
 
         const pagingControls = (
             <PagingControls
-                currentPageIndex={this.props.currentPageIndex}
                 pagesCount={pagingControlsPagesCount}
-                updateSelectedOptionIndex={this.props.updateSelectedOptionIndex}
+                onPageChanged={this.handlePageChanged}
+                currentPageIndex={this.props.playersPageIndex}
             />
         );
 
@@ -48,11 +56,11 @@ export default class PlayersSection extends Component {
                     </div>
                 }
                 <div className="players-section__players-list-container">
-                    <ItemsListContainer
+                    <ItemsList
                         items={this.props.players}
                         itemComponent={<PlayerItem />}
                         itemKey="player"
-                        currentPageIndex={this.props.currentPageIndex}
+                        currentPageIndex={this.props.playersPageIndex}
                     />
                 </div>
                 {this.props.players.length <= this.PLAYERS_ON_ONE_PAGE_COUNT ||
@@ -67,7 +75,7 @@ export default class PlayersSection extends Component {
 
 PlayersSection.propTypes = {
     fetchPlayers: PropTypes.func.isRequired,
-    updateSelectedOptionIndex: PropTypes.func.isRequired,
+    updatePlayersPageIndex: PropTypes.func.isRequired,
     fetchingErrorOccured: PropTypes.bool,
     team: PropTypes.shape({
         _links: PropTypes.shape({
@@ -77,8 +85,7 @@ PlayersSection.propTypes = {
         }).isRequired,
     }).isRequired,
     players: PropTypes.arrayOf(PropTypes.object),
-    currentPageIndex: PropTypes.number.isRequired,
-    itemsOnOnePageCount: PropTypes.number.isRequired,
+    playersPageIndex: PropTypes.number.isRequired,
 };
 
 PlayersSection.defaultProps = {

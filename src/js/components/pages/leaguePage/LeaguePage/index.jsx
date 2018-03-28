@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-
 import React, { Component } from "react";
+
+import PropTypes from "prop-types";
 
 import SectionHeader from "Components/SectionHeader";
 import LeagueSelectorContainer from "Containers/LeagueSelectorContainer";
@@ -17,7 +17,7 @@ export default class LeaguePage extends Component {
                 <SectionHeader title={leaguesData[this.props.leagueIndex].title} />
 
                 <div className="league-panel__legue-selector-container">
-                    <LeagueSelectorContainer />
+                    <LeagueSelectorContainer leagueIndex={this.props.leagueIndex} />
                 </div>
 
                 <div className="league-panel__teams-list-container">
@@ -27,6 +27,7 @@ export default class LeaguePage extends Component {
         );
     }
 }
+
 LeaguePage.propTypes = {
     leagueIndex: PropTypes.number.isRequired,
 };

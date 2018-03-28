@@ -6,7 +6,7 @@ import {
     Redirect,
 } from "react-router-dom";
 
-import TablePage from "Pages/tablePage/TablePage";
+import TablePageContainer from "Containers/TablePageContainer";
 import LeaguePageContainer from "Containers/LeaguePageContainer";
 import TeamPageContainer from "Containers/TeamPageContainer";
 
@@ -18,7 +18,7 @@ export default class Main extends Component {
     render() {
         const tablePage = (
             <div className="main__table-panel-container">
-                <TablePage />
+                <TablePageContainer />
             </div>
         );
 

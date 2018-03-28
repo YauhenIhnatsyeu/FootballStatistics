@@ -1,14 +1,5 @@
 import actionTypes from "./actionTypes";
 
-export function updateSelectedOptionIndex(key, index) {
-    return {
-        type: actionTypes.SELECTED_OPTION_INDEX_UPDATE_REQUESTED,
-        key,
-        payload: index,
-    };
-}
-
-
 export function fetchLeague(leagueId) {
     return {
         type: actionTypes.LEAGUE_FETCH_REQUESTED,
@@ -67,6 +58,29 @@ export function onPlayersFetchSucceeded(data) {
         payload: data,
     };
 }
+
+
+export function updateLeagueIndex(index) {
+    return {
+        type: actionTypes.LEAGUE_INDEX_UPDATE_REQUESTED,
+        payload: index,
+    };
+}
+
+export function updateTeamPageIndex(index) {
+    return {
+        type: actionTypes.TEAM_PAGE_INDEX_UPDATE_REQUESTED,
+        payload: index,
+    };
+}
+
+export function updatePlayersPageIndex(index) {
+    return {
+        type: actionTypes.PLAYERS_PAGE_INDEX_UPDATE_REQUESTED,
+        payload: index,
+    };
+}
+
 
 export function addTeamToFavourites(teamId) {
     return {

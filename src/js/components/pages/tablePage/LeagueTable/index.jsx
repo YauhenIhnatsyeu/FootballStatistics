@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
+import PropTypes from "prop-types";
+
 import { Link } from "react-router-dom";
 
 import extractTeamIdFromUrl from "Utilities/extractTeamIdFromUrl";
-
-import PropTypes from "prop-types";
 
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
@@ -12,7 +12,7 @@ import Error from "Components/messages/Error";
 import leaguesData from "Constants/leaguesData";
 import leagueTable from "Constants/leagueTable";
 
-import teamPathCreator from "Utilities/teamPathCreator";
+import createTeamPath from "Utilities/pathesCreators";
 
 import "./index.css";
 
@@ -34,7 +34,7 @@ export default class LeagueTable extends Component {
             return <Error />;
         }
 
-        if (!this.props.leaguesData.league) {
+        if (!this.props.league) {
             return <Loading />;
         }
 
@@ -51,9 +51,9 @@ export default class LeagueTable extends Component {
                         }
                     </tr>
 
-                    {this.props.leaguesData.league.standing.map((team, rowIndex) => {
+                    {this.props.league.standing.map((team, rowIndex) => {
                         const teamId = extractTeamIdFromUrl(team._links.team.href);
-                        const teamUrl = teamPathCreator(teamId);
+                        const teamUrl = createTeamPath(teamId);
                         return (
                             <tr className="league-table__row" key={rowIndex + 1}>
                                 {leagueTable.map((attribute, colIndex) =>
@@ -78,27 +78,23 @@ export default class LeagueTable extends Component {
 LeagueTable.propTypes = {
     fetchLeague: PropTypes.func.isRequired,
     fetchingErrorOccured: PropTypes.bool,
-    leaguesData: PropTypes.shape({
-        league: PropTypes.shape({
-            standing: PropTypes.arrayOf(PropTypes.shape({
-                _link: PropTypes.shape({
-                    team: PropTypes.shape({
-                        href: PropTypes.string,
-                    }).isRequired,
-                }),
-            })).isRequired,
-        }),
+    league: PropTypes.shape({
+        standing: PropTypes.arrayOf(PropTypes.shape({
+            _link: PropTypes.shape({
+                team: PropTypes.shape({
+                    href: PropTypes.string,
+                }).isRequired,
+            }),
+        })).isRequired,
     }),
     leagueIndex: PropTypes.number.isRequired,
 };
 
 LeagueTable.defaultProps = {
     fetchingErrorOccured: false,
-    leaguesData: PropTypes.shape({
-        league: PropTypes.shape({
-            standing: PropTypes.arrayOf(PropTypes.shape({
-                _link: null,
-            })),
-        }),
+    league: PropTypes.shape({
+        standing: PropTypes.arrayOf(PropTypes.shape({
+            _link: null,
+        })),
     }),
 };

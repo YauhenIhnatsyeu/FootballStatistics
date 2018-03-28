@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-
 import React, { Component } from "react";
+
+import PropTypes from "prop-types";
 
 import Section from "Pages/teamPage/teamInfo/Section";
 
@@ -14,7 +14,7 @@ export default class PlayersPage extends Component {
         return (
             <React.Fragment>
                 <Section title="Players">
-                    <PlayersSectionContainer />
+                    <PlayersSectionContainer team={this.props.team} />
                 </Section>
                 <Section title={`Tweets for tag #${hashtag}`} />
             </React.Fragment>
