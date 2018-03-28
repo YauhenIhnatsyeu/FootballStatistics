@@ -27,7 +27,7 @@ export default class ItemsList extends Component {
                             this.props.itemComponent,
                             extraProps,
                         );
-
+                        
                         return (
                             <div className="items-list__item-container" key={index}>
                                 {newItem}

@@ -34,8 +34,5 @@ PlayerItem.propTypes = {
 };
 
 PlayerItem.defaultProps = {
-    player: PropTypes.shape({
-        marketValue: null,
-        jerseyNumber: null,
-    }),
+    player: null,
 };
