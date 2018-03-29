@@ -5,10 +5,7 @@ import PropTypes from "prop-types";
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
 
-import itemsOnOnePageCount from "Constants/itemsOnOnePageCount";
-
-import PagingControls from "Components/PagingControls";
-import ItemsList from "Components/ItemsList";
+import ItemsListWithPagingControls from "Components/ItemsListWithPagingControls";
 
 import FixtureItem from "../FixtureItem";
 
@@ -44,17 +41,6 @@ export default class FixturesSection extends Component {
             return <Loading />;
         }
 
-        const pagingControlsPagesCount =
-            Math.ceil(this.props.fixtures.count / itemsOnOnePageCount);
-
-        const pagingControls = (
-            <PagingControls
-                currentPageIndex={this.props.fixturesPageIndex}
-                pagesCount={pagingControlsPagesCount}
-                onPageChanged={this.handlePageChanged}
-            />
-        );
-
         return (
             <React.Fragment>
                 <div className="item fixture-section__dates-form-container">
@@ -64,16 +50,13 @@ export default class FixturesSection extends Component {
                     />
                 </div>
 
-                {pagingControls}
-                
-                <ItemsList
+                <ItemsListWithPagingControls
                     items={this.props.fixtures.fixtures}
                     itemComponent={<FixtureItem />}
                     itemKey="fixture"
                     currentPageIndex={this.props.fixturesPageIndex}
+                    onPageChanged={this.handlePageChanged}
                 />
-
-                {pagingControls}
             </React.Fragment>
         );
     }

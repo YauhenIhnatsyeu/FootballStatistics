@@ -29,7 +29,7 @@ export default class Main extends Component {
         );
 
         const teamPage = props => (
-            <div className="main__team-panel-container">
+            <div className="main__team-page-container">
                 <TeamPageContainer teamId={+props.match.params.id} />
             </div>
         );

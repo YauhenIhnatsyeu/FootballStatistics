@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import dateToString from "Utilities/dateToString";
+import { dateToString } from "Utilities/formatDate";
 
 import "./index.css";
 
@@ -9,7 +9,7 @@ export default class DatesForm extends Component {
         super(props);
 
         const currentDate = new Date();
-
+        console.log(currentDate);
         this.currentDateString = dateToString(currentDate);
 
         // Adding 2 weeks to current date

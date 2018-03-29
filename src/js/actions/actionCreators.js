@@ -96,6 +96,13 @@ export function updatePlayersPageIndex(index) {
     };
 }
 
+export function updateFixturesIndex(index) {
+    return {
+        type: actionTypes.FIXTURES_INDEX_UPDATE_REQUESTED,
+        payload: index,
+    };
+}
+
 export function updateFixturesPageIndex(index) {
     return {
         type: actionTypes.FIXTURES_PAGE_INDEX_UPDATE_REQUESTED,

@@ -29,8 +29,8 @@ export default class TeamPage extends Component {
         }
 
         return (
-            <div className="team-panel">
-                <div className="team-panel__team-item-for-header-container">
+            <div className="team-page">
+                <div className="team-page__team-item-for-header-container">
                     <TeamItemForHeader
                         team={this.props.team}
                         defaultTeamPageIndex={this.props.teamPageIndex}

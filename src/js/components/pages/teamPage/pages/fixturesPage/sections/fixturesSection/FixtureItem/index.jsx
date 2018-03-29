@@ -7,11 +7,14 @@ import "./index.css";
 export default class FixtureItem extends Component {
     render() {
         return (
-            <div className="item">
+            <div className="item fixture-item">
                 <p>
-                    <span className="fixture-item__home-team-name">{this.props.fixture.homeTeamName}</span>
-                    <span className="fixture-item__away-team-name">{this.props.fixture.awayTeamName}</span>
-                    <span className="fixture-item__goals-home-name">{this.props.fixture.result.goalsHomeTeam}</span>
+                    {this.props.fixture.homeTeamName}
+                    {" - "}
+                    {this.props.fixture.awayTeamName}
+                    {" "}
+                    {this.props.fixture.result.goalsHomeTeam}
+                    {" - "}
                     {this.props.fixture.result.goalsAwayTeam}
                 </p>
                 <p>{this.props.fixture.date}</p>

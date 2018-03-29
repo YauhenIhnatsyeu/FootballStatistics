@@ -1,11 +1,3 @@
-.fixture-item__home-team-name::after {
-    content: " - ";
-}
-
-.fixture-item__away-team-name::before {
-    content: " ";
-}
-
-.fixture-item__goals-home-name::after {
-    content: " - ";
+.fixture-item {
+    line-height: 1.4;
 }

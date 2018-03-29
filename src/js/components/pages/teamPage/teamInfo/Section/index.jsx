@@ -7,9 +7,11 @@ import SectionHeader from "Components/SectionHeader";
 export default class Section extends Component {
     render() {
         return (
-            <div className="team-panel__section">
+            <div className="team-page__section">
                 <SectionHeader title={this.props.title} />
-                {this.props.children}
+                <div className="team-page__section-content">
+                    {this.props.children}
+                </div>
             </div>
         );
     }
