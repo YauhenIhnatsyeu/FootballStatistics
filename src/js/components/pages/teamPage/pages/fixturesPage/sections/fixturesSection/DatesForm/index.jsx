@@ -9,7 +9,6 @@ export default class DatesForm extends Component {
         super(props);
 
         const currentDate = new Date();
-        console.log(currentDate);
         this.currentDateString = dateToString(currentDate);
 
         // Adding 2 weeks to current date

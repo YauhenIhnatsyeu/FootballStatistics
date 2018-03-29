@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
+import { formatDate } from "Utilities/formatDate";
+
 import "./index.css";
 
 export default class FixtureItem extends Component {
@@ -17,7 +19,7 @@ export default class FixtureItem extends Component {
                     {" - "}
                     {this.props.fixture.result.goalsAwayTeam}
                 </p>
-                <p>{this.props.fixture.date}</p>
+                <p>Date: {formatDate(this.props.fixture.date)}</p>
             </div>
         );
     }
