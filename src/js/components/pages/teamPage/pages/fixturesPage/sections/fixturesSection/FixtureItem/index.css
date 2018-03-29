@@ -1,3 +1,5 @@
 .fixture-item {
     line-height: 1.4;
+
+    cursor: pointer;
 }

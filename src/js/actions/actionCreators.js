@@ -96,9 +96,9 @@ export function updatePlayersPageIndex(index) {
     };
 }
 
-export function updateFixturesIndex(index) {
+export function updateFixtureIndex(index) {
     return {
-        type: actionTypes.FIXTURES_INDEX_UPDATE_REQUESTED,
+        type: actionTypes.FIXTURE_INDEX_UPDATE_REQUESTED,
         payload: index,
     };
 }

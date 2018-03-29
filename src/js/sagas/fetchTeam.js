@@ -2,7 +2,7 @@ import { call, put } from "redux-saga/effects";
 
 import { createTeamUrl } from "Utilities/fetchingUrlsCreators";
 
-import extractTeamIdFromUrl from "Utilities/extractTeamIdFromUrl";
+import extractIdFromUrl from "Utilities/extractIdFromUrl";
 
 import {
     onTeamFetchSucceeded,
@@ -13,7 +13,7 @@ import fetchUrl from "Utilities/fetchFootballData";
 
 const addIdToTeam = (teamParam) => {
     const team = teamParam;
-    team.id = extractTeamIdFromUrl(team._links.self.href);
+    team.id = extractIdFromUrl(team._links.self.href);
     return team;
 };
 

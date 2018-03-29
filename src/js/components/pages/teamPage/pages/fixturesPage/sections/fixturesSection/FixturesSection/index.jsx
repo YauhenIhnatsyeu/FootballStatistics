@@ -11,6 +11,8 @@ import FixtureItem from "../FixtureItem";
 
 import DateForms from "../DatesForm";
 
+import itemsOnOnePageCount from "Constants/itemsOnOnePageCount";
+
 import "./index.css";
 
 export default class FixturesSection extends Component {
@@ -29,8 +31,13 @@ export default class FixturesSection extends Component {
     }
 
     handlePageChanged = (pageIndex) => {
+        this.props.updateFixtureIndex(pageIndex * itemsOnOnePageCount);
+
         this.props.updateFixturesPageIndex(pageIndex);
     }
+
+    handleFixtureClick = fixtureId =>
+        this.props.updateFixtureIndex(this.props.fixtures.findIndex(f => f.id === fixtureId))
 
     render() {
         if (this.props.fetchingErrorOccured) {
@@ -40,6 +47,13 @@ export default class FixturesSection extends Component {
         if (!this.props.fixtures) {
             return <Loading />;
         }
+
+        const fixtureItem = (
+            <FixtureItem
+                currentFixtureId={this.props.fixtures[this.props.fixtureIndex].id}
+                onClick={this.handleFixtureClick}
+            />
+        );
 
         return (
             <React.Fragment>
@@ -51,8 +65,8 @@ export default class FixturesSection extends Component {
                 </div>
 
                 <ItemsListWithPagingControls
-                    items={this.props.fixtures.fixtures}
-                    itemComponent={<FixtureItem />}
+                    items={this.props.fixtures}
+                    itemComponent={fixtureItem}
                     itemKey="fixture"
                     currentPageIndex={this.props.fixturesPageIndex}
                     onPageChanged={this.handlePageChanged}
@@ -64,13 +78,12 @@ export default class FixturesSection extends Component {
 
 FixturesSection.propTypes = {
     teamId: PropTypes.number.isRequired,
-    fixtures: PropTypes.shape({
-        count: PropTypes.number.isRequired,
-        fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
-    }),
+    fixtures: PropTypes.arrayOf(PropTypes.object),
+    fixtureIndex: PropTypes.number.isRequired,
     fixturesPageIndex: PropTypes.number.isRequired,
     fetchFixtures: PropTypes.func.isRequired,
     fetchingErrorOccured: PropTypes.bool.isRequired,
+    updateFixtureIndex: PropTypes.func.isRequired,
     updateFixturesPageIndex: PropTypes.func.isRequired,
 };
 

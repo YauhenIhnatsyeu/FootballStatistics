@@ -8,8 +8,13 @@ import "./index.css";
 
 export default class FixtureItem extends Component {
     render() {
+        const style = this.props.currentFixtureId === this.props.fixture.id ?
+            "item item_current fixture-item"
+            :
+            "item fixture-item";
+
         return (
-            <div className="item fixture-item">
+            <div className={style} onClick={() => this.props.onClick(this.props.fixture.id)}>
                 <p>
                     {this.props.fixture.homeTeamName}
                     {" - "}
@@ -27,16 +32,28 @@ export default class FixtureItem extends Component {
 
 FixtureItem.propTypes = {
     fixture: PropTypes.shape({
-        homeTeamName: PropTypes.string.isRequired,
-        awayTeamName: PropTypes.string.isRequired,
+        id: PropTypes.number,
+        homeTeamName: PropTypes.string,
+        awayTeamName: PropTypes.string,
         result: PropTypes.shape({
-            goalsHomeTeam: PropTypes.number.isRequired,
-            goalsAwayTeam: PropTypes.number.isRequired,
-        }).isRequired,
-        date: PropTypes.string.isRequired,
+            goalsHomeTeam: PropTypes.number,
+            goalsAwayTeam: PropTypes.number,
+        }),
+        date: PropTypes.string,
     }),
+    currentFixtureId: PropTypes.number.isRequired,
+    onClick: PropTypes.func.isRequired,
 };
 
 FixtureItem.defaultProps = {
-    fixture: null,
+    fixture: {
+        id: null,
+        homeTeamName: null,
+        awayTeamName: null,
+        result: {
+            goalsHomeTeam: null,
+            goalsAwayTeam: null,
+        },
+        date: null,
+    },
 };
