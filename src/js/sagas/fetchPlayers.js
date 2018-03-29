@@ -1,5 +1,7 @@
 import { call, put } from "redux-saga/effects";
 
+import { createPlayersUrl } from "Utilities/fetchingUrlsCreators";
+
 import sorterByJerseyNumber from "Utilities/sorterByJerseyNumber";
 
 import {
@@ -11,7 +13,8 @@ import fetchUrl from "Utilities/fetchFootballData";
 
 export default function* fetchPlayers(action) {
     try {
-        let data = yield call(fetchUrl, action.payload);
+        const playersUrl = createPlayersUrl(action.payload);
+        let data = yield call(fetchUrl, playersUrl);
         data = data.players.sort(sorterByJerseyNumber);
         yield put(onPlayersFetchSucceeded(data));
     } catch (error) {

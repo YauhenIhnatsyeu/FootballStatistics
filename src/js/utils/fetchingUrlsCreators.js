@@ -1,15 +1,19 @@
-export function createLeagueUrl(id) {
-    return `http://api.football-data.org/v1/competitions/${id}/leagueTable`;
+export function createLeagueUrl(leagueId) {
+    return `http://api.football-data.org/v1/competitions/${leagueId}/leagueTable`;
 }
 
-export function createTeamsUrl(id) {
-    return `http://api.football-data.org/v1/competitions/${id}/teams`;
+export function createTeamsUrl(leagueId) {
+    return `http://api.football-data.org/v1/competitions/${leagueId}/teams`;
 }
 
-export function createTeamUrl(id) {
-    return `http://api.football-data.org/v1/teams/${id}`;
+export function createTeamUrl(teamId) {
+    return `http://api.football-data.org/v1/teams/${teamId}`;
 }
 
 export function createPlayersUrl(teamUrl) {
     return `${teamUrl}/players`;
+}
+
+export function createFixturesUrl(teamId) {
+    return `https://api.football-data.org/v1/teams/${teamId}/fixtures/`;
 }

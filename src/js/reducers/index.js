@@ -8,6 +8,8 @@ import team from "./team";
 import teamPageIndex from "./teamPageIndex";
 import players from "./players";
 import playersPageIndex from "./playersPageIndex";
+import fixtures from "./fixtures";
+import fixturesPageIndex from "./fixturesPageIndex";
 import favouriteTeams from "./favouriteTeams";
 
 export default combineReducers({
@@ -19,5 +21,7 @@ export default combineReducers({
     teamPageIndex,
     players,
     playersPageIndex,
+    fixtures,
+    fixturesPageIndex,
     favouriteTeams,
 });

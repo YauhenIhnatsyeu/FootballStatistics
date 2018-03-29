@@ -24,7 +24,10 @@ export default class TeamItemForHeader extends Component {
                 </div>
 
                 <div className="team-item-for-header__tabs-container">
-                    <Tabs onTabClick={this.handleTabClick}>
+                    <Tabs
+                        defaultIndex={this.props.defaultTeamPageIndex}
+                        onTabClick={this.handleTabClick}
+                    >
                         <Tab title="Players" />
                         <Tab title="Fixtures" />
                     </Tabs>
@@ -40,5 +43,10 @@ TeamItemForHeader.propTypes = {
         name: PropTypes.string.isRequired,
         shortName: PropTypes.string.isRequired,
     }).isRequired,
+    defaultTeamPageIndex: PropTypes.number,
     updateTeamPageIndex: PropTypes.func.isRequired,
+};
+
+TeamItemForHeader.defaultProps = {
+    defaultTeamPageIndex: 0,
 };

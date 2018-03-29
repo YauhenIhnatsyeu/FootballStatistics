@@ -2,6 +2,8 @@ import { call, put } from "redux-saga/effects";
 
 import { createTeamUrl } from "Utilities/fetchingUrlsCreators";
 
+import extractTeamIdFromUrl from "Utilities/extractTeamIdFromUrl";
+
 import {
     onTeamFetchSucceeded,
     onFetchFailed,
@@ -9,11 +11,18 @@ import {
 
 import fetchUrl from "Utilities/fetchFootballData";
 
+const addIdToTeam = (teamParam) => {
+    const team = teamParam;
+    team.id = extractTeamIdFromUrl(team._links.self.href);
+    return team;
+};
+
 export default function* fetchTeam(action) {
     try {
         const teamUrl = createTeamUrl(action.payload);
-        const data = yield call(fetchUrl, teamUrl);
-        yield put(onTeamFetchSucceeded(data));
+        let team = yield call(fetchUrl, teamUrl);
+        team = yield call(addIdToTeam, team);
+        yield put(onTeamFetchSucceeded(team));
     } catch (error) {
         yield put(onFetchFailed(error));
     }

@@ -33,6 +33,7 @@ export default class TeamPage extends Component {
                 <div className="team-panel__team-item-for-header-container">
                     <TeamItemForHeader
                         team={this.props.team}
+                        defaultTeamPageIndex={this.props.teamPageIndex}
                         updateTeamPageIndex={this.props.updateTeamPageIndex}
                     />
                 </div>

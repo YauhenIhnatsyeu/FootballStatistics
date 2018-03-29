@@ -1,7 +1,10 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { fetchTeam, updateTeamPageIndex } from "ActionCreators";
+import {
+    fetchTeam,
+    updateTeamPageIndex,
+} from "ActionCreators";
 
 import TeamPage from "Pages/teamPage/TeamPage";
 
@@ -12,7 +15,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>
-    bindActionCreators({ fetchTeam, updateTeamPageIndex }, dispatch);
+    bindActionCreators({
+        fetchTeam,
+        updateTeamPageIndex,
+    }, dispatch);
 
 export default
 connect(mapStateToProps, mapDispatchToProps)(TeamPage);

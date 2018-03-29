@@ -10,8 +10,6 @@ import Error from "Components/messages/Error";
 
 import PlayerItem from "PlayersPageSections/playersSection/PlayerItem";
 
-import { createPlayersUrl } from "Utilities/fetchingUrlsCreators";
-
 import itemsOnOnePageCount from "Constants/itemsOnOnePageCount";
 
 import "./index.css";
@@ -20,8 +18,7 @@ export default class PlayersSection extends Component {
     constructor(props) {
         super(props);
 
-        const playersUrl = createPlayersUrl(this.props.team._links.self.href);
-        this.props.fetchPlayers(playersUrl);
+        this.props.fetchPlayers(this.props.team._links.self.href);
     }
 
     handlePageChanged = (pageIndex) => {

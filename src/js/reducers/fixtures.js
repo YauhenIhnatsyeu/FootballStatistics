@@ -1,10 +1,10 @@
 import actionTypes from "../actions/actionTypes";
 
-const initialState = 1;
+const initialState = null;
 
-export default function teamPageIndex(state = initialState, action) {
+export default function league(state = initialState, action) {
     switch (action.type) {
-    case actionTypes.TEAM_PAGE_INDEX_UPDATE_REQUESTED:
+    case actionTypes.FIXTURES_FETCH_SUCCEEDED:
         return action.payload;
 
     default:

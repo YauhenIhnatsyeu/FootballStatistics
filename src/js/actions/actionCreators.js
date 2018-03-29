@@ -45,16 +45,31 @@ export function onTeamFetchSucceeded(data) {
 }
 
 
-export function fetchPlayers(playersUrl) {
+export function fetchPlayers(teamUrl) {
     return {
         type: actionTypes.PLAYERS_FETCH_REQUESTED,
-        payload: playersUrl,
+        payload: teamUrl,
     };
 }
 
 export function onPlayersFetchSucceeded(data) {
     return {
         type: actionTypes.PLAYERS_FETCH_SUCCEEDED,
+        payload: data,
+    };
+}
+
+
+export function fetchFixtures(teamId) {
+    return {
+        type: actionTypes.FIXTURES_FETCH_REQUESTED,
+        payload: teamId,
+    };
+}
+
+export function onFixturesFetchSucceeded(data) {
+    return {
+        type: actionTypes.FIXTURES_FETCH_SUCCEEDED,
         payload: data,
     };
 }
@@ -77,6 +92,13 @@ export function updateTeamPageIndex(index) {
 export function updatePlayersPageIndex(index) {
     return {
         type: actionTypes.PLAYERS_PAGE_INDEX_UPDATE_REQUESTED,
+        payload: index,
+    };
+}
+
+export function updateFixturesPageIndex(index) {
+    return {
+        type: actionTypes.FIXTURES_PAGE_INDEX_UPDATE_REQUESTED,
         payload: index,
     };
 }

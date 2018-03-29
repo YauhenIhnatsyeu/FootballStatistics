@@ -2,14 +2,14 @@ import React, { Component } from "react";
 
 import Section from "Pages/teamPage/teamInfo/Section";
 
-import FixturesSection from "../sections/fixturesSection/FixturesSection";
+import FixturesSectionContainer from "Containers/FixturesSectionContainer";
 
-export default class FixturesPanel extends Component {
+export default class FixturesPage extends Component {
     render() {
         return (
             <React.Fragment>
                 <Section title="Fixtures">
-                    <FixturesSection />
+                    <FixturesSectionContainer />
                 </Section>
                 <Section title="Some stuff" />
             </React.Fragment>
