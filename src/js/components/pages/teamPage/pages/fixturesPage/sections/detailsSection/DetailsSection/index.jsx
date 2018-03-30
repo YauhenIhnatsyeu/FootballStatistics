@@ -34,7 +34,7 @@ export default class DetailsSection extends React.Component {
             <FixtureItem
                 currentFixtureId={this.props.fixtures[this.props.fixtureIndex].id}
             />
-        )
+        );
 
         return (
             <ItemList
