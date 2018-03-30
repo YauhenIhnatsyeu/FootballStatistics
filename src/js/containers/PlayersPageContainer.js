@@ -1,9 +1,12 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { fetchPlayers, updatePlayersPageIndex } from "ActionCreators";
+import {
+    fetchPlayers,
+    updatePlayersPageIndex,
+} from "ActionCreators";
 
-import PlayersSection from "PlayersPageSections/playersSection/PlayersSection";
+import PlayersPage from "Pages/teamPage/pages/playersPage/PlayersPage";
 
 const mapStateToProps = state => ({
     players: state.players,
@@ -17,4 +20,4 @@ const mapDispatchToProps = dispatch =>
     }, dispatch);
 
 export default
-connect(mapStateToProps, mapDispatchToProps)(PlayersSection);
+connect(mapStateToProps, mapDispatchToProps)(PlayersPage);

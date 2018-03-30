@@ -44,7 +44,7 @@ export default class PlayersSection extends Component {
 PlayersSection.propTypes = {
     fetchPlayers: PropTypes.func.isRequired,
     updatePlayersPageIndex: PropTypes.func.isRequired,
-    fetchingErrorOccured: PropTypes.bool,
+    fetchingErrorOccured: PropTypes.bool.isRequired,
     team: PropTypes.shape({
         _links: PropTypes.shape({
             self: PropTypes.shape({
@@ -57,6 +57,5 @@ PlayersSection.propTypes = {
 };
 
 PlayersSection.defaultProps = {
-    fetchingErrorOccured: false,
     players: null,
 };

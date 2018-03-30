@@ -7,14 +7,12 @@ import {
     updateFixturesPageIndex,
 } from "ActionCreators";
 
-import FixturesSection from "FixturesPageSections/fixturesSection/FixturesSection";
+import FixturesPage from "Pages/teamPage/pages/fixturesPage/FixturesPage";
 
 const mapStateToProps = state => ({
-    teamId: state.team.id,
     fixtures: state.fixtures,
     fixtureIndex: state.fixtureIndex,
     fixturesPageIndex: state.fixturesPageIndex,
-    fetchingErrorOccured: state.fetchingErrorOccured,
 });
 
 const mapDispatchToProps = dispatch =>
@@ -25,4 +23,4 @@ const mapDispatchToProps = dispatch =>
     }, dispatch);
 
 export default
-connect(mapStateToProps, mapDispatchToProps)(FixturesSection);
+connect(mapStateToProps, mapDispatchToProps)(FixturesPage);

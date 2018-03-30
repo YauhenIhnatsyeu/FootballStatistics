@@ -8,8 +8,9 @@ export default class Section extends Component {
     render() {
         return (
             <div className="team-page__section">
-                <SectionHeader title={this.props.title} />
-                <div className="team-page__section-content">
+                {this.props.title && <SectionHeader title={this.props.title} />}
+                
+                <div className={this.props.title && "team-page__section-content"}>
                     {this.props.children}
                 </div>
             </div>
@@ -23,6 +24,6 @@ Section.propTypes = {
 };
 
 Section.defaultProps = {
-    title: "",
+    title: null,
     children: null,
 };

@@ -7,6 +7,12 @@ import { formatDate } from "Utilities/formatDate";
 import "./index.css";
 
 export default class FixtureItem extends Component {
+    handleClick = () => {
+        if (this.props.onClick) {
+            this.props.onClick(this.props.fixture.id);
+        }
+    }
+
     render() {
         const style = this.props.currentFixtureId === this.props.fixture.id ?
             "item item_current fixture-item"
@@ -14,7 +20,7 @@ export default class FixtureItem extends Component {
             "item fixture-item";
 
         return (
-            <div className={style} onClick={() => this.props.onClick(this.props.fixture.id)}>
+            <div className={style} onClick={this.handleClick}>
                 <p>
                     {this.props.fixture.homeTeamName}
                     {" - "}
@@ -42,7 +48,7 @@ FixtureItem.propTypes = {
         date: PropTypes.string,
     }),
     currentFixtureId: PropTypes.number.isRequired,
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
 };
 
 FixtureItem.defaultProps = {
@@ -56,4 +62,5 @@ FixtureItem.defaultProps = {
         },
         date: null,
     },
+    onClick: null,
 };

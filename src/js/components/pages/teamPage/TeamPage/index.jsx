@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
+import PlayersPageContainer from "Containers/PlayersPageContainer";
+import FixturesPageContainer from "Containers/FixturesPageContainer";
 
 import TeamItemForHeader from "../TeamItemForHeader";
-import PlayersPage from "../pages/playersPage/PlayersPage";
 import TeamInfo from "../teamInfo/TeamInfo";
-import FixturesPage from "../pages/fixturesPage/FixturesPage";
 
 import "./index.css";
 
@@ -39,9 +39,15 @@ export default class TeamPage extends Component {
                 </div>
                 <TeamInfo>
                     {this.props.teamPageIndex === 0 ?
-                        <PlayersPage team={this.props.team} />
+                        <PlayersPageContainer
+                            team={this.props.team}
+                            fetchingErrorOccured={this.props.fetchingErrorOccured}
+                        />
                         :
-                        <FixturesPage />
+                        <FixturesPageContainer
+                            teamId={this.props.teamId}
+                            fetchingErrorOccured={this.props.fetchingErrorOccured}
+                        />
                     }
                 </TeamInfo>
             </div>
@@ -52,7 +58,7 @@ export default class TeamPage extends Component {
 TeamPage.propTypes = {
     teamId: PropTypes.number.isRequired,
     fetchTeam: PropTypes.func.isRequired,
-    fetchingErrorOccured: PropTypes.bool,
+    fetchingErrorOccured: PropTypes.bool.isRequired,
     team: PropTypes.shape({
         id: PropTypes.number,
         crestUrl: PropTypes.string.isRequired,
@@ -65,6 +71,5 @@ TeamPage.propTypes = {
 };
 
 TeamPage.defaultProps = {
-    fetchingErrorOccured: false,
     team: null,
 };
