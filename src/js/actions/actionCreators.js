@@ -111,6 +111,13 @@ export function updateFixturesPageIndex(index) {
 }
 
 
+export function resetTeamPageIndices() {
+    return {
+        type: actionTypes.TEAM_PAGE_INDICES_RESET_REQUESTED,
+    };
+}
+
+
 export function addTeamToFavourites(teamId) {
     return {
         type: actionTypes.ADD_TEAM_TO_FAVOURITES_REQUESTED,

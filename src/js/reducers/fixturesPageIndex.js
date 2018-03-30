@@ -7,6 +7,9 @@ export default function fixturesPageIndex(state = initialState, action) {
     case actionTypes.FIXTURES_PAGE_INDEX_UPDATE_REQUESTED:
         return action.payload;
 
+    case actionTypes.TEAM_PAGE_INDICES_RESET_REQUESTED:
+        return initialState;
+
     default:
         return state;
     }

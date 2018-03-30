@@ -16,6 +16,8 @@ export default class TeamPage extends Component {
     constructor(props) {
         super(props);
 
+        this.props.resetTeamPageIndices();
+
         this.props.fetchTeam(this.props.teamId);
     }
 

@@ -14,10 +14,17 @@ export default class FixtureItem extends Component {
     }
 
     render() {
-        const style = this.props.currentFixtureId === this.props.fixture.id ?
-            "item item_current fixture-item"
+        let style = "";
+
+        style += this.props.currentFixtureId === this.props.fixture.id ?
+            "item item_current "
             :
-            "item fixture-item";
+            "item ";
+
+        style += this.props.onClick ?
+            "fixture-item fixture-item_clickable"
+            :
+            "fixture-item";
 
         return (
             <div className={style} onClick={this.handleClick}>
@@ -25,10 +32,10 @@ export default class FixtureItem extends Component {
                     {this.props.fixture.homeTeamName}
                     {" - "}
                     {this.props.fixture.awayTeamName}
-                    {" "}
-                    {this.props.fixture.result.goalsHomeTeam}
-                    {" - "}
-                    {this.props.fixture.result.goalsAwayTeam}
+                    {this.props.fixture.status === "FINISHED" &&
+                        (` ${this.props.fixture.result.goalsHomeTeam}` +
+                        ` - ${this.props.fixture.result.goalsAwayTeam}`)
+                    }
                 </p>
                 <p>Date: {formatDate(this.props.fixture.date)}</p>
             </div>
@@ -45,6 +52,7 @@ FixtureItem.propTypes = {
             goalsHomeTeam: PropTypes.number,
             goalsAwayTeam: PropTypes.number,
         }),
+        status: PropTypes.string,
         date: PropTypes.string,
     }),
     currentFixtureId: PropTypes.number.isRequired,
@@ -60,6 +68,7 @@ FixtureItem.defaultProps = {
             goalsHomeTeam: null,
             goalsAwayTeam: null,
         },
+        status: null,
         date: null,
     },
     onClick: null,

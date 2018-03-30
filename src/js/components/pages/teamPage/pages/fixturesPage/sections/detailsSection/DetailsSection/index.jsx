@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import ItemList from "Components/ItemsList";
 
-import FixtureItem from "../../fixturesSection/FixtureItem";
+import FixtureItem from "Pages/teamPage/pages/fixturesPage/FixtureItem";
 
 export default class DetailsSection extends React.Component {
     getSameTeamsFixtures = () => {
@@ -12,7 +12,7 @@ export default class DetailsSection extends React.Component {
 
         const newFixtures = [];
 
-        for (let i = 0; i < this.props.fixtures.length; i += 1) {
+        for (let i = this.props.fixtures.length - 1; i >= 0; i -= 1) {
             if (this.areTeamsTheSameInFixtures(currentFixture, this.props.fixtures[i])) {
                 newFixtures.push(this.props.fixtures[i]);
             }
@@ -21,7 +21,7 @@ export default class DetailsSection extends React.Component {
             }
         }
 
-        return newFixtures.reverse();
+        return newFixtures;
     }
 
     areTeamsTheSameInFixtures = (f1, f2) =>

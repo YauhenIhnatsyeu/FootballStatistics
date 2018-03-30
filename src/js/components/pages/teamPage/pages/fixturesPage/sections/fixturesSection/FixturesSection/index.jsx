@@ -6,7 +6,7 @@ import ItemsListWithPagingControls from "Components/ItemsListWithPagingControls"
 
 import itemsOnOnePageCount from "Constants/itemsOnOnePageCount";
 
-import FixtureItem from "../FixtureItem";
+import FixtureItem from "Pages/teamPage/pages/fixturesPage/FixtureItem";
 
 import DateForms from "../DatesForm";
 

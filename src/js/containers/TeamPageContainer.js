@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import {
     fetchTeam,
     updateTeamPageIndex,
+    resetTeamPageIndices,
 } from "ActionCreators";
 
 import TeamPage from "Pages/teamPage/TeamPage";
@@ -18,6 +19,7 @@ const mapDispatchToProps = dispatch =>
     bindActionCreators({
         fetchTeam,
         updateTeamPageIndex,
+        resetTeamPageIndices,
     }, dispatch);
 
 export default
