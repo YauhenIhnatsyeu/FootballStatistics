@@ -3,6 +3,7 @@ import { bindActionCreators } from "redux";
 
 import {
     fetchFixtures,
+    fetchHead2Head,
     updateFixtureIndex,
     updateFixturesPageIndex,
 } from "ActionCreators";
@@ -13,11 +14,13 @@ const mapStateToProps = state => ({
     fixtures: state.fixtures,
     fixtureIndex: state.fixtureIndex,
     fixturesPageIndex: state.fixturesPageIndex,
+    head2Head: state.head2Head,
 });
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
         fetchFixtures,
+        fetchHead2Head,
         updateFixtureIndex,
         updateFixturesPageIndex,
     }, dispatch);

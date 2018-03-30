@@ -4,41 +4,43 @@ import PropTypes from "prop-types";
 
 import ItemList from "Components/ItemsList";
 
+import Loading from "Components/messages/Loading";
+import Error from "Components/messages/Error";
+
 import FixtureItem from "Pages/teamPage/pages/fixturesPage/FixtureItem";
 
 export default class DetailsSection extends React.Component {
-    getSameTeamsFixtures = () => {
-        const currentFixture = this.props.fixtures[this.props.fixtureIndex];
+    constructor(props) {
+        super(props);
 
-        const newFixtures = [];
-
-        for (let i = this.props.fixtures.length - 1; i >= 0; i -= 1) {
-            if (this.areTeamsTheSameInFixtures(currentFixture, this.props.fixtures[i])) {
-                newFixtures.push(this.props.fixtures[i]);
-            }
-            if (newFixtures.length >= 10) {
-                break;
-            }
-        }
-
-        return newFixtures;
+        this.props.fetchHead2Head(this.props.fixtureId);
     }
 
-    areTeamsTheSameInFixtures = (f1, f2) =>
-        (f1.homeTeamName === f2.homeTeamName && f1.awayTeamName === f2.awayTeamName)
-        ||
-        (f1.homeTeamName === f2.awayTeamName && f1.awayTeamName === f2.homeTeamName);
+    componentWillReceiveProps(nextProps) {
+        if (this.props.fixtureId !== nextProps.fixtureId) {
+            this.props.fetchHead2Head(nextProps.fixtureId);
+        }
+    }
 
     render() {
+        if (this.props.fetchingErrorOccured) {
+            return <Error />;
+        }
+
+        if (!this.props.head2Head) {
+            return <Loading />;
+        }
+
+        
         const fixtureItem = (
             <FixtureItem
-                currentFixtureId={this.props.fixtures[this.props.fixtureIndex].id}
+                currentFixtureId={this.props.fixtureId}
             />
         );
 
         return (
             <ItemList
-                items={this.getSameTeamsFixtures()}
+                items={this.props.head2Head.fixtures}
                 itemComponent={fixtureItem}
                 itemKey="fixture"
             />
@@ -47,6 +49,14 @@ export default class DetailsSection extends React.Component {
 }
 
 DetailsSection.propTypes = {
-    fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
-    fixtureIndex: PropTypes.number.isRequired,
+    fixtureId: PropTypes.number.isRequired,
+    fetchHead2Head: PropTypes.func.isRequired,
+    fetchingErrorOccured: PropTypes.bool.isRequired,
+    head2Head: PropTypes.shape({
+        fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
+    }),
+};
+
+DetailsSection.defaultProps = {
+    head2Head: null,
 };

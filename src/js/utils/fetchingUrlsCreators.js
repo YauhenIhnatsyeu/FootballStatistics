@@ -17,3 +17,7 @@ export function createPlayersUrl(teamUrl) {
 export function createFixturesUrl(teamId) {
     return `https://api.football-data.org/v1/teams/${teamId}/fixtures/`;
 }
+
+export function createHead2HeadUrl(fixtureId) {
+    return `http://api.football-data.org/v1/fixtures/${fixtureId}?head2head=10`;
+}

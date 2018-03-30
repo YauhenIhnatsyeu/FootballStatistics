@@ -58,6 +58,7 @@ export default class TeamPage extends Component {
 }
 
 TeamPage.propTypes = {
+    resetTeamPageIndices: PropTypes.func.isRequired,
     teamId: PropTypes.number.isRequired,
     fetchTeam: PropTypes.func.isRequired,
     fetchingErrorOccured: PropTypes.bool.isRequired,

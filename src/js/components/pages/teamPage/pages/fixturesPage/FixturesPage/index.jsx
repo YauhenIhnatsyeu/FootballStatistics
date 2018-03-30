@@ -39,8 +39,10 @@ export default class FixturesPage extends Component {
                 </Section>
                 <Section>
                     <DetailsSection
-                        fixtures={this.props.fixtures}
-                        fixtureIndex={this.props.fixtureIndex}
+                        fixtureId={this.props.fixtures[this.props.fixtureIndex].id}
+                        head2Head={this.props.head2Head}
+                        fetchingErrorOccured={this.props.fetchingErrorOccured}
+                        fetchHead2Head={this.props.fetchHead2Head}
                     />
                 </Section>
             </React.Fragment>
@@ -54,11 +56,16 @@ FixturesPage.propTypes = {
     fixtureIndex: PropTypes.number.isRequired,
     fixturesPageIndex: PropTypes.number.isRequired,
     fetchFixtures: PropTypes.func.isRequired,
+    fetchHead2Head: PropTypes.func.isRequired,
     fetchingErrorOccured: PropTypes.bool.isRequired,
     updateFixtureIndex: PropTypes.func.isRequired,
     updateFixturesPageIndex: PropTypes.func.isRequired,
+    head2Head: PropTypes.shape({
+        fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
+    }),
 };
 
 FixturesPage.defaultProps = {
     fixtures: null,
+    head2Head: null,
 };
