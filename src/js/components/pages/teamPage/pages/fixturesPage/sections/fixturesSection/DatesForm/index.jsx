@@ -8,33 +8,29 @@ export default class DatesForm extends Component {
     constructor(props) {
         super(props);
 
-        const currentDate = new Date();
-        this.currentDateString = dateToString(currentDate);
-
-        // Adding 2 weeks to current date
-        currentDate.setDate(currentDate.getDate() + 14);
-        const toDateString = dateToString(currentDate);
-
         this.state = {
-            fromDate: this.currentDateString,
-            toDate: toDateString,
+            fromDate: dateToString(this.props.dates.from),
+            toDate: dateToString(this.props.dates.to),
         };
     }
 
-    handleFromDateChange = (date) => {
-        this.props.onFromDateChange(date);
+    stringToDate = str =>
+        new Date(+str.slice(0, 4), +str.slice(-5).slice(0, 2), +str.slice(-2))
 
+    handleFromDateChange = (e) => {
         this.setState({
-            fromDate: date,
+            fromDate: e.target.value,
         });
+
+        this.props.updateFromDate(this.stringToDate(e.target.value));
     }
 
-    handleToDateChange = (date) => {
-        this.props.onToDateChange(date);
-
+    handleToDateChange = (e) => {
         this.setState({
-            toDate: date,
+            toDate: e.target.value,
         });
+
+        this.props.updateToDate(this.stringToDate(e.target.value));
     }
 
     render() {
@@ -44,16 +40,14 @@ export default class DatesForm extends Component {
                     className="dates-form__input"
                     type="date"
                     value={this.state.fromDate}
-                    min={this.currentDateString}
-                    onChange={(event) => { this.handleFromDateChange(event.target.value); }}
+                    onChange={this.handleFromDateChange}
                 />
 
                 <input
                     className="dates-form__input dates-form__input_position_down"
                     type="date"
                     value={this.state.toDate}
-                    min={this.currentDateString}
-                    onChange={(event) => { this.handleToDateChange(event.target.value); }}
+                    onChange={this.handleToDateChange}
                 />
             </form>
         );

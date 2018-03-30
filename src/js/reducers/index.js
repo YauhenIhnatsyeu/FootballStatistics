@@ -13,6 +13,7 @@ import fixtureIndex from "./fixtureIndex";
 import fixturesPageIndex from "./fixturesPageIndex";
 import head2Head from "./head2Head";
 import favouriteTeams from "./favouriteTeams";
+import dates from "./dates";
 
 export default combineReducers({
     fetchingErrorOccured,
@@ -28,4 +29,5 @@ export default combineReducers({
     fixturesPageIndex,
     head2Head,
     favouriteTeams,
+    dates,
 });

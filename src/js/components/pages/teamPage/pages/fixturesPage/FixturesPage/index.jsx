@@ -33,8 +33,11 @@ export default class FixturesPage extends Component {
                         fixtures={this.props.fixtures}
                         fixtureIndex={this.props.fixtureIndex}
                         fixturesPageIndex={this.props.fixturesPageIndex}
+                        dates={this.props.dates}
                         updateFixtureIndex={this.props.updateFixtureIndex}
                         updateFixturesPageIndex={this.props.updateFixturesPageIndex}
+                        updateFromDate={this.props.updateFromDate}
+                        updateToDate={this.props.updateToDate}
                     />
                 </Section>
                 <Section>

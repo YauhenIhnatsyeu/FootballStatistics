@@ -13,15 +13,6 @@ import DateForms from "../DatesForm";
 import "./index.css";
 
 export default class FixturesSection extends Component {
-
-    handleFromDateChange = (date) => {
-
-    }
-
-    handleToDateChange = (date) => {
-
-    }
-
     handlePageChanged = (pageIndex) => {
         this.props.updateFixtureIndex(pageIndex * itemsOnOnePageCount);
 
@@ -43,8 +34,9 @@ export default class FixturesSection extends Component {
             <React.Fragment>
                 <div className="item fixture-section__dates-form-container">
                     <DateForms
-                        onFromDateChange={this.handleFromDateChange}
-                        onToDateChange={this.handleToDateChange}
+                        dates={this.props.dates}
+                        updateFromDate={this.props.updateFromDate}
+                        updateToDate={this.props.updateToDate}
                     />
                 </div>
 
