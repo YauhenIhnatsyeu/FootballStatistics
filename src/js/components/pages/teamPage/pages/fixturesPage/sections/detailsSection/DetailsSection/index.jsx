@@ -9,6 +9,10 @@ import Error from "Components/messages/Error";
 
 import FixtureItem from "Pages/teamPage/pages/fixturesPage/FixtureItem";
 
+import DetailsHeader from "../DetailsHeader";
+
+import "./index.css";
+
 export default class DetailsSection extends React.Component {
     constructor(props) {
         super(props);
@@ -38,11 +42,19 @@ export default class DetailsSection extends React.Component {
         );
 
         return (
-            <ItemList
-                items={this.props.head2Head.fixtures}
-                itemComponent={fixtureItem}
-                itemKey="fixture"
-            />
+            <div className="details-section">
+                <div className="details-section__details-header-container">
+                    <DetailsHeader
+                        head2Head={this.props.head2Head}
+                    />
+                </div>
+
+                <ItemList
+                    items={this.props.head2Head.head2head.fixtures}
+                    itemComponent={fixtureItem}
+                    itemKey="fixture"
+                />
+            </div>
         );
     }
 }
@@ -52,7 +64,9 @@ DetailsSection.propTypes = {
     fetchHead2Head: PropTypes.func.isRequired,
     fetchingErrorOccured: PropTypes.bool.isRequired,
     head2Head: PropTypes.shape({
-        fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
+        head2head: PropTypes.shape({
+            fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
+        }).isRequired,
     }),
 };
 
