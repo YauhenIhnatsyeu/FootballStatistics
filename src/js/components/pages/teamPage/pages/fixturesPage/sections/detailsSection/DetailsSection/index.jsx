@@ -31,7 +31,6 @@ export default class DetailsSection extends React.Component {
             return <Loading />;
         }
 
-        
         const fixtureItem = (
             <FixtureItem
                 currentFixtureId={this.props.fixtureId}
