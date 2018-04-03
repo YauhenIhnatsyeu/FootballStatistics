@@ -48,8 +48,20 @@ export default class DetailsHeader extends React.Component {
 
 DetailsHeader.propTypes = {
     head2Head: PropTypes.shape({
+        fixture: PropTypes.shape({
+            homeTeamName: PropTypes.string.isRequired,
+            awayTeamName: PropTypes.string.isRequired,
+            status: PropTypes.string.isRequired,
+            result: PropTypes.shape({
+                goalsHomeTeam: PropTypes.number,
+                goalsAwayTeam: PropTypes.number,
+            }).isRequired,
+            date: PropTypes.string.isRequired,
+        }).isRequired,
         head2head: PropTypes.shape({
-            fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
+            homeTeamWins: PropTypes.number,
+            awayTeamWins: PropTypes.number,
+            draws: PropTypes.number,
         }).isRequired,
     }),
 };

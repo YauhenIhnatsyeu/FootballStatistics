@@ -9,6 +9,8 @@ import Error from "Components/messages/Error";
 
 import FixtureItem from "Pages/teamPage/pages/fixturesPage/FixtureItem";
 
+import head2HeadsOnOnePageCount from "Constants/head2HeadsOnOnePageCount";
+
 import DetailsHeader from "../DetailsHeader";
 
 import "./index.css";
@@ -50,7 +52,10 @@ export default class DetailsSection extends React.Component {
                 </div>
 
                 <ItemList
-                    items={this.props.head2Head.head2head.fixtures}
+                    items={
+                        this.props.head2Head.head2head.fixtures
+                            .slice(0, head2HeadsOnOnePageCount)
+                    }
                     itemComponent={fixtureItem}
                     itemKey="fixture"
                 />
