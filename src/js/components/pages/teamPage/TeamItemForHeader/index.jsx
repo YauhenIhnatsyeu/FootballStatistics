@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import Tabs from "Components/tabs/Tabs";
 import Tab from "Components/tabs/Tab";
 
+import Item from "Components/Item";
+
 import "./index.css";
 
 export default class TeamItemForHeader extends Component {
@@ -14,7 +16,7 @@ export default class TeamItemForHeader extends Component {
 
     render() {
         return (
-            <div className="item">
+            <Item>
                 <div className="team-item-for-header__team">
                     <img src={this.props.team.crestUrl} className="team-item-for-header__img" alt="" />
                     <div className="team-item__info-container">
@@ -32,7 +34,7 @@ export default class TeamItemForHeader extends Component {
                         <Tab title="Fixtures" />
                     </Tabs>
                 </div>
-            </div>
+            </Item>
         );
     }
 }

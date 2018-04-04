@@ -13,5 +13,9 @@ export default class TeamInfo extends Component {
 }
 
 TeamInfo.propTypes = {
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
+};
+
+TeamInfo.defaultProps = {
+    children: null,
 };

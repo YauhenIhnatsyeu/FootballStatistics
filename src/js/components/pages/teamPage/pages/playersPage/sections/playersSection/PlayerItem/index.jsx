@@ -2,12 +2,14 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
+import Item from "Components/Item";
+
 import "./index.css";
 
 export default class PlayerItem extends Component {
     render() {
         return (
-            <div className="item">
+            <Item>
                 <p className="player-item__name">
                     {this.props.player.jerseyNumber && `${this.props.player.jerseyNumber}. `}
                     {this.props.player.name}
@@ -18,7 +20,7 @@ export default class PlayerItem extends Component {
                     this.props.player.marketValue &&
                     <p>Market value: {this.props.player.marketValue}</p>
                 }
-            </div>
+            </Item>
         );
     }
 }

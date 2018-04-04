@@ -8,9 +8,9 @@ import itemsOnOnePageCount from "Constants/itemsOnOnePageCount";
 
 import FixtureItem from "Pages/teamPage/pages/fixturesPage/FixtureItem";
 
-import DateForms from "../DatesForm";
+import Item from "Components/Item";
 
-import "./index.css";
+import DateForms from "../DatesForm";
 
 export default class FixturesSection extends Component {
     handlePageChanged = (pageIndex) => {
@@ -32,13 +32,13 @@ export default class FixturesSection extends Component {
 
         return (
             <React.Fragment>
-                <div className="item fixture-section__dates-form-container">
+                <Item>
                     <DateForms
                         dates={this.props.dates}
                         updateFromDate={this.props.updateFromDate}
                         updateToDate={this.props.updateToDate}
                     />
-                </div>
+                </Item>
 
                 <ItemsListWithPagingControls
                     items={this.props.fixtures}

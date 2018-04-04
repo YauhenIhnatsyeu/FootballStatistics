@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 
 import createTeamPath from "Utilities/pathesCreators";
 
+import Item from "Components/Item";
+
 import { Link } from "react-router-dom";
 
 import "./index.css";
@@ -46,26 +48,28 @@ export default class TeamItem extends Component {
         const teamUrl = createTeamPath(this.props.team.id);
 
         return (
-            <div className="item team-item">
-                <Link to={teamUrl} className="team-item__link">
-                    <div className="team-item__img-container">
-                        <img src={this.props.team.crestUrl} className="team-item__img" alt="" />
-                    </div>
-                </Link>
-                <div className="team-item__info-container">
+            <Item>
+                <div className="team-item">
                     <Link to={teamUrl} className="team-item__link">
-                        <p className="team-item__name">{this.props.team.name}</p>
+                        <div className="team-item__img-container">
+                            <img src={this.props.team.crestUrl} className="team-item__img" alt="" />
+                        </div>
                     </Link>
-                    <p>Short name: {this.props.team.shortName}</p>
-                    {
-                        this.props.team.squadMarketValue &&
-                        <p>Squad market value: {this.props.team.squadMarketValue}</p>
-                    }
-                    <button className="team-item__button" onClick={this.handleButtonClick}>
-                        {this.state.isFavourite ? "Remove" : "Add"} team to favourites
-                    </button>
+                    <div className="team-item__info-container">
+                        <Link to={teamUrl} className="team-item__link">
+                            <p className="team-item__name">{this.props.team.name}</p>
+                        </Link>
+                        <p>Short name: {this.props.team.shortName}</p>
+                        {
+                            this.props.team.squadMarketValue &&
+                            <p>Squad market value: {this.props.team.squadMarketValue}</p>
+                        }
+                        <button className="team-item__button" onClick={this.handleButtonClick}>
+                            {this.state.isFavourite ? "Remove" : "Add"} team to favourites
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </Item>
         );
     }
 }
