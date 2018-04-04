@@ -20,7 +20,7 @@ export default class PlayersPage extends Component {
                         playersPageIndex={this.props.playersPageIndex}
                         fetchPlayers={this.props.fetchPlayers}
                         updatePlayersPageIndex={this.props.updatePlayersPageIndex}
-                        fetchingErrorOccured={this.props.fetchingErrorOccured}
+                        playersFetchingErrorOccured={this.props.playersFetchingErrorOccured}
                     />
                 </Section>
                 <Section title={`Tweets for tag #${hashtag}`} />
@@ -32,7 +32,7 @@ export default class PlayersPage extends Component {
 PlayersPage.propTypes = {
     fetchPlayers: PropTypes.func.isRequired,
     updatePlayersPageIndex: PropTypes.func.isRequired,
-    fetchingErrorOccured: PropTypes.bool.isRequired,
+    playersFetchingErrorOccured: PropTypes.bool.isRequired,
     team: PropTypes.shape({
         shortName: PropTypes.string,
         _links: PropTypes.shape({

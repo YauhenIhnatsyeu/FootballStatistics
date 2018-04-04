@@ -2,7 +2,7 @@ import { call, put } from "redux-saga/effects";
 
 import {
     onFixturesFetchSucceeded,
-    onFetchFailed,
+    onFixturesFetchFailed,
 } from "ActionCreators";
 
 import extractIdFromUrl from "Utilities/extractIdFromUrl";
@@ -34,6 +34,6 @@ export default function* fetchFixtures(action) {
         yield call(addIdToEachFixture, fixtures);
         yield put(onFixturesFetchSucceeded(fixtures));
     } catch (error) {
-        yield put(onFetchFailed(error));
+        yield put(onFixturesFetchFailed(error));
     }
 }

@@ -24,7 +24,7 @@ export default class FixturesPage extends Component {
     }
 
     render() {
-        if (this.props.fetchingErrorOccured) {
+        if (this.props.fixturesFetchingErrorOccured) {
             return <Error />;
         }
 
@@ -50,7 +50,7 @@ export default class FixturesPage extends Component {
                     <DetailsSection
                         fixtureId={this.props.fixtures[this.props.fixtureIndex].id}
                         head2Head={this.props.head2Head}
-                        fetchingErrorOccured={this.props.fetchingErrorOccured}
+                        head2HeadFetchingErrorOccured={this.props.head2HeadFetchingErrorOccured}
                         fetchHead2Head={this.props.fetchHead2Head}
                     />
                 </Section>
@@ -71,7 +71,8 @@ FixturesPage.propTypes = {
     }),
     fetchFixtures: PropTypes.func.isRequired,
     fetchHead2Head: PropTypes.func.isRequired,
-    fetchingErrorOccured: PropTypes.bool.isRequired,
+    fixturesFetchingErrorOccured: PropTypes.bool.isRequired,
+    head2HeadFetchingErrorOccured: PropTypes.bool.isRequired,
     dates: PropTypes.shape({
         from: PropTypes.object.isRequired,
         to: PropTypes.object,

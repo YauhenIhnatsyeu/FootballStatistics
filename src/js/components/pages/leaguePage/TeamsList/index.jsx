@@ -13,7 +13,7 @@ export default class TeamsList extends Component {
     render() {
         this.props.getTeamsFromFavourites();
 
-        if (this.props.fetchingError) {
+        if (this.props.teamsFetchingErrorOccured) {
             return <Error />;
         }
 
@@ -37,11 +37,11 @@ export default class TeamsList extends Component {
 
 TeamsList.propTypes = {
     teams: PropTypes.arrayOf(PropTypes.object),
-    fetchingError: PropTypes.bool,
+    teamsFetchingErrorOccured: PropTypes.bool,
     getTeamsFromFavourites: PropTypes.func.isRequired,
 };
 
 TeamsList.defaultProps = {
     teams: null,
-    fetchingError: false,
+    teamsFetchingErrorOccured: false,
 };

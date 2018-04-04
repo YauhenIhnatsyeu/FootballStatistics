@@ -6,7 +6,7 @@ import fetchUrl from "Utilities/fetchFootballData";
 
 import {
     onLeagueFetchSucceeded,
-    onFetchFailed,
+    onLeagueFetchFailed,
 } from "ActionCreators";
 
 export default function* fetchLeague(action) {
@@ -15,6 +15,6 @@ export default function* fetchLeague(action) {
         const data = yield call(fetchUrl, leagueUrl);
         yield put(onLeagueFetchSucceeded(data));
     } catch (error) {
-        yield put(onFetchFailed(error));
+        yield put(onLeagueFetchFailed(error));
     }
 }

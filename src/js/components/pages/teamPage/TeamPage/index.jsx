@@ -22,7 +22,7 @@ export default class TeamPage extends Component {
     }
 
     render() {
-        if (this.props.fetchingErrorOccured) {
+        if (this.props.teamFetchingErrorOccured) {
             return <Error />;
         }
 
@@ -43,12 +43,10 @@ export default class TeamPage extends Component {
                     {this.props.teamPageIndex === 0 ?
                         <PlayersPageContainer
                             team={this.props.team}
-                            fetchingErrorOccured={this.props.fetchingErrorOccured}
                         />
                         :
                         <FixturesPageContainer
                             teamId={this.props.teamId}
-                            fetchingErrorOccured={this.props.fetchingErrorOccured}
                         />
                     }
                 </TeamInfo>
@@ -61,7 +59,7 @@ TeamPage.propTypes = {
     resetTeamPageIndices: PropTypes.func.isRequired,
     teamId: PropTypes.number.isRequired,
     fetchTeam: PropTypes.func.isRequired,
-    fetchingErrorOccured: PropTypes.bool.isRequired,
+    teamFetchingErrorOccured: PropTypes.bool,
     team: PropTypes.shape({
         id: PropTypes.number,
         crestUrl: PropTypes.string.isRequired,
@@ -75,4 +73,5 @@ TeamPage.propTypes = {
 
 TeamPage.defaultProps = {
     team: null,
+    teamFetchingErrorOccured: false,
 };

@@ -12,7 +12,7 @@ import TeamPage from "Pages/teamPage/TeamPage";
 const mapStateToProps = state => ({
     team: state.team,
     teamPageIndex: state.teamPageIndex,
-    fetchingErrorOccured: state.fetchingErrorOccured,
+    teamFetchingErrorOccured: state.teamFetchingErrorOccured,
 });
 
 const mapDispatchToProps = dispatch =>

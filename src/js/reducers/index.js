@@ -1,6 +1,14 @@
 import { combineReducers } from "redux";
 
-import fetchingErrorOccured from "./fetchingErrorOccured";
+import {
+    leagueFetchingErrorOccured,
+    teamsFetchingErrorOccured,
+    teamFetchingErrorOccured,
+    playersFetchingErrorOccured,
+    fixturesFetchingErrorOccured,
+    head2HeadFetchingErrorOccured,
+} from "./fetchingErrors";
+
 import league from "./league";
 import leagueIndex from "./leagueIndex";
 import teams from "./teams";
@@ -16,7 +24,12 @@ import favouriteTeams from "./favouriteTeams";
 import dates from "./dates";
 
 export default combineReducers({
-    fetchingErrorOccured,
+    leagueFetchingErrorOccured,
+    teamsFetchingErrorOccured,
+    teamFetchingErrorOccured,
+    playersFetchingErrorOccured,
+    fixturesFetchingErrorOccured,
+    head2HeadFetchingErrorOccured,
     league,
     leagueIndex,
     teams,

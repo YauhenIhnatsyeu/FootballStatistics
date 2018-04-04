@@ -21,7 +21,7 @@ export default class PlayersSection extends Component {
     }
 
     render() {
-        if (this.props.fetchingErrorOccured) {
+        if (this.props.playersFetchingErrorOccured) {
             return <Error />;
         }
 
@@ -44,7 +44,7 @@ export default class PlayersSection extends Component {
 PlayersSection.propTypes = {
     fetchPlayers: PropTypes.func.isRequired,
     updatePlayersPageIndex: PropTypes.func.isRequired,
-    fetchingErrorOccured: PropTypes.bool.isRequired,
+    playersFetchingErrorOccured: PropTypes.bool.isRequired,
     team: PropTypes.shape({
         _links: PropTypes.shape({
             self: PropTypes.shape({

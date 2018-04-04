@@ -29,7 +29,7 @@ export default class DetailsSection extends React.Component {
     }
 
     render() {
-        if (this.props.fetchingErrorOccured) {
+        if (this.props.head2HeadFetchingErrorOccured) {
             return <Error />;
         }
 
@@ -67,7 +67,7 @@ export default class DetailsSection extends React.Component {
 DetailsSection.propTypes = {
     fixtureId: PropTypes.number.isRequired,
     fetchHead2Head: PropTypes.func.isRequired,
-    fetchingErrorOccured: PropTypes.bool.isRequired,
+    head2HeadFetchingErrorOccured: PropTypes.bool.isRequired,
     head2Head: PropTypes.shape({
         head2head: PropTypes.shape({
             fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,

@@ -6,7 +6,7 @@ import sorterByJerseyNumber from "Utilities/sorterByJerseyNumber";
 
 import {
     onPlayersFetchSucceeded,
-    onFetchFailed,
+    onPlayersFetchFailed,
 } from "ActionCreators";
 
 import fetchUrl from "Utilities/fetchFootballData";
@@ -18,6 +18,6 @@ export default function* fetchPlayers(action) {
         data = data.players.sort(sorterByJerseyNumber);
         yield put(onPlayersFetchSucceeded(data));
     } catch (error) {
-        yield put(onFetchFailed(error));
+        yield put(onPlayersFetchFailed(error));
     }
 }

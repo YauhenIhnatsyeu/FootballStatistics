@@ -17,7 +17,8 @@ module.exports = {
             PlayersPageSections: path.resolve(__dirname, "src/js/components/pages/teamPage/pages/playersPage/sections"),
             FixturesPageSections: path.resolve(__dirname, "src/js/components/pages/teamPage/pages/fixturesPage/sections"),
 
-            ActionCreators: path.resolve(__dirname, "src/js/actions/actionCreators"),
+            ActionTypes: path.resolve(__dirname, "src/js/actions/actionTypes"),
+            ActionCreators: path.resolve(__dirname, "src/js/actions/actionCreators/index"),
 
             Utilities: path.resolve(__dirname, "src/js/utils"),
         },

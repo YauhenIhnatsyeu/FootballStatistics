@@ -30,7 +30,7 @@ export default class LeagueTable extends Component {
     }
 
     render() {
-        if (this.props.fetchingErrorOccured) {
+        if (this.props.leagueFetchingErrorOccured) {
             return <Error />;
         }
 
@@ -77,7 +77,7 @@ export default class LeagueTable extends Component {
 
 LeagueTable.propTypes = {
     fetchLeague: PropTypes.func.isRequired,
-    fetchingErrorOccured: PropTypes.bool,
+    leagueFetchingErrorOccured: PropTypes.bool,
     league: PropTypes.shape({
         standing: PropTypes.arrayOf(PropTypes.shape({
             _link: PropTypes.shape({
@@ -91,7 +91,7 @@ LeagueTable.propTypes = {
 };
 
 LeagueTable.defaultProps = {
-    fetchingErrorOccured: false,
+    leagueFetchingErrorOccured: false,
     league: PropTypes.shape({
         standing: PropTypes.arrayOf(PropTypes.shape({
             _link: null,

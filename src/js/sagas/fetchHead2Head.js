@@ -2,7 +2,7 @@ import { call, put } from "redux-saga/effects";
 
 import {
     onHead2HeadFetchSucceeded,
-    onFetchFailed,
+    onHead2HeadFetchFailed,
 } from "ActionCreators";
 
 import extractIdFromUrl from "Utilities/extractIdFromUrl";
@@ -31,6 +31,6 @@ export default function* fetchHead2Head(action) {
 
         yield put(onHead2HeadFetchSucceeded(data));
     } catch (error) {
-        yield put(onFetchFailed(error));
+        yield put(onHead2HeadFetchFailed(error));
     }
 }

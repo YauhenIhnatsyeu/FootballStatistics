@@ -25,12 +25,15 @@ export default class TablePage extends Component {
                     }
                 </Tabs>
 
-                <LeagueTableContainer />
+                <LeagueTableContainer
+                    leagueFetchingErrorOccured={this.props.leagueFetchingErrorOccured}
+                />
             </React.Fragment>
         );
     }
 }
 
 TablePage.propTypes = {
+    leagueFetchingErrorOccured: PropTypes.bool.isRequired,
     updateLeagueIndex: PropTypes.func.isRequired,
 };

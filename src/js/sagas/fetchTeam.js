@@ -6,7 +6,7 @@ import extractIdFromUrl from "Utilities/extractIdFromUrl";
 
 import {
     onTeamFetchSucceeded,
-    onFetchFailed,
+    onTeamFetchFailed,
 } from "ActionCreators";
 
 import fetchUrl from "Utilities/fetchFootballData";
@@ -24,6 +24,6 @@ export default function* fetchTeam(action) {
         team = yield call(addIdToTeam, team);
         yield put(onTeamFetchSucceeded(team));
     } catch (error) {
-        yield put(onFetchFailed(error));
+        yield put(onTeamFetchFailed(error));
     }
 }

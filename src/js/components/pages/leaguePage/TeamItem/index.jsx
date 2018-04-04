@@ -82,7 +82,7 @@ TeamItem.propTypes = {
         shortName: PropTypes.string.isRequired,
         squadMarketValue: PropTypes.string,
     }),
-    favouriteTeams: PropTypes.arrayOf(PropTypes.object).isRequired,
+    favouriteTeams: PropTypes.arrayOf(PropTypes.number).isRequired,
     removeTeamFromFavourites: PropTypes.func.isRequired,
     addTeamToFavourites: PropTypes.func.isRequired,
 };
