@@ -39,9 +39,8 @@ module.exports = {
             ] 
         }],
         "react/prefer-stateless-function": 0,
-        "react/jsx-indent": 0,
-        "react/jsx-indent-props": 0,
-        "import/no-extraneous-dependencies": 0,
+        "react/jsx-indent": [2, 4],
+        "react/jsx-indent-props": [2, 4],
         "react/no-array-index-key": 0,
         "jsx-a11y/anchor-is-valid": 0,
     },
