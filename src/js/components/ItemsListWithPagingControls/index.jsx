@@ -19,23 +19,26 @@ export default class ItemsListWithPagingControls extends Component {
         );
     }
 
-    render() {
+    renderPagingControls = () => {
         const pagingControlsPagesCount =
             Math.ceil(this.props.items.length / itemsOnOnePageCount);
 
-        const pagingControls = this.props.items.length > itemsOnOnePageCount
-            ? (
-                <PagingControls
-                    pagesCount={pagingControlsPagesCount}
-                    onPageChanged={this.props.onPageChanged}
-                    currentPageIndex={this.props.currentPageIndex}
-                />
-            )
-            : null;
+        return (
+            <PagingControls
+                pagesCount={pagingControlsPagesCount}
+                onPageChanged={this.props.onPageChanged}
+                currentPageIndex={this.props.currentPageIndex}
+            />
+        );
+    }
 
+    render() {
         return (
             <React.Fragment>
-                {pagingControls}
+                {this.props.items.length > itemsOnOnePageCount
+                    ? this.renderPagingControls()
+                    : null
+                }
 
                 <div className="items-list-with-paging-controls__items-list-container">
                     <ItemsList
@@ -45,7 +48,10 @@ export default class ItemsListWithPagingControls extends Component {
                     />
                 </div>
 
-                {pagingControls}
+                {this.props.items.length > itemsOnOnePageCount
+                    ? this.renderPagingControls()
+                    : null
+                }
             </React.Fragment>
         );
     }
