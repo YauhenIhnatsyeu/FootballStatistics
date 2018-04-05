@@ -16,9 +16,7 @@ import DetailsHeader from "../DetailsHeader";
 import "./index.css";
 
 export default class DetailsSection extends React.Component {
-    constructor(props) {
-        super(props);
-
+    componentDidMount() {
         this.props.fetchHead2Head(this.props.fixtureId);
     }
 

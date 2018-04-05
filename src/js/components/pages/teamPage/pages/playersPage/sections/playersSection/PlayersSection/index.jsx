@@ -10,9 +10,7 @@ import Error from "Components/messages/Error";
 import PlayerItem from "PlayersPageSections/playersSection/PlayerItem";
 
 export default class PlayersSection extends Component {
-    constructor(props) {
-        super(props);
-
+    componentDidMount() {
         this.props.fetchPlayers(this.props.team._links.self.href);
     }
 

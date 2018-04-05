@@ -13,9 +13,7 @@ import TeamInfo from "../teamInfo/TeamInfo";
 import "./index.css";
 
 export default class TeamPage extends Component {
-    constructor(props) {
-        super(props);
-
+    componentDidMount() {
         this.props.resetTeamPageIndices();
 
         this.props.fetchTeam(this.props.teamId);

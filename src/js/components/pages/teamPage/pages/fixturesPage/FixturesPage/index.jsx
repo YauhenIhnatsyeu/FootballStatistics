@@ -11,9 +11,7 @@ import FixturesSection from "FixturesPageSections/fixturesSection/FixturesSectio
 import DetailsSection from "FixturesPageSections/detailsSection/DetailsSection";
 
 export default class FixturesPage extends Component {
-    constructor(props) {
-        super(props);
-
+    componentDidMount() {
         this.props.fetchFixtures(this.props.teamId, this.props.dates);
     }
 

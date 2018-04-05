@@ -17,9 +17,7 @@ import createTeamPath from "Utilities/pathesCreators";
 import "./index.css";
 
 export default class LeagueTable extends Component {
-    constructor(props) {
-        super(props);
-
+    componentDidMount() {
         this.props.fetchLeague(leaguesData[this.props.leagueIndex].id);
     }
 
