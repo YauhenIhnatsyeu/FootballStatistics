@@ -17,19 +17,19 @@ import "./index.css";
 export default class Main extends Component {
     render() {
         const tablePage = (
-            <div className="main__table-panel-container">
+            <div className="main__page-container">
                 <TablePageContainer />
             </div>
         );
 
         const leaguePage = (
-            <div className="main__league-panel-container">
+            <div className="main__page-container">
                 <LeaguePageContainer />
             </div>
         );
 
         const teamPage = props => (
-            <div className="main__team-page-container">
+            <div className="main__page-container">
                 <TeamPageContainer teamId={+props.match.params.id} />
             </div>
         );

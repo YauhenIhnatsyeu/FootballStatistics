@@ -20,7 +20,7 @@ export {
 
 export {
     onLeagueFetchFailed,
-    onTeamsFetcFailed,
+    onTeamsFetchFailed,
     onTeamFetchFailed,
     onPlayersFetchFailed,
     onFixturesFetchFailed,

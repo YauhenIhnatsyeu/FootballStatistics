@@ -23,8 +23,8 @@ export default class PagingControls extends Component {
 
     newIndexIsValid = newIndex => (
         newIndex >= 0
-        && newIndex < this.props.pagesCount
-        && newIndex !== this.props.currentPageIndex
+            && newIndex < this.props.pagesCount
+            && newIndex !== this.props.currentPageIndex
     )
 
     handleClickBase = (newIndex) => {

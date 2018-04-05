@@ -10,6 +10,15 @@ import itemsOnOnePageCount from "Constants/itemsOnOnePageCount";
 import "./index.css";
 
 export default class ItemsListWithPagingControls extends Component {
+    getItems = () => {
+        const startIndex = this.props.currentPageIndex * itemsOnOnePageCount;
+
+        return this.props.items.slice(
+            startIndex,
+            startIndex + itemsOnOnePageCount,
+        );
+    }
+
     render() {
         const pagingControlsPagesCount =
             Math.ceil(this.props.items.length / itemsOnOnePageCount);
@@ -25,20 +34,13 @@ export default class ItemsListWithPagingControls extends Component {
             :
             null;
 
-        const startIndex = this.props.currentPageIndex * itemsOnOnePageCount;
-
         return (
             <React.Fragment>
                 {pagingControls}
 
                 <div className="items-list-with-paging-controls__items-list-container">
                     <ItemsList
-                        items={
-                            this.props.items.slice(
-                                startIndex,
-                                startIndex + itemsOnOnePageCount,
-                            )
-                        }
+                        items={this.getItems()}
                         itemComponent={this.props.itemComponent}
                         itemKey={this.props.itemKey}
                     />
