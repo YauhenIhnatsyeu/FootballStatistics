@@ -2,20 +2,20 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import {
-    addTeamToFavourites,
-    removeTeamFromFavourites,
+    addTeamToFavorites,
+    removeTeamFromFavorites,
 } from "ActionCreators";
 
 import TeamItem from "Pages/leaguePage/TeamItem";
 
 const mapStateToProps = state => ({
-    favouriteTeams: state.favouriteTeams,
+    favoriteTeams: state.favoriteTeams,
 });
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
-        addTeamToFavourites,
-        removeTeamFromFavourites,
+        addTeamToFavorites,
+        removeTeamFromFavorites,
     }, dispatch);
 
 export default

@@ -11,7 +11,7 @@ import "./index.css";
 
 export default class TeamsList extends Component {
     render() {
-        this.props.getTeamsFromFavourites();
+        this.props.getTeamsFromFavorites();
 
         if (this.props.teamsFetchingErrorOccured) {
             return <Error />;
@@ -38,7 +38,7 @@ export default class TeamsList extends Component {
 TeamsList.propTypes = {
     teams: PropTypes.arrayOf(PropTypes.object),
     teamsFetchingErrorOccured: PropTypes.bool,
-    getTeamsFromFavourites: PropTypes.func.isRequired,
+    getTeamsFromFavorites: PropTypes.func.isRequired,
 };
 
 TeamsList.defaultProps = {

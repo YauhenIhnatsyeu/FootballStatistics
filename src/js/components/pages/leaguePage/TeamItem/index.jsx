@@ -15,32 +15,32 @@ export default class TeamItem extends Component {
         super(props);
 
         this.state = {
-            isFavourite: this.isThisTeamFavourite(),
+            isFavorite: this.isThisTeamFavorite(),
         };
     }
 
     componentWillReceiveProps() {
-        const isThisTeamFavourite = this.isThisTeamFavourite();
-        if (this.state.isFavourite !== isThisTeamFavourite) {
+        const isThisTeamFavorite = this.isThisTeamFavorite();
+        if (this.state.isFavorite !== isThisTeamFavorite) {
             this.setState({
-                isFavourite: isThisTeamFavourite,
+                isFavorite: isThisTeamFavorite,
             });
         }
     }
 
-    isThisTeamFavourite() {
-        return this.props.favouriteTeams.includes(this.props.team.id);
+    isThisTeamFavorite() {
+        return this.props.favoriteTeams.includes(this.props.team.id);
     }
 
     handleButtonClick = () => {
-        if (this.state.isFavourite) {
-            this.props.removeTeamFromFavourites(this.props.team.id);
+        if (this.state.isFavorite) {
+            this.props.removeTeamFromFavorites(this.props.team.id);
         } else {
-            this.props.addTeamToFavourites(this.props.team.id);
+            this.props.addTeamToFavorites(this.props.team.id);
         }
 
         this.setState({
-            isFavourite: !this.state.isFavourite,
+            isFavorite: !this.state.isFavorite,
         });
     }
 
@@ -65,7 +65,7 @@ export default class TeamItem extends Component {
                             <p>Squad market value: {this.props.team.squadMarketValue}</p>
                         }
                         <button className="team-item__button" onClick={this.handleButtonClick}>
-                            {this.state.isFavourite ? "Remove" : "Add"} team to favourites
+                            {this.state.isFavorite ? "Remove" : "Add"} team to favorites
                         </button>
                     </div>
                 </div>
@@ -82,9 +82,9 @@ TeamItem.propTypes = {
         shortName: PropTypes.string.isRequired,
         squadMarketValue: PropTypes.string,
     }),
-    favouriteTeams: PropTypes.arrayOf(PropTypes.number).isRequired,
-    removeTeamFromFavourites: PropTypes.func.isRequired,
-    addTeamToFavourites: PropTypes.func.isRequired,
+    favoriteTeams: PropTypes.arrayOf(PropTypes.number).isRequired,
+    removeTeamFromFavorites: PropTypes.func.isRequired,
+    addTeamToFavorites: PropTypes.func.isRequired,
 };
 
 TeamItem.defaultProps = {

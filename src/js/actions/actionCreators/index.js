@@ -36,11 +36,11 @@ export {
 } from "./updateIndexActionCreators";
 
 export {
-    addTeamToFavourites,
-    removeTeamFromFavourites,
-    getTeamsFromFavourites,
-    onGetTeamsFromFavouritesSucceeded,
-} from "./favouriteTeamsActionCreators";
+    addTeamToFavorites,
+    removeTeamFromFavorites,
+    getTeamsFromFavorites,
+    onGetTeamsFromFavoritesSucceeded,
+} from "./favoriteTeamsActionCreators";
 
 export {
     updateFromDate,

@@ -20,7 +20,7 @@ import fixtures from "./fixtures";
 import fixtureIndex from "./fixtureIndex";
 import fixturesPageIndex from "./fixturesPageIndex";
 import head2Head from "./head2Head";
-import favouriteTeams from "./favouriteTeams";
+import favoriteTeams from "./favoriteTeams";
 import dates from "./dates";
 
 export default combineReducers({
@@ -41,6 +41,6 @@ export default combineReducers({
     fixtureIndex,
     fixturesPageIndex,
     head2Head,
-    favouriteTeams,
+    favoriteTeams,
     dates,
 });
