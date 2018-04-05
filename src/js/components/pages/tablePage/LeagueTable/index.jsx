@@ -57,10 +57,10 @@ export default class LeagueTable extends Component {
                                 {leagueTable.map((attribute, colIndex) =>
                                     (
                                         <td className="league-table__col" key={colIndex}>
-                                            {attribute.property === "teamName" ?
-                                                <Link to={teamUrl}>{team[attribute.property]}</Link>
-                                                :
-                                                team[attribute.property]}
+                                            {attribute.property === "teamName"
+                                                ? <Link to={teamUrl}>{team[attribute.property]}</Link>
+                                                : team[attribute.property]
+                                            }
                                         </td>
                                     ))
                                 }

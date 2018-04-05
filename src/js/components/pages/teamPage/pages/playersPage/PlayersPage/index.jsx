@@ -8,8 +8,9 @@ import PlayersSection from "PlayersPageSections/playersSection/PlayersSection";
 
 export default class PlayersPage extends Component {
     render() {
-        const hashtag = this.props.team.shortName ?
-            this.props.team.shortName.toLowerCase() : "football";
+        const hashtag = this.props.team.shortName
+            ? this.props.team.shortName.toLowerCase()
+            : "football";
 
         return (
             <React.Fragment>

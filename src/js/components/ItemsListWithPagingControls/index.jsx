@@ -23,16 +23,15 @@ export default class ItemsListWithPagingControls extends Component {
         const pagingControlsPagesCount =
             Math.ceil(this.props.items.length / itemsOnOnePageCount);
 
-        const pagingControls = this.props.items.length > itemsOnOnePageCount ?
-            (
+        const pagingControls = this.props.items.length > itemsOnOnePageCount
+            ? (
                 <PagingControls
                     pagesCount={pagingControlsPagesCount}
                     onPageChanged={this.props.onPageChanged}
                     currentPageIndex={this.props.currentPageIndex}
                 />
             )
-            :
-            null;
+            : null;
 
         return (
             <React.Fragment>

@@ -16,10 +16,9 @@ export default class FixtureItem extends Component {
     }
 
     render() {
-        const style = this.props.onClick ?
-            "fixture-item fixture-item_clickable"
-            :
-            "fixture-item";
+        const style = this.props.onClick
+            ? "fixture-item fixture-item_clickable"
+            : "fixture-item";
 
         return (
             <Item isCurrent={this.props.currentFixtureId === this.props.fixture.id}>

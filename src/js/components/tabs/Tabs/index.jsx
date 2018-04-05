@@ -37,8 +37,9 @@ export default class Tabs extends Component {
 
                     const isTabCurrent = newIndex === this.state.currentIndex;
 
-                    const tabStyle = isTabCurrent ?
-                        "tabs__tab tabs__tab_current" : "tabs__tab";
+                    const tabStyle = isTabCurrent
+                        ? "tabs__tab tabs__tab_current"
+                        : "tabs__tab";
 
                     return (
                         <a

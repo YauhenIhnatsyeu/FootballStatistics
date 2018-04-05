@@ -38,14 +38,9 @@ export default class TeamPage extends Component {
                     />
                 </div>
                 <TeamInfo>
-                    {this.props.teamPageIndex === 0 ?
-                        <PlayersPageContainer
-                            team={this.props.team}
-                        />
-                        :
-                        <FixturesPageContainer
-                            teamId={this.props.teamId}
-                        />
+                    {this.props.teamPageIndex === 0
+                        ? <PlayersPageContainer team={this.props.team} />
+                        : <FixturesPageContainer teamId={this.props.teamId} />
                     }
                 </TeamInfo>
             </div>

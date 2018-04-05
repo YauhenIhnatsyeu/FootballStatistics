@@ -9,10 +9,9 @@ export default class Item extends Component {
         return (
             <div
                 className={
-                    this.props.isCurrent ?
-                        "item item_current"
-                        :
-                        "item"
+                    this.props.isCurrent
+                        ? "item item_current"
+                        : "item"
                 }
             >
                 {this.props.children}
