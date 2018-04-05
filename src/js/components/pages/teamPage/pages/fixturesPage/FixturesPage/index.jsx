@@ -16,7 +16,8 @@ export default class FixturesPage extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (JSON.stringify(this.props.dates) !== JSON.stringify(nextProps.dates)) {
+        if (this.props.dates.from !== nextProps.dates.from
+                || this.props.dates.to !== nextProps.dates.to) {
             this.props.fetchFixtures(this.props.teamId, nextProps.dates);
         }
     }
