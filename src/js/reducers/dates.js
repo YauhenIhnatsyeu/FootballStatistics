@@ -1,6 +1,7 @@
-import actionTypes from "../actions/actionTypes";
+import actionTypes from "ActionTypes";
 
 const from = new Date();
+// 1209600000 molliseconds - 2 weeks
 const to = new Date(from.getTime() + 1209600000);
 
 const initialState = { from, to };

@@ -1,4 +1,4 @@
-import actionTypes from "../actionTypes";
+import actionTypes from "ActionTypes";
 
 export function updateFromDate(date) {
     return {

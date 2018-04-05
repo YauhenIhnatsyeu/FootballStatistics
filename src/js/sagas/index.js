@@ -16,7 +16,7 @@ export default function* rootSaga() {
     yield takeEvery("PLAYERS_FETCH_REQUESTED", fetchPlayers);
     yield takeEvery("FIXTURES_FETCH_REQUESTED", fetchFixtures);
     yield takeEvery("HEAD_2_HEAD_FETCH_REQUESTED", fetchHead2Head);
-    yield takeEvery("ADD_TEAM_TO_FavoriteS_REQUESTED", addTeamToFavorites);
-    yield takeEvery("REMOVE_TEAM_FROM_FavoriteS_REQUESTED", removeTeamFromFavorites);
-    yield takeEvery("GET_TEAMS_FROM_FavoriteS_REQUESTED", getTeamsFromFavorites);
+    yield takeEvery("ADD_TEAM_TO_FAVORITES_REQUESTED", addTeamToFavorites);
+    yield takeEvery("REMOVE_TEAM_FROM_FAVORITES_REQUESTED", removeTeamFromFavorites);
+    yield takeEvery("GET_TEAMS_FROM_FAVORITES_REQUESTED", getTeamsFromFavorites);
 }

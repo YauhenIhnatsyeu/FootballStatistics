@@ -10,7 +10,7 @@ import FixtureItem from "Pages/teamPage/pages/fixturesPage/FixtureItem";
 
 import Item from "Components/Item";
 
-import DateForms from "../DatesForm";
+import DatesForms from "../DatesForm";
 
 export default class FixturesSection extends Component {
     handlePageChanged = (pageIndex) => {
@@ -33,7 +33,7 @@ export default class FixturesSection extends Component {
         return (
             <React.Fragment>
                 <Item>
-                    <DateForms
+                    <DatesForms
                         dates={this.props.dates}
                         updateFromDate={this.props.updateFromDate}
                         updateToDate={this.props.updateToDate}

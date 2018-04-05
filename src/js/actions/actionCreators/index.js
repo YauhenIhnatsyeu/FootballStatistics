@@ -1,39 +1,54 @@
-import actionTypes from "../actionTypes";
+import actionTypes from "ActionTypes";
 
 export {
     fetchLeague,
-    fetchTeams,
-    fetchTeam,
-    fetchPlayers,
-    fetchFixtures,
-    fetchHead2Head,
-} from "./fetchActionCreators";
-
-export {
     onLeagueFetchSucceeded,
-    onTeamsFetchSucceeded,
-    onTeamFetchSucceeded,
-    onPlayersFetchSucceeded,
-    onFixturesFetchSucceeded,
-    onHead2HeadFetchSucceeded,
-} from "./fetchSucceededActionCreators";
-
-export {
     onLeagueFetchFailed,
-    onTeamsFetchFailed,
-    onTeamFetchFailed,
-    onPlayersFetchFailed,
-    onFixturesFetchFailed,
-    onHead2HeadFetchFailed,
-} from "./fetchFailedActionCreators";
+    updateLeagueIndex,
+} from "./leagueActionCreators";
 
 export {
-    updateLeagueIndex,
+    fetchTeams,
+    onTeamsFetchSucceeded,
+    onTeamsFetchFailed,
+} from "./teamsActionCreators";
+
+export {
+    fetchTeam,
+    onTeamFetchSucceeded,
+    onTeamFetchFailed,
+} from "./teamActionCreators";
+
+export {
+    fetchPlayers,
+    onPlayersFetchSucceeded,
+    onPlayersFetchFailed,
+} from "./playersActionCreators";
+
+export {
+    fetchFixtures,
+    onFixturesFetchSucceeded,
+    onFixturesFetchFailed,
+    updateFixtureIndex,
+} from "./fixturesActionCreators";
+
+export {
+    fetchHead2Head,
+    onHead2HeadFetchSucceeded,
+    onHead2HeadFetchFailed,
+} from "./head2HeadActionCreators";
+
+export {
     updateTeamPageIndex,
     updatePlayersPageIndex,
-    updateFixtureIndex,
     updateFixturesPageIndex,
 } from "./updateIndexActionCreators";
+
+export {
+    updateFromDate,
+    updateToDate,
+} from "./updateDateActionCreators";
+
 
 export {
     addTeamToFavorites,
@@ -41,11 +56,6 @@ export {
     getTeamsFromFavorites,
     onGetTeamsFromFavoritesSucceeded,
 } from "./favoriteTeamsActionCreators";
-
-export {
-    updateFromDate,
-    updateToDate,
-} from "./updateDateActionCreators";
 
 
 export function resetTeamPageIndices() {
