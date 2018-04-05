@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
-import createTeamPath from "Utilities/pathesCreators";
+import createTeamPath from "Utilities/pathsCreators";
 
 import Item from "Components/Item";
 

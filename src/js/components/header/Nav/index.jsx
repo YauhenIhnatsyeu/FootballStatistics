@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { NavLink } from "react-router-dom";
 
-import routePathes from "Constants/routePathes";
+import routepaths from "Constants/routepaths";
 
 import "./index.css";
 
@@ -23,8 +23,8 @@ export default class Nav extends Component {
         return (
             <nav className="nav">
                 <ul className="nav__list">
-                    {this.renderNavItem(routePathes.table)}
-                    {this.renderNavItem(routePathes.teams)}
+                    {this.renderNavItem(routepaths.table)}
+                    {this.renderNavItem(routepaths.teams)}
                 </ul>
             </nav>
         );

@@ -12,7 +12,7 @@ import Error from "Components/messages/Error";
 import leaguesData from "Constants/leaguesData";
 import leagueTable from "Constants/leagueTable";
 
-import createTeamPath from "Utilities/pathesCreators";
+import createTeamPath from "Utilities/pathsCreators";
 
 import "./index.css";
 
