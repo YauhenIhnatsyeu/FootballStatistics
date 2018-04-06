@@ -17,10 +17,8 @@ export default class PlayerItem extends Component {
                 </p>
                 <p>Position: {this.props.player.position}</p>
                 <p>Date of birth: {this.props.player.dateOfBirth}</p>
-                {
-                    this.props.player.marketValue
-                        && <p>Market value: {this.props.player.marketValue}</p>
-                }
+                {this.props.player.marketValue
+                    && <p>Market value: {this.props.player.marketValue}</p>}
             </Item>
         );
     }

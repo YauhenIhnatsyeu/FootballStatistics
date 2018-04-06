@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
-import { dateToString } from "Utilities/formatDate";
+import { dateToString } from "Utilities/castDate";
 
 import "./index.css";
 

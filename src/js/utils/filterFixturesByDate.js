@@ -1,7 +1,8 @@
+import millisecondsValues from "Constants/millisecondsValues";
+
 export default function fiterFixturesByDate(fixtures, dates) {
     let { to } = dates;
-    // 1 day - 86400000 milliseconds
-    to = new Date(to.getTime() + 86400000);
+    to = new Date(to.getTime() + millisecondsValues.day);
     to.setHours(0, 0, 0, 0);
 
     if (dates.from > to) {

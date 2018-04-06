@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import Item from "Components/Item";
 
-import { formatDate } from "Utilities/formatDate";
+import { formatDate } from "Utilities/castDate";
 
 import "./index.css";
 
