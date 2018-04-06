@@ -14,7 +14,7 @@ export function onHead2HeadFetchSucceeded(data) {
     };
 }
 
-export function onHead2HeadFailed(error) {
+export function onHead2HeadFetchFailed(error) {
     return {
         type: actionTypes.HEAD_2_HEAD_FETCH_FAILED,
         payload: error,

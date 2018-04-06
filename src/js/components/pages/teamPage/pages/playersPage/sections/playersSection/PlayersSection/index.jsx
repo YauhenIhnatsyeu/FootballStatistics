@@ -11,7 +11,7 @@ import PlayerItem from "PlayersPageSections/playersSection/PlayerItem";
 
 export default class PlayersSection extends Component {
     componentDidMount() {
-        this.props.fetchPlayers(this.props.team._links.self.href);
+        this.props.fetchPlayers(this.props.team._links.players.href);
     }
 
     handlePageChanged = (pageIndex) => {
@@ -45,7 +45,7 @@ PlayersSection.propTypes = {
     playersFetchingErrorOccured: PropTypes.bool.isRequired,
     team: PropTypes.shape({
         _links: PropTypes.shape({
-            self: PropTypes.shape({
+            players: PropTypes.shape({
                 href: PropTypes.string.isRequired,
             }).isRequired,
         }).isRequired,

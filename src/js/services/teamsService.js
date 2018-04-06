@@ -1,5 +1,5 @@
 import getTeams from "Clients/teamsClient";
-import { addIdsToTeams } from "./addIdsToTeams";
+import { addIdsToTeams } from "Utilities/addIdsToTeams";
 
 export default function* fetchTeams(leagueId) {
     const teamsData = yield getTeams(leagueId);

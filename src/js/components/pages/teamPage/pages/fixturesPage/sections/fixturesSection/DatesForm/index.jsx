@@ -30,9 +30,7 @@ export default class DatesForm extends Component {
             toDate: e.target.value,
         });
 
-        // 1 day - 86400000 milliseconds
-        // Getting new date and adding a day to it
-        this.props.updateToDate(new Date(new Date(e.target.value).getTime() + 86400000));
+        this.props.updateToDate(new Date(e.target.value));
     }
 
     render() {

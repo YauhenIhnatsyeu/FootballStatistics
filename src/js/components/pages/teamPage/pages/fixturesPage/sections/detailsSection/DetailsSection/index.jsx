@@ -51,7 +51,7 @@ export default class DetailsSection extends React.Component {
 
                 <ItemList
                     items={
-                        this.props.head2Head.head2head.fixtures
+                        this.props.head2Head.fixtures
                             .slice(0, head2HeadsOnOnePageCount)
                     }
                     itemComponent={fixtureItem}
@@ -67,9 +67,9 @@ DetailsSection.propTypes = {
     fetchHead2Head: PropTypes.func.isRequired,
     head2HeadFetchingErrorOccured: PropTypes.bool.isRequired,
     head2Head: PropTypes.shape({
-        head2head: PropTypes.shape({
-            fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
-        }).isRequired,
+        fixture: PropTypes.shape({}).isRequired,
+        fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
+        info: PropTypes.shape({}).isRequired,
     }),
 };
 

@@ -64,9 +64,9 @@ FixturesPage.propTypes = {
     fixtureIndex: PropTypes.number.isRequired,
     fixturesPageIndex: PropTypes.number.isRequired,
     head2Head: PropTypes.shape({
-        head2head: PropTypes.shape({
-            fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
-        }).isRequired,
+        fixture: PropTypes.shape({}).isRequired,
+        fixtures: PropTypes.arrayOf(PropTypes.object).isRequired,
+        info: PropTypes.shape({}).isRequired,
     }),
     fetchFixtures: PropTypes.func.isRequired,
     fetchHead2Head: PropTypes.func.isRequired,

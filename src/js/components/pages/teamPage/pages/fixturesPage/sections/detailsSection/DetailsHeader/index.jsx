@@ -10,38 +10,40 @@ import "./index.css";
 
 export default class DetailsHeader extends React.Component {
     render() {
+        const { info, fixture } = this.props.head2Head;
+
         return (
             <Item>
                 <div className="details-header">
                     <div className="details-header__header">
                         <p>
-                            {this.props.head2Head.fixture.homeTeamName}
+                            {fixture.homeTeamName}
                             {" - "}
-                            {this.props.head2Head.fixture.awayTeamName}
-                            {this.props.head2Head.fixture.status === "FINISHED" &&
-                                (` ${this.props.head2Head.fixture.result.goalsHomeTeam}` +
-                                ` - ${this.props.head2Head.fixture.result.goalsAwayTeam}`)
+                            {fixture.awayTeamName}
+                            {fixture.status === "FINISHED" &&
+                                (` ${fixture.result.goalsHomeTeam}` +
+                                ` - ${fixture.result.goalsAwayTeam}`)
                             }
                         </p>
-                        <p>Date: {formatDate(this.props.head2Head.fixture.date)}</p>
+                        <p>Date: {formatDate(fixture.date)}</p>
                     </div>
                     <div className="details-header__statistics">
                         <span className="details-header__statistics-title">
                             Statistics:
                         </span>
                         <p>
-                            {this.props.head2Head.fixture.homeTeamName}
+                            {fixture.homeTeamName}
                             {" wins: "}
-                            {this.props.head2Head.head2head.homeTeamWins}
+                            {info.homeTeamWins}
                         </p>
                         <p>
-                            {this.props.head2Head.fixture.awayTeamName}
+                            {fixture.awayTeamName}
                             {" wins: "}
-                            {this.props.head2Head.head2head.awayTeamWins}
+                            {info.awayTeamWins}
                         </p>
                         <p>
                             {"Draws: "}
-                            {this.props.head2Head.head2head.draws}
+                            {info.draws}
                         </p>
                     </div>
                 </div>
@@ -62,11 +64,7 @@ DetailsHeader.propTypes = {
             }).isRequired,
             date: PropTypes.string.isRequired,
         }).isRequired,
-        head2head: PropTypes.shape({
-            homeTeamWins: PropTypes.number,
-            awayTeamWins: PropTypes.number,
-            draws: PropTypes.number,
-        }).isRequired,
+        info: PropTypes.shape({}).isRequired,
     }),
 };
 
