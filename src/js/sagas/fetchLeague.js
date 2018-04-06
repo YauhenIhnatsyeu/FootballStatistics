@@ -2,7 +2,7 @@ import { call, put } from "redux-saga/effects";
 
 import { createLeagueUrl } from "Utilities/fetchingUrlsCreators";
 
-import fetchUrl from "Utilities/fetchFootballData";
+import getLeague from "Services/leagueService";
 
 import {
     onLeagueFetchSucceeded,
@@ -11,10 +11,11 @@ import {
 
 export default function* fetchLeague(action) {
     try {
-        const leagueUrl = createLeagueUrl(action.payload);
-        const data = yield call(fetchUrl, leagueUrl);
-        yield put(onLeagueFetchSucceeded(data));
+        const leagueId = action.payload;
+        const league = yield call(getLeague, leagueId);
+        yield put(onLeagueFetchSucceeded(league));
     } catch (error) {
+        console.log(error);
         yield put(onLeagueFetchFailed(error));
     }
 }

@@ -49,9 +49,9 @@ export default class LeagueTable extends Component {
                         }
                     </tr>
 
-                    {this.props.league.standing.map((team, rowIndex) => {
-                        const teamId = extractIdFromUrl(team._links.team.href);
-                        const teamUrl = createTeamPath(teamId);
+                    {this.props.league.map((team, rowIndex) => {
+                        // const teamId = extractIdFromUrl(team._links.team.href);
+                        const teamUrl = createTeamPath(team.id);
                         return (
                             <tr className="league-table__row" key={rowIndex + 1}>
                                 {leagueTable.map((attribute, colIndex) =>
@@ -76,23 +76,11 @@ export default class LeagueTable extends Component {
 LeagueTable.propTypes = {
     fetchLeague: PropTypes.func.isRequired,
     leagueFetchingErrorOccured: PropTypes.bool,
-    league: PropTypes.shape({
-        standing: PropTypes.arrayOf(PropTypes.shape({
-            _link: PropTypes.shape({
-                team: PropTypes.shape({
-                    href: PropTypes.string,
-                }).isRequired,
-            }),
-        })).isRequired,
-    }),
+    league: PropTypes.arrayOf(PropTypes.object),
     leagueIndex: PropTypes.number.isRequired,
 };
 
 LeagueTable.defaultProps = {
     leagueFetchingErrorOccured: false,
-    league: PropTypes.shape({
-        standing: PropTypes.arrayOf(PropTypes.shape({
-            _link: null,
-        })),
-    }),
+    league: PropTypes.shape({}),
 };

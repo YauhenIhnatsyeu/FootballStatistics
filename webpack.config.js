@@ -1,6 +1,7 @@
 const path = require("path");
 
 module.exports = {
+    devtool: "source-map",
     entry: ["babel-polyfill", "./src/js/index.jsx"],
     output: {
         filename: "bundle.js",
@@ -19,6 +20,10 @@ module.exports = {
 
             ActionTypes: path.resolve(__dirname, "src/js/actions/actionTypes/index"),
             ActionCreators: path.resolve(__dirname, "src/js/actions/actionCreators/index"),
+
+            Clients: path.resolve(__dirname, "src/js/clients"),
+            Helpers: path.resolve(__dirname, "src/js/helpers"),
+            Services: path.resolve(__dirname, "src/js/services"),
 
             Utilities: path.resolve(__dirname, "src/js/utils"),
         },
