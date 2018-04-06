@@ -17,12 +17,12 @@ import "./index.css";
 
 export default class DetailsSection extends React.Component {
     componentDidMount() {
-        this.props.fetchHead2Head(this.props.fixtureId);
+        this.props.fetchHead2Head(this.props.currentFixtureId);
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.fixtureId !== nextProps.fixtureId) {
-            this.props.fetchHead2Head(nextProps.fixtureId);
+        if (this.props.currentFixtureId !== nextProps.currentFixtureId) {
+            this.props.fetchHead2Head(nextProps.currentFixtureId);
         }
     }
 
@@ -37,7 +37,7 @@ export default class DetailsSection extends React.Component {
 
         const fixtureItem = (
             <FixtureItem
-                currentFixtureId={this.props.fixtureId}
+                currentFixtureId={this.props.currentFixtureId}
             />
         );
 
@@ -63,7 +63,7 @@ export default class DetailsSection extends React.Component {
 }
 
 DetailsSection.propTypes = {
-    fixtureId: PropTypes.number.isRequired,
+    currentFixtureId: PropTypes.number.isRequired,
     fetchHead2Head: PropTypes.func.isRequired,
     head2HeadFetchingErrorOccured: PropTypes.bool.isRequired,
     head2Head: PropTypes.shape({

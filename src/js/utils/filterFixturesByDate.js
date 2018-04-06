@@ -4,6 +4,10 @@ export default function fiterFixturesByDate(fixtures, dates) {
     to = new Date(to.getTime() + 86400000);
     to.setHours(0, 0, 0, 0);
 
+    if (dates.from > to) {
+        return [];
+    }
+
     return fixtures.filter((fixture) => {
         const fixtureDate = new Date(fixture.date);
         return fixtureDate >= dates.from && fixtureDate <= to;

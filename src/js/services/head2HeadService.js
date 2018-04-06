@@ -1,4 +1,4 @@
-import getHead2Head from "Clients/head2HeadClient";
+import { fetchHead2Head as getHead2Head } from "Clients/footballApiClient";
 import addIdsToFixtures from "Utilities/addIdsToFixtures";
 
 export default function* fetchHead2Head(fixtureId) {

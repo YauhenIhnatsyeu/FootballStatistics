@@ -13,7 +13,6 @@ export default function* fetchFixtures(action) {
         const fixtures = yield call(getFixtures, teamId, dates);
         yield put(onFixturesFetchSucceeded(fixtures));
     } catch (error) {
-        console.log(error)
         yield put(onFixturesFetchFailed(error));
     }
 }

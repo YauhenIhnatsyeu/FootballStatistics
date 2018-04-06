@@ -2,7 +2,7 @@ import { call, put } from "redux-saga/effects";
 
 import { createTeamUrl } from "Utilities/fetchingUrlsCreators";
 
-import getTeam from "Clients/teamClient";
+import { fetchTeam as getTeam } from "Clients/footballApiClient";
 
 import {
     onTeamFetchSucceeded,

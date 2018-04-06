@@ -1,4 +1,4 @@
-import getPlayers from "Clients/playersClient";
+import { fetchPlayers as getPlayers } from "Clients/footballApiClient";
 
 import sorterByJerseyNumber from "Utilities/sorterByJerseyNumber";
 

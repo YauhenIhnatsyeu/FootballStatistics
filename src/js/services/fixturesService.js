@@ -1,4 +1,4 @@
-import getFixtures from "Clients/fixturesClient";
+import { fetchFixtures as getFixtures } from "Clients/footballApiClient";
 import filterFixturesByDate from "Utilities/filterFixturesByDate";
 import addIdsToFixtures from "Utilities/addIdsToFixtures";
 

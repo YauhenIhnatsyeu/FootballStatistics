@@ -8,5 +8,5 @@ function addIdToFixture(fixtureParam) {
 }
 
 export default function addIdsToFixtures(fixtures) {
-    fixtures.filter(fixture => addIdToFixture(fixture));
+    fixtures.map(fixture => addIdToFixture(fixture));
 }

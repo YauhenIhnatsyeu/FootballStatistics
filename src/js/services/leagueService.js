@@ -1,4 +1,4 @@
-import getLeague from "Clients/leagueClient";
+import { fetchLeague as getLeague } from "Clients/footballApiClient";
 import { addIdsToLeagueTeams } from "Utilities/addIdsToTeams";
 
 export default function* fetchLeague(leagueId) {

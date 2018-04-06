@@ -31,12 +31,14 @@ export default class FixturesPage extends Component {
             return <Loading />;
         }
 
+        const currentFixtureId = this.props.fixtures[this.props.fixtureIndex].id;
+
         return (
             <React.Fragment>
                 <Section title="Fixtures">
                     <FixturesSection
                         fixtures={this.props.fixtures}
-                        currentFixtureId={this.props.fixtures[this.props.fixtureIndex].id}
+                        currentFixtureId={currentFixtureId}
                         fixturesPageIndex={this.props.fixturesPageIndex}
                         dates={this.props.dates}
                         updateFixtureIndex={this.props.updateFixtureIndex}
@@ -47,7 +49,7 @@ export default class FixturesPage extends Component {
                 </Section>
                 <Section>
                     <DetailsSection
-                        fixtureId={this.props.fixtures[this.props.fixtureIndex].id}
+                        currentFixtureId={currentFixtureId}
                         head2Head={this.props.head2Head}
                         head2HeadFetchingErrorOccured={this.props.head2HeadFetchingErrorOccured}
                         fetchHead2Head={this.props.fetchHead2Head}
