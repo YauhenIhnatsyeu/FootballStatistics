@@ -11,37 +11,15 @@ import { Link } from "react-router-dom";
 import "./index.css";
 
 export default class TeamItem extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isFavorite: this.isThisTeamFavorite(),
-        };
-    }
-
-    componentWillReceiveProps() {
-        const isThisTeamFavorite = this.isThisTeamFavorite();
-        if (this.state.isFavorite !== isThisTeamFavorite) {
-            this.setState({
-                isFavorite: isThisTeamFavorite,
-            });
-        }
-    }
-
-    isThisTeamFavorite() {
-        return this.props.favoriteTeams.includes(this.props.team.id);
-    }
+    isThisTeamFavorite = () =>
+        this.props.favoriteTeams.includes(this.props.team.id);
 
     handleButtonClick = () => {
-        if (this.state.isFavorite) {
-            this.props.removeTeamFromFavorites(this.props.team.id);
+        if (this.isThisTeamFavorite()) {
+            this.props.removeTeamFromFavorites(this.props.team);
         } else {
-            this.props.addTeamToFavorites(this.props.team.id);
+            this.props.addTeamToFavorites(this.props.team);
         }
-
-        this.setState({
-            isFavorite: !this.state.isFavorite,
-        });
     }
 
     render() {
@@ -65,7 +43,7 @@ export default class TeamItem extends Component {
                             <p>Squad market value: {this.props.team.squadMarketValue}</p>
                         }
                         <button className="team-item__button" onClick={this.handleButtonClick}>
-                            {this.state.isFavorite ? "Remove" : "Add"} team to favorites
+                            {this.isThisTeamFavorite() ? "Remove" : "Add"} team to favorites
                         </button>
                     </div>
                 </div>

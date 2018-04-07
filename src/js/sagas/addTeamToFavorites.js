@@ -1,22 +1,13 @@
 import { call } from "redux-saga/effects";
 
-const addTeamToLocalStorage = (teamId) => {
-    let favorites = localStorage.getItem("favorites");
-
-    if (favorites) {
-        favorites = JSON.parse(favorites);
-        favorites.push(teamId);
-        favorites = JSON.stringify(favorites);
-    } else {
-        favorites = JSON.stringify([teamId]);
-    }
-
-    localStorage.setItem("favorites", favorites);
-};
+import { addToFavorites } from "Services/favoriteTeamsService";
+import getTeamsFromFavorites from "./getTeamsFromFavorites";
 
 export default function* addTeamToFavorites(action) {
     try {
-        yield call(addTeamToLocalStorage, action.payload);
+        const team = action.payload;
+        yield call(addToFavorites, team);
+        yield call(getTeamsFromFavorites);
     } catch (error) {
         // TODO
         throw new Error();

@@ -10,9 +10,11 @@ import Error from "Components/messages/Error";
 import "./index.css";
 
 export default class TeamsList extends Component {
-    render() {
+    componentDidMount() {
         this.props.getTeamsFromFavorites();
+    }
 
+    render() {
         if (this.props.teamsFetchingErrorOccured) {
             return <Error />;
         }

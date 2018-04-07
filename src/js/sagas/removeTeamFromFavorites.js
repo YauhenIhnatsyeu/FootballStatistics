@@ -1,23 +1,13 @@
 import { call } from "redux-saga/effects";
 
-const removeTeamFromLocalStorage = (teamId) => {
-    let favorites = localStorage.getItem("favorites");
-
-    if (favorites) {
-        favorites = JSON.parse(favorites);
-        const indexOfTeamId = favorites.indexOf(teamId);
-
-        if (indexOfTeamId !== -1) {
-            favorites.splice(indexOfTeamId, 1);
-            favorites = JSON.stringify(favorites);
-            localStorage.setItem("favorites", favorites);
-        }
-    }
-};
+import { removeFromFavorites } from "Services/favoriteTeamsService";
+import getTeamsFromFavorites from "./getTeamsFromFavorites";
 
 export default function* removeTeamFromFavorites(action) {
     try {
-        yield call(removeTeamFromLocalStorage, action.payload);
+        const team = action.payload;
+        yield call(removeFromFavorites, team);
+        yield call(getTeamsFromFavorites);
     } catch (error) {
         // TODO
         throw new Error();
