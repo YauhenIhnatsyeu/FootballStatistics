@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
 
-import extractIdFromUrl from "Utilities/extractIdFromUrl";
-
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
 
@@ -50,7 +48,6 @@ export default class LeagueTable extends Component {
                     </tr>
 
                     {this.props.league.map((team, rowIndex) => {
-                        // const teamId = extractIdFromUrl(team._links.team.href);
                         const teamUrl = createTeamPath(team.id);
                         return (
                             <tr className="league-table__row" key={rowIndex + 1}>

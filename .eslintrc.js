@@ -42,7 +42,13 @@ module.exports = {
         "react/jsx-indent": [2, 4],
         "react/jsx-indent-props": [2, 4],
         "react/no-array-index-key": 0,
-        "jsx-a11y/anchor-is-valid": 0,
+        // "jsx-a11y/anchor-is-valid": 0,
+        "jsx-a11y/anchor-is-valid": [ "error", {
+            "components": [ "Link" ],
+            "specialLink": [ "to" ],
+            // "aspects": [ "noHref", "invalidHref", "preferButton" ]
+          }],
+        "max-len": ["error", { "code": 120 }]
     },
     "parser": "babel-eslint",
     "settings": {

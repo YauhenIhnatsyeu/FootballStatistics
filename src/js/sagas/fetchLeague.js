@@ -1,7 +1,5 @@
 import { call, put } from "redux-saga/effects";
 
-import { createLeagueUrl } from "Utilities/fetchingUrlsCreators";
-
 import getLeague from "Services/leagueService";
 
 import {

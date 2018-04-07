@@ -1,6 +1,6 @@
 import actionTypes from "ActionTypes";
 
-const initialState = 1;
+const initialState = 0;
 
 export default function teamPageIndex(state = initialState, action) {
     switch (action.type) {

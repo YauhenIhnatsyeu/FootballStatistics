@@ -10,7 +10,7 @@ import TablePageContainer from "Containers/TablePageContainer";
 import LeaguePageContainer from "Containers/LeaguePageContainer";
 import TeamPageContainer from "Containers/TeamPageContainer";
 
-import routepaths from "Constants/routepaths";
+import routePaths from "Constants/routePaths";
 
 import "./index.css";
 
@@ -38,10 +38,10 @@ export default class Main extends Component {
             <main>
                 <div className="main__inner-container wrapper">
                     <Switch>
-                        <Route path={routepaths.table} render={() => tablePage} />
-                        <Route path={routepaths.teams} render={() => leaguePage} />
-                        <Route path={routepaths.team} render={props => teamPage(props)} />
-                        <Redirect to={routepaths.table} />
+                        <Route path={routePaths.table} render={() => tablePage} />
+                        <Route path={routePaths.teams} render={() => leaguePage} />
+                        <Route path={routePaths.team} render={props => teamPage(props)} />
+                        <Redirect to={routePaths.table} />
                     </Switch>
                 </div>
             </main>

@@ -42,14 +42,13 @@ export default class Tabs extends Component {
                         : "tabs__tab";
 
                     return (
-                        <a
+                        <button
                             className={tabStyle}
                             key={newIndex}
-                            href="#"
                             onClick={e => this.handleClick(e, newIndex)}
                         >
                             {tab.props.title}
-                        </a>
+                        </button>
                     );
                 })}
             </div>
