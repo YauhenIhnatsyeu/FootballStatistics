@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
-import createTeamPath from "Utilities/pathsCreators";
+import createTeamUrl from "Utilities/urlsCreators";
 
 import Item from "Components/Item";
 
@@ -23,7 +23,7 @@ export default class TeamItem extends Component {
     }
 
     render() {
-        const teamUrl = createTeamPath(this.props.team.id);
+        const teamUrl = createTeamUrl(this.props.team.id);
 
         return (
             <Item>

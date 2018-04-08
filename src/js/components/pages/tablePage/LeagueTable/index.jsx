@@ -10,7 +10,7 @@ import Error from "Components/messages/Error";
 import leaguesData from "Constants/leaguesData";
 import leagueTable from "Constants/leagueTable";
 
-import createTeamPath from "Utilities/pathsCreators";
+import createTeamUrl from "Utilities/urlsCreators";
 
 import "./index.css";
 
@@ -48,7 +48,7 @@ export default class LeagueTable extends Component {
                     </tr>
 
                     {this.props.league.map((team, rowIndex) => {
-                        const teamUrl = createTeamPath(team.id);
+                        const teamUrl = createTeamUrl(team.id);
                         return (
                             <tr className="league-table__row" key={rowIndex + 1}>
                                 {leagueTable.map((attribute, colIndex) =>

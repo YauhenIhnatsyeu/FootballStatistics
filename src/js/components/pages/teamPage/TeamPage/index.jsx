@@ -13,10 +13,16 @@ import TeamInfo from "../teamInfo/TeamInfo";
 import "./index.css";
 
 export default class TeamPage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.teamId = +props.match.params.id;
+    }
+
     componentDidMount() {
         this.props.resetTeamPageIndices();
 
-        this.props.fetchTeam(this.props.teamId);
+        this.props.fetchTeam(this.teamId);
     }
 
     render() {
@@ -40,7 +46,7 @@ export default class TeamPage extends Component {
                 <TeamInfo>
                     {this.props.teamPageIndex === 0
                         ? <PlayersPageContainer team={this.props.team} />
-                        : <FixturesPageContainer teamId={this.props.teamId} />
+                        : <FixturesPageContainer teamId={this.teamId} />
                     }
                 </TeamInfo>
             </div>
@@ -48,9 +54,14 @@ export default class TeamPage extends Component {
     }
 }
 
+
 TeamPage.propTypes = {
     resetTeamPageIndices: PropTypes.func.isRequired,
-    teamId: PropTypes.number.isRequired,
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            id: PropTypes.string.isRequired,
+        }).isRequired,
+    }).isRequired,
     fetchTeam: PropTypes.func.isRequired,
     teamFetchingErrorOccured: PropTypes.bool,
     team: PropTypes.shape({
