@@ -16,6 +16,8 @@ import updateDatesActionTypes from "./updateDatesActionTypes";
 
 import favoriteTeamsActionTypes from "./favoriteTeamsActionTypes";
 
+import browseTeamUrlActionTypes from "./browseTeamUrlActionTypes";
+
 export default Object.assign(
     {},
     leagueActionTypes,
@@ -27,4 +29,5 @@ export default Object.assign(
     updateIndexActionTypes,
     updateDatesActionTypes,
     favoriteTeamsActionTypes,
+    browseTeamUrlActionTypes,
 );

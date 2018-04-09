@@ -41,14 +41,18 @@ export default class TeamPage extends Component {
             return <Loading />;
         }
 
+        const regexp = /:.*$/;
+
+        const currentTeamUrl = routePaths.team.replace(regexp, this.teamId);
+
         return (
             <div className="team-page">
                 <div className="team-page__team-item-for-header-container">
                     <TeamItemForHeader
                         team={this.props.team}
                         defaultTeamPageIndex={this.props.teamPageIndex}
-                        updateTeamPageIndex={this.props.updateTeamPageIndex}
                         onTabClick={this.handleTabClick}
+                        browseTeamUrl={this.props.browseTeamUrl}
                     />
                 </div>
                 <div className="team-page__info-container">
@@ -61,7 +65,7 @@ export default class TeamPage extends Component {
                             />
                         ))}
 
-                        <Redirect to={`/team/${this.teamId}${teamRoutePaths.players}`} />
+                        <Redirect to={currentTeamUrl + teamRoutePaths.players} />
                     </Switch>
                 </div>
             </div>
@@ -86,7 +90,7 @@ TeamPage.propTypes = {
         squadMarketValue: PropTypes.string,
     }),
     teamPageIndex: PropTypes.number.isRequired,
-    updateTeamPageIndex: PropTypes.func.isRequired,
+    browseTeamUrl: PropTypes.func.isRequired,
 };
 
 TeamPage.defaultProps = {

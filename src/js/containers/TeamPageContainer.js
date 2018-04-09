@@ -3,7 +3,7 @@ import { bindActionCreators } from "redux";
 
 import {
     fetchTeam,
-    updateTeamPageIndex,
+    browseTeamUrl,
 } from "ActionCreators";
 
 import TeamPage from "Pages/teamPage/TeamPage";
@@ -17,7 +17,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
         fetchTeam,
-        updateTeamPageIndex,
+        browseTeamUrl,
     }, dispatch);
 
 export default

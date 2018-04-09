@@ -46,6 +46,7 @@ export {
 
 export { default as updateDates } from "./updateDatesActionCreators";
 
+export { default as browseTeamUrl } from "./browseTeamUrlActionCreators";
 
 export {
     addTeamToFavorites,

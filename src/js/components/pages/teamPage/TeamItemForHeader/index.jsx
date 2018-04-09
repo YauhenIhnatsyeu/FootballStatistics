@@ -14,19 +14,15 @@ import "./index.css";
 
 export default class TeamItemForHeader extends Component {
     handleTabClick = (tabIndex, history, currentPath) => {
-        const regexp = /\/([A-Z]|[a-z]|0-9])*$/;
-        let newUrl = (teamRoutes[tabIndex].path);
-        if (newUrl) {
-            newUrl = currentPath.replace(regexp, newUrl);
+        const newPath = (teamRoutes[tabIndex].path);
+        if (newPath) {
+            this.props.browseTeamUrl(currentPath, newPath, history);
         }
-        history.push(newUrl);
-        this.props.updateTeamPageIndex(tabIndex);
     }
 
     tabsHOC = () => withRouter(props => (
         <Tabs
             titles={teamRoutes.map((route => route.caption))}
-            defaultIndex={this.props.defaultTeamPageIndex}
             onTabClick={tabIndex => this.handleTabClick(tabIndex, props.history, props.location.pathname)}
         />
     ))
@@ -60,6 +56,7 @@ TeamItemForHeader.propTypes = {
     }).isRequired,
     defaultTeamPageIndex: PropTypes.number,
     updateTeamPageIndex: PropTypes.func.isRequired,
+    browseTeamUrl: PropTypes.func.isRequired,
 };
 
 TeamItemForHeader.defaultProps = {

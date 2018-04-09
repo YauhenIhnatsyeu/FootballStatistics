@@ -18,16 +18,18 @@ export default class Tabs extends Component {
     handleClick = (e, newIndex) => {
         e.preventDefault();
 
-        if (this.props.onTabClick) {
-            this.props.onTabClick(newIndex);
-        }
-
         this.setState({
             currentIndex: newIndex,
         });
+        console.log(newIndex);
+
+        if (this.props.onTabClick) {
+            this.props.onTabClick(newIndex);
+        }
     }
 
     render() {
+        console.log("Here");
         return (
             <div className="tabs">
                 {this.props.titles && this.props.titles.map((title, newIndex) => {
