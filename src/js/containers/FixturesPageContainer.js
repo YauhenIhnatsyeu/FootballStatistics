@@ -12,6 +12,7 @@ import {
 import FixturesPage from "Pages/teamPage/pages/fixturesPage/FixturesPage";
 
 const mapStateToProps = state => ({
+    teamId: state.teamData.team.id,
     fixtures: state.fixturesData.fixtures,
     fixturesFetchingErrorOccured: state.fetchingErrors.fixturesFetchingErrorOccured,
     head2HeadFetchingErrorOccured: state.fetchingErrors.head2HeadFetchingErrorOccured,

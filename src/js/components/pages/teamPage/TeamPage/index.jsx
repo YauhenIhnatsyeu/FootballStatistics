@@ -2,6 +2,16 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
+import {
+    Route,
+    Switch,
+    Redirect,
+} from "react-router-dom";
+
+import routePaths from "Constants/routePaths";
+import teamRoutes from "Constants/teamRoutes";
+import teamRoutePaths from "Constants/teamRoutePaths";
+
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
 import PlayersPageContainer from "Containers/PlayersPageContainer";
@@ -38,13 +48,21 @@ export default class TeamPage extends Component {
                         team={this.props.team}
                         defaultTeamPageIndex={this.props.teamPageIndex}
                         updateTeamPageIndex={this.props.updateTeamPageIndex}
+                        onTabClick={this.handleTabClick}
                     />
                 </div>
                 <div className="team-page__info-container">
-                    {this.props.teamPageIndex === 0
-                        ? <PlayersPageContainer team={this.props.team} />
-                        : <FixturesPageContainer teamId={this.teamId} />
-                    }
+                    <Switch>
+                        {teamRoutes.map((route, index) => (
+                            <Route
+                                path={routePaths.team + route.path}
+                                render={() => <route.component />}
+                                key={index}
+                            />
+                        ))}
+
+                        <Redirect to={`/team/${this.teamId}${teamRoutePaths.players}`} />
+                    </Switch>
                 </div>
             </div>
         );

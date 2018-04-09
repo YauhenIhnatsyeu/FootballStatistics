@@ -2,6 +2,10 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
+import { withRouter } from "react-router-dom";
+
+import teamRoutes from "Constants/teamRoutes";
+
 import Tabs from "Components/Tabs";
 
 import Item from "Components/Item";
@@ -9,11 +13,27 @@ import Item from "Components/Item";
 import "./index.css";
 
 export default class TeamItemForHeader extends Component {
-    handleTabClick = (tabIndex) => {
+    handleTabClick = (tabIndex, history, currentPath) => {
+        const regexp = /\/([A-Z]|[a-z]|0-9])*$/;
+        let newUrl = (teamRoutes[tabIndex].path);
+        if (newUrl) {
+            newUrl = currentPath.replace(regexp, newUrl);
+        }
+        history.push(newUrl);
         this.props.updateTeamPageIndex(tabIndex);
     }
 
+    tabsHOC = () => withRouter(props => (
+        <Tabs
+            titles={teamRoutes.map((route => route.caption))}
+            defaultIndex={this.props.defaultTeamPageIndex}
+            onTabClick={tabIndex => this.handleTabClick(tabIndex, props.history, props.location.pathname)}
+        />
+    ))
+
     render() {
+        const TabsHOC = this.tabsHOC();
+
         return (
             <Item>
                 <div className="team-item-for-header__team">
@@ -25,11 +45,7 @@ export default class TeamItemForHeader extends Component {
                 </div>
 
                 <div className="team-item-for-header__tabs-container">
-                    <Tabs
-                        titles={["Players", "Fixtures"]}
-                        defaultIndex={this.props.defaultTeamPageIndex}
-                        onTabClick={this.handleTabClick}
-                    />
+                    <TabsHOC />
                 </div>
             </Item>
         );

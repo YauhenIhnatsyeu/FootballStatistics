@@ -9,6 +9,7 @@ import {
 import PlayersPage from "Pages/teamPage/pages/playersPage/PlayersPage";
 
 const mapStateToProps = state => ({
+    team: state.teamData.team,
     players: state.playersData.players,
     playersFetchingErrorOccured: state.fetchingErrors.playersFetchingErrorOccured,
     playersPageIndex: state.playersData.playersPageIndex,
