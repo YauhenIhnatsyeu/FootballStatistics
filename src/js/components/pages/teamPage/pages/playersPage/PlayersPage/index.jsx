@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
-import Section from "Pages/teamPage/teamInfo/Section";
+import Section from "Pages/teamPage/Section";
 
 import PlayersSection from "PlayersPageSections/playersSection/PlayersSection";
 

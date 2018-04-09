@@ -8,7 +8,6 @@ import PlayersPageContainer from "Containers/PlayersPageContainer";
 import FixturesPageContainer from "Containers/FixturesPageContainer";
 
 import TeamItemForHeader from "../TeamItemForHeader";
-import TeamInfo from "../teamInfo/TeamInfo";
 
 import "./index.css";
 
@@ -43,12 +42,12 @@ export default class TeamPage extends Component {
                         updateTeamPageIndex={this.props.updateTeamPageIndex}
                     />
                 </div>
-                <TeamInfo>
+                <div className="team-page__info-container">
                     {this.props.teamPageIndex === 0
                         ? <PlayersPageContainer team={this.props.team} />
                         : <FixturesPageContainer teamId={this.teamId} />
                     }
-                </TeamInfo>
+                </div>
             </div>
         );
     }

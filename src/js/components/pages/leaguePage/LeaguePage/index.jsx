@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import SectionHeader from "Components/SectionHeader";
-import TeamsListContainer from "Containers/TeamsListContainer";
+import TeamList from "Pages/leaguePage/TeamsList";
 import leaguesData from "Constants/leaguesData";
 
 import LeagueSelector from "../LeagueSelector";
@@ -36,7 +36,14 @@ export default class LeaguePage extends Component {
                 </div>
 
                 <div className="league-panel__teams-list-container">
-                    <TeamsListContainer />
+                    <TeamList
+                        teams={this.props.teams}
+                        teamsFetchingErrorOccured={this.props.teamsFetchingErrorOccured}
+                        getTeamsFromFavorites={this.props.getTeamsFromFavorites}
+                        favoriteTeams={this.props.favoriteTeams}
+                        addTeamToFavorites={this.props.addTeamToFavorites}
+                        removeTeamFromFavorites={this.props.removeTeamFromFavorites}
+                    />
                 </div>
             </React.Fragment>
         );
@@ -46,5 +53,16 @@ export default class LeaguePage extends Component {
 LeaguePage.propTypes = {
     leagueIndex: PropTypes.number.isRequired,
     updateLeagueIndex: PropTypes.func.isRequired,
+    teams: PropTypes.arrayOf(PropTypes.object),
+    teamsFetchingErrorOccured: PropTypes.bool,
+    getTeamsFromFavorites: PropTypes.func.isRequired,
     fetchTeams: PropTypes.func.isRequired,
+    favoriteTeams: PropTypes.arrayOf(PropTypes.number).isRequired,
+    removeTeamFromFavorites: PropTypes.func.isRequired,
+    addTeamToFavorites: PropTypes.func.isRequired,
+};
+
+LeaguePage.defaultProps = {
+    teams: null,
+    teamsFetchingErrorOccured: false,
 };

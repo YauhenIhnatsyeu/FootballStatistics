@@ -2,8 +2,7 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
-import Tabs from "Components/tabs/Tabs";
-import Tab from "Components/tabs/Tab";
+import Tabs from "Components/Tabs";
 
 import Item from "Components/Item";
 
@@ -27,12 +26,10 @@ export default class TeamItemForHeader extends Component {
 
                 <div className="team-item-for-header__tabs-container">
                     <Tabs
+                        titles={["Players", "Fixtures"]}
                         defaultIndex={this.props.defaultTeamPageIndex}
                         onTabClick={this.handleTabClick}
-                    >
-                        <Tab title="Players" />
-                        <Tab title="Fixtures" />
-                    </Tabs>
+                    />
                 </div>
             </Item>
         );

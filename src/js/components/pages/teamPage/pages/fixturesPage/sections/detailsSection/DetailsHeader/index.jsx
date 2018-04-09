@@ -3,6 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Item from "Components/Item";
+import FixtureInfo from "Pages/teamPage/pages/fixturesPage/FixtureInfo";
 
 import { formatDate } from "Utilities/castDate";
 
@@ -16,16 +17,9 @@ export default class DetailsHeader extends React.Component {
             <Item>
                 <div className="details-header">
                     <div className="details-header__header">
-                        <p>
-                            {fixture.homeTeamName}
-                            {" - "}
-                            {fixture.awayTeamName}
-                            {fixture.status === "FINISHED" &&
-                                (` ${fixture.result.goalsHomeTeam}` +
-                                ` - ${fixture.result.goalsAwayTeam}`)
-                            }
-                        </p>
-                        <p>Date: {formatDate(fixture.date)}</p>
+                        <FixtureInfo
+                            fixture={fixture}
+                        />
                     </div>
                     <div className="details-header__statistics">
                         <span className="details-header__statistics-title">
@@ -63,11 +57,25 @@ DetailsHeader.propTypes = {
                 goalsAwayTeam: PropTypes.number,
             }).isRequired,
             date: PropTypes.string.isRequired,
+            isFinished: PropTypes.bool,
         }).isRequired,
         info: PropTypes.shape({}).isRequired,
     }),
 };
 
 DetailsHeader.defaultProps = {
-    head2Head: null,
+    head2Head: PropTypes.shape({
+        fixture: {
+            id: null,
+            homeTeamName: null,
+            awayTeamName: null,
+            result: {
+                goalsHomeTeam: null,
+                goalsAwayTeam: null,
+            },
+            status: null,
+            date: null,
+            isFinished: false,
+        },
+    }),
 };

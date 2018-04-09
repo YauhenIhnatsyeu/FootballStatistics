@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
 
-import Section from "Pages/teamPage/teamInfo/Section";
+import Section from "Pages/teamPage/Section";
 
 import FixturesSection from "FixturesPageSections/fixturesSection/FixturesSection";
 import DetailsSection from "FixturesPageSections/detailsSection/DetailsSection";
@@ -43,8 +43,7 @@ export default class FixturesPage extends Component {
                         dates={this.props.dates}
                         updateFixtureIndex={this.props.updateFixtureIndex}
                         updateFixturesPageIndex={this.props.updateFixturesPageIndex}
-                        updateFromDate={this.props.updateFromDate}
-                        updateToDate={this.props.updateToDate}
+                        updateDates={this.props.updateDates}
                     />
                 </Section>
                 <Section>
@@ -80,8 +79,7 @@ FixturesPage.propTypes = {
     }).isRequired,
     updateFixtureIndex: PropTypes.func.isRequired,
     updateFixturesPageIndex: PropTypes.func.isRequired,
-    updateFromDate: PropTypes.func.isRequired,
-    updateToDate: PropTypes.func.isRequired,
+    updateDates: PropTypes.func.isRequired,
 };
 
 FixturesPage.defaultProps = {

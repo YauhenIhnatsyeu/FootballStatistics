@@ -44,10 +44,7 @@ export {
     updateFixturesPageIndex,
 } from "./updateIndexActionCreators";
 
-export {
-    updateFromDate,
-    updateToDate,
-} from "./updateDateActionCreators";
+export { default as updateDates } from "./updateDatesActionCreators";
 
 
 export {

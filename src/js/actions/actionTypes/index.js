@@ -12,7 +12,7 @@ import head2HeadActionTypes from "./head2HeadActionTypes";
 
 import updateIndexActionTypes from "./updateIndexActionTypes";
 
-import updateDateActionTypes from "./updateDateActionTypes";
+import updateDatesActionTypes from "./updateDatesActionTypes";
 
 import favoriteTeamsActionTypes from "./favoriteTeamsActionTypes";
 
@@ -29,7 +29,7 @@ export default Object.assign(
     fixturesActionTypes,
     head2HeadActionTypes,
     updateIndexActionTypes,
-    updateDateActionTypes,
+    updateDatesActionTypes,
     favoriteTeamsActionTypes,
     teamPageIndicesResetRequested,
 );

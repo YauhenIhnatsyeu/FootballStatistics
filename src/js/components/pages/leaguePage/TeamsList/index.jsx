@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
-import TeamItemContainer from "Containers/TeamItemContainer";
+import TeamItem from "Pages/leaguePage/TeamItem";
 
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
@@ -28,7 +28,12 @@ export default class TeamsList extends Component {
                 {this.props.teams.map((team, index) =>
                     (
                         <div className="teams-list__team-item-container" key={index}>
-                            <TeamItemContainer team={team} />
+                            <TeamItem
+                                team={team}
+                                favoriteTeams={this.props.favoriteTeams}
+                                addTeamToFavorites={this.props.addTeamToFavorites}
+                                removeTeamFromFavorites={this.props.removeTeamFromFavorites}
+                            />
                         </div>
                     ))
                 }
@@ -41,6 +46,9 @@ TeamsList.propTypes = {
     teams: PropTypes.arrayOf(PropTypes.object),
     teamsFetchingErrorOccured: PropTypes.bool,
     getTeamsFromFavorites: PropTypes.func.isRequired,
+    favoriteTeams: PropTypes.arrayOf(PropTypes.number).isRequired,
+    removeTeamFromFavorites: PropTypes.func.isRequired,
+    addTeamToFavorites: PropTypes.func.isRequired,
 };
 
 TeamsList.defaultProps = {

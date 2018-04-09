@@ -71,13 +71,13 @@ export default class LeagueTable extends Component {
 }
 
 LeagueTable.propTypes = {
-    fetchLeague: PropTypes.func.isRequired,
-    leagueFetchingErrorOccured: PropTypes.bool,
     league: PropTypes.arrayOf(PropTypes.object),
     leagueIndex: PropTypes.number.isRequired,
+    leagueFetchingErrorOccured: PropTypes.bool,
+    fetchLeague: PropTypes.func.isRequired,
 };
 
 LeagueTable.defaultProps = {
-    leagueFetchingErrorOccured: false,
     league: PropTypes.shape({}),
+    leagueFetchingErrorOccured: false,
 };

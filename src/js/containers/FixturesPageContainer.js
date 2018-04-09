@@ -6,8 +6,7 @@ import {
     fetchHead2Head,
     updateFixtureIndex,
     updateFixturesPageIndex,
-    updateFromDate,
-    updateToDate,
+    updateDates,
 } from "ActionCreators";
 
 import FixturesPage from "Pages/teamPage/pages/fixturesPage/FixturesPage";
@@ -28,8 +27,7 @@ const mapDispatchToProps = dispatch =>
         fetchHead2Head,
         updateFixtureIndex,
         updateFixturesPageIndex,
-        updateFromDate,
-        updateToDate,
+        updateDates,
     }, dispatch);
 
 export default

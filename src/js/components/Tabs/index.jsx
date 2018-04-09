@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
-import Tab from "../Tab";
+import classNames from "classnames";
 
 import "./index.css";
 
@@ -30,24 +30,21 @@ export default class Tabs extends Component {
     render() {
         return (
             <div className="tabs">
-                {this.props.children && this.props.children.map((tab, newIndex) => {
-                    if (tab.type !== Tab) {
-                        return null;
-                    }
-
+                {this.props.titles && this.props.titles.map((title, newIndex) => {
                     const isTabCurrent = newIndex === this.state.currentIndex;
 
-                    const tabStyle = isTabCurrent
-                        ? "tabs__tab tabs__tab_current"
-                        : "tabs__tab";
+                    const style = classNames({
+                        tabs__tab: true,
+                        tabs__tab_current: isTabCurrent,
+                    });
 
                     return (
                         <button
-                            className={tabStyle}
+                            className={style}
                             key={newIndex}
                             onClick={e => this.handleClick(e, newIndex)}
                         >
-                            {tab.props.title}
+                            {title}
                         </button>
                     );
                 })}
@@ -57,13 +54,13 @@ export default class Tabs extends Component {
 }
 
 Tabs.propTypes = {
-    children: PropTypes.node,
+    titles: PropTypes.arrayOf(PropTypes.string),
     defaultIndex: PropTypes.number,
     onTabClick: PropTypes.func,
 };
 
 Tabs.defaultProps = {
-    children: null,
+    titles: null,
     defaultIndex: 0,
     onTabClick: null,
 };

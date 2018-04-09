@@ -2,7 +2,7 @@ import actionTypes from "ActionTypes";
 
 const initialState = null;
 
-export default function tabs(state = initialState, action) {
+export default function players(state = initialState, action) {
     switch (action.type) {
     case actionTypes.PLAYERS_FETCH_SUCCEEDED:
         return action.payload;

@@ -35,8 +35,7 @@ export default class FixturesSection extends Component {
                 <Item>
                     <DatesForms
                         dates={this.props.dates}
-                        updateFromDate={this.props.updateFromDate}
-                        updateToDate={this.props.updateToDate}
+                        updateDates={this.props.updateDates}
                     />
                 </Item>
 
@@ -62,8 +61,7 @@ FixturesSection.propTypes = {
     }).isRequired,
     updateFixtureIndex: PropTypes.func.isRequired,
     updateFixturesPageIndex: PropTypes.func.isRequired,
-    updateFromDate: PropTypes.func.isRequired,
-    updateToDate: PropTypes.func.isRequired,
+    updateDates: PropTypes.func.isRequired,
 };
 
 FixturesSection.defaultProps = {

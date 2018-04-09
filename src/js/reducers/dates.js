@@ -9,11 +9,8 @@ const initialState = { from, to };
 
 export default function dates(state = initialState, action) {
     switch (action.type) {
-    case actionTypes.FROM_DATE_UPDATE_REQUESTED:
-        return { ...state, from: action.payload };
-
-    case actionTypes.TO_DATE_UPDATE_REQUESTED:
-        return { ...state, to: action.payload };
+    case actionTypes.DATES_UPDATE:
+        return action.payload;
 
     default:
         return state;
