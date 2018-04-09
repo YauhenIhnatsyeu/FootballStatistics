@@ -1,7 +1,7 @@
-import { getValue, pushValue, removeValue } from "Helpers/localStorageHelper";
+import { getJSONValue, pushValue, popValue } from "Helpers/localStorageHelper";
 
 export function getFromFavorites() {
-    return getValue("favorites") || [];
+    return getJSONValue("favorites") || [];
 }
 
 export function addToFavorites(team) {
@@ -12,6 +12,6 @@ export function addToFavorites(team) {
 
 export function removeFromFavorites(team) {
     if (team.id) {
-        removeValue("favorites", team.id);
+        popValue("favorites", team.id);
     }
 }

@@ -1,15 +1,25 @@
 export function getValue(key) {
     const item = localStorage.getItem(key);
 
-    if (item) {
-        return JSON.parse(item);
-    }
+    return item || undefined;
+}
 
-    return undefined;
+export function getJSONValue(key) {
+    const item = getValue(key);
+
+    return item ? JSON.parse(item) : undefined;
+}
+
+export function setValue(key, value) {
+    localStorage.setItem(key, value);
+}
+
+export function removeValue(key) {
+    localStorage.removeItem(key);
 }
 
 export function pushValue(key, value) {
-    let item = localStorage.getItem(key);
+    let item = getValue(key);
 
     if (item) {
         item = JSON.parse(item);
@@ -19,11 +29,11 @@ export function pushValue(key, value) {
         item = JSON.stringify([value]);
     }
 
-    localStorage.setItem(key, item);
+    setValue(key, item);
 }
 
-export function removeValue(key, value) {
-    let item = localStorage.getItem(key);
+export function popValue(key, value) {
+    let item = getValue(key);
 
     if (item) {
         item = JSON.parse(item);
@@ -32,7 +42,7 @@ export function removeValue(key, value) {
         if (indexOfValue !== -1) {
             item.splice(indexOfValue, 1);
             item = JSON.stringify(item);
-            localStorage.setItem(key, item);
+            setValue(key, item);
         }
     }
 }

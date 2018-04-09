@@ -6,9 +6,9 @@ import { updateLeagueIndex, fetchLeague } from "ActionCreators";
 import TablePage from "Pages/tablePage/TablePage";
 
 const mapStateToProps = state => ({
-    league: state.league,
-    leagueIndex: state.leagueIndex,
-    leagueFetchingErrorOccured: state.leagueFetchingErrorOccured,
+    league: state.leagueData.league,
+    leagueIndex: state.leagueData.leagueIndex,
+    leagueFetchingErrorOccured: state.fetchingErrors.leagueFetchingErrorOccured,
 });
 
 const mapDispatchToProps = dispatch =>

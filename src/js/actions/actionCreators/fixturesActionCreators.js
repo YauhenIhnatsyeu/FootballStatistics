@@ -23,7 +23,7 @@ export function onFixturesFetchFailed(error) {
 
 export function updateFixtureIndex(index) {
     return {
-        type: actionTypes.FIXTURE_INDEX_UPDATE_REQUESTED,
+        type: actionTypes.FIXTURE_INDEX_UPDATE,
         payload: index,
     };
 }

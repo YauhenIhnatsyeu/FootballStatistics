@@ -12,9 +12,9 @@ import {
 } from "ActionCreators";
 
 const mapStateToProps = state => ({
-    leagueIndex: state.leagueIndex,
+    leagueIndex: state.leagueData.leagueIndex,
     teams: state.teams,
-    teamsFetchingErrorOccured: state.teamsFetchingErrorOccured,
+    teamsFetchingErrorOccured: state.fetchingErrors.teamsFetchingErrorOccured,
     favoriteTeams: state.favoriteTeams,
 });
 

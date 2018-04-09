@@ -23,7 +23,7 @@ export function onLeagueFetchFailed(error) {
 
 export function updateLeagueIndex(index) {
     return {
-        type: actionTypes.LEAGUE_INDEX_UPDATE_REQUESTED,
+        type: actionTypes.LEAGUE_INDEX_UPDATE,
         payload: index,
     };
 }

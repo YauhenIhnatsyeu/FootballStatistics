@@ -53,10 +53,3 @@ export {
     getTeamsFromFavorites,
     onGetTeamsFromFavoritesSucceeded,
 } from "./favoriteTeamsActionCreators";
-
-
-export function resetTeamPageIndices() {
-    return {
-        type: actionTypes.TEAM_PAGE_INDICES_RESET_REQUESTED,
-    };
-}

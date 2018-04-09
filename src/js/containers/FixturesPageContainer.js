@@ -12,11 +12,11 @@ import {
 import FixturesPage from "Pages/teamPage/pages/fixturesPage/FixturesPage";
 
 const mapStateToProps = state => ({
-    fixtures: state.fixtures,
-    fixturesFetchingErrorOccured: state.fixturesFetchingErrorOccured,
-    head2HeadFetchingErrorOccured: state.head2HeadFetchingErrorOccured,
-    fixtureIndex: state.fixtureIndex,
-    fixturesPageIndex: state.fixturesPageIndex,
+    fixtures: state.fixturesData.fixtures,
+    fixturesFetchingErrorOccured: state.fetchingErrors.fixturesFetchingErrorOccured,
+    head2HeadFetchingErrorOccured: state.fetchingErrors.head2HeadFetchingErrorOccured,
+    fixtureIndex: state.fixturesData.fixtureIndex,
+    fixturesPageIndex: state.fixturesData.fixturesPageIndex,
     head2Head: state.head2Head,
     dates: state.dates,
 });

@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 
 import ItemsListWithPagingControls from "Components/ItemsListWithPagingControls";
 
-import itemsOnOnePageCount from "Constants/itemsOnOnePageCount";
-
 import FixtureItem from "Pages/teamPage/pages/fixturesPage/FixtureItem";
 
 import Item from "Components/Item";
@@ -14,8 +12,6 @@ import DatesForms from "../DatesForm";
 
 export default class FixturesSection extends Component {
     handlePageChanged = (pageIndex) => {
-        this.props.updateFixtureIndex(pageIndex * itemsOnOnePageCount);
-
         this.props.updateFixturesPageIndex(pageIndex);
     }
 

@@ -4,22 +4,20 @@ import { bindActionCreators } from "redux";
 import {
     fetchTeam,
     updateTeamPageIndex,
-    resetTeamPageIndices,
 } from "ActionCreators";
 
 import TeamPage from "Pages/teamPage/TeamPage";
 
 const mapStateToProps = state => ({
-    team: state.team,
-    teamPageIndex: state.teamPageIndex,
-    teamFetchingErrorOccured: state.teamFetchingErrorOccured,
+    team: state.teamData.team,
+    teamPageIndex: state.teamData.teamPageIndex,
+    teamFetchingErrorOccured: state.fetchingErrors.teamFetchingErrorOccured,
 });
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
         fetchTeam,
         updateTeamPageIndex,
-        resetTeamPageIndices,
     }, dispatch);
 
 export default

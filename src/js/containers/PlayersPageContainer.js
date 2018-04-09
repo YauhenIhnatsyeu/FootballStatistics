@@ -9,9 +9,9 @@ import {
 import PlayersPage from "Pages/teamPage/pages/playersPage/PlayersPage";
 
 const mapStateToProps = state => ({
-    players: state.players,
-    playersFetchingErrorOccured: state.playersFetchingErrorOccured,
-    playersPageIndex: state.playersPageIndex,
+    players: state.playersData.players,
+    playersFetchingErrorOccured: state.fetchingErrors.playersFetchingErrorOccured,
+    playersPageIndex: state.playersData.playersPageIndex,
 });
 
 const mapDispatchToProps = dispatch =>

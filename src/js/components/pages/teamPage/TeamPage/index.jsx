@@ -19,8 +19,6 @@ export default class TeamPage extends Component {
     }
 
     componentDidMount() {
-        this.props.resetTeamPageIndices();
-
         this.props.fetchTeam(this.teamId);
     }
 
@@ -55,7 +53,6 @@ export default class TeamPage extends Component {
 
 
 TeamPage.propTypes = {
-    resetTeamPageIndices: PropTypes.func.isRequired,
     match: PropTypes.shape({
         params: PropTypes.shape({
             id: PropTypes.string.isRequired,

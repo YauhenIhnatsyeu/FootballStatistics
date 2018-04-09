@@ -16,10 +16,6 @@ import updateDatesActionTypes from "./updateDatesActionTypes";
 
 import favoriteTeamsActionTypes from "./favoriteTeamsActionTypes";
 
-const teamPageIndicesResetRequested = {
-    TEAM_PAGE_INDICES_RESET_REQUESTED: "TEAM_PAGE_INDICES_RESET_REQUESTED",
-};
-
 export default Object.assign(
     {},
     leagueActionTypes,
@@ -31,5 +27,4 @@ export default Object.assign(
     updateIndexActionTypes,
     updateDatesActionTypes,
     favoriteTeamsActionTypes,
-    teamPageIndicesResetRequested,
 );
