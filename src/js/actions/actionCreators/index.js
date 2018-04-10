@@ -1,5 +1,3 @@
-import actionTypes from "ActionTypes";
-
 export {
     fetchLeague,
     onLeagueFetchSucceeded,
@@ -45,8 +43,6 @@ export {
 } from "./updateIndexActionCreators";
 
 export { default as updateDates } from "./updateDatesActionCreators";
-
-export { default as browseTeamUrl } from "./browseTeamUrlActionCreators";
 
 export {
     addTeamToFavorites,

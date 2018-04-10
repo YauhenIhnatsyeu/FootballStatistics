@@ -7,8 +7,6 @@ import classNames from "classnames";
 import Item from "Components/Item";
 import FixtureInfo from "../FixtureInfo";
 
-import { formatDate } from "Utilities/castDate";
-
 import "./index.css";
 
 export default class FixtureItem extends Component {

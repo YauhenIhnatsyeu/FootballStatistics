@@ -5,8 +5,6 @@ import PropTypes from "prop-types";
 import Item from "Components/Item";
 import FixtureInfo from "Pages/teamPage/pages/fixturesPage/FixtureInfo";
 
-import { formatDate } from "Utilities/castDate";
-
 import "./index.css";
 
 export default class DetailsHeader extends React.Component {

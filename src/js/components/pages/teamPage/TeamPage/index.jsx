@@ -14,8 +14,8 @@ import teamRoutePaths from "Constants/teamRoutePaths";
 
 import Loading from "Components/messages/Loading";
 import Error from "Components/messages/Error";
-import PlayersPageContainer from "Containers/PlayersPageContainer";
-import FixturesPageContainer from "Containers/FixturesPageContainer";
+
+import createTeamUrl from "Utilities/urlsCreators";
 
 import TeamItemForHeader from "../TeamItemForHeader";
 
@@ -41,9 +41,7 @@ export default class TeamPage extends Component {
             return <Loading />;
         }
 
-        const regexp = /:.*$/;
-
-        const currentTeamUrl = routePaths.team.replace(regexp, this.teamId);
+        const currentTeamUrl = createTeamUrl(this.teamId);
 
         return (
             <div className="team-page">
@@ -51,8 +49,6 @@ export default class TeamPage extends Component {
                     <TeamItemForHeader
                         team={this.props.team}
                         defaultTeamPageIndex={this.props.teamPageIndex}
-                        onTabClick={this.handleTabClick}
-                        browseTeamUrl={this.props.browseTeamUrl}
                     />
                 </div>
                 <div className="team-page__info-container">
@@ -90,7 +86,6 @@ TeamPage.propTypes = {
         squadMarketValue: PropTypes.string,
     }),
     teamPageIndex: PropTypes.number.isRequired,
-    browseTeamUrl: PropTypes.func.isRequired,
 };
 
 TeamPage.defaultProps = {

@@ -10,9 +10,6 @@ export default function teamData(state = initialState, action) {
     case actionTypes.TEAM_FETCH_SUCCEEDED:
         return { ...state, team: action.payload };
 
-    case actionTypes.TEAM_PAGE_INDEX_UPDATE:
-        return { ...state, teamPageIndex: action.payload };
-
     default:
         return state;
     }

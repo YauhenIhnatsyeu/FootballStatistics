@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import PropTypes from "prop-types";
 
+import { Link } from "react-router-dom";
+
 import classNames from "classnames";
 
 import "./index.css";
@@ -15,40 +17,52 @@ export default class Tabs extends Component {
         };
     }
 
-    handleClick = (e, newIndex) => {
-        e.preventDefault();
-
+    handleClick = (newIndex) => {
         this.setState({
             currentIndex: newIndex,
         });
-        console.log(newIndex);
 
         if (this.props.onTabClick) {
             this.props.onTabClick(newIndex);
         }
     }
 
+    renderTab = (style, index, title) => {
+        if (this.props.hrefs) {
+            return (
+                <Link
+                    to={this.props.hrefs[index]}
+                    className={style}
+                    key={index}
+                    onClick={() => this.handleClick(index)}
+                >
+                    {title}
+                </Link>
+            );
+        }
+        return (
+            <button
+                className={style}
+                key={index}
+                onClick={() => this.handleClick(index)}
+            >
+                {title}
+            </button>
+        );
+    }
+
     render() {
-        console.log("Here");
         return (
             <div className="tabs">
-                {this.props.titles && this.props.titles.map((title, newIndex) => {
-                    const isTabCurrent = newIndex === this.state.currentIndex;
+                {this.props.titles && this.props.titles.map((title, index) => {
+                    const isTabCurrent = index === this.state.currentIndex;
 
                     const style = classNames({
                         tabs__tab: true,
                         tabs__tab_current: isTabCurrent,
                     });
 
-                    return (
-                        <button
-                            className={style}
-                            key={newIndex}
-                            onClick={e => this.handleClick(e, newIndex)}
-                        >
-                            {title}
-                        </button>
-                    );
+                    return this.renderTab(style, index, title);
                 })}
             </div>
         );
@@ -58,11 +72,13 @@ export default class Tabs extends Component {
 Tabs.propTypes = {
     titles: PropTypes.arrayOf(PropTypes.string),
     defaultIndex: PropTypes.number,
+    hrefs: PropTypes.arrayOf(PropTypes.string),
     onTabClick: PropTypes.func,
 };
 
 Tabs.defaultProps = {
     titles: null,
     defaultIndex: 0,
+    hrefs: null,
     onTabClick: null,
 };
