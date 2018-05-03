@@ -9,6 +9,8 @@ module.exports = {
     },
     resolve: {
         alias: {
+            Css: path.resolve(__dirname, "src/css"),
+
             Constants: path.resolve(__dirname, "src/js/constants"),
 
             Components: path.resolve(__dirname, "src/js/components"),
@@ -49,5 +51,15 @@ module.exports = {
             __dirname,
             path.join(__dirname, "public"),
         ],
+    },
+    // externals: [
+    //     { pg: true, tedious: true },
+    // ],
+    node: {
+        dgram: "empty",
+        fs: "empty",
+        // net: "empty",
+        tls: "empty",
+        dns: "empty",
     },
 };
